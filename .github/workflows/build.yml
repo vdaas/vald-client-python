@@ -20,4 +20,5 @@ jobs:
           fetch-depth: 1
       - run: |
           echo "build"
-          make proto
+          export GOPATH=$HOME/go
+          make all
