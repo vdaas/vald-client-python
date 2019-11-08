@@ -15,6 +15,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python python-pip libprotobuf-dev libprotoc-dev protobuf-compiler
           pip install grpcio-tools
+          git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc && \
+              cd grpc && \
+              git submodule update --init && \
+              make grpc_python_plugin && \
+              sudo cp bins/opt/grpc_python_plugin /usr/local/bin/grpc_python_plugin && \
+              rm -rf grpc
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
