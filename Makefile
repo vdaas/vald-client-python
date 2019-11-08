@@ -94,8 +94,7 @@ $(PB2DIRS):
 $(PB2PYS): vald proto/deps $(PB2DIRS)
 	@$(call green, "generating pb2.py files...")
 	@echo $(PB2PYS)
-	python \
-		-m grpc_tools.protoc \
+	protoc \
 		$(PROTO_PATHS:%=-I %) \
 		--python_out=$(PB2DIR_ROOT) \
 		--grpc_python_out=$(PB2DIR_ROOT) \
