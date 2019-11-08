@@ -19,6 +19,9 @@ jobs:
         with:
           fetch-depth: 1
       - run: |
+          echo "checkout master"
+          git checkout master
+      - run: |
           echo "build"
           export GOPATH=$HOME/go
           make vald
