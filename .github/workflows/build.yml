@@ -32,4 +32,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git add .
           git commit -m "[skip ci] Update [vald sha: ${sha}]"
-          git push origin master
+          git push

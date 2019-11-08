@@ -107,7 +107,7 @@ vald:
 .PHONY: vald/sha/print
 ## print VALD_SHA value
 vald/sha/print:
-	@echo $(VALD_SHA)
+	@cat $(VALD_SHA)
 
 .PHONY: vald/sha/update
 ## update VALD_SHA value
