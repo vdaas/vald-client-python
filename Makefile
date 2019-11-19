@@ -93,7 +93,7 @@ $(PB2DIRS):
 
 $(PB2PYS): vald proto/deps $(PB2DIRS)
 	@$(call green, "generating pb2.py files...")
-	@echo $(PB2PYS)
+	sed -i -e '/^.*gql\.proto.*$$\|^.*gql\..*_type.*$$/d' $(patsubst python/%_pb2.py,$(PROTO_ROOT)/%.proto,$@)
 	python \
 		-m grpc_tools.protoc \
 		$(PROTO_PATHS:%=-I %) \
