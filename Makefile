@@ -38,7 +38,6 @@ PROTO_PATHS = \
 	$(GOPATH)/src/github.com/protocolbuffers/protobuf/src \
 	$(GOPATH)/src/github.com/gogo/protobuf/protobuf \
 	$(GOPATH)/src/github.com/googleapis/googleapis \
-	$(GOPATH)/src/github.com/danielvladco/go-proto-gql \
 	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 
 MAKELISTS   = Makefile
@@ -117,7 +116,6 @@ vald/sha/update: vald
 .PHONY: proto/deps
 ## install proto deps
 proto/deps: \
-	$(GOPATH)/bin/gqlgen \
 	$(GOPATH)/bin/protoc-gen-doc \
 	$(GOPATH)/bin/protoc-gen-go \
 	$(GOPATH)/bin/protoc-gen-gogo \
@@ -125,9 +123,6 @@ proto/deps: \
 	$(GOPATH)/bin/protoc-gen-gogofast \
 	$(GOPATH)/bin/protoc-gen-gogofaster \
 	$(GOPATH)/bin/protoc-gen-gogoslick \
-	$(GOPATH)/bin/protoc-gen-gogqlgen \
-	$(GOPATH)/bin/protoc-gen-gql \
-	$(GOPATH)/bin/protoc-gen-gqlgencfg \
 	$(GOPATH)/bin/protoc-gen-grpc-gateway \
 	$(GOPATH)/bin/protoc-gen-swagger \
 	$(GOPATH)/bin/protoc-gen-validate \
@@ -176,15 +171,6 @@ $(GOPATH)/bin/protoc-gen-grpc-gateway:
 $(GOPATH)/bin/protoc-gen-swagger:
 	$(call go-get, github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger)
 
-$(GOPATH)/bin/protoc-gen-gql:
-	$(call go-get, github.com/danielvladco/go-proto-gql/protoc-gen-gql)
-
-$(GOPATH)/bin/protoc-gen-gogqlgen:
-	$(call go-get, github.com/danielvladco/go-proto-gql/protoc-gen-gogqlgen)
-
-$(GOPATH)/bin/protoc-gen-gqlgencfg:
-	$(call go-get, github.com/danielvladco/go-proto-gql/protoc-gen-gqlgencfg)
-
 $(GOPATH)/bin/protoc-gen-validate:
 	$(call go-get, github.com/envoyproxy/protoc-gen-validate)
 
@@ -196,6 +182,3 @@ $(GOPATH)/bin/protoc-gen-doc:
 
 $(GOPATH)/bin/swagger:
 	$(call go-get, github.com/go-swagger/go-swagger/cmd/swagger)
-
-$(GOPATH)/bin/gqlgen:
-	$(call go-get, github.com/99designs/gqlgen)
