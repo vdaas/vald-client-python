@@ -109,6 +109,11 @@ class AgentStub(object):
         request_serializer=payload__pb2.Controll.CreateIndexRequest.SerializeToString,
         response_deserializer=payload__pb2.Empty.FromString,
         )
+    self.IndexInfo = channel.unary_unary(
+        '/agent.Agent/IndexInfo',
+        request_serializer=payload__pb2.Empty.SerializeToString,
+        response_deserializer=payload__pb2.Info.Index.FromString,
+        )
 
 
 class AgentServicer(object):
@@ -248,6 +253,13 @@ class AgentServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def IndexInfo(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_AgentServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -345,6 +357,11 @@ def add_AgentServicer_to_server(servicer, server):
           servicer.CreateAndSaveIndex,
           request_deserializer=payload__pb2.Controll.CreateIndexRequest.FromString,
           response_serializer=payload__pb2.Empty.SerializeToString,
+      ),
+      'IndexInfo': grpc.unary_unary_rpc_method_handler(
+          servicer.IndexInfo,
+          request_deserializer=payload__pb2.Empty.FromString,
+          response_serializer=payload__pb2.Info.Index.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

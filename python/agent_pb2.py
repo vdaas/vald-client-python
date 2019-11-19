@@ -15,7 +15,6 @@ _sym_db = _symbol_database.Default()
 
 import payload_pb2 as payload__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from pb import gql_pb2 as pb_dot_gql__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='agent',
   syntax='proto3',
   serialized_options=_b('\n\024org.vdaas.vald.agentB\tValdAgentP\001Z%github.com/vdaas/vald/apis/grpc/agent'),
-  serialized_pb=_b('\n\x0b\x61gent.proto\x12\x05\x61gent\x1a\rpayload.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x0cpb/gql.proto2\xf0\n\n\x05\x41gent\x12\x46\n\x06\x45xists\x12\x12.payload.Object.ID\x1a\x12.payload.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12O\n\x06Search\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12X\n\nSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12G\n\x0cStreamSearch\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12M\n\x10StreamSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12H\n\x06Insert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x16\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\xb0\xe0\x1f\x01\x12<\n\x0cStreamInsert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiInsert\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12H\n\x06Update\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x16\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\xb0\xe0\x1f\x01\x12<\n\x0cStreamUpdate\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiUpdate\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x46\n\x06Remove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x18\x82\xd3\xe4\x93\x02\x0e*\x0c/remove/{id}\xb0\xe0\x1f\x01\x12\x38\n\x0cStreamRemove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x34\n\x0bMultiRemove\x12\x13.payload.Object.IDs\x1a\x0e.payload.Empty\"\x00\x12M\n\tGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/{id}\x12\x43\n\x0fStreamGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x00(\x01\x30\x01\x12Z\n\x0b\x43reateIndex\x12$.payload.Controll.CreateIndexRequest\x1a\x0e.payload.Empty\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/index/create\x12@\n\tSaveIndex\x12\x0e.payload.Empty\x1a\x0e.payload.Empty\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/index/save\x12h\n\x12\x43reateAndSaveIndex\x12$.payload.Controll.CreateIndexRequest\x1a\x0e.payload.Empty\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/index/createandsave\x1a\x04\xb0\xe0\x1f\x02\x42J\n\x14org.vdaas.vald.agentB\tValdAgentP\x01Z%github.com/vdaas/vald/apis/grpc/agentb\x06proto3')
+  serialized_pb=_b('\n\x0b\x61gent.proto\x12\x05\x61gent\x1a\rpayload.proto\x1a\x1cgoogle/api/annotations.proto2\xa5\x0b\n\x05\x41gent\x12\x46\n\x06\x45xists\x12\x12.payload.Object.ID\x1a\x12.payload.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12O\n\x06Search\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12X\n\nSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12G\n\x0cStreamSearch\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12M\n\x10StreamSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12\x44\n\x06Insert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12<\n\x0cStreamInsert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiInsert\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x44\n\x06Update\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12<\n\x0cStreamUpdate\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiUpdate\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x42\n\x06Remove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/remove/{id}\x12\x38\n\x0cStreamRemove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x34\n\x0bMultiRemove\x12\x13.payload.Object.IDs\x1a\x0e.payload.Empty\"\x00\x12M\n\tGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/{id}\x12\x43\n\x0fStreamGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x00(\x01\x30\x01\x12Z\n\x0b\x43reateIndex\x12$.payload.Controll.CreateIndexRequest\x1a\x0e.payload.Empty\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/index/create\x12@\n\tSaveIndex\x12\x0e.payload.Empty\x1a\x0e.payload.Empty\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/index/save\x12h\n\x12\x43reateAndSaveIndex\x12$.payload.Controll.CreateIndexRequest\x1a\x0e.payload.Empty\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/index/createandsave\x12\x45\n\tIndexInfo\x12\x0e.payload.Empty\x1a\x13.payload.Info.Index\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/index/infoBJ\n\x14org.vdaas.vald.agentB\tValdAgentP\x01Z%github.com/vdaas/vald/apis/grpc/agentb\x06proto3')
   ,
-  dependencies=[payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,pb_dot_gql__pb2.DESCRIPTOR,])
+  dependencies=[payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -39,9 +38,9 @@ _AGENT = _descriptor.ServiceDescriptor(
   full_name='agent.Agent',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=_b('\260\340\037\002'),
-  serialized_start=82,
-  serialized_end=1474,
+  serialized_options=None,
+  serialized_start=68,
+  serialized_end=1513,
   methods=[
   _descriptor.MethodDescriptor(
     name='Exists',
@@ -95,7 +94,7 @@ _AGENT = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=payload__pb2._OBJECT_VECTOR,
     output_type=payload__pb2._EMPTY,
-    serialized_options=_b('\202\323\344\223\002\014\"\007/insert:\001*\260\340\037\001'),
+    serialized_options=_b('\202\323\344\223\002\014\"\007/insert:\001*'),
   ),
   _descriptor.MethodDescriptor(
     name='StreamInsert',
@@ -122,7 +121,7 @@ _AGENT = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=payload__pb2._OBJECT_VECTOR,
     output_type=payload__pb2._EMPTY,
-    serialized_options=_b('\202\323\344\223\002\014\"\007/update:\001*\260\340\037\001'),
+    serialized_options=_b('\202\323\344\223\002\014\"\007/update:\001*'),
   ),
   _descriptor.MethodDescriptor(
     name='StreamUpdate',
@@ -149,7 +148,7 @@ _AGENT = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=payload__pb2._OBJECT_ID,
     output_type=payload__pb2._EMPTY,
-    serialized_options=_b('\202\323\344\223\002\016*\014/remove/{id}\260\340\037\001'),
+    serialized_options=_b('\202\323\344\223\002\016*\014/remove/{id}'),
   ),
   _descriptor.MethodDescriptor(
     name='StreamRemove',
@@ -213,6 +212,15 @@ _AGENT = _descriptor.ServiceDescriptor(
     input_type=payload__pb2._CONTROLL_CREATEINDEXREQUEST,
     output_type=payload__pb2._EMPTY,
     serialized_options=_b('\202\323\344\223\002\026\022\024/index/createandsave'),
+  ),
+  _descriptor.MethodDescriptor(
+    name='IndexInfo',
+    full_name='agent.Agent.IndexInfo',
+    index=19,
+    containing_service=None,
+    input_type=payload__pb2._EMPTY,
+    output_type=payload__pb2._INFO_INDEX,
+    serialized_options=_b('\202\323\344\223\002\r\022\013/index/info'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_AGENT)
