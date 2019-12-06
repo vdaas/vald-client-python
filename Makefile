@@ -110,7 +110,7 @@ $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
 		$(PROTO_PATHS:%=-I %) \
 		--python_out=src \
 		--grpc_python_out=src \
-		$(SHADOWS_ROOT)/*.proto
+		$(SHADOW_ROOT)/*.proto
 
 vald:
 	git clone --depth 1 https://$(VALDREPO)
