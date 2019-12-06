@@ -39,7 +39,7 @@ PB2PYS      = $(SHADOWS:$(SHADOW_ROOT)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
 PROTODIRS   = $(shell find $(PROTO_ROOT) -type d | sed -e "s%$(PROTO_ROOT)/%%g" | grep -v "$(PROTO_ROOT)")
 
 PROTO_PATHS = \
-	proto \
+	$(SHADOW_ROOT) \
 	$(GOPATH)/src/github.com/protocolbuffers/protobuf/src \
 	$(GOPATH)/src/github.com/gogo/protobuf/protobuf \
 	$(GOPATH)/src/github.com/googleapis/googleapis \
@@ -108,8 +108,8 @@ $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
 	python \
 		-m grpc_tools.protoc \
 		$(PROTO_PATHS:%=-I %) \
-		--python_out=src \
-		--grpc_python_out=src \
+		--python_out=$(PB2DIR_ROOT) \
+		--grpc_python_out=$(PB2DIR_ROOT) \
 		$(SHADOW_ROOT)/*.proto
 
 vald:
