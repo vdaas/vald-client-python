@@ -39,7 +39,7 @@ PB2PYS      = $(SHADOWS:$(SHADOW_ROOT)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
 PROTODIRS   = $(shell find $(PROTO_ROOT) -type d | sed -e "s%$(PROTO_ROOT)/%%g" | grep -v "$(PROTO_ROOT)")
 
 PROTO_PATHS = \
-	$(PROTODIRS:%=$(PROTO_ROOT)/%) \
+	$(PROTO_ROOT) \
 	$(GOPATH)/src/github.com/protocolbuffers/protobuf/src \
 	$(GOPATH)/src/github.com/gogo/protobuf/protobuf \
 	$(GOPATH)/src/github.com/googleapis/googleapis \
