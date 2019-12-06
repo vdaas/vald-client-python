@@ -24,14 +24,19 @@ PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 VALD_SHA    = VALD_SHA
 
 PROTO_ROOT  = vald/apis/proto
-PB2DIR_ROOT = python
+PB2DIR_ROOT = src/vald
+SHADOW_ROOT = proto/vald
 
-PROTOS      = vald/vald.proto agent/agent.proto payload/payload.proto
+PROTOS.vald.proto = vald/vald.proto
+PROTOS.agent.proto = agent/agent.proto
+PROTOS.payload.proto = payload/payload.proto
+PROTOS      = $(PROTOS.vald.proto) $(PROTOS.agent.proto) $(PROTOS.payload.proto)
 PROTOS     := $(PROTOS:%=$(PROTO_ROOT)/%)
-PB2PYS      = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
+SHADOWS     = $(notdir $(PROTOS))
+SHADOWS    := $(SHADOWS:%=$(SHADOW_ROOT)/%)
+PB2PYS      = $(SHADOWS:$(SHADOW_ROOT)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
 
 PROTODIRS   = $(shell find $(PROTO_ROOT) -type d | sed -e "s%$(PROTO_ROOT)/%%g" | grep -v "$(PROTO_ROOT)")
-PB2DIRS     = $(PROTODIRS:%=$(PB2DIR_ROOT)/%)
 
 PROTO_PATHS = \
 	$(PROTODIRS:%=$(PROTO_ROOT)/%) \
@@ -86,19 +91,26 @@ clean:
 ## build proto
 proto: $(PB2PYS)
 
-$(PB2DIRS):
+$(PB2DIR_ROOT):
 	$(call mkdir, $@)
 	$(call rm, -rf, $@/*)
 
-$(PB2PYS): vald proto/deps $(PB2DIRS)
+$(SHADOW_ROOT):
+	$(call mkdir, $@)
+	$(call rm, -rf, $@/*)
+
+$(SHADOWS): vald $(SHADOW_ROOT)
+	cp $(PROTO_ROOT)/$(PROTOS.$(notdir $@)) $@
+	sed -i -e '/^.*gql\.proto.*$$\|^.*gql\..*_type.*$$/d' $@
+
+$(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
 	@$(call green, "generating pb2.py files...")
-	sed -i -e '/^.*gql\.proto.*$$\|^.*gql\..*_type.*$$/d' $(patsubst python/%_pb2.py,$(PROTO_ROOT)/%.proto,$@)
 	python \
 		-m grpc_tools.protoc \
 		$(PROTO_PATHS:%=-I %) \
 		--python_out=$(PB2DIR_ROOT) \
 		--grpc_python_out=$(PB2DIR_ROOT) \
-		$(patsubst python/%_pb2.py,$(PROTO_ROOT)/%.proto,$@)
+		$(patsubst $(PB2DIR_ROOT)/%_pb2.py,$(SHADOW_ROOT)/%.proto,$@)
 
 vald:
 	git clone --depth 1 https://$(VALDREPO)
