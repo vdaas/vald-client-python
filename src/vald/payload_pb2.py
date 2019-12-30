@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='payload',
   syntax='proto3',
   serialized_options=_b('\n\026org.vdaas.vald.payloadB\013ValdPayloadP\001Z\'github.com/vdaas/vald/apis/grpc/payload'),
-  serialized_pb=_b('\n\rpayload.proto\x12\x07payload\x1a\x17validate/validate.proto\"\x9f\x02\n\x06Search\x1aK\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x01\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a?\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1aP\n\x06\x43onfig\x12\x14\n\x03num\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x02 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x03 \x01(\x02\x12\x0f\n\x07timeout\x18\x04 \x01(\x03\x1a\x35\n\x08Response\x12)\n\x07results\x18\x01 \x03(\x0b\x32\x18.payload.Object.Distance\"\xac\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a,\n\x07KeyVals\x12!\n\x03kvs\x18\x01 \x03(\x0b\x32\x14.payload.Meta.KeyVal\"\xce\x01\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x01\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x32\n\x07Vectors\x12\'\n\x07vectors\x18\x01 \x03(\x0b\x32\x16.payload.Object.Vector\"<\n\x08\x43ontroll\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"<\n\nDiscoverer\x1a.\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x0c\n\x04node\x18\x02 \x01(\t\"\xbe\x03\n\x06\x42\x61\x63kup\x1a-\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aR\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a&\n\x0cRequestMulti\x12\x16\n\x04uuid\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aO\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x01\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a:\n\x0bMetaVectors\x12+\n\x07vectors\x18\x01 \x03(\x0b\x32\x1a.payload.Backup.MetaVector\"\x9e\x02\n\x04Info\x1aZ\n\x05Index\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\x19\n\x11uncommitted_index\x18\x02 \x01(\r\x12\r\n\x05uuids\x18\x03 \x03(\t\x12\x18\n\x10uncommitted_uuid\x18\x04 \x03(\t\x1ak\n\x06Server\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x02ip\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12$\n\x06server\x18\x03 \x01(\x0b\x32\x14.payload.Info.Server\x12\x0b\n\x03\x63pu\x18\x04 \x01(\x01\x12\x0b\n\x03mem\x18\x05 \x01(\x01\x1a:\n\x07Servers\x12/\n\x07Servers\x18\x01 \x03(\x0b\x32\x14.payload.Info.ServerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBP\n\x16org.vdaas.vald.payloadB\x0bValdPayloadP\x01Z\'github.com/vdaas/vald/apis/grpc/payloadb\x06proto3')
+  serialized_pb=_b('\n\rpayload.proto\x12\x07payload\x1a\x17validate/validate.proto\"\x9f\x02\n\x06Search\x1aK\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x01\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a?\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1aP\n\x06\x43onfig\x12\x14\n\x03num\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x02 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x03 \x01(\x02\x12\x0f\n\x07timeout\x18\x04 \x01(\x03\x1a\x35\n\x08Response\x12)\n\x07results\x18\x01 \x03(\x0b\x32\x18.payload.Object.Distance\"\xac\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a,\n\x07KeyVals\x12!\n\x03kvs\x18\x01 \x03(\x0b\x32\x14.payload.Meta.KeyVal\"\xce\x01\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x01\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x32\n\x07Vectors\x12\'\n\x07vectors\x18\x01 \x03(\x0b\x32\x16.payload.Object.Vector\"<\n\x08\x43ontroll\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"<\n\nDiscoverer\x1a.\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x0c\n\x04node\x18\x02 \x01(\t\"\xdb\x04\n\x06\x42\x61\x63kup\x1a-\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aR\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a&\n\x0cRequestMulti\x12\x16\n\x04uuid\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aO\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x01\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a:\n\x0bMetaVectors\x12+\n\x07vectors\x18\x01 \x03(\x0b\x32\x1a.payload.Backup.MetaVector\x1a\x9a\x01\n\nCompressed\x1a\x45\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x0e\n\x06vector\x18\x03 \x01(\x0c\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a\x45\n\x0bMetaVectors\x12\x36\n\x07vectors\x18\x01 \x03(\x0b\x32%.payload.Backup.Compressed.MetaVector\"\x9e\x02\n\x04Info\x1aZ\n\x05Index\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\x19\n\x11uncommitted_index\x18\x02 \x01(\r\x12\r\n\x05uuids\x18\x03 \x03(\t\x12\x18\n\x10uncommitted_uuid\x18\x04 \x03(\t\x1ak\n\x06Server\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x02ip\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12$\n\x06server\x18\x03 \x01(\x0b\x32\x14.payload.Info.Server\x12\x0b\n\x03\x63pu\x18\x04 \x01(\x01\x12\x0b\n\x03mem\x18\x05 \x01(\x01\x1a:\n\x07Servers\x12/\n\x07Servers\x18\x01 \x03(\x0b\x32\x14.payload.Info.ServerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBP\n\x16org.vdaas.vald.payloadB\x0bValdPayloadP\x01Z\'github.com/vdaas/vald/apis/grpc/payloadb\x06proto3')
   ,
   dependencies=[validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -1127,6 +1127,110 @@ _BACKUP_METAVECTORS = _descriptor.Descriptor(
   serialized_end=1296,
 )
 
+_BACKUP_COMPRESSED_METAVECTOR = _descriptor.Descriptor(
+  name='MetaVector',
+  full_name='payload.Backup.Compressed.MetaVector',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='payload.Backup.Compressed.MetaVector.uuid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='meta', full_name='payload.Backup.Compressed.MetaVector.meta', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='vector', full_name='payload.Backup.Compressed.MetaVector.vector', index=2,
+      number=3, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ips', full_name='payload.Backup.Compressed.MetaVector.ips', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1313,
+  serialized_end=1382,
+)
+
+_BACKUP_COMPRESSED_METAVECTORS = _descriptor.Descriptor(
+  name='MetaVectors',
+  full_name='payload.Backup.Compressed.MetaVectors',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vectors', full_name='payload.Backup.Compressed.MetaVectors.vectors', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1384,
+  serialized_end=1453,
+)
+
+_BACKUP_COMPRESSED = _descriptor.Descriptor(
+  name='Compressed',
+  full_name='payload.Backup.Compressed',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[_BACKUP_COMPRESSED_METAVECTOR, _BACKUP_COMPRESSED_METAVECTORS, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1299,
+  serialized_end=1453,
+)
+
 _BACKUP = _descriptor.Descriptor(
   name='Backup',
   full_name='payload.Backup',
@@ -1137,7 +1241,7 @@ _BACKUP = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_BACKUP_GETVECTOR, _BACKUP_LOCATIONS, _BACKUP_REMOVE, _BACKUP_IP, _BACKUP_METAVECTOR, _BACKUP_METAVECTORS, ],
+  nested_types=[_BACKUP_GETVECTOR, _BACKUP_LOCATIONS, _BACKUP_REMOVE, _BACKUP_IP, _BACKUP_METAVECTOR, _BACKUP_METAVECTORS, _BACKUP_COMPRESSED, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1147,7 +1251,7 @@ _BACKUP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=850,
-  serialized_end=1296,
+  serialized_end=1453,
 )
 
 
@@ -1198,8 +1302,8 @@ _INFO_INDEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1307,
-  serialized_end=1397,
+  serialized_start=1464,
+  serialized_end=1554,
 )
 
 _INFO_SERVER = _descriptor.Descriptor(
@@ -1256,8 +1360,8 @@ _INFO_SERVER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1399,
-  serialized_end=1506,
+  serialized_start=1556,
+  serialized_end=1663,
 )
 
 _INFO_SERVERS = _descriptor.Descriptor(
@@ -1286,8 +1390,8 @@ _INFO_SERVERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1508,
-  serialized_end=1566,
+  serialized_start=1665,
+  serialized_end=1723,
 )
 
 _INFO_IPS = _descriptor.Descriptor(
@@ -1316,8 +1420,8 @@ _INFO_IPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1568,
-  serialized_end=1585,
+  serialized_start=1725,
+  serialized_end=1742,
 )
 
 _INFO = _descriptor.Descriptor(
@@ -1339,8 +1443,8 @@ _INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1299,
-  serialized_end=1585,
+  serialized_start=1456,
+  serialized_end=1742,
 )
 
 
@@ -1363,8 +1467,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1587,
-  serialized_end=1594,
+  serialized_start=1744,
+  serialized_end=1751,
 )
 
 _SEARCH_REQUEST.fields_by_name['config'].message_type = _SEARCH_CONFIG
@@ -1404,6 +1508,10 @@ _BACKUP_IP.containing_type = _BACKUP
 _BACKUP_METAVECTOR.containing_type = _BACKUP
 _BACKUP_METAVECTORS.fields_by_name['vectors'].message_type = _BACKUP_METAVECTOR
 _BACKUP_METAVECTORS.containing_type = _BACKUP
+_BACKUP_COMPRESSED_METAVECTOR.containing_type = _BACKUP_COMPRESSED
+_BACKUP_COMPRESSED_METAVECTORS.fields_by_name['vectors'].message_type = _BACKUP_COMPRESSED_METAVECTOR
+_BACKUP_COMPRESSED_METAVECTORS.containing_type = _BACKUP_COMPRESSED
+_BACKUP_COMPRESSED.containing_type = _BACKUP
 _INFO_INDEX.containing_type = _INFO
 _INFO_SERVER.fields_by_name['server'].message_type = _INFO_SERVER
 _INFO_SERVER.containing_type = _INFO
@@ -1690,6 +1798,27 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
     # @@protoc_insertion_point(class_scope:payload.Backup.MetaVectors)
     })
   ,
+
+  'Compressed' : _reflection.GeneratedProtocolMessageType('Compressed', (_message.Message,), {
+
+    'MetaVector' : _reflection.GeneratedProtocolMessageType('MetaVector', (_message.Message,), {
+      'DESCRIPTOR' : _BACKUP_COMPRESSED_METAVECTOR,
+      '__module__' : 'payload_pb2'
+      # @@protoc_insertion_point(class_scope:payload.Backup.Compressed.MetaVector)
+      })
+    ,
+
+    'MetaVectors' : _reflection.GeneratedProtocolMessageType('MetaVectors', (_message.Message,), {
+      'DESCRIPTOR' : _BACKUP_COMPRESSED_METAVECTORS,
+      '__module__' : 'payload_pb2'
+      # @@protoc_insertion_point(class_scope:payload.Backup.Compressed.MetaVectors)
+      })
+    ,
+    'DESCRIPTOR' : _BACKUP_COMPRESSED,
+    '__module__' : 'payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Backup.Compressed)
+    })
+  ,
   'DESCRIPTOR' : _BACKUP,
   '__module__' : 'payload_pb2'
   # @@protoc_insertion_point(class_scope:payload.Backup)
@@ -1709,6 +1838,9 @@ _sym_db.RegisterMessage(Backup.IP.Remove)
 _sym_db.RegisterMessage(Backup.IP.Remove.Request)
 _sym_db.RegisterMessage(Backup.MetaVector)
 _sym_db.RegisterMessage(Backup.MetaVectors)
+_sym_db.RegisterMessage(Backup.Compressed)
+_sym_db.RegisterMessage(Backup.Compressed.MetaVector)
+_sym_db.RegisterMessage(Backup.Compressed.MetaVectors)
 
 Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), {
 
