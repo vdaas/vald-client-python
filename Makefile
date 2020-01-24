@@ -24,8 +24,10 @@ PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 VALD_SHA    = VALD_SHA
 
 PROTO_ROOT  = vald/apis/proto
-PB2DIR_ROOT = src/vald
-SHADOW_ROOT = proto/vald
+PB2DIR_ROOT = src
+SHADOW_ROOT = proto
+SHADOW_ROOT_VALD = $(SHADOW_ROOT)/vald
+SHADOW_ROOT_VALIDATE = $(SHADOW_ROOT)/validate
 
 PROTOS.vald.proto = vald/vald.proto
 PROTOS.agent.proto = agent/agent.proto
@@ -33,17 +35,20 @@ PROTOS.payload.proto = payload/payload.proto
 PROTOS      = $(PROTOS.vald.proto) $(PROTOS.agent.proto) $(PROTOS.payload.proto)
 PROTOS     := $(PROTOS:%=$(PROTO_ROOT)/%)
 SHADOWS     = $(notdir $(PROTOS))
-SHADOWS    := $(SHADOWS:%=$(SHADOW_ROOT)/%)
-PB2PYS      = $(SHADOWS:$(SHADOW_ROOT)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
+SHADOWS    := $(SHADOWS:%=$(SHADOW_ROOT_VALD)/%)
+PB2PYS      = $(SHADOWS:$(SHADOW_ROOT_VALD)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
+SHADOW_VALIDATE := $(SHADOW_ROOT_VALIDATE)/validate.proto
+PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 
 PROTODIRS   = $(shell find $(PROTO_ROOT) -type d | sed -e "s%$(PROTO_ROOT)/%%g" | grep -v "$(PROTO_ROOT)")
 
 PROTO_PATHS = \
 	$(SHADOW_ROOT) \
+	$(SHADOW_ROOT_VALD) \
+	$(SHADOW_ROOT_VALIDATE) \
 	$(GOPATH)/src/github.com/protocolbuffers/protobuf/src \
 	$(GOPATH)/src/github.com/gogo/protobuf/protobuf \
-	$(GOPATH)/src/github.com/googleapis/googleapis \
-	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
+	$(GOPATH)/src/github.com/googleapis/googleapis
 
 MAKELISTS   = Makefile
 
@@ -89,31 +94,48 @@ clean:
 
 .PHONY: proto
 ## build proto
-proto: $(PB2PYS)
+proto: $(PB2PYS) $(PB2PY_VALIDATE)
 
 $(PB2DIR_ROOT):
 	$(call mkdir, $@)
 	$(call rm, -rf, $@/*)
 
-$(SHADOW_ROOT):
+$(SHADOW_ROOT_VALD):
 	$(call mkdir, $@)
 	$(call rm, -rf, $@/*)
 
-$(SHADOWS): vald $(SHADOW_ROOT)
+$(SHADOW_ROOT_VALIDATE):
+	$(call mkdir, $@)
+	$(call rm, -rf, $@/*)
+
+$(SHADOWS): vald $(SHADOW_ROOT_VALD)
 	cp $(PROTO_ROOT)/$(PROTOS.$(notdir $@)) $@
 	sed -i -e '/^.*gql\.proto.*$$\|^.*gql\..*_type.*$$/d' $@
+	sed -i -e 's:^import "payload.proto";$$:import "vald/payload.proto";:' $@
 
-$(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
+$(SHADOW_VALIDATE): proto/deps $(SHADOW_ROOT_VALIDATE)
+	cp $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate/validate/validate.proto $(SHADOW_VALIDATE)
+
+$(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS) $(SHADOW_VALIDATE)
 	@$(call green, "generating pb2.py files...")
 	python \
 		-m grpc_tools.protoc \
 		$(PROTO_PATHS:%=-I %) \
 		--python_out=$(PB2DIR_ROOT) \
 		--grpc_python_out=$(PB2DIR_ROOT) \
-		$(SHADOW_ROOT)/*.proto
+		$(SHADOW_ROOT_VALD)/*.proto
+
+$(PB2PY_VALIDATE): $(SHADOW_VALIDATE)
+	@$(call green, "generating pb2.py files...")
+	python \
+		-m grpc_tools.protoc \
+		$(PROTO_PATHS:%=-I %) \
+		--python_out=$(PB2DIR_ROOT) \
+		--grpc_python_out=$(PB2DIR_ROOT) \
+		$(SHADOW_VALIDATE)
 
 vald:
-	git clone --depth 1 https://$(VALDREPO)
+	git clone --depth 1 https://$(VALDREPO) vald
 
 .PHONY: vald/sha/print
 ## print VALD_SHA value

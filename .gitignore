@@ -1,2 +1,5 @@
 /proto
 /vald
+
+*/__init__.pyc
+**/__pycache__
