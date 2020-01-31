@@ -95,11 +95,14 @@ clean:
 
 .PHONY: proto
 ## build proto
-proto: $(PB2PYS) $(PB2PY_VALIDATE) $(PB2DIR_ROOT)/vald/__init__.py
+proto: $(PB2PYS) $(PB2PY_VALIDATE) $(PB2DIR_ROOT)/vald/__init__.py $(PB2DIR_ROOT)/validate/__init__.py
 
 $(PB2DIR_ROOT)/vald/__init__.py: $(PB2DIR_ROOT)
 	mkdir -p $(PB2DIR_ROOT)/vald
 	echo "from vald import *" > $(PB2DIR_ROOT)/vald/__init__.py
+
+$(PB2DIR_ROOT)/validate/__init__.py: $(PB2DIR_ROOT)
+	touch $(PB2DIR_ROOT)/validate/__init__.py
 
 $(PB2DIR_ROOT):
 	$(call mkdir, $@)
