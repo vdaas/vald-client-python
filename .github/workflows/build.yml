@@ -37,3 +37,29 @@ jobs:
           git add .
           git commit -m "[skip ci] Update [vald sha: ${sha}]"
           git push
+      - name: publish to pip
+        run: |
+          cat << EOF > ~/.pypirc
+          [distutils]
+          index-servers =
+            pypi
+            testpypi
+          [pypi]
+          repository: https://upload.pypi.org/legacy/
+          username: ${PIP_USERNAME}
+          password: ${PIP_PASSWORD}
+          [testpypi]
+          repository: https://test.pypi.org/legacy/
+          username: ${PIP_USERNAME}
+          password: ${PIP_PASSWORD}
+          EOF
+          pip install wheel twine
+          python setup.py sdist
+          python setup.py bdist_wheel
+          twine upload --repository testpypi dist/*
+          pip --no-cache-dir install --upgrade --index-url https://test.pypi.org/simple/ vald
+          twine upload --repository pypi dist/*
+          pip --no-cache-dir install --upgrade vald
+        env:
+          PIP_USERNAME: ${{ secrets.PIP_USERNAME }}
+          PIP_PASSWORD: ${{ secrets.PIP_PASSWORD }}
