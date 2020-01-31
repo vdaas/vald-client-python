@@ -22,6 +22,7 @@ PKGNAME     = $(NAME)-client-$(LANGUAGE)
 PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 
 VALD_SHA    = VALD_SHA
+VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
 
 PROTO_ROOT  = vald/apis/proto
 PB2DIR_ROOT = src
@@ -145,7 +146,17 @@ vald/sha/print:
 .PHONY: vald/sha/update
 ## update VALD_SHA value
 vald/sha/update: vald
-	(cd vald; git rev-parse HEAD > ../$(VALD_SHA))
+	(cd vald; git rev-parse HEAD | tr -d '\n' > ../$(VALD_SHA))
+
+.PHONY: vald/client/python/version/print
+## print VALD_CLIENT_PYTHON_VERSION value
+vald/client/python/version/print:
+	@cat $(VALD_CLIENT_PYTHON_VERSION)
+
+.PHONY: vald/client/python/version/update
+## update VALD_CLIENT_PYTHON_VERSION value
+vald/client/python/version/update: vald
+	echo "$(shell cat vald/versions/VALD_VERSION).$(shell cat $(VALD_SHA))" | sed -e 's/^v//' | tr -d '\n' > $(VALD_CLIENT_PYTHON_VERSION)
 
 .PHONY: proto/deps
 ## install proto deps

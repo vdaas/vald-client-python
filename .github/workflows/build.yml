@@ -28,6 +28,7 @@ jobs:
           make vald
           make all
           make vald/sha/update
+          make vald/client/python/version/update
       - run: |
           echo "commit and push"
           sha=`make vald/sha/print`
