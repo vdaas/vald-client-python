@@ -156,7 +156,8 @@ vald/client/python/version/print:
 .PHONY: vald/client/python/version/update
 ## update VALD_CLIENT_PYTHON_VERSION value
 vald/client/python/version/update: vald
-	echo "$(shell cat vald/versions/VALD_VERSION).$(shell cat $(VALD_SHA) | cut -c 1-7)" | sed -e 's/^v//' | tr -d '\n' > $(VALD_CLIENT_PYTHON_VERSION)
+	echo "nothing to do"
+	# echo "$(shell cat vald/versions/VALD_VERSION).$(shell cat $(VALD_SHA) | cut -c 1-7)" | sed -e 's/^v//' | tr -d '\n' > $(VALD_CLIENT_PYTHON_VERSION)
 
 .PHONY: proto/deps
 ## install proto deps
