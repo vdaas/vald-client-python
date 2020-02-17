@@ -163,8 +163,25 @@ vald/client/python/version/print:
 .PHONY: vald/client/python/version/update
 ## update VALD_CLIENT_PYTHON_VERSION value
 vald/client/python/version/update: vald
-	echo "nothing to do"
-	# echo "$(shell cat vald/versions/VALD_VERSION).$(shell cat $(VALD_SHA) | cut -c 1-7)" | sed -e 's/^v//' | tr -d '\n' > $(VALD_CLIENT_PYTHON_VERSION)
+	(vald_version=`cat vald/versions/VALD_VERSION | sed -e 's/^v//'`; \
+	    client_version=`cat $(VALD_CLIENT_PYTHON_VERSION)`; \
+	    major=$${client_version%%.*}; client_version="$${client_version#*.}"; \
+	    minor=$${client_version%%.*}; client_version="$${client_version#*.}"; \
+	    patch=$${client_version%%.*}; client_version="$${client_version#*.}"; \
+	    if [ "$${vald_version}" = "$${major}.$${minor}.$${patch}" ]; then \
+	        if [ "$${patch}" = "$${client_version}" ]; then \
+	            new_version="$${major}.$${minor}.$${patch}.post1"; \
+	        else \
+	            rev="$${client_version#post}"; \
+	            rev=$$((rev+1)); \
+	            new_version="$${major}.$${minor}.$${patch}.post$${rev}"; \
+	        fi; \
+	    else \
+	        new_version="$${vald_version}"; \
+	    fi; \
+	    echo "VALD_VERSION: $${vald_version}, NEW_CLIENT_VERSION: $${new_version}"; \
+	    echo "$${new_version}" > VALD_CLIENT_PYTHON_VERSION)
+	sed -i -e "s/^version = .*\$$/version = `cat VALD_CLIENT_PYTHON_VERSION`/" setup.cfg
 
 .PHONY: proto/deps
 ## install proto deps
