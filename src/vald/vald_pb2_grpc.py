@@ -69,6 +69,21 @@ class ValdStub(object):
         request_serializer=vald_dot_payload__pb2.Object.Vectors.SerializeToString,
         response_deserializer=vald_dot_payload__pb2.Empty.FromString,
         )
+    self.Upsert = channel.unary_unary(
+        '/vald.Vald/Upsert',
+        request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
+        response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+        )
+    self.StreamUpsert = channel.stream_stream(
+        '/vald.Vald/StreamUpsert',
+        request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
+        response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+        )
+    self.MultiUpsert = channel.unary_unary(
+        '/vald.Vald/MultiUpsert',
+        request_serializer=vald_dot_payload__pb2.Object.Vectors.SerializeToString,
+        response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+        )
     self.Remove = channel.unary_unary(
         '/vald.Vald/Remove',
         request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
@@ -177,6 +192,27 @@ class ValdServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Upsert(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def StreamUpsert(self, request_iterator, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def MultiUpsert(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
   def Remove(self, request, context):
     # missing associated documentation comment in .proto file
     pass
@@ -267,6 +303,21 @@ def add_ValdServicer_to_server(servicer, server):
       ),
       'MultiUpdate': grpc.unary_unary_rpc_method_handler(
           servicer.MultiUpdate,
+          request_deserializer=vald_dot_payload__pb2.Object.Vectors.FromString,
+          response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+      ),
+      'Upsert': grpc.unary_unary_rpc_method_handler(
+          servicer.Upsert,
+          request_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
+          response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+      ),
+      'StreamUpsert': grpc.stream_stream_rpc_method_handler(
+          servicer.StreamUpsert,
+          request_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
+          response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+      ),
+      'MultiUpsert': grpc.unary_unary_rpc_method_handler(
+          servicer.MultiUpsert,
           request_deserializer=vald_dot_payload__pb2.Object.Vectors.FromString,
           response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
       ),

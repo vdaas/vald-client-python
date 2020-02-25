@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='agent',
   syntax='proto3',
   serialized_options=b'\n\024org.vdaas.vald.agentB\tValdAgentP\001Z%github.com/vdaas/vald/apis/grpc/agent',
-  serialized_pb=b'\n\x10vald/agent.proto\x12\x05\x61gent\x1a\x12vald/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xa5\x0b\n\x05\x41gent\x12\x46\n\x06\x45xists\x12\x12.payload.Object.ID\x1a\x12.payload.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12O\n\x06Search\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12X\n\nSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12G\n\x0cStreamSearch\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12M\n\x10StreamSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12\x44\n\x06Insert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12<\n\x0cStreamInsert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiInsert\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x44\n\x06Update\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12<\n\x0cStreamUpdate\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiUpdate\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x42\n\x06Remove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/remove/{id}\x12\x38\n\x0cStreamRemove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x34\n\x0bMultiRemove\x12\x13.payload.Object.IDs\x1a\x0e.payload.Empty\"\x00\x12M\n\tGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/{id}\x12\x43\n\x0fStreamGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x00(\x01\x30\x01\x12Z\n\x0b\x43reateIndex\x12$.payload.Controll.CreateIndexRequest\x1a\x0e.payload.Empty\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/index/create\x12@\n\tSaveIndex\x12\x0e.payload.Empty\x1a\x0e.payload.Empty\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/index/save\x12h\n\x12\x43reateAndSaveIndex\x12$.payload.Controll.CreateIndexRequest\x1a\x0e.payload.Empty\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/index/createandsave\x12\x45\n\tIndexInfo\x12\x0e.payload.Empty\x1a\x13.payload.Info.Index\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/index/infoBJ\n\x14org.vdaas.vald.agentB\tValdAgentP\x01Z%github.com/vdaas/vald/apis/grpc/agentb\x06proto3'
+  serialized_pb=b'\n\x10vald/agent.proto\x12\x05\x61gent\x1a\x12vald/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xa3\x0b\n\x05\x41gent\x12\x46\n\x06\x45xists\x12\x12.payload.Object.ID\x1a\x12.payload.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12O\n\x06Search\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12X\n\nSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12G\n\x0cStreamSearch\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12M\n\x10StreamSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12\x44\n\x06Insert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12<\n\x0cStreamInsert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiInsert\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x44\n\x06Update\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12<\n\x0cStreamUpdate\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiUpdate\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x42\n\x06Remove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/remove/{id}\x12\x38\n\x0cStreamRemove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x34\n\x0bMultiRemove\x12\x13.payload.Object.IDs\x1a\x0e.payload.Empty\"\x00\x12M\n\tGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/{id}\x12\x43\n\x0fStreamGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x00(\x01\x30\x01\x12Y\n\x0b\x43reateIndex\x12#.payload.Control.CreateIndexRequest\x1a\x0e.payload.Empty\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/index/create\x12@\n\tSaveIndex\x12\x0e.payload.Empty\x1a\x0e.payload.Empty\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/index/save\x12g\n\x12\x43reateAndSaveIndex\x12#.payload.Control.CreateIndexRequest\x1a\x0e.payload.Empty\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/index/createandsave\x12\x45\n\tIndexInfo\x12\x0e.payload.Empty\x1a\x13.payload.Info.Index\"\x13\x82\xd3\xe4\x93\x02\r\x12\x0b/index/infoBJ\n\x14org.vdaas.vald.agentB\tValdAgentP\x01Z%github.com/vdaas/vald/apis/grpc/agentb\x06proto3'
   ,
   dependencies=[vald_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -38,7 +38,7 @@ _AGENT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=78,
-  serialized_end=1523,
+  serialized_end=1521,
   methods=[
   _descriptor.MethodDescriptor(
     name='Exists',
@@ -189,7 +189,7 @@ _AGENT = _descriptor.ServiceDescriptor(
     full_name='agent.Agent.CreateIndex',
     index=16,
     containing_service=None,
-    input_type=vald_dot_payload__pb2._CONTROLL_CREATEINDEXREQUEST,
+    input_type=vald_dot_payload__pb2._CONTROL_CREATEINDEXREQUEST,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002\017\022\r/index/create',
   ),
@@ -207,7 +207,7 @@ _AGENT = _descriptor.ServiceDescriptor(
     full_name='agent.Agent.CreateAndSaveIndex',
     index=18,
     containing_service=None,
-    input_type=vald_dot_payload__pb2._CONTROLL_CREATEINDEXREQUEST,
+    input_type=vald_dot_payload__pb2._CONTROL_CREATEINDEXREQUEST,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002\026\022\024/index/createandsave',
   ),

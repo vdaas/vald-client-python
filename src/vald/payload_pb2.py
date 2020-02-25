@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='payload',
   syntax='proto3',
   serialized_options=b'\n\026org.vdaas.vald.payloadB\013ValdPayloadP\001Z\'github.com/vdaas/vald/apis/grpc/payload',
-  serialized_pb=b'\n\x12vald/payload.proto\x12\x07payload\x1a\x17validate/validate.proto\"\x9f\x02\n\x06Search\x1aK\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a?\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1aP\n\x06\x43onfig\x12\x14\n\x03num\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x02 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x03 \x01(\x02\x12\x0f\n\x07timeout\x18\x04 \x01(\x03\x1a\x35\n\x08Response\x12)\n\x07results\x18\x01 \x03(\x0b\x32\x18.payload.Object.Distance\"\xac\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a,\n\x07KeyVals\x12!\n\x03kvs\x18\x01 \x03(\x0b\x32\x14.payload.Meta.KeyVal\"\xce\x01\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x32\n\x07Vectors\x12\'\n\x07vectors\x18\x01 \x03(\x0b\x32\x16.payload.Object.Vector\"<\n\x08\x43ontroll\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"<\n\nDiscoverer\x1a.\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x0c\n\x04node\x18\x02 \x01(\t\"\xdc\x04\n\x06\x42\x61\x63kup\x1a-\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aS\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\'\n\x0cRequestMulti\x12\x17\n\x05uuids\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aO\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a:\n\x0bMetaVectors\x12+\n\x07vectors\x18\x01 \x03(\x0b\x32\x1a.payload.Backup.MetaVector\x1a\x9a\x01\n\nCompressed\x1a\x45\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x0e\n\x06vector\x18\x03 \x01(\x0c\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a\x45\n\x0bMetaVectors\x12\x36\n\x07vectors\x18\x01 \x03(\x0b\x32%.payload.Backup.Compressed.MetaVector\"\x9e\x02\n\x04Info\x1aZ\n\x05Index\x12\r\n\x05\x63ount\x18\x01 \x01(\r\x12\x19\n\x11uncommitted_index\x18\x02 \x01(\r\x12\r\n\x05uuids\x18\x03 \x03(\t\x12\x18\n\x10uncommitted_uuid\x18\x04 \x03(\t\x1ak\n\x06Server\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x02ip\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12$\n\x06server\x18\x03 \x01(\x0b\x32\x14.payload.Info.Server\x12\x0b\n\x03\x63pu\x18\x04 \x01(\x01\x12\x0b\n\x03mem\x18\x05 \x01(\x01\x1a:\n\x07Servers\x12/\n\x07Servers\x18\x01 \x03(\x0b\x32\x14.payload.Info.ServerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBP\n\x16org.vdaas.vald.payloadB\x0bValdPayloadP\x01Z\'github.com/vdaas/vald/apis/grpc/payloadb\x06proto3'
+  serialized_pb=b'\n\x12vald/payload.proto\x12\x07payload\x1a\x17validate/validate.proto\"\x9f\x02\n\x06Search\x1aK\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a?\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1aP\n\x06\x43onfig\x12\x14\n\x03num\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x02 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x03 \x01(\x02\x12\x0f\n\x07timeout\x18\x04 \x01(\x03\x1a\x35\n\x08Response\x12)\n\x07results\x18\x01 \x03(\x0b\x32\x18.payload.Object.Distance\"\xac\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a,\n\x07KeyVals\x12!\n\x03kvs\x18\x01 \x03(\x0b\x32\x14.payload.Meta.KeyVal\"\xce\x01\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x32\n\x07Vectors\x12\'\n\x07vectors\x18\x01 \x03(\x0b\x32\x16.payload.Object.Vector\";\n\x07\x43ontrol\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"O\n\nDiscoverer\x1a\x41\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04node\x18\x03 \x01(\t\"\xdc\x04\n\x06\x42\x61\x63kup\x1a-\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aS\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\'\n\x0cRequestMulti\x12\x17\n\x05uuids\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aO\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a:\n\x0bMetaVectors\x12+\n\x07vectors\x18\x01 \x03(\x0b\x32\x1a.payload.Backup.MetaVector\x1a\x9a\x01\n\nCompressed\x1a\x45\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x0e\n\x06vector\x18\x03 \x01(\x0c\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a\x45\n\x0bMetaVectors\x12\x36\n\x07vectors\x18\x01 \x03(\x0b\x32%.payload.Backup.Compressed.MetaVector\"\xc0\x05\n\x04Info\x1ah\n\x05Index\x12\x0e\n\x06stored\x18\x01 \x01(\r\x12\x13\n\x0buncommitted\x18\x02 \x01(\r\x12\r\n\x05uuids\x18\x03 \x03(\t\x12\x19\n\x11uncommitted_uuids\x18\x04 \x03(\t\x12\x10\n\x08indexing\x18\x05 \x01(\x08\x1a\xb5\x01\n\x03Pod\x12\x10\n\x08\x61pp_name\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tnamespace\x18\x03 \x01(\t\x12\x13\n\x02ip\x18\x04 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12\x1e\n\x03\x63pu\x18\x05 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x06 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04node\x18\x07 \x01(\x0b\x32\x12.payload.Info.Node\x1a\xaa\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rinternal_addr\x18\x02 \x01(\t\x12\x15\n\rexternal_addr\x18\x03 \x01(\t\x12\x1e\n\x03\x63pu\x18\x04 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x05 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04Pods\x18\x06 \x01(\x0b\x32\x12.payload.Info.Pods\x1a\x34\n\x03\x43PU\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x37\n\x06Memory\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x31\n\x04Pods\x12)\n\x04pods\x18\x01 \x03(\x0b\x32\x11.payload.Info.PodB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x34\n\x05Nodes\x12+\n\x05nodes\x18\x01 \x03(\x0b\x32\x12.payload.Info.NodeB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBP\n\x16org.vdaas.vald.payloadB\x0bValdPayloadP\x01Z\'github.com/vdaas/vald/apis/grpc/payloadb\x06proto3'
   ,
   dependencies=[validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -604,15 +604,15 @@ _OBJECT = _descriptor.Descriptor(
 )
 
 
-_CONTROLL_CREATEINDEXREQUEST = _descriptor.Descriptor(
+_CONTROL_CREATEINDEXREQUEST = _descriptor.Descriptor(
   name='CreateIndexRequest',
-  full_name='payload.Controll.CreateIndexRequest',
+  full_name='payload.Control.CreateIndexRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='pool_size', full_name='payload.Controll.CreateIndexRequest.pool_size', index=0,
+      name='pool_size', full_name='payload.Control.CreateIndexRequest.pool_size', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -630,13 +630,13 @@ _CONTROLL_CREATEINDEXREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=742,
-  serialized_end=790,
+  serialized_start=741,
+  serialized_end=789,
 )
 
-_CONTROLL = _descriptor.Descriptor(
-  name='Controll',
-  full_name='payload.Controll',
+_CONTROL = _descriptor.Descriptor(
+  name='Control',
+  full_name='payload.Control',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -644,7 +644,7 @@ _CONTROLL = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_CONTROLL_CREATEINDEXREQUEST, ],
+  nested_types=[_CONTROL_CREATEINDEXREQUEST, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -654,7 +654,7 @@ _CONTROLL = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=730,
-  serialized_end=790,
+  serialized_end=789,
 )
 
 
@@ -673,8 +673,15 @@ _DISCOVERER_REQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='node', full_name='payload.Discoverer.Request.node', index=1,
+      name='namespace', full_name='payload.Discoverer.Request.namespace', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='node', full_name='payload.Discoverer.Request.node', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -691,8 +698,8 @@ _DISCOVERER_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=806,
-  serialized_end=852,
+  serialized_start=805,
+  serialized_end=870,
 )
 
 _DISCOVERER = _descriptor.Descriptor(
@@ -714,8 +721,8 @@ _DISCOVERER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=792,
-  serialized_end=852,
+  serialized_start=791,
+  serialized_end=870,
 )
 
 
@@ -745,8 +752,8 @@ _BACKUP_GETVECTOR_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=878,
-  serialized_end=910,
+  serialized_start=896,
+  serialized_end=928,
 )
 
 _BACKUP_GETVECTOR = _descriptor.Descriptor(
@@ -768,8 +775,8 @@ _BACKUP_GETVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=865,
-  serialized_end=910,
+  serialized_start=883,
+  serialized_end=928,
 )
 
 _BACKUP_LOCATIONS_REQUEST = _descriptor.Descriptor(
@@ -798,8 +805,8 @@ _BACKUP_LOCATIONS_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=878,
-  serialized_end=910,
+  serialized_start=896,
+  serialized_end=928,
 )
 
 _BACKUP_LOCATIONS = _descriptor.Descriptor(
@@ -821,8 +828,8 @@ _BACKUP_LOCATIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=912,
-  serialized_end=957,
+  serialized_start=930,
+  serialized_end=975,
 )
 
 _BACKUP_REMOVE_REQUEST = _descriptor.Descriptor(
@@ -851,8 +858,8 @@ _BACKUP_REMOVE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=878,
-  serialized_end=910,
+  serialized_start=896,
+  serialized_end=928,
 )
 
 _BACKUP_REMOVE_REQUESTMULTI = _descriptor.Descriptor(
@@ -881,8 +888,8 @@ _BACKUP_REMOVE_REQUESTMULTI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1003,
-  serialized_end=1042,
+  serialized_start=1021,
+  serialized_end=1060,
 )
 
 _BACKUP_REMOVE = _descriptor.Descriptor(
@@ -904,8 +911,8 @@ _BACKUP_REMOVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=959,
-  serialized_end=1042,
+  serialized_start=977,
+  serialized_end=1060,
 )
 
 _BACKUP_IP_REGISTER_REQUEST = _descriptor.Descriptor(
@@ -941,8 +948,8 @@ _BACKUP_IP_REGISTER_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1062,
-  serialized_end=1117,
+  serialized_start=1080,
+  serialized_end=1135,
 )
 
 _BACKUP_IP_REGISTER = _descriptor.Descriptor(
@@ -964,8 +971,8 @@ _BACKUP_IP_REGISTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1050,
-  serialized_end=1117,
+  serialized_start=1068,
+  serialized_end=1135,
 )
 
 _BACKUP_IP_REMOVE_REQUEST = _descriptor.Descriptor(
@@ -994,8 +1001,8 @@ _BACKUP_IP_REMOVE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1129,
-  serialized_end=1161,
+  serialized_start=1147,
+  serialized_end=1179,
 )
 
 _BACKUP_IP_REMOVE = _descriptor.Descriptor(
@@ -1017,8 +1024,8 @@ _BACKUP_IP_REMOVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1119,
-  serialized_end=1161,
+  serialized_start=1137,
+  serialized_end=1179,
 )
 
 _BACKUP_IP = _descriptor.Descriptor(
@@ -1040,8 +1047,8 @@ _BACKUP_IP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1044,
-  serialized_end=1161,
+  serialized_start=1062,
+  serialized_end=1179,
 )
 
 _BACKUP_METAVECTOR = _descriptor.Descriptor(
@@ -1091,8 +1098,8 @@ _BACKUP_METAVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1163,
-  serialized_end=1242,
+  serialized_start=1181,
+  serialized_end=1260,
 )
 
 _BACKUP_METAVECTORS = _descriptor.Descriptor(
@@ -1121,8 +1128,8 @@ _BACKUP_METAVECTORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1244,
-  serialized_end=1302,
+  serialized_start=1262,
+  serialized_end=1320,
 )
 
 _BACKUP_COMPRESSED_METAVECTOR = _descriptor.Descriptor(
@@ -1172,8 +1179,8 @@ _BACKUP_COMPRESSED_METAVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1319,
-  serialized_end=1388,
+  serialized_start=1337,
+  serialized_end=1406,
 )
 
 _BACKUP_COMPRESSED_METAVECTORS = _descriptor.Descriptor(
@@ -1202,8 +1209,8 @@ _BACKUP_COMPRESSED_METAVECTORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1390,
-  serialized_end=1459,
+  serialized_start=1408,
+  serialized_end=1477,
 )
 
 _BACKUP_COMPRESSED = _descriptor.Descriptor(
@@ -1225,8 +1232,8 @@ _BACKUP_COMPRESSED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1305,
-  serialized_end=1459,
+  serialized_start=1323,
+  serialized_end=1477,
 )
 
 _BACKUP = _descriptor.Descriptor(
@@ -1248,8 +1255,8 @@ _BACKUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=855,
-  serialized_end=1459,
+  serialized_start=873,
+  serialized_end=1477,
 )
 
 
@@ -1261,14 +1268,14 @@ _INFO_INDEX = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='count', full_name='payload.Info.Index.count', index=0,
+      name='stored', full_name='payload.Info.Index.stored', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='uncommitted_index', full_name='payload.Info.Index.uncommitted_index', index=1,
+      name='uncommitted', full_name='payload.Info.Index.uncommitted', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1282,9 +1289,16 @@ _INFO_INDEX = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='uncommitted_uuid', full_name='payload.Info.Index.uncommitted_uuid', index=3,
+      name='uncommitted_uuids', full_name='payload.Info.Index.uncommitted_uuids', index=3,
       number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='indexing', full_name='payload.Info.Index.indexing', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -1300,48 +1314,171 @@ _INFO_INDEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1470,
-  serialized_end=1560,
+  serialized_start=1488,
+  serialized_end=1592,
 )
 
-_INFO_SERVER = _descriptor.Descriptor(
-  name='Server',
-  full_name='payload.Info.Server',
+_INFO_POD = _descriptor.Descriptor(
+  name='Pod',
+  full_name='payload.Info.Pod',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='payload.Info.Server.name', index=0,
+      name='app_name', full_name='payload.Info.Pod.app_name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ip', full_name='payload.Info.Server.ip', index=1,
+      name='name', full_name='payload.Info.Pod.name', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='namespace', full_name='payload.Info.Pod.namespace', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ip', full_name='payload.Info.Pod.ip', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002x\001', file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='server', full_name='payload.Info.Server.server', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='cpu', full_name='payload.Info.Pod.cpu', index=4,
+      number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cpu', full_name='payload.Info.Server.cpu', index=3,
-      number=4, type=1, cpp_type=5, label=1,
+      name='memory', full_name='payload.Info.Pod.memory', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='node', full_name='payload.Info.Pod.node', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1595,
+  serialized_end=1776,
+)
+
+_INFO_NODE = _descriptor.Descriptor(
+  name='Node',
+  full_name='payload.Info.Node',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='payload.Info.Node.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='internal_addr', full_name='payload.Info.Node.internal_addr', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='external_addr', full_name='payload.Info.Node.external_addr', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cpu', full_name='payload.Info.Node.cpu', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='memory', full_name='payload.Info.Node.memory', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Pods', full_name='payload.Info.Node.Pods', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1779,
+  serialized_end=1949,
+)
+
+_INFO_CPU = _descriptor.Descriptor(
+  name='CPU',
+  full_name='payload.Info.CPU',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='limit', full_name='payload.Info.CPU.limit', index=0,
+      number=1, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='mem', full_name='payload.Info.Server.mem', index=4,
-      number=5, type=1, cpp_type=5, label=1,
+      name='request', full_name='payload.Info.CPU.request', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='usage', full_name='payload.Info.CPU.usage', index=2,
+      number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1358,19 +1495,63 @@ _INFO_SERVER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1562,
-  serialized_end=1669,
+  serialized_start=1951,
+  serialized_end=2003,
 )
 
-_INFO_SERVERS = _descriptor.Descriptor(
-  name='Servers',
-  full_name='payload.Info.Servers',
+_INFO_MEMORY = _descriptor.Descriptor(
+  name='Memory',
+  full_name='payload.Info.Memory',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Servers', full_name='payload.Info.Servers.Servers', index=0,
+      name='limit', full_name='payload.Info.Memory.limit', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='request', full_name='payload.Info.Memory.request', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='usage', full_name='payload.Info.Memory.usage', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2005,
+  serialized_end=2060,
+)
+
+_INFO_PODS = _descriptor.Descriptor(
+  name='Pods',
+  full_name='payload.Info.Pods',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pods', full_name='payload.Info.Pods.pods', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1388,8 +1569,38 @@ _INFO_SERVERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1671,
-  serialized_end=1729,
+  serialized_start=2062,
+  serialized_end=2111,
+)
+
+_INFO_NODES = _descriptor.Descriptor(
+  name='Nodes',
+  full_name='payload.Info.Nodes',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='nodes', full_name='payload.Info.Nodes.nodes', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\222\001\002\010\001', file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2113,
+  serialized_end=2165,
 )
 
 _INFO_IPS = _descriptor.Descriptor(
@@ -1418,8 +1629,8 @@ _INFO_IPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1731,
-  serialized_end=1748,
+  serialized_start=2167,
+  serialized_end=2184,
 )
 
 _INFO = _descriptor.Descriptor(
@@ -1432,7 +1643,7 @@ _INFO = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_INFO_INDEX, _INFO_SERVER, _INFO_SERVERS, _INFO_IPS, ],
+  nested_types=[_INFO_INDEX, _INFO_POD, _INFO_NODE, _INFO_CPU, _INFO_MEMORY, _INFO_PODS, _INFO_NODES, _INFO_IPS, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1441,8 +1652,8 @@ _INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1462,
-  serialized_end=1748,
+  serialized_start=1480,
+  serialized_end=2184,
 )
 
 
@@ -1465,8 +1676,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1750,
-  serialized_end=1757,
+  serialized_start=2186,
+  serialized_end=2193,
 )
 
 _SEARCH_REQUEST.fields_by_name['config'].message_type = _SEARCH_CONFIG
@@ -1489,7 +1700,7 @@ _OBJECT_IDS.containing_type = _OBJECT
 _OBJECT_VECTOR.containing_type = _OBJECT
 _OBJECT_VECTORS.fields_by_name['vectors'].message_type = _OBJECT_VECTOR
 _OBJECT_VECTORS.containing_type = _OBJECT
-_CONTROLL_CREATEINDEXREQUEST.containing_type = _CONTROLL
+_CONTROL_CREATEINDEXREQUEST.containing_type = _CONTROL
 _DISCOVERER_REQUEST.containing_type = _DISCOVERER
 _BACKUP_GETVECTOR_REQUEST.containing_type = _BACKUP_GETVECTOR
 _BACKUP_GETVECTOR.containing_type = _BACKUP
@@ -1511,15 +1722,25 @@ _BACKUP_COMPRESSED_METAVECTORS.fields_by_name['vectors'].message_type = _BACKUP_
 _BACKUP_COMPRESSED_METAVECTORS.containing_type = _BACKUP_COMPRESSED
 _BACKUP_COMPRESSED.containing_type = _BACKUP
 _INFO_INDEX.containing_type = _INFO
-_INFO_SERVER.fields_by_name['server'].message_type = _INFO_SERVER
-_INFO_SERVER.containing_type = _INFO
-_INFO_SERVERS.fields_by_name['Servers'].message_type = _INFO_SERVER
-_INFO_SERVERS.containing_type = _INFO
+_INFO_POD.fields_by_name['cpu'].message_type = _INFO_CPU
+_INFO_POD.fields_by_name['memory'].message_type = _INFO_MEMORY
+_INFO_POD.fields_by_name['node'].message_type = _INFO_NODE
+_INFO_POD.containing_type = _INFO
+_INFO_NODE.fields_by_name['cpu'].message_type = _INFO_CPU
+_INFO_NODE.fields_by_name['memory'].message_type = _INFO_MEMORY
+_INFO_NODE.fields_by_name['Pods'].message_type = _INFO_PODS
+_INFO_NODE.containing_type = _INFO
+_INFO_CPU.containing_type = _INFO
+_INFO_MEMORY.containing_type = _INFO
+_INFO_PODS.fields_by_name['pods'].message_type = _INFO_POD
+_INFO_PODS.containing_type = _INFO
+_INFO_NODES.fields_by_name['nodes'].message_type = _INFO_NODE
+_INFO_NODES.containing_type = _INFO
 _INFO_IPS.containing_type = _INFO
 DESCRIPTOR.message_types_by_name['Search'] = _SEARCH
 DESCRIPTOR.message_types_by_name['Meta'] = _META
 DESCRIPTOR.message_types_by_name['Object'] = _OBJECT
-DESCRIPTOR.message_types_by_name['Controll'] = _CONTROLL
+DESCRIPTOR.message_types_by_name['Control'] = _CONTROL
 DESCRIPTOR.message_types_by_name['Discoverer'] = _DISCOVERER
 DESCRIPTOR.message_types_by_name['Backup'] = _BACKUP
 DESCRIPTOR.message_types_by_name['Info'] = _INFO
@@ -1667,20 +1888,20 @@ _sym_db.RegisterMessage(Object.IDs)
 _sym_db.RegisterMessage(Object.Vector)
 _sym_db.RegisterMessage(Object.Vectors)
 
-Controll = _reflection.GeneratedProtocolMessageType('Controll', (_message.Message,), {
+Control = _reflection.GeneratedProtocolMessageType('Control', (_message.Message,), {
 
   'CreateIndexRequest' : _reflection.GeneratedProtocolMessageType('CreateIndexRequest', (_message.Message,), {
-    'DESCRIPTOR' : _CONTROLL_CREATEINDEXREQUEST,
+    'DESCRIPTOR' : _CONTROL_CREATEINDEXREQUEST,
     '__module__' : 'vald.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Controll.CreateIndexRequest)
+    # @@protoc_insertion_point(class_scope:payload.Control.CreateIndexRequest)
     })
   ,
-  'DESCRIPTOR' : _CONTROLL,
+  'DESCRIPTOR' : _CONTROL,
   '__module__' : 'vald.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Controll)
+  # @@protoc_insertion_point(class_scope:payload.Control)
   })
-_sym_db.RegisterMessage(Controll)
-_sym_db.RegisterMessage(Controll.CreateIndexRequest)
+_sym_db.RegisterMessage(Control)
+_sym_db.RegisterMessage(Control.CreateIndexRequest)
 
 Discoverer = _reflection.GeneratedProtocolMessageType('Discoverer', (_message.Message,), {
 
@@ -1849,17 +2070,45 @@ Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), {
     })
   ,
 
-  'Server' : _reflection.GeneratedProtocolMessageType('Server', (_message.Message,), {
-    'DESCRIPTOR' : _INFO_SERVER,
+  'Pod' : _reflection.GeneratedProtocolMessageType('Pod', (_message.Message,), {
+    'DESCRIPTOR' : _INFO_POD,
     '__module__' : 'vald.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Server)
+    # @@protoc_insertion_point(class_scope:payload.Info.Pod)
     })
   ,
 
-  'Servers' : _reflection.GeneratedProtocolMessageType('Servers', (_message.Message,), {
-    'DESCRIPTOR' : _INFO_SERVERS,
+  'Node' : _reflection.GeneratedProtocolMessageType('Node', (_message.Message,), {
+    'DESCRIPTOR' : _INFO_NODE,
     '__module__' : 'vald.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Servers)
+    # @@protoc_insertion_point(class_scope:payload.Info.Node)
+    })
+  ,
+
+  'CPU' : _reflection.GeneratedProtocolMessageType('CPU', (_message.Message,), {
+    'DESCRIPTOR' : _INFO_CPU,
+    '__module__' : 'vald.payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Info.CPU)
+    })
+  ,
+
+  'Memory' : _reflection.GeneratedProtocolMessageType('Memory', (_message.Message,), {
+    'DESCRIPTOR' : _INFO_MEMORY,
+    '__module__' : 'vald.payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Info.Memory)
+    })
+  ,
+
+  'Pods' : _reflection.GeneratedProtocolMessageType('Pods', (_message.Message,), {
+    'DESCRIPTOR' : _INFO_PODS,
+    '__module__' : 'vald.payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Info.Pods)
+    })
+  ,
+
+  'Nodes' : _reflection.GeneratedProtocolMessageType('Nodes', (_message.Message,), {
+    'DESCRIPTOR' : _INFO_NODES,
+    '__module__' : 'vald.payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Info.Nodes)
     })
   ,
 
@@ -1875,8 +2124,12 @@ Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Info)
 _sym_db.RegisterMessage(Info.Index)
-_sym_db.RegisterMessage(Info.Server)
-_sym_db.RegisterMessage(Info.Servers)
+_sym_db.RegisterMessage(Info.Pod)
+_sym_db.RegisterMessage(Info.Node)
+_sym_db.RegisterMessage(Info.CPU)
+_sym_db.RegisterMessage(Info.Memory)
+_sym_db.RegisterMessage(Info.Pods)
+_sym_db.RegisterMessage(Info.Nodes)
 _sym_db.RegisterMessage(Info.IPs)
 
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
@@ -1893,7 +2146,7 @@ _SEARCH_CONFIG.fields_by_name['num']._options = None
 _OBJECT_ID.fields_by_name['id']._options = None
 _OBJECT_VECTOR.fields_by_name['id']._options = None
 _OBJECT_VECTOR.fields_by_name['vector']._options = None
-_CONTROLL_CREATEINDEXREQUEST.fields_by_name['pool_size']._options = None
+_CONTROL_CREATEINDEXREQUEST.fields_by_name['pool_size']._options = None
 _DISCOVERER_REQUEST.fields_by_name['name']._options = None
 _BACKUP_GETVECTOR_REQUEST.fields_by_name['uuid']._options = None
 _BACKUP_LOCATIONS_REQUEST.fields_by_name['uuid']._options = None
@@ -1903,6 +2156,7 @@ _BACKUP_IP_REGISTER_REQUEST.fields_by_name['uuid']._options = None
 _BACKUP_IP_REGISTER_REQUEST.fields_by_name['ips']._options = None
 _BACKUP_IP_REMOVE_REQUEST.fields_by_name['ips']._options = None
 _BACKUP_METAVECTOR.fields_by_name['vector']._options = None
-_INFO_SERVER.fields_by_name['ip']._options = None
-_INFO_SERVERS.fields_by_name['Servers']._options = None
+_INFO_POD.fields_by_name['ip']._options = None
+_INFO_PODS.fields_by_name['pods']._options = None
+_INFO_NODES.fields_by_name['nodes']._options = None
 # @@protoc_insertion_point(module_scope)

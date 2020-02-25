@@ -96,7 +96,7 @@ class AgentStub(object):
         )
     self.CreateIndex = channel.unary_unary(
         '/agent.Agent/CreateIndex',
-        request_serializer=vald_dot_payload__pb2.Controll.CreateIndexRequest.SerializeToString,
+        request_serializer=vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
         response_deserializer=vald_dot_payload__pb2.Empty.FromString,
         )
     self.SaveIndex = channel.unary_unary(
@@ -106,7 +106,7 @@ class AgentStub(object):
         )
     self.CreateAndSaveIndex = channel.unary_unary(
         '/agent.Agent/CreateAndSaveIndex',
-        request_serializer=vald_dot_payload__pb2.Controll.CreateIndexRequest.SerializeToString,
+        request_serializer=vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
         response_deserializer=vald_dot_payload__pb2.Empty.FromString,
         )
     self.IndexInfo = channel.unary_unary(
@@ -345,7 +345,7 @@ def add_AgentServicer_to_server(servicer, server):
       ),
       'CreateIndex': grpc.unary_unary_rpc_method_handler(
           servicer.CreateIndex,
-          request_deserializer=vald_dot_payload__pb2.Controll.CreateIndexRequest.FromString,
+          request_deserializer=vald_dot_payload__pb2.Control.CreateIndexRequest.FromString,
           response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
       ),
       'SaveIndex': grpc.unary_unary_rpc_method_handler(
@@ -355,7 +355,7 @@ def add_AgentServicer_to_server(servicer, server):
       ),
       'CreateAndSaveIndex': grpc.unary_unary_rpc_method_handler(
           servicer.CreateAndSaveIndex,
-          request_deserializer=vald_dot_payload__pb2.Controll.CreateIndexRequest.FromString,
+          request_deserializer=vald_dot_payload__pb2.Control.CreateIndexRequest.FromString,
           response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
       ),
       'IndexInfo': grpc.unary_unary_rpc_method_handler(
