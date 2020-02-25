@@ -30,7 +30,7 @@ SHADOW_ROOT = proto
 SHADOW_ROOT_VALD = $(SHADOW_ROOT)/vald
 SHADOW_ROOT_VALIDATE = $(SHADOW_ROOT)/validate
 
-PROTOS.vald.proto = vald/vald.proto
+PROTOS.vald.proto = gateway/vald/vald.proto
 PROTOS.agent.proto = agent/agent.proto
 PROTOS.payload.proto = payload/payload.proto
 PROTOS      = $(PROTOS.vald.proto) $(PROTOS.agent.proto) $(PROTOS.payload.proto)
