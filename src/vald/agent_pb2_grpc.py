@@ -112,7 +112,7 @@ class AgentStub(object):
     self.IndexInfo = channel.unary_unary(
         '/agent.Agent/IndexInfo',
         request_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
-        response_deserializer=vald_dot_payload__pb2.Info.Index.FromString,
+        response_deserializer=vald_dot_payload__pb2.Info.Index.Count.FromString,
         )
 
 
@@ -361,7 +361,7 @@ def add_AgentServicer_to_server(servicer, server):
       'IndexInfo': grpc.unary_unary_rpc_method_handler(
           servicer.IndexInfo,
           request_deserializer=vald_dot_payload__pb2.Empty.FromString,
-          response_serializer=vald_dot_payload__pb2.Info.Index.SerializeToString,
+          response_serializer=vald_dot_payload__pb2.Info.Index.Count.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
