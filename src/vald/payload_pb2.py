@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='payload',
   syntax='proto3',
   serialized_options=b'\n\026org.vdaas.vald.payloadB\013ValdPayloadP\001Z\'github.com/vdaas/vald/apis/grpc/payload',
-  serialized_pb=b'\n\x12vald/payload.proto\x12\x07payload\x1a\x17validate/validate.proto\"\x9f\x02\n\x06Search\x1aK\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a?\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1aP\n\x06\x43onfig\x12\x14\n\x03num\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x02 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x03 \x01(\x02\x12\x0f\n\x07timeout\x18\x04 \x01(\x03\x1a\x35\n\x08Response\x12)\n\x07results\x18\x01 \x03(\x0b\x32\x18.payload.Object.Distance\"\xac\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a,\n\x07KeyVals\x12!\n\x03kvs\x18\x01 \x03(\x0b\x32\x14.payload.Meta.KeyVal\"\xce\x01\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x32\n\x07Vectors\x12\'\n\x07vectors\x18\x01 \x03(\x0b\x32\x16.payload.Object.Vector\";\n\x07\x43ontrol\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"O\n\nDiscoverer\x1a\x41\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04node\x18\x03 \x01(\t\"\xdc\x04\n\x06\x42\x61\x63kup\x1a-\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aS\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\'\n\x0cRequestMulti\x12\x17\n\x05uuids\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aO\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a:\n\x0bMetaVectors\x12+\n\x07vectors\x18\x01 \x03(\x0b\x32\x1a.payload.Backup.MetaVector\x1a\x9a\x01\n\nCompressed\x1a\x45\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x0e\n\x06vector\x18\x03 \x01(\x0c\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a\x45\n\x0bMetaVectors\x12\x36\n\x07vectors\x18\x01 \x03(\x0b\x32%.payload.Backup.Compressed.MetaVector\"\xe0\x05\n\x04Info\x1a\x87\x01\n\x05Index\x1a>\n\x05\x43ount\x12\x0e\n\x06stored\x18\x01 \x01(\r\x12\x13\n\x0buncommitted\x18\x02 \x01(\r\x12\x10\n\x08indexing\x18\x03 \x01(\x08\x1a>\n\x04UUID\x1a\x19\n\tCommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\x1b\n\x0bUncommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\xb5\x01\n\x03Pod\x12\x10\n\x08\x61pp_name\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tnamespace\x18\x03 \x01(\t\x12\x13\n\x02ip\x18\x04 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12\x1e\n\x03\x63pu\x18\x05 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x06 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04node\x18\x07 \x01(\x0b\x32\x12.payload.Info.Node\x1a\xaa\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rinternal_addr\x18\x02 \x01(\t\x12\x15\n\rexternal_addr\x18\x03 \x01(\t\x12\x1e\n\x03\x63pu\x18\x04 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x05 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04Pods\x18\x06 \x01(\x0b\x32\x12.payload.Info.Pods\x1a\x34\n\x03\x43PU\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x37\n\x06Memory\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x31\n\x04Pods\x12)\n\x04pods\x18\x01 \x03(\x0b\x32\x11.payload.Info.PodB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x34\n\x05Nodes\x12+\n\x05nodes\x18\x01 \x03(\x0b\x32\x12.payload.Info.NodeB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBP\n\x16org.vdaas.vald.payloadB\x0bValdPayloadP\x01Z\'github.com/vdaas/vald/apis/grpc/payloadb\x06proto3'
+  serialized_pb=b'\n\x12vald/payload.proto\x12\x07payload\x1a\x17validate/validate.proto\"\x9f\x02\n\x06Search\x1aK\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a?\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1aP\n\x06\x43onfig\x12\x14\n\x03num\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x02 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x03 \x01(\x02\x12\x0f\n\x07timeout\x18\x04 \x01(\x03\x1a\x35\n\x08Response\x12)\n\x07results\x18\x01 \x03(\x0b\x32\x18.payload.Object.Distance\"\xac\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a,\n\x07KeyVals\x12!\n\x03kvs\x18\x01 \x03(\x0b\x32\x14.payload.Meta.KeyVal\"\xce\x01\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x32\n\x07Vectors\x12\'\n\x07vectors\x18\x01 \x03(\x0b\x32\x16.payload.Object.Vector\";\n\x07\x43ontrol\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"\xc0\x01\n\x0bReplication\x1a\"\n\x08Recovery\x12\x16\n\x0e\x64\x65leted_agents\x18\x01 \x03(\t\x1a@\n\tRebalance\x12\x19\n\x11high_usage_agents\x18\x01 \x03(\t\x12\x18\n\x10low_usage_agents\x18\x02 \x03(\t\x1aK\n\x06\x41gents\x12\x0e\n\x06\x61gents\x18\x01 \x03(\t\x12\x16\n\x0eremoved_agents\x18\x02 \x03(\t\x12\x19\n\x11replicating_agent\x18\x03 \x03(\t\"O\n\nDiscoverer\x1a\x41\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04node\x18\x03 \x01(\t\"\xfa\x04\n\x06\x42\x61\x63kup\x1aK\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x1c\n\x05Owner\x12\x13\n\x02ip\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aS\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\'\n\x0cRequestMulti\x12\x17\n\x05uuids\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aO\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a:\n\x0bMetaVectors\x12+\n\x07vectors\x18\x01 \x03(\x0b\x32\x1a.payload.Backup.MetaVector\x1a\x9a\x01\n\nCompressed\x1a\x45\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\t\x12\x0e\n\x06vector\x18\x03 \x01(\x0c\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a\x45\n\x0bMetaVectors\x12\x36\n\x07vectors\x18\x01 \x03(\x0b\x32%.payload.Backup.Compressed.MetaVector\"\xe0\x05\n\x04Info\x1a\x87\x01\n\x05Index\x1a>\n\x05\x43ount\x12\x0e\n\x06stored\x18\x01 \x01(\r\x12\x13\n\x0buncommitted\x18\x02 \x01(\r\x12\x10\n\x08indexing\x18\x03 \x01(\x08\x1a>\n\x04UUID\x1a\x19\n\tCommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\x1b\n\x0bUncommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\xb5\x01\n\x03Pod\x12\x10\n\x08\x61pp_name\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tnamespace\x18\x03 \x01(\t\x12\x13\n\x02ip\x18\x04 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12\x1e\n\x03\x63pu\x18\x05 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x06 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04node\x18\x07 \x01(\x0b\x32\x12.payload.Info.Node\x1a\xaa\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rinternal_addr\x18\x02 \x01(\t\x12\x15\n\rexternal_addr\x18\x03 \x01(\t\x12\x1e\n\x03\x63pu\x18\x04 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x05 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04Pods\x18\x06 \x01(\x0b\x32\x12.payload.Info.Pods\x1a\x34\n\x03\x43PU\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x37\n\x06Memory\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x31\n\x04Pods\x12)\n\x04pods\x18\x01 \x03(\x0b\x32\x11.payload.Info.PodB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x34\n\x05Nodes\x12+\n\x05nodes\x18\x01 \x03(\x0b\x32\x12.payload.Info.NodeB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBP\n\x16org.vdaas.vald.payloadB\x0bValdPayloadP\x01Z\'github.com/vdaas/vald/apis/grpc/payloadb\x06proto3'
   ,
   dependencies=[validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -658,6 +658,141 @@ _CONTROL = _descriptor.Descriptor(
 )
 
 
+_REPLICATION_RECOVERY = _descriptor.Descriptor(
+  name='Recovery',
+  full_name='payload.Replication.Recovery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='deleted_agents', full_name='payload.Replication.Recovery.deleted_agents', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=807,
+  serialized_end=841,
+)
+
+_REPLICATION_REBALANCE = _descriptor.Descriptor(
+  name='Rebalance',
+  full_name='payload.Replication.Rebalance',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='high_usage_agents', full_name='payload.Replication.Rebalance.high_usage_agents', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='low_usage_agents', full_name='payload.Replication.Rebalance.low_usage_agents', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=843,
+  serialized_end=907,
+)
+
+_REPLICATION_AGENTS = _descriptor.Descriptor(
+  name='Agents',
+  full_name='payload.Replication.Agents',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='agents', full_name='payload.Replication.Agents.agents', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='removed_agents', full_name='payload.Replication.Agents.removed_agents', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='replicating_agent', full_name='payload.Replication.Agents.replicating_agent', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=909,
+  serialized_end=984,
+)
+
+_REPLICATION = _descriptor.Descriptor(
+  name='Replication',
+  full_name='payload.Replication',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[_REPLICATION_RECOVERY, _REPLICATION_REBALANCE, _REPLICATION_AGENTS, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=792,
+  serialized_end=984,
+)
+
+
 _DISCOVERER_REQUEST = _descriptor.Descriptor(
   name='Request',
   full_name='payload.Discoverer.Request',
@@ -698,8 +833,8 @@ _DISCOVERER_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=805,
-  serialized_end=870,
+  serialized_start=1000,
+  serialized_end=1065,
 )
 
 _DISCOVERER = _descriptor.Descriptor(
@@ -721,8 +856,8 @@ _DISCOVERER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=791,
-  serialized_end=870,
+  serialized_start=986,
+  serialized_end=1065,
 )
 
 
@@ -752,8 +887,38 @@ _BACKUP_GETVECTOR_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=896,
-  serialized_end=928,
+  serialized_start=1091,
+  serialized_end=1123,
+)
+
+_BACKUP_GETVECTOR_OWNER = _descriptor.Descriptor(
+  name='Owner',
+  full_name='payload.Backup.GetVector.Owner',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ip', full_name='payload.Backup.GetVector.Owner.ip', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1125,
+  serialized_end=1153,
 )
 
 _BACKUP_GETVECTOR = _descriptor.Descriptor(
@@ -766,7 +931,7 @@ _BACKUP_GETVECTOR = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_BACKUP_GETVECTOR_REQUEST, ],
+  nested_types=[_BACKUP_GETVECTOR_REQUEST, _BACKUP_GETVECTOR_OWNER, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -775,8 +940,8 @@ _BACKUP_GETVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=883,
-  serialized_end=928,
+  serialized_start=1078,
+  serialized_end=1153,
 )
 
 _BACKUP_LOCATIONS_REQUEST = _descriptor.Descriptor(
@@ -805,8 +970,8 @@ _BACKUP_LOCATIONS_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=896,
-  serialized_end=928,
+  serialized_start=1091,
+  serialized_end=1123,
 )
 
 _BACKUP_LOCATIONS = _descriptor.Descriptor(
@@ -828,8 +993,8 @@ _BACKUP_LOCATIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=930,
-  serialized_end=975,
+  serialized_start=1155,
+  serialized_end=1200,
 )
 
 _BACKUP_REMOVE_REQUEST = _descriptor.Descriptor(
@@ -858,8 +1023,8 @@ _BACKUP_REMOVE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=896,
-  serialized_end=928,
+  serialized_start=1091,
+  serialized_end=1123,
 )
 
 _BACKUP_REMOVE_REQUESTMULTI = _descriptor.Descriptor(
@@ -888,8 +1053,8 @@ _BACKUP_REMOVE_REQUESTMULTI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1021,
-  serialized_end=1060,
+  serialized_start=1246,
+  serialized_end=1285,
 )
 
 _BACKUP_REMOVE = _descriptor.Descriptor(
@@ -911,8 +1076,8 @@ _BACKUP_REMOVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=977,
-  serialized_end=1060,
+  serialized_start=1202,
+  serialized_end=1285,
 )
 
 _BACKUP_IP_REGISTER_REQUEST = _descriptor.Descriptor(
@@ -948,8 +1113,8 @@ _BACKUP_IP_REGISTER_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1080,
-  serialized_end=1135,
+  serialized_start=1305,
+  serialized_end=1360,
 )
 
 _BACKUP_IP_REGISTER = _descriptor.Descriptor(
@@ -971,8 +1136,8 @@ _BACKUP_IP_REGISTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1068,
-  serialized_end=1135,
+  serialized_start=1293,
+  serialized_end=1360,
 )
 
 _BACKUP_IP_REMOVE_REQUEST = _descriptor.Descriptor(
@@ -1001,8 +1166,8 @@ _BACKUP_IP_REMOVE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1147,
-  serialized_end=1179,
+  serialized_start=1372,
+  serialized_end=1404,
 )
 
 _BACKUP_IP_REMOVE = _descriptor.Descriptor(
@@ -1024,8 +1189,8 @@ _BACKUP_IP_REMOVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1137,
-  serialized_end=1179,
+  serialized_start=1362,
+  serialized_end=1404,
 )
 
 _BACKUP_IP = _descriptor.Descriptor(
@@ -1047,8 +1212,8 @@ _BACKUP_IP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1062,
-  serialized_end=1179,
+  serialized_start=1287,
+  serialized_end=1404,
 )
 
 _BACKUP_METAVECTOR = _descriptor.Descriptor(
@@ -1098,8 +1263,8 @@ _BACKUP_METAVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1181,
-  serialized_end=1260,
+  serialized_start=1406,
+  serialized_end=1485,
 )
 
 _BACKUP_METAVECTORS = _descriptor.Descriptor(
@@ -1128,8 +1293,8 @@ _BACKUP_METAVECTORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1262,
-  serialized_end=1320,
+  serialized_start=1487,
+  serialized_end=1545,
 )
 
 _BACKUP_COMPRESSED_METAVECTOR = _descriptor.Descriptor(
@@ -1179,8 +1344,8 @@ _BACKUP_COMPRESSED_METAVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1337,
-  serialized_end=1406,
+  serialized_start=1562,
+  serialized_end=1631,
 )
 
 _BACKUP_COMPRESSED_METAVECTORS = _descriptor.Descriptor(
@@ -1209,8 +1374,8 @@ _BACKUP_COMPRESSED_METAVECTORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1408,
-  serialized_end=1477,
+  serialized_start=1633,
+  serialized_end=1702,
 )
 
 _BACKUP_COMPRESSED = _descriptor.Descriptor(
@@ -1232,8 +1397,8 @@ _BACKUP_COMPRESSED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1323,
-  serialized_end=1477,
+  serialized_start=1548,
+  serialized_end=1702,
 )
 
 _BACKUP = _descriptor.Descriptor(
@@ -1255,8 +1420,8 @@ _BACKUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=873,
-  serialized_end=1477,
+  serialized_start=1068,
+  serialized_end=1702,
 )
 
 
@@ -1300,8 +1465,8 @@ _INFO_INDEX_COUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1498,
-  serialized_end=1560,
+  serialized_start=1723,
+  serialized_end=1785,
 )
 
 _INFO_INDEX_UUID_COMMITTED = _descriptor.Descriptor(
@@ -1330,8 +1495,8 @@ _INFO_INDEX_UUID_COMMITTED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1570,
-  serialized_end=1595,
+  serialized_start=1795,
+  serialized_end=1820,
 )
 
 _INFO_INDEX_UUID_UNCOMMITTED = _descriptor.Descriptor(
@@ -1360,8 +1525,8 @@ _INFO_INDEX_UUID_UNCOMMITTED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1597,
-  serialized_end=1624,
+  serialized_start=1822,
+  serialized_end=1849,
 )
 
 _INFO_INDEX_UUID = _descriptor.Descriptor(
@@ -1383,8 +1548,8 @@ _INFO_INDEX_UUID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1562,
-  serialized_end=1624,
+  serialized_start=1787,
+  serialized_end=1849,
 )
 
 _INFO_INDEX = _descriptor.Descriptor(
@@ -1406,8 +1571,8 @@ _INFO_INDEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1489,
-  serialized_end=1624,
+  serialized_start=1714,
+  serialized_end=1849,
 )
 
 _INFO_POD = _descriptor.Descriptor(
@@ -1478,8 +1643,8 @@ _INFO_POD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1627,
-  serialized_end=1808,
+  serialized_start=1852,
+  serialized_end=2033,
 )
 
 _INFO_NODE = _descriptor.Descriptor(
@@ -1543,8 +1708,8 @@ _INFO_NODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1811,
-  serialized_end=1981,
+  serialized_start=2036,
+  serialized_end=2206,
 )
 
 _INFO_CPU = _descriptor.Descriptor(
@@ -1587,8 +1752,8 @@ _INFO_CPU = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1983,
-  serialized_end=2035,
+  serialized_start=2208,
+  serialized_end=2260,
 )
 
 _INFO_MEMORY = _descriptor.Descriptor(
@@ -1631,8 +1796,8 @@ _INFO_MEMORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2037,
-  serialized_end=2092,
+  serialized_start=2262,
+  serialized_end=2317,
 )
 
 _INFO_PODS = _descriptor.Descriptor(
@@ -1661,8 +1826,8 @@ _INFO_PODS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2094,
-  serialized_end=2143,
+  serialized_start=2319,
+  serialized_end=2368,
 )
 
 _INFO_NODES = _descriptor.Descriptor(
@@ -1691,8 +1856,8 @@ _INFO_NODES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2145,
-  serialized_end=2197,
+  serialized_start=2370,
+  serialized_end=2422,
 )
 
 _INFO_IPS = _descriptor.Descriptor(
@@ -1721,8 +1886,8 @@ _INFO_IPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2199,
-  serialized_end=2216,
+  serialized_start=2424,
+  serialized_end=2441,
 )
 
 _INFO = _descriptor.Descriptor(
@@ -1744,8 +1909,8 @@ _INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1480,
-  serialized_end=2216,
+  serialized_start=1705,
+  serialized_end=2441,
 )
 
 
@@ -1768,8 +1933,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2218,
-  serialized_end=2225,
+  serialized_start=2443,
+  serialized_end=2450,
 )
 
 _SEARCH_REQUEST.fields_by_name['config'].message_type = _SEARCH_CONFIG
@@ -1793,8 +1958,12 @@ _OBJECT_VECTOR.containing_type = _OBJECT
 _OBJECT_VECTORS.fields_by_name['vectors'].message_type = _OBJECT_VECTOR
 _OBJECT_VECTORS.containing_type = _OBJECT
 _CONTROL_CREATEINDEXREQUEST.containing_type = _CONTROL
+_REPLICATION_RECOVERY.containing_type = _REPLICATION
+_REPLICATION_REBALANCE.containing_type = _REPLICATION
+_REPLICATION_AGENTS.containing_type = _REPLICATION
 _DISCOVERER_REQUEST.containing_type = _DISCOVERER
 _BACKUP_GETVECTOR_REQUEST.containing_type = _BACKUP_GETVECTOR
+_BACKUP_GETVECTOR_OWNER.containing_type = _BACKUP_GETVECTOR
 _BACKUP_GETVECTOR.containing_type = _BACKUP
 _BACKUP_LOCATIONS_REQUEST.containing_type = _BACKUP_LOCATIONS
 _BACKUP_LOCATIONS.containing_type = _BACKUP
@@ -1837,6 +2006,7 @@ DESCRIPTOR.message_types_by_name['Search'] = _SEARCH
 DESCRIPTOR.message_types_by_name['Meta'] = _META
 DESCRIPTOR.message_types_by_name['Object'] = _OBJECT
 DESCRIPTOR.message_types_by_name['Control'] = _CONTROL
+DESCRIPTOR.message_types_by_name['Replication'] = _REPLICATION
 DESCRIPTOR.message_types_by_name['Discoverer'] = _DISCOVERER
 DESCRIPTOR.message_types_by_name['Backup'] = _BACKUP
 DESCRIPTOR.message_types_by_name['Info'] = _INFO
@@ -1999,6 +2169,37 @@ Control = _reflection.GeneratedProtocolMessageType('Control', (_message.Message,
 _sym_db.RegisterMessage(Control)
 _sym_db.RegisterMessage(Control.CreateIndexRequest)
 
+Replication = _reflection.GeneratedProtocolMessageType('Replication', (_message.Message,), {
+
+  'Recovery' : _reflection.GeneratedProtocolMessageType('Recovery', (_message.Message,), {
+    'DESCRIPTOR' : _REPLICATION_RECOVERY,
+    '__module__' : 'vald.payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Replication.Recovery)
+    })
+  ,
+
+  'Rebalance' : _reflection.GeneratedProtocolMessageType('Rebalance', (_message.Message,), {
+    'DESCRIPTOR' : _REPLICATION_REBALANCE,
+    '__module__' : 'vald.payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Replication.Rebalance)
+    })
+  ,
+
+  'Agents' : _reflection.GeneratedProtocolMessageType('Agents', (_message.Message,), {
+    'DESCRIPTOR' : _REPLICATION_AGENTS,
+    '__module__' : 'vald.payload_pb2'
+    # @@protoc_insertion_point(class_scope:payload.Replication.Agents)
+    })
+  ,
+  'DESCRIPTOR' : _REPLICATION,
+  '__module__' : 'vald.payload_pb2'
+  # @@protoc_insertion_point(class_scope:payload.Replication)
+  })
+_sym_db.RegisterMessage(Replication)
+_sym_db.RegisterMessage(Replication.Recovery)
+_sym_db.RegisterMessage(Replication.Rebalance)
+_sym_db.RegisterMessage(Replication.Agents)
+
 Discoverer = _reflection.GeneratedProtocolMessageType('Discoverer', (_message.Message,), {
 
   'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
@@ -2022,6 +2223,13 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
       'DESCRIPTOR' : _BACKUP_GETVECTOR_REQUEST,
       '__module__' : 'vald.payload_pb2'
       # @@protoc_insertion_point(class_scope:payload.Backup.GetVector.Request)
+      })
+    ,
+
+    'Owner' : _reflection.GeneratedProtocolMessageType('Owner', (_message.Message,), {
+      'DESCRIPTOR' : _BACKUP_GETVECTOR_OWNER,
+      '__module__' : 'vald.payload_pb2'
+      # @@protoc_insertion_point(class_scope:payload.Backup.GetVector.Owner)
       })
     ,
     'DESCRIPTOR' : _BACKUP_GETVECTOR,
@@ -2141,6 +2349,7 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
 _sym_db.RegisterMessage(Backup)
 _sym_db.RegisterMessage(Backup.GetVector)
 _sym_db.RegisterMessage(Backup.GetVector.Request)
+_sym_db.RegisterMessage(Backup.GetVector.Owner)
 _sym_db.RegisterMessage(Backup.Locations)
 _sym_db.RegisterMessage(Backup.Locations.Request)
 _sym_db.RegisterMessage(Backup.Remove)
@@ -2277,6 +2486,7 @@ _OBJECT_VECTOR.fields_by_name['vector']._options = None
 _CONTROL_CREATEINDEXREQUEST.fields_by_name['pool_size']._options = None
 _DISCOVERER_REQUEST.fields_by_name['name']._options = None
 _BACKUP_GETVECTOR_REQUEST.fields_by_name['uuid']._options = None
+_BACKUP_GETVECTOR_OWNER.fields_by_name['ip']._options = None
 _BACKUP_LOCATIONS_REQUEST.fields_by_name['uuid']._options = None
 _BACKUP_REMOVE_REQUEST.fields_by_name['uuid']._options = None
 _BACKUP_REMOVE_REQUESTMULTI.fields_by_name['uuids']._options = None
