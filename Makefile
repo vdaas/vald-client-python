@@ -1,11 +1,11 @@
 #
-# Copyright (C) 2019 kpango (Yusuke Kato)
+# Copyright (C) 2019-2020 Vdaas.org Vald team ( kpango, rinx, kmrmt )
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+#    https://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,7 +31,7 @@ SHADOW_ROOT_VALD = $(SHADOW_ROOT)/vald
 SHADOW_ROOT_VALIDATE = $(SHADOW_ROOT)/validate
 
 PROTOS.vald.proto = gateway/vald/vald.proto
-PROTOS.agent.proto = agent/agent.proto
+PROTOS.agent.proto = agent/core/agent.proto
 PROTOS.payload.proto = payload/payload.proto
 PROTOS      = $(PROTOS.vald.proto) $(PROTOS.agent.proto) $(PROTOS.payload.proto)
 PROTOS     := $(PROTOS:%=$(PROTO_ROOT)/%)
@@ -61,6 +61,10 @@ pink   = /bin/echo -e "\x1b[35m\#\# $1\x1b[0m"
 cyan   = /bin/echo -e "\x1b[36m\#\# $1\x1b[0m"
 
 define go-get
+	GO111MODULE=on go get -u $1
+endef
+
+define go-get-no-mod
 	GO111MODULE=off go get -u $1
 endef
 
@@ -218,22 +222,22 @@ $(GOPATH)/src/google.golang.org/genproto:
 	$(call go-get, google.golang.org/genproto/...)
 
 $(GOPATH)/bin/protoc-gen-go:
-	$(call go-get, github.com/golang/protobuf/protoc-gen-go)
+	$(call go-get-no-mod, github.com/golang/protobuf/protoc-gen-go)
 
 $(GOPATH)/bin/protoc-gen-gogo:
-	$(call go-get, github.com/gogo/protobuf/protoc-gen-gogo)
+	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogo)
 
 $(GOPATH)/bin/protoc-gen-gofast:
-	$(call go-get, github.com/gogo/protobuf/protoc-gen-gofast)
+	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gofast)
 
 $(GOPATH)/bin/protoc-gen-gogofast:
-	$(call go-get, github.com/gogo/protobuf/protoc-gen-gogofast)
+	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogofast)
 
 $(GOPATH)/bin/protoc-gen-gogofaster:
-	$(call go-get, github.com/gogo/protobuf/protoc-gen-gogofaster)
+	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogofaster)
 
 $(GOPATH)/bin/protoc-gen-gogoslick:
-	$(call go-get, github.com/gogo/protobuf/protoc-gen-gogoslick)
+	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogoslick)
 
 $(GOPATH)/bin/protoc-gen-grpc-gateway:
 	$(call go-get, github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway)
@@ -251,4 +255,4 @@ $(GOPATH)/bin/protoc-gen-doc:
 	$(call go-get, github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc)
 
 $(GOPATH)/bin/swagger:
-	$(call go-get, github.com/go-swagger/go-swagger/cmd/swagger)
+	$(call go-get-no-mod, github.com/go-swagger/go-swagger/cmd/swagger)
