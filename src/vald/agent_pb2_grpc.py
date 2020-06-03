@@ -14,102 +14,102 @@ class AgentStub(object):
             channel: A grpc.Channel.
         """
         self.Exists = channel.unary_unary(
-                '/agent.Agent/Exists',
+                '/core.Agent/Exists',
                 request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Object.ID.FromString,
                 )
         self.Search = channel.unary_unary(
-                '/agent.Agent/Search',
+                '/core.Agent/Search',
                 request_serializer=vald_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
                 )
         self.SearchByID = channel.unary_unary(
-                '/agent.Agent/SearchByID',
+                '/core.Agent/SearchByID',
                 request_serializer=vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearch = channel.stream_stream(
-                '/agent.Agent/StreamSearch',
+                '/core.Agent/StreamSearch',
                 request_serializer=vald_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearchByID = channel.stream_stream(
-                '/agent.Agent/StreamSearchByID',
+                '/core.Agent/StreamSearchByID',
                 request_serializer=vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
                 )
         self.Insert = channel.unary_unary(
-                '/agent.Agent/Insert',
+                '/core.Agent/Insert',
                 request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.StreamInsert = channel.stream_stream(
-                '/agent.Agent/StreamInsert',
+                '/core.Agent/StreamInsert',
                 request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.MultiInsert = channel.unary_unary(
-                '/agent.Agent/MultiInsert',
+                '/core.Agent/MultiInsert',
                 request_serializer=vald_dot_payload__pb2.Object.Vectors.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.Update = channel.unary_unary(
-                '/agent.Agent/Update',
+                '/core.Agent/Update',
                 request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.StreamUpdate = channel.stream_stream(
-                '/agent.Agent/StreamUpdate',
+                '/core.Agent/StreamUpdate',
                 request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.MultiUpdate = channel.unary_unary(
-                '/agent.Agent/MultiUpdate',
+                '/core.Agent/MultiUpdate',
                 request_serializer=vald_dot_payload__pb2.Object.Vectors.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.Remove = channel.unary_unary(
-                '/agent.Agent/Remove',
+                '/core.Agent/Remove',
                 request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.StreamRemove = channel.stream_stream(
-                '/agent.Agent/StreamRemove',
+                '/core.Agent/StreamRemove',
                 request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.MultiRemove = channel.unary_unary(
-                '/agent.Agent/MultiRemove',
+                '/core.Agent/MultiRemove',
                 request_serializer=vald_dot_payload__pb2.Object.IDs.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.GetObject = channel.unary_unary(
-                '/agent.Agent/GetObject',
+                '/core.Agent/GetObject',
                 request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
                 )
         self.StreamGetObject = channel.stream_stream(
-                '/agent.Agent/StreamGetObject',
+                '/core.Agent/StreamGetObject',
                 request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
                 )
         self.CreateIndex = channel.unary_unary(
-                '/agent.Agent/CreateIndex',
+                '/core.Agent/CreateIndex',
                 request_serializer=vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.SaveIndex = channel.unary_unary(
-                '/agent.Agent/SaveIndex',
+                '/core.Agent/SaveIndex',
                 request_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.CreateAndSaveIndex = channel.unary_unary(
-                '/agent.Agent/CreateAndSaveIndex',
+                '/core.Agent/CreateAndSaveIndex',
                 request_serializer=vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Empty.FromString,
                 )
         self.IndexInfo = channel.unary_unary(
-                '/agent.Agent/IndexInfo',
+                '/core.Agent/IndexInfo',
                 request_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_payload__pb2.Info.Index.Count.FromString,
                 )
@@ -343,7 +343,7 @@ def add_AgentServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'agent.Agent', rpc_method_handlers)
+            'core.Agent', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -361,7 +361,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/Exists',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/Exists',
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Object.ID.FromString,
             options, channel_credentials,
@@ -377,7 +377,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/Search',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/Search',
             vald_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -393,7 +393,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/SearchByID',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/SearchByID',
             vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -409,7 +409,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/agent.Agent/StreamSearch',
+        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamSearch',
             vald_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -425,7 +425,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/agent.Agent/StreamSearchByID',
+        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamSearchByID',
             vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -441,7 +441,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/Insert',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/Insert',
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -457,7 +457,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/agent.Agent/StreamInsert',
+        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamInsert',
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -473,7 +473,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/MultiInsert',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/MultiInsert',
             vald_dot_payload__pb2.Object.Vectors.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -489,7 +489,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/Update',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/Update',
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -505,7 +505,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/agent.Agent/StreamUpdate',
+        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamUpdate',
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -521,7 +521,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/MultiUpdate',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/MultiUpdate',
             vald_dot_payload__pb2.Object.Vectors.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -537,7 +537,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/Remove',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/Remove',
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -553,7 +553,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/agent.Agent/StreamRemove',
+        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamRemove',
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -569,7 +569,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/MultiRemove',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/MultiRemove',
             vald_dot_payload__pb2.Object.IDs.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -585,7 +585,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/GetObject',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/GetObject',
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
@@ -601,7 +601,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/agent.Agent/StreamGetObject',
+        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamGetObject',
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
@@ -617,7 +617,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/CreateIndex',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/CreateIndex',
             vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -633,7 +633,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/SaveIndex',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/SaveIndex',
             vald_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -649,7 +649,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/CreateAndSaveIndex',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/CreateAndSaveIndex',
             vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -665,7 +665,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.Agent/IndexInfo',
+        return grpc.experimental.unary_unary(request, target, '/core.Agent/IndexInfo',
             vald_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_payload__pb2.Info.Index.Count.FromString,
             options, channel_credentials,
