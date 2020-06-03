@@ -246,7 +246,7 @@ $(GOPATH)/bin/protoc-gen-swagger:
 	$(call go-get, github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger)
 
 $(GOPATH)/bin/protoc-gen-validate:
-	$(call go-get, github.com/envoyproxy/protoc-gen-validate)
+	$(call go-get-no-mod, github.com/envoyproxy/protoc-gen-validate)
 
 $(GOPATH)/bin/prototool:
 	$(call go-get, github.com/uber/prototool/cmd/prototool)
