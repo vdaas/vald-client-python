@@ -20,6 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='vald',
   syntax='proto3',
   serialized_options=b'\n\033org.vdaas.vald.gateway.valdB\007ValdApiP\001Z,github.com/vdaas/vald/apis/grpc/gateway/vald',
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n\x0fvald/vald.proto\x12\x04vald\x1a\x12vald/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x9b\n\n\x04Vald\x12\x46\n\x06\x45xists\x12\x12.payload.Object.ID\x1a\x12.payload.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12O\n\x06Search\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12X\n\nSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12G\n\x0cStreamSearch\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12M\n\x10StreamSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12\x44\n\x06Insert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12<\n\x0cStreamInsert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiInsert\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x44\n\x06Update\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12<\n\x0cStreamUpdate\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiUpdate\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x44\n\x06Upsert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/upsert:\x01*\x12<\n\x0cStreamUpsert\x12\x16.payload.Object.Vector\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x38\n\x0bMultiUpsert\x12\x17.payload.Object.Vectors\x1a\x0e.payload.Empty\"\x00\x12\x42\n\x06Remove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/remove/{id}\x12\x38\n\x0cStreamRemove\x12\x12.payload.Object.ID\x1a\x0e.payload.Empty\"\x00(\x01\x30\x01\x12\x34\n\x0bMultiRemove\x12\x13.payload.Object.IDs\x1a\x0e.payload.Empty\"\x00\x12Q\n\tGetObject\x12\x12.payload.Object.ID\x1a\x1a.payload.Backup.MetaVector\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/{id}\x12G\n\x0fStreamGetObject\x12\x12.payload.Object.ID\x1a\x1a.payload.Backup.MetaVector\"\x00(\x01\x30\x01\x42V\n\x1borg.vdaas.vald.gateway.valdB\x07ValdApiP\x01Z,github.com/vdaas/vald/apis/grpc/gateway/valdb\x06proto3'
   ,
   dependencies=[vald_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
@@ -37,6 +38,7 @@ _VALD = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
+  create_key=_descriptor._internal_create_key,
   serialized_start=76,
   serialized_end=1383,
   methods=[
@@ -48,6 +50,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_ID,
     output_type=vald_dot_payload__pb2._OBJECT_ID,
     serialized_options=b'\202\323\344\223\002\016\022\014/exists/{id}',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='Search',
@@ -57,6 +60,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._SEARCH_REQUEST,
     output_type=vald_dot_payload__pb2._SEARCH_RESPONSE,
     serialized_options=b'\202\323\344\223\002\014\"\007/search:\001*',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='SearchByID',
@@ -66,6 +70,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._SEARCH_IDREQUEST,
     output_type=vald_dot_payload__pb2._SEARCH_RESPONSE,
     serialized_options=b'\202\323\344\223\002\017\"\n/search/id:\001*',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='StreamSearch',
@@ -75,6 +80,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._SEARCH_REQUEST,
     output_type=vald_dot_payload__pb2._SEARCH_RESPONSE,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='StreamSearchByID',
@@ -84,6 +90,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._SEARCH_IDREQUEST,
     output_type=vald_dot_payload__pb2._SEARCH_RESPONSE,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='Insert',
@@ -93,6 +100,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTOR,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002\014\"\007/insert:\001*',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='StreamInsert',
@@ -102,6 +110,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTOR,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='MultiInsert',
@@ -111,6 +120,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTORS,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='Update',
@@ -120,6 +130,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTOR,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002\014\"\007/update:\001*',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='StreamUpdate',
@@ -129,6 +140,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTOR,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='MultiUpdate',
@@ -138,6 +150,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTORS,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='Upsert',
@@ -147,6 +160,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTOR,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002\014\"\007/upsert:\001*',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='StreamUpsert',
@@ -156,6 +170,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTOR,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='MultiUpsert',
@@ -165,6 +180,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_VECTORS,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='Remove',
@@ -174,6 +190,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_ID,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002\016*\014/remove/{id}',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='StreamRemove',
@@ -183,6 +200,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_ID,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='MultiRemove',
@@ -192,6 +210,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_IDS,
     output_type=vald_dot_payload__pb2._EMPTY,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetObject',
@@ -201,6 +220,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_ID,
     output_type=vald_dot_payload__pb2._BACKUP_METAVECTOR,
     serialized_options=b'\202\323\344\223\002\016\022\014/object/{id}',
+    create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='StreamGetObject',
@@ -210,6 +230,7 @@ _VALD = _descriptor.ServiceDescriptor(
     input_type=vald_dot_payload__pb2._OBJECT_ID,
     output_type=vald_dot_payload__pb2._BACKUP_METAVECTOR,
     serialized_options=None,
+    create_key=_descriptor._internal_create_key,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_VALD)
