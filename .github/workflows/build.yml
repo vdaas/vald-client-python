@@ -38,6 +38,12 @@ jobs:
           git add .
           git commit -m "[skip ci] Update [vald sha: ${sha}]"
           git push
+      - name: tag
+        continue-on-error: true
+        run: |
+          version=`make vald/client/python/version/print`
+          git tag ${version}
+          git push --tags
       - name: prepare to publish
         run: |
           pip install wheel
