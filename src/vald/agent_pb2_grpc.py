@@ -358,6 +358,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -366,7 +367,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Object.ID.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Search(request,
@@ -374,6 +375,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -382,7 +384,7 @@ class Agent(object):
             vald_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SearchByID(request,
@@ -390,6 +392,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -398,7 +401,7 @@ class Agent(object):
             vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def StreamSearch(request_iterator,
@@ -406,6 +409,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -414,7 +418,7 @@ class Agent(object):
             vald_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def StreamSearchByID(request_iterator,
@@ -422,6 +426,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -430,7 +435,7 @@ class Agent(object):
             vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Insert(request,
@@ -438,6 +443,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -446,7 +452,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def StreamInsert(request_iterator,
@@ -454,6 +460,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -462,7 +469,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def MultiInsert(request,
@@ -470,6 +477,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -478,7 +486,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.Vectors.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Update(request,
@@ -486,6 +494,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -494,7 +503,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def StreamUpdate(request_iterator,
@@ -502,6 +511,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -510,7 +520,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def MultiUpdate(request,
@@ -518,6 +528,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -526,7 +537,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.Vectors.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Remove(request,
@@ -534,6 +545,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -542,7 +554,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def StreamRemove(request_iterator,
@@ -550,6 +562,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -558,7 +571,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def MultiRemove(request,
@@ -566,6 +579,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -574,7 +588,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.IDs.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def GetObject(request,
@@ -582,6 +596,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -590,7 +605,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def StreamGetObject(request_iterator,
@@ -598,6 +613,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -606,7 +622,7 @@ class Agent(object):
             vald_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def CreateIndex(request,
@@ -614,6 +630,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -622,7 +639,7 @@ class Agent(object):
             vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SaveIndex(request,
@@ -630,6 +647,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -638,7 +656,7 @@ class Agent(object):
             vald_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def CreateAndSaveIndex(request,
@@ -646,6 +664,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -654,7 +673,7 @@ class Agent(object):
             vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def IndexInfo(request,
@@ -662,6 +681,7 @@ class Agent(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -670,4 +690,4 @@ class Agent(object):
             vald_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_payload__pb2.Info.Index.Count.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
