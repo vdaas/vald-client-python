@@ -11,8 +11,8 @@ jobs:
         run: |
           echo "Install dependencies"
           sudo apt-get update
-          sudo apt-get install -y python python-pip libprotobuf-dev libprotoc-dev protobuf-compiler
-          pip install wheel grpcio-tools
+          sudo apt-get install -y libprotobuf-dev libprotoc-dev protobuf-compiler
+          pip3 install grpcio-tools
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
@@ -23,7 +23,7 @@ jobs:
           echo "build"
           export GOPATH=$HOME/go
           make vald
-          make all
+          make PYTHON=python3 all
           make vald/sha/update
           make vald/client/python/version/update
       - run: |
@@ -46,8 +46,8 @@ jobs:
           git push --tags
       - name: prepare to publish
         run: |
-          python setup.py sdist
-          python setup.py bdist_wheel
+          python3 setup.py sdist
+          python3 setup.py bdist_wheel
       - name: publish
         uses: pypa/gh-action-pypi-publish@master
         with:

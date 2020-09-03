@@ -21,6 +21,8 @@ LANGUAGE    = python
 PKGNAME     = $(NAME)-client-$(LANGUAGE)
 PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 
+PYTHON = python
+
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
 
@@ -130,7 +132,7 @@ $(SHADOW_VALIDATE): proto/deps $(SHADOW_ROOT_VALIDATE)
 
 $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS) $(SHADOW_VALIDATE)
 	@$(call green, "generating pb2.py files...")
-	python \
+	$(PYTHON) \
 		-m grpc_tools.protoc \
 		$(PROTO_PATHS:%=-I %) \
 		--python_out=$(PB2DIR_ROOT) \
@@ -139,7 +141,7 @@ $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS) $(SHADOW_VALIDATE)
 
 $(PB2PY_VALIDATE): $(SHADOW_VALIDATE)
 	@$(call green, "generating pb2.py files...")
-	python \
+	$(PYTHON) \
 		-m grpc_tools.protoc \
 		$(PROTO_PATHS:%=-I %) \
 		--python_out=$(PB2DIR_ROOT) \
