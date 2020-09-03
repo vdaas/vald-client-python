@@ -10,9 +10,9 @@ jobs:
       - name: Install dependencies
         run: |
           echo "Install dependencies"
-          sudo apt-get update
-          sudo apt-get install -y python python-pip libprotobuf-dev libprotoc-dev protobuf-compiler
-          pip install grpcio-tools
+          apt-get update
+          apt-get install -y python python-pip libprotobuf-dev libprotoc-dev protobuf-compiler
+          pip install wheel grpcio-tools
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
@@ -46,7 +46,6 @@ jobs:
           git push --tags
       - name: prepare to publish
         run: |
-          pip install wheel
           python setup.py sdist
           python setup.py bdist_wheel
       - name: publish
