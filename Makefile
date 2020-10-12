@@ -54,8 +54,13 @@ SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 
-PB2DIRS = $(dir $(PB2PYS))
-INITPYS = $(PB2DIRS:%=%__init__.py)
+INITPYS = $(addsuffix __init__.py,$(dir $(PB2PYS))) \
+	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/__init__.py \
+	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/gateway/__init__.py \
+	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/agent/__init__.py \
+	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/v1/__init__.py \
+	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/v1/agent/__init__.py \
+	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/v1/gateway/__init__.py
 
 PROTO_PATHS = \
 	$(PWD) \
@@ -124,7 +129,7 @@ $(SHADOWS): $(VALD_DIR)
 $(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	mkdir -p $(dir $@)
 	cp $< $@
-	sed -i -e 's:^import "apis/proto/:import "vald/:' $@
+	sed -i -e 's:^import "apis/proto/:import "$(SHADOW_ROOT)/:' $@
 
 $(PB2DIR_ROOT)/%/__init__.py:
 	mkdir -p $(dir $@)
