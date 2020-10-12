@@ -51,11 +51,11 @@ PROTOS = \
 	v1/payload/payload.proto
 PROTOS := $(PROTOS:%=$(PROTO_ROOT)/%)
 SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_ROOT)/%.proto)
-PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
-INITPYS = $(PROTOS:%.proto=$(dir $(PB2DIR_ROOT)/%)/__init__.py)
+PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 
-PROTODIRS = $(shell find $(PROTO_ROOT) -type d | sed -e "s%$(PROTO_ROOT)/%%g" | grep -v "$(PROTO_ROOT)")
+PB2DIRS = $(dir $(PB2PYS))
+INITPYS = $(PB2DIRS:%=%__init__.py)
 
 PROTO_PATHS = \
 	$(PWD) \
@@ -109,12 +109,14 @@ help:
 ## clean
 clean:
 	rm -rf $(PB2DIR_ROOT)
+	rm -rf $(SHADOW_ROOT)
 	rm -rf $(VALD_DIR)
 
 .PHONY: proto
 ## build proto
 proto: \
 	$(PB2PYS) \
+	$(INITPYS) \
 	$(PB2PY_VALIDATE) \
 	$(PB2DIR_ROOT)/validate/__init__.py
 
@@ -125,7 +127,8 @@ $(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	sed -i -e 's:^import "apis/proto/:import "vald/:' $@
 
 $(PB2DIR_ROOT)/%/__init__.py:
-	echo "from vald import *" > $(PB2DIR_ROOT)/%/__init__.py
+	mkdir -p $(dir $@)
+	echo "from $(shell basename $(dir $@)) import *" > $@
 
 $(PB2DIR_ROOT)/validate/__init__.py: $(PB2DIR_ROOT)
 	mkdir -p $(PB2DIR_ROOT)/validate
@@ -136,7 +139,7 @@ $(PB2DIR_ROOT):
 	$(call rm, -rf, $@/*)
 
 $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
-$(PB2DIR_ROOT)/%_pb2.py: $(SHADOW_ROOT)/%.proto
+$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py: $(SHADOW_ROOT)/%.proto
 	@$(call green, "generating pb2.py files...")
 	$(PYTHON) \
 		-m grpc_tools.protoc \
