@@ -1,1 +1,1 @@
-from vald import *
+from vald.gateway.vald import *

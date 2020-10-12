@@ -1,1 +1,1 @@
-from core import *
+from vald.agent.core import *

@@ -54,20 +54,15 @@ SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 
-INITPYS = $(addsuffix __init__.py,$(dir $(PB2PYS))) \
-	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/__init__.py \
-	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/gateway/__init__.py \
-	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/agent/__init__.py \
-	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/v1/__init__.py \
-	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/v1/agent/__init__.py \
-	  $(PB2DIR_ROOT)/$(SHADOW_ROOT)/v1/gateway/__init__.py
+INITPYS = $(addsuffix __init__.py,$(dir $(PB2PYS)))
 
 PROTO_PATHS = \
 	$(PWD) \
 	$(PWD)/$(VALD_DIR) \
 	$(PWD)/$(PROTO_ROOT) \
 	$(GOPATH)/src \
-	$(GOPATH)/src/github.com/googleapis/googleapis
+	$(GOPATH)/src/github.com/googleapis/googleapis \
+	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 
 MAKELISTS = Makefile
 
@@ -130,10 +125,11 @@ $(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	mkdir -p $(dir $@)
 	cp $< $@
 	sed -i -e 's:^import "apis/proto/:import "$(SHADOW_ROOT)/:' $@
+	sed -i -e 's:^import "github.com/envoyproxy/protoc-gen-validate/:import ":' $@
 
 $(PB2DIR_ROOT)/%/__init__.py:
 	mkdir -p $(dir $@)
-	echo "from $(shell basename $(dir $@)) import *" > $@
+	echo "from $(subst /,.,$(patsubst %/,%,$(dir $(patsubst $(PB2DIR_ROOT)/%,%,$@)))) import *" > $@
 
 $(PB2DIR_ROOT)/validate/__init__.py: $(PB2DIR_ROOT)
 	mkdir -p $(PB2DIR_ROOT)/validate

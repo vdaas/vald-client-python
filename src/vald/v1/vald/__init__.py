@@ -1,1 +1,1 @@
-from vald import *
+from vald.v1.vald import *
