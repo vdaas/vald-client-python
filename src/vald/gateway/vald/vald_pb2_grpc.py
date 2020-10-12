@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from vald import payload_pb2 as vald_dot_payload__pb2
+from vald.payload import payload_pb2 as vald_dot_payload_dot_payload__pb2
 
 
-class AgentStub(object):
+class ValdStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,108 +15,103 @@ class AgentStub(object):
             channel: A grpc.Channel.
         """
         self.Exists = channel.unary_unary(
-                '/core.Agent/Exists',
-                request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Object.ID.FromString,
+                '/vald.Vald/Exists',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.ID.FromString,
                 )
         self.Search = channel.unary_unary(
-                '/core.Agent/Search',
-                request_serializer=vald_dot_payload__pb2.Search.Request.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
+                '/vald.Vald/Search',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.SearchByID = channel.unary_unary(
-                '/core.Agent/SearchByID',
-                request_serializer=vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
+                '/vald.Vald/SearchByID',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearch = channel.stream_stream(
-                '/core.Agent/StreamSearch',
-                request_serializer=vald_dot_payload__pb2.Search.Request.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
+                '/vald.Vald/StreamSearch',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearchByID = channel.stream_stream(
-                '/core.Agent/StreamSearchByID',
-                request_serializer=vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Search.Response.FromString,
+                '/vald.Vald/StreamSearchByID',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.Insert = channel.unary_unary(
-                '/core.Agent/Insert',
-                request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/Insert',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamInsert = channel.stream_stream(
-                '/core.Agent/StreamInsert',
-                request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/StreamInsert',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiInsert = channel.unary_unary(
-                '/core.Agent/MultiInsert',
-                request_serializer=vald_dot_payload__pb2.Object.Vectors.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/MultiInsert',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
         self.Update = channel.unary_unary(
-                '/core.Agent/Update',
-                request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/Update',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamUpdate = channel.stream_stream(
-                '/core.Agent/StreamUpdate',
-                request_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/StreamUpdate',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiUpdate = channel.unary_unary(
-                '/core.Agent/MultiUpdate',
-                request_serializer=vald_dot_payload__pb2.Object.Vectors.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/MultiUpdate',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
+                )
+        self.Upsert = channel.unary_unary(
+                '/vald.Vald/Upsert',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                )
+        self.StreamUpsert = channel.stream_stream(
+                '/vald.Vald/StreamUpsert',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                )
+        self.MultiUpsert = channel.unary_unary(
+                '/vald.Vald/MultiUpsert',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
         self.Remove = channel.unary_unary(
-                '/core.Agent/Remove',
-                request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/Remove',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamRemove = channel.stream_stream(
-                '/core.Agent/StreamRemove',
-                request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/StreamRemove',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiRemove = channel.unary_unary(
-                '/core.Agent/MultiRemove',
-                request_serializer=vald_dot_payload__pb2.Object.IDs.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
+                '/vald.Vald/MultiRemove',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.IDs.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
         self.GetObject = channel.unary_unary(
-                '/core.Agent/GetObject',
-                request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
+                '/vald.Vald/GetObject',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
                 )
         self.StreamGetObject = channel.stream_stream(
-                '/core.Agent/StreamGetObject',
-                request_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
-                )
-        self.CreateIndex = channel.unary_unary(
-                '/core.Agent/CreateIndex',
-                request_serializer=vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
-                )
-        self.SaveIndex = channel.unary_unary(
-                '/core.Agent/SaveIndex',
-                request_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
-                )
-        self.CreateAndSaveIndex = channel.unary_unary(
-                '/core.Agent/CreateAndSaveIndex',
-                request_serializer=vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Empty.FromString,
-                )
-        self.IndexInfo = channel.unary_unary(
-                '/core.Agent/IndexInfo',
-                request_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
-                response_deserializer=vald_dot_payload__pb2.Info.Index.Count.FromString,
+                '/vald.Vald/StreamGetObject',
+                request_serializer=vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+                response_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
                 )
 
 
-class AgentServicer(object):
+class ValdServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Exists(self, request, context):
@@ -185,6 +180,24 @@ class AgentServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Upsert(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def StreamUpsert(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MultiUpsert(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Remove(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -215,141 +228,112 @@ class AgentServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateIndex(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
 
-    def SaveIndex(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CreateAndSaveIndex(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def IndexInfo(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-
-def add_AgentServicer_to_server(servicer, server):
+def add_ValdServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Exists': grpc.unary_unary_rpc_method_handler(
                     servicer.Exists,
-                    request_deserializer=vald_dot_payload__pb2.Object.ID.FromString,
-                    response_serializer=vald_dot_payload__pb2.Object.ID.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.ID.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             ),
             'Search': grpc.unary_unary_rpc_method_handler(
                     servicer.Search,
-                    request_deserializer=vald_dot_payload__pb2.Search.Request.FromString,
-                    response_serializer=vald_dot_payload__pb2.Search.Response.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Search.Request.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Search.Response.SerializeToString,
             ),
             'SearchByID': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchByID,
-                    request_deserializer=vald_dot_payload__pb2.Search.IDRequest.FromString,
-                    response_serializer=vald_dot_payload__pb2.Search.Response.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Search.IDRequest.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Search.Response.SerializeToString,
             ),
             'StreamSearch': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamSearch,
-                    request_deserializer=vald_dot_payload__pb2.Search.Request.FromString,
-                    response_serializer=vald_dot_payload__pb2.Search.Response.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Search.Request.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Search.Response.SerializeToString,
             ),
             'StreamSearchByID': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamSearchByID,
-                    request_deserializer=vald_dot_payload__pb2.Search.IDRequest.FromString,
-                    response_serializer=vald_dot_payload__pb2.Search.Response.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Search.IDRequest.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Search.Response.SerializeToString,
             ),
             'Insert': grpc.unary_unary_rpc_method_handler(
                     servicer.Insert,
-                    request_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
             ),
             'StreamInsert': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamInsert,
-                    request_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
             ),
             'MultiInsert': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiInsert,
-                    request_deserializer=vald_dot_payload__pb2.Object.Vectors.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vectors.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Locations.SerializeToString,
             ),
             'Update': grpc.unary_unary_rpc_method_handler(
                     servicer.Update,
-                    request_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
             ),
             'StreamUpdate': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamUpdate,
-                    request_deserializer=vald_dot_payload__pb2.Object.Vector.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
             ),
             'MultiUpdate': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiUpdate,
-                    request_deserializer=vald_dot_payload__pb2.Object.Vectors.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vectors.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Locations.SerializeToString,
+            ),
+            'Upsert': grpc.unary_unary_rpc_method_handler(
+                    servicer.Upsert,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+            ),
+            'StreamUpsert': grpc.stream_stream_rpc_method_handler(
+                    servicer.StreamUpsert,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+            ),
+            'MultiUpsert': grpc.unary_unary_rpc_method_handler(
+                    servicer.MultiUpsert,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.Vectors.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Locations.SerializeToString,
             ),
             'Remove': grpc.unary_unary_rpc_method_handler(
                     servicer.Remove,
-                    request_deserializer=vald_dot_payload__pb2.Object.ID.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.ID.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
             ),
             'StreamRemove': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamRemove,
-                    request_deserializer=vald_dot_payload__pb2.Object.ID.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.ID.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
             ),
             'MultiRemove': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiRemove,
-                    request_deserializer=vald_dot_payload__pb2.Object.IDs.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.IDs.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Locations.SerializeToString,
             ),
             'GetObject': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObject,
-                    request_deserializer=vald_dot_payload__pb2.Object.ID.FromString,
-                    response_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.ID.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             ),
             'StreamGetObject': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamGetObject,
-                    request_deserializer=vald_dot_payload__pb2.Object.ID.FromString,
-                    response_serializer=vald_dot_payload__pb2.Object.Vector.SerializeToString,
-            ),
-            'CreateIndex': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateIndex,
-                    request_deserializer=vald_dot_payload__pb2.Control.CreateIndexRequest.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
-            ),
-            'SaveIndex': grpc.unary_unary_rpc_method_handler(
-                    servicer.SaveIndex,
-                    request_deserializer=vald_dot_payload__pb2.Empty.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
-            ),
-            'CreateAndSaveIndex': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateAndSaveIndex,
-                    request_deserializer=vald_dot_payload__pb2.Control.CreateIndexRequest.FromString,
-                    response_serializer=vald_dot_payload__pb2.Empty.SerializeToString,
-            ),
-            'IndexInfo': grpc.unary_unary_rpc_method_handler(
-                    servicer.IndexInfo,
-                    request_deserializer=vald_dot_payload__pb2.Empty.FromString,
-                    response_serializer=vald_dot_payload__pb2.Info.Index.Count.SerializeToString,
+                    request_deserializer=vald_dot_payload_dot_payload__pb2.Object.ID.FromString,
+                    response_serializer=vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'core.Agent', rpc_method_handlers)
+            'vald.Vald', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class Agent(object):
+class Vald(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -363,9 +347,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/Exists',
-            vald_dot_payload__pb2.Object.ID.SerializeToString,
-            vald_dot_payload__pb2.Object.ID.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Exists',
+            vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.ID.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -380,9 +364,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/Search',
-            vald_dot_payload__pb2.Search.Request.SerializeToString,
-            vald_dot_payload__pb2.Search.Response.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Search',
+            vald_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -397,9 +381,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/SearchByID',
-            vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
-            vald_dot_payload__pb2.Search.Response.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/SearchByID',
+            vald_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -414,9 +398,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamSearch',
-            vald_dot_payload__pb2.Search.Request.SerializeToString,
-            vald_dot_payload__pb2.Search.Response.FromString,
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamSearch',
+            vald_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -431,9 +415,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamSearchByID',
-            vald_dot_payload__pb2.Search.IDRequest.SerializeToString,
-            vald_dot_payload__pb2.Search.Response.FromString,
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamSearchByID',
+            vald_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -448,9 +432,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/Insert',
-            vald_dot_payload__pb2.Object.Vector.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Insert',
+            vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -465,9 +449,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamInsert',
-            vald_dot_payload__pb2.Object.Vector.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamInsert',
+            vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -482,9 +466,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/MultiInsert',
-            vald_dot_payload__pb2.Object.Vectors.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiInsert',
+            vald_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -499,9 +483,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/Update',
-            vald_dot_payload__pb2.Object.Vector.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Update',
+            vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -516,9 +500,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamUpdate',
-            vald_dot_payload__pb2.Object.Vector.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamUpdate',
+            vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -533,9 +517,60 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/MultiUpdate',
-            vald_dot_payload__pb2.Object.Vectors.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiUpdate',
+            vald_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Upsert(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Upsert',
+            vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StreamUpsert(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamUpsert',
+            vald_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MultiUpsert(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiUpsert',
+            vald_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -550,9 +585,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/Remove',
-            vald_dot_payload__pb2.Object.ID.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Remove',
+            vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -567,9 +602,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamRemove',
-            vald_dot_payload__pb2.Object.ID.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamRemove',
+            vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -584,9 +619,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/MultiRemove',
-            vald_dot_payload__pb2.Object.IDs.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiRemove',
+            vald_dot_payload_dot_payload__pb2.Object.IDs.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -601,9 +636,9 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/GetObject',
-            vald_dot_payload__pb2.Object.ID.SerializeToString,
-            vald_dot_payload__pb2.Object.Vector.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vald.Vald/GetObject',
+            vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -618,76 +653,8 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/core.Agent/StreamGetObject',
-            vald_dot_payload__pb2.Object.ID.SerializeToString,
-            vald_dot_payload__pb2.Object.Vector.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateIndex(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/CreateIndex',
-            vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SaveIndex(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/SaveIndex',
-            vald_dot_payload__pb2.Empty.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateAndSaveIndex(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/CreateAndSaveIndex',
-            vald_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
-            vald_dot_payload__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def IndexInfo(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/IndexInfo',
-            vald_dot_payload__pb2.Empty.SerializeToString,
-            vald_dot_payload__pb2.Info.Index.Count.FromString,
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamGetObject',
+            vald_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+            vald_dot_payload_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
