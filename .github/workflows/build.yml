@@ -22,7 +22,6 @@ jobs:
       - run: |
           echo "build"
           export GOPATH=$HOME/go
-          make vald
           make PYTHON=python3 all
           make vald/sha/update
           make vald/client/python/version/update
