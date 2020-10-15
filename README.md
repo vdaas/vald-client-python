@@ -9,7 +9,6 @@ A Python gRPC client library for [Vald](https://github.com/vdaas/vald).
 Using pip,
 
 ```sh
-pip install grpcio-tools
 pip install vald-client-python
 ```
 
