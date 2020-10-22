@@ -15,17 +15,17 @@ class UpdateStub(object):
             channel: A grpc.Channel.
         """
         self.Update = channel.unary_unary(
-                '/vald.Update/Update',
+                '/vald.v1.Update/Update',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamUpdate = channel.stream_stream(
-                '/vald.Update/StreamUpdate',
+                '/vald.v1.Update/StreamUpdate',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiUpdate = channel.unary_unary(
-                '/vald.Update/MultiUpdate',
+                '/vald.v1.Update/MultiUpdate',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
@@ -72,7 +72,7 @@ def add_UpdateServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vald.Update', rpc_method_handlers)
+            'vald.v1.Update', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,7 +91,7 @@ class Update(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Update/Update',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Update/Update',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -108,7 +108,7 @@ class Update(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Update/StreamUpdate',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Update/StreamUpdate',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -125,7 +125,7 @@ class Update(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Update/MultiUpdate',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Update/MultiUpdate',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,

@@ -15,22 +15,22 @@ class AgentStub(object):
             channel: A grpc.Channel.
         """
         self.CreateIndex = channel.unary_unary(
-                '/core.Agent/CreateIndex',
+                '/core.v1.Agent/CreateIndex',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
                 )
         self.SaveIndex = channel.unary_unary(
-                '/core.Agent/SaveIndex',
+                '/core.v1.Agent/SaveIndex',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
                 )
         self.CreateAndSaveIndex = channel.unary_unary(
-                '/core.Agent/CreateAndSaveIndex',
+                '/core.v1.Agent/CreateAndSaveIndex',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
                 )
         self.IndexInfo = channel.unary_unary(
-                '/core.Agent/IndexInfo',
+                '/core.v1.Agent/IndexInfo',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.FromString,
                 )
@@ -88,7 +88,7 @@ def add_AgentServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'core.Agent', rpc_method_handlers)
+            'core.v1.Agent', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -107,7 +107,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/CreateIndex',
+        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/CreateIndex',
             vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -124,7 +124,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/SaveIndex',
+        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/SaveIndex',
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -141,7 +141,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/CreateAndSaveIndex',
+        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/CreateAndSaveIndex',
             vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
             options, channel_credentials,
@@ -158,7 +158,7 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.Agent/IndexInfo',
+        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/IndexInfo',
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.FromString,
             options, channel_credentials,

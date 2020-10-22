@@ -15,32 +15,32 @@ class SearchStub(object):
             channel: A grpc.Channel.
         """
         self.Search = channel.unary_unary(
-                '/vald.Search/Search',
+                '/vald.v1.Search/Search',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.SearchByID = channel.unary_unary(
-                '/vald.Search/SearchByID',
+                '/vald.v1.Search/SearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearch = channel.stream_stream(
-                '/vald.Search/StreamSearch',
+                '/vald.v1.Search/StreamSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearchByID = channel.stream_stream(
-                '/vald.Search/StreamSearchByID',
+                '/vald.v1.Search/StreamSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.MultiSearch = channel.unary_unary(
-                '/vald.Search/MultiSearch',
+                '/vald.v1.Search/MultiSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
                 )
         self.MultiSearchByID = channel.unary_unary(
-                '/vald.Search/MultiSearchByID',
+                '/vald.v1.Search/MultiSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
                 )
@@ -120,7 +120,7 @@ def add_SearchServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vald.Search', rpc_method_handlers)
+            'vald.v1.Search', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -139,7 +139,7 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Search/Search',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/Search',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -156,7 +156,7 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Search/SearchByID',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/SearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -173,7 +173,7 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Search/StreamSearch',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -190,7 +190,7 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Search/StreamSearchByID',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -207,7 +207,7 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Search/MultiSearch',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
             options, channel_credentials,
@@ -224,7 +224,7 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Search/MultiSearchByID',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
             options, channel_credentials,

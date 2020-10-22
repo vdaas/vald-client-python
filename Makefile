@@ -36,9 +36,6 @@ PB2DIR_ROOT = src
 SHADOW_ROOT = vald
 
 PROTOS = \
-	gateway/vald/vald.proto \
-	agent/core/agent.proto \
-	payload/payload.proto \
 	v1/agent/core/agent.proto \
 	v1/gateway/vald/vald.proto \
 	v1/vald/filter.proto \

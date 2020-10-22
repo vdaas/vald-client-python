@@ -15,17 +15,17 @@ class ObjectStub(object):
             channel: A grpc.Channel.
         """
         self.Exists = channel.unary_unary(
-                '/vald.Object/Exists',
+                '/vald.v1.Object/Exists',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.FromString,
                 )
         self.GetObject = channel.unary_unary(
-                '/vald.Object/GetObject',
+                '/vald.v1.Object/GetObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
                 )
         self.StreamGetObject = channel.stream_stream(
-                '/vald.Object/StreamGetObject',
+                '/vald.v1.Object/StreamGetObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
                 )
@@ -72,7 +72,7 @@ def add_ObjectServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vald.Object', rpc_method_handlers)
+            'vald.v1.Object', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,7 +91,7 @@ class Object(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Object/Exists',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Object/Exists',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.FromString,
             options, channel_credentials,
@@ -108,7 +108,7 @@ class Object(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Object/GetObject',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Object/GetObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
@@ -125,7 +125,7 @@ class Object(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Object/StreamGetObject',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Object/StreamGetObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,

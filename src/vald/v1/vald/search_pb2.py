@@ -17,11 +17,11 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='vald/v1/vald/search.proto',
-  package='vald',
+  package='vald.v1',
   syntax='proto3',
   serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdSearchP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/search.proto\x12\x04vald\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xe5\x03\n\x06Search\x12O\n\x06Search\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12X\n\nSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12G\n\x0cStreamSearch\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12M\n\x10StreamSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12H\n\x0bMultiSearch\x12\x1c.payload.Search.MultiRequest\x1a\x19.payload.Search.Responses\"\x00\x12N\n\x0fMultiSearchByID\x12\x1e.payload.Search.MultiIDRequest\x1a\x19.payload.Search.Responses\"\x00\x42S\n\x1aorg.vdaas.vald.api.v1.valdB\nValdSearchP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
+  serialized_pb=b'\n\x19vald/v1/vald/search.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x89\x04\n\x06Search\x12U\n\x06Search\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12^\n\nSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12M\n\x0cStreamSearch\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x00(\x01\x30\x01\x12S\n\x10StreamSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x00(\x01\x30\x01\x12N\n\x0bMultiSearch\x12\x1f.payload.v1.Search.MultiRequest\x1a\x1c.payload.v1.Search.Responses\"\x00\x12T\n\x0fMultiSearchByID\x12!.payload.v1.Search.MultiIDRequest\x1a\x1c.payload.v1.Search.Responses\"\x00\x42S\n\x1aorg.vdaas.vald.api.v1.valdB\nValdSearchP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
   ,
   dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -34,17 +34,17 @@ DESCRIPTOR._options = None
 
 _SEARCH = _descriptor.ServiceDescriptor(
   name='Search',
-  full_name='vald.Search',
+  full_name='vald.v1.Search',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=97,
-  serialized_end=582,
+  serialized_start=100,
+  serialized_end=621,
   methods=[
   _descriptor.MethodDescriptor(
     name='Search',
-    full_name='vald.Search.Search',
+    full_name='vald.v1.Search.Search',
     index=0,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
@@ -54,7 +54,7 @@ _SEARCH = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SearchByID',
-    full_name='vald.Search.SearchByID',
+    full_name='vald.v1.Search.SearchByID',
     index=1,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
@@ -64,7 +64,7 @@ _SEARCH = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamSearch',
-    full_name='vald.Search.StreamSearch',
+    full_name='vald.v1.Search.StreamSearch',
     index=2,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
@@ -74,7 +74,7 @@ _SEARCH = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamSearchByID',
-    full_name='vald.Search.StreamSearchByID',
+    full_name='vald.v1.Search.StreamSearchByID',
     index=3,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
@@ -84,7 +84,7 @@ _SEARCH = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='MultiSearch',
-    full_name='vald.Search.MultiSearch',
+    full_name='vald.v1.Search.MultiSearch',
     index=4,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIREQUEST,
@@ -94,7 +94,7 @@ _SEARCH = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='MultiSearchByID',
-    full_name='vald.Search.MultiSearchByID',
+    full_name='vald.v1.Search.MultiSearchByID',
     index=5,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIIDREQUEST,

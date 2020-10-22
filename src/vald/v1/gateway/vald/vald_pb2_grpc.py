@@ -15,97 +15,97 @@ class ValdStub(object):
             channel: A grpc.Channel.
         """
         self.Exists = channel.unary_unary(
-                '/vald.Vald/Exists',
+                '/vald.v1.Vald/Exists',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.FromString,
                 )
         self.Search = channel.unary_unary(
-                '/vald.Vald/Search',
+                '/vald.v1.Vald/Search',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.SearchByID = channel.unary_unary(
-                '/vald.Vald/SearchByID',
+                '/vald.v1.Vald/SearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearch = channel.stream_stream(
-                '/vald.Vald/StreamSearch',
+                '/vald.v1.Vald/StreamSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.StreamSearchByID = channel.stream_stream(
-                '/vald.Vald/StreamSearchByID',
+                '/vald.v1.Vald/StreamSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
                 )
         self.Insert = channel.unary_unary(
-                '/vald.Vald/Insert',
+                '/vald.v1.Vald/Insert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamInsert = channel.stream_stream(
-                '/vald.Vald/StreamInsert',
+                '/vald.v1.Vald/StreamInsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiInsert = channel.unary_unary(
-                '/vald.Vald/MultiInsert',
+                '/vald.v1.Vald/MultiInsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
         self.Update = channel.unary_unary(
-                '/vald.Vald/Update',
+                '/vald.v1.Vald/Update',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamUpdate = channel.stream_stream(
-                '/vald.Vald/StreamUpdate',
+                '/vald.v1.Vald/StreamUpdate',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiUpdate = channel.unary_unary(
-                '/vald.Vald/MultiUpdate',
+                '/vald.v1.Vald/MultiUpdate',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
         self.Upsert = channel.unary_unary(
-                '/vald.Vald/Upsert',
+                '/vald.v1.Vald/Upsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamUpsert = channel.stream_stream(
-                '/vald.Vald/StreamUpsert',
+                '/vald.v1.Vald/StreamUpsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiUpsert = channel.unary_unary(
-                '/vald.Vald/MultiUpsert',
+                '/vald.v1.Vald/MultiUpsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
         self.Remove = channel.unary_unary(
-                '/vald.Vald/Remove',
+                '/vald.v1.Vald/Remove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamRemove = channel.stream_stream(
-                '/vald.Vald/StreamRemove',
+                '/vald.v1.Vald/StreamRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiRemove = channel.unary_unary(
-                '/vald.Vald/MultiRemove',
+                '/vald.v1.Vald/MultiRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.IDs.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
         self.GetObject = channel.unary_unary(
-                '/vald.Vald/GetObject',
+                '/vald.v1.Vald/GetObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
                 )
         self.StreamGetObject = channel.stream_stream(
-                '/vald.Vald/StreamGetObject',
+                '/vald.v1.Vald/StreamGetObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
                 )
@@ -328,7 +328,7 @@ def add_ValdServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vald.Vald', rpc_method_handlers)
+            'vald.v1.Vald', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -347,7 +347,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Exists',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/Exists',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.FromString,
             options, channel_credentials,
@@ -364,7 +364,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Search',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/Search',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -381,7 +381,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/SearchByID',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/SearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -398,7 +398,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamSearch',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Vald/StreamSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -415,7 +415,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamSearchByID',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Vald/StreamSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
             options, channel_credentials,
@@ -432,7 +432,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Insert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/Insert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -449,7 +449,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamInsert',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Vald/StreamInsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -466,7 +466,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiInsert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/MultiInsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
@@ -483,7 +483,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Update',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/Update',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -500,7 +500,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamUpdate',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Vald/StreamUpdate',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -517,7 +517,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiUpdate',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/MultiUpdate',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
@@ -534,7 +534,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Upsert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/Upsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -551,7 +551,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamUpsert',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Vald/StreamUpsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -568,7 +568,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiUpsert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/MultiUpsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vectors.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
@@ -585,7 +585,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/Remove',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/Remove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -602,7 +602,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamRemove',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Vald/StreamRemove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -619,7 +619,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/MultiRemove',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/MultiRemove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.IDs.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
@@ -636,7 +636,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Vald/GetObject',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Vald/GetObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
@@ -653,7 +653,7 @@ class Vald(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Vald/StreamGetObject',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Vald/StreamGetObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,

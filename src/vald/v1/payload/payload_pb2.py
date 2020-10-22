@@ -16,11 +16,11 @@ from validate import validate_pb2 as validate_dot_validate__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='vald/v1/payload/payload.proto',
-  package='payload',
+  package='payload.v1',
   syntax='proto3',
   serialized_options=b'\n\035org.vdaas.vald.api.v1.payloadB\013ValdPayloadP\001Z*github.com/vdaas/vald/apis/grpc/v1/payload',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1dvald/v1/payload/payload.proto\x12\x07payload\x1a\x17validate/validate.proto\"\xee\x04\n\x06Search\x1aK\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a\x39\n\x0cMultiRequest\x12)\n\x08requests\x18\x01 \x03(\x0b\x32\x17.payload.Search.Request\x1a?\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a=\n\x0eMultiIDRequest\x12+\n\x08requests\x18\x01 \x03(\x0b\x32\x19.payload.Search.IDRequest\x1aG\n\rObjectRequest\x12\x0e\n\x06object\x18\x01 \x01(\x0c\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Search.Config\x1a\x8d\x01\n\x06\x43onfig\x12\x12\n\nrequest_id\x18\x01 \x01(\t\x12\x14\n\x03num\x18\x02 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x03 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x04 \x01(\x02\x12\x0f\n\x07timeout\x18\x05 \x01(\x03\x12\'\n\x07\x66ilters\x18\x06 \x01(\x0b\x32\x16.payload.Filter.Config\x1aI\n\x08Response\x12\x12\n\nrequest_id\x18\x01 \x01(\t\x12)\n\x07results\x18\x02 \x03(\x0b\x32\x18.payload.Object.Distance\x1a\x38\n\tResponses\x12+\n\tresponses\x18\x01 \x03(\x0b\x32\x18.payload.Search.Response\"I\n\x06\x46ilter\x1a$\n\x06Target\x12\x0c\n\x04host\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\r\x1a\x19\n\x06\x43onfig\x12\x0f\n\x07targets\x18\x01 \x03(\t\"\xfc\x01\n\x06Insert\x1a\x63\n\x07Request\x12\x30\n\x06vector\x18\x01 \x01(\x0b\x32\x16.payload.Object.VectorB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Insert.Config\x1a\x39\n\x0cMultiRequest\x12)\n\x08requests\x18\x01 \x03(\x0b\x32\x17.payload.Insert.Request\x1aR\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\x12\'\n\x07\x66ilters\x18\x02 \x01(\x0b\x32\x16.payload.Filter.Config\"\xfc\x01\n\x06Update\x1a\x63\n\x07Request\x12\x30\n\x06vector\x18\x01 \x01(\x0b\x32\x16.payload.Object.VectorB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Update.Config\x1a\x39\n\x0cMultiRequest\x12)\n\x08requests\x18\x01 \x03(\x0b\x32\x17.payload.Update.Request\x1aR\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\x12\'\n\x07\x66ilters\x18\x02 \x01(\x0b\x32\x16.payload.Filter.Config\"\xfc\x01\n\x06Upsert\x1a\x63\n\x07Request\x12\x30\n\x06vector\x18\x01 \x01(\x0b\x32\x16.payload.Object.VectorB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Upsert.Config\x1a\x39\n\x0cMultiRequest\x12)\n\x08requests\x18\x01 \x03(\x0b\x32\x17.payload.Upsert.Request\x1aR\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\x12\'\n\x07\x66ilters\x18\x02 \x01(\x0b\x32\x16.payload.Filter.Config\"\xc1\x01\n\x06Remove\x1aQ\n\x07Request\x12\x1e\n\x02id\x18\x01 \x01(\x0b\x32\x12.payload.Object.ID\x12&\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x16.payload.Remove.Config\x1a\x39\n\x0cMultiRequest\x12)\n\x08requests\x18\x01 \x03(\x0b\x32\x17.payload.Remove.Request\x1a)\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\"\xac\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a,\n\x07KeyVals\x12!\n\x03kvs\x18\x01 \x03(\x0b\x32\x14.payload.Meta.KeyVal\"\xea\x02\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x32\n\x07Vectors\x12\'\n\x07vectors\x18\x01 \x03(\x0b\x32\x16.payload.Object.Vector\x1a+\n\x04\x42lob\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x0e\n\x06object\x18\x02 \x01(\x0c\x1a\x33\n\x08Location\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x0b\n\x03ips\x18\x03 \x03(\t\x1a\x38\n\tLocations\x12+\n\tlocations\x18\x01 \x03(\x0b\x32\x18.payload.Object.Location\";\n\x07\x43ontrol\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"\xc0\x01\n\x0bReplication\x1a\"\n\x08Recovery\x12\x16\n\x0e\x64\x65leted_agents\x18\x01 \x03(\t\x1a@\n\tRebalance\x12\x19\n\x11high_usage_agents\x18\x01 \x03(\t\x12\x18\n\x10low_usage_agents\x18\x02 \x03(\t\x1aK\n\x06\x41gents\x12\x0e\n\x06\x61gents\x18\x01 \x03(\t\x12\x16\n\x0eremoved_agents\x18\x02 \x03(\t\x12\x19\n\x11replicating_agent\x18\x03 \x03(\t\"O\n\nDiscoverer\x1a\x41\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04node\x18\x03 \x01(\t\"\xde\x04\n\x06\x42\x61\x63kup\x1aK\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x1c\n\x05Owner\x12\x13\n\x02ip\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aS\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\'\n\x0cRequestMulti\x12\x17\n\x05uuids\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x41\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a:\n\x0bMetaVectors\x12+\n\x07vectors\x18\x01 \x03(\x0b\x32\x1a.payload.Backup.MetaVector\x1a\x8c\x01\n\nCompressed\x1a\x37\n\nMetaVector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06vector\x18\x03 \x01(\x0c\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a\x45\n\x0bMetaVectors\x12\x36\n\x07vectors\x18\x01 \x03(\x0b\x32%.payload.Backup.Compressed.MetaVector\"\xe0\x05\n\x04Info\x1a\x87\x01\n\x05Index\x1a>\n\x05\x43ount\x12\x0e\n\x06stored\x18\x01 \x01(\r\x12\x13\n\x0buncommitted\x18\x02 \x01(\r\x12\x10\n\x08indexing\x18\x03 \x01(\x08\x1a>\n\x04UUID\x1a\x19\n\tCommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\x1b\n\x0bUncommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\xb5\x01\n\x03Pod\x12\x10\n\x08\x61pp_name\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tnamespace\x18\x03 \x01(\t\x12\x13\n\x02ip\x18\x04 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12\x1e\n\x03\x63pu\x18\x05 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x06 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04node\x18\x07 \x01(\x0b\x32\x12.payload.Info.Node\x1a\xaa\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rinternal_addr\x18\x02 \x01(\t\x12\x15\n\rexternal_addr\x18\x03 \x01(\t\x12\x1e\n\x03\x63pu\x18\x04 \x01(\x0b\x32\x11.payload.Info.CPU\x12$\n\x06memory\x18\x05 \x01(\x0b\x32\x14.payload.Info.Memory\x12 \n\x04Pods\x18\x06 \x01(\x0b\x32\x12.payload.Info.Pods\x1a\x34\n\x03\x43PU\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x37\n\x06Memory\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x31\n\x04Pods\x12)\n\x04pods\x18\x01 \x03(\x0b\x32\x11.payload.Info.PodB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x34\n\x05Nodes\x12+\n\x05nodes\x18\x01 \x03(\x0b\x32\x12.payload.Info.NodeB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBZ\n\x1dorg.vdaas.vald.api.v1.payloadB\x0bValdPayloadP\x01Z*github.com/vdaas/vald/apis/grpc/v1/payloadb\x06proto3'
+  serialized_pb=b'\n\x1dvald/v1/payload/payload.proto\x12\npayload.v1\x1a\x17validate/validate.proto\"\x86\x05\n\x06Search\x1aN\n\x07Request\x12\x18\n\x06vector\x18\x01 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.payload.v1.Search.Config\x1a<\n\x0cMultiRequest\x12,\n\x08requests\x18\x01 \x03(\x0b\x32\x1a.payload.v1.Search.Request\x1a\x42\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.payload.v1.Search.Config\x1a@\n\x0eMultiIDRequest\x12.\n\x08requests\x18\x01 \x03(\x0b\x32\x1c.payload.v1.Search.IDRequest\x1aJ\n\rObjectRequest\x12\x0e\n\x06object\x18\x01 \x01(\x0c\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.payload.v1.Search.Config\x1a\x90\x01\n\x06\x43onfig\x12\x12\n\nrequest_id\x18\x01 \x01(\t\x12\x14\n\x03num\x18\x02 \x01(\rB\x07\xfa\x42\x04*\x02(\x01\x12\x0e\n\x06radius\x18\x03 \x01(\x02\x12\x0f\n\x07\x65psilon\x18\x04 \x01(\x02\x12\x0f\n\x07timeout\x18\x05 \x01(\x03\x12*\n\x07\x66ilters\x18\x06 \x01(\x0b\x32\x19.payload.v1.Filter.Config\x1aL\n\x08Response\x12\x12\n\nrequest_id\x18\x01 \x01(\t\x12,\n\x07results\x18\x02 \x03(\x0b\x32\x1b.payload.v1.Object.Distance\x1a;\n\tResponses\x12.\n\tresponses\x18\x01 \x03(\x0b\x32\x1b.payload.v1.Search.Response\"I\n\x06\x46ilter\x1a$\n\x06Target\x12\x0c\n\x04host\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\r\x1a\x19\n\x06\x43onfig\x12\x0f\n\x07targets\x18\x01 \x03(\t\"\x88\x02\n\x06Insert\x1ai\n\x07Request\x12\x33\n\x06vector\x18\x01 \x01(\x0b\x32\x19.payload.v1.Object.VectorB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.payload.v1.Insert.Config\x1a<\n\x0cMultiRequest\x12,\n\x08requests\x18\x01 \x03(\x0b\x32\x1a.payload.v1.Insert.Request\x1aU\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\x12*\n\x07\x66ilters\x18\x02 \x01(\x0b\x32\x19.payload.v1.Filter.Config\"\x88\x02\n\x06Update\x1ai\n\x07Request\x12\x33\n\x06vector\x18\x01 \x01(\x0b\x32\x19.payload.v1.Object.VectorB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.payload.v1.Update.Config\x1a<\n\x0cMultiRequest\x12,\n\x08requests\x18\x01 \x03(\x0b\x32\x1a.payload.v1.Update.Request\x1aU\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\x12*\n\x07\x66ilters\x18\x02 \x01(\x0b\x32\x19.payload.v1.Filter.Config\"\x88\x02\n\x06Upsert\x1ai\n\x07Request\x12\x33\n\x06vector\x18\x01 \x01(\x0b\x32\x19.payload.v1.Object.VectorB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.payload.v1.Upsert.Config\x1a<\n\x0cMultiRequest\x12,\n\x08requests\x18\x01 \x03(\x0b\x32\x1a.payload.v1.Upsert.Request\x1aU\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\x12*\n\x07\x66ilters\x18\x02 \x01(\x0b\x32\x19.payload.v1.Filter.Config\"\xca\x01\n\x06Remove\x1aW\n\x07Request\x12!\n\x02id\x18\x01 \x01(\x0b\x32\x15.payload.v1.Object.ID\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.payload.v1.Remove.Config\x1a<\n\x0cMultiRequest\x12,\n\x08requests\x18\x01 \x03(\x0b\x32\x1a.payload.v1.Remove.Request\x1a)\n\x06\x43onfig\x12\x1f\n\x17skip_strict_exist_check\x18\x01 \x01(\x08\"\xaf\x01\n\x04Meta\x1a\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\x1a\x14\n\x04Keys\x12\x0c\n\x04keys\x18\x01 \x03(\t\x1a\x12\n\x03Val\x12\x0b\n\x03val\x18\x01 \x01(\t\x1a\x14\n\x04Vals\x12\x0c\n\x04vals\x18\x01 \x03(\t\x1a\"\n\x06KeyVal\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03val\x18\x02 \x01(\t\x1a/\n\x07KeyVals\x12$\n\x03kvs\x18\x01 \x03(\x0b\x32\x17.payload.v1.Meta.KeyVal\"\xf0\x02\n\x06Object\x1a(\n\x08\x44istance\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08\x64istance\x18\x02 \x01(\x02\x1a\x19\n\x02ID\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x12\n\x03IDs\x12\x0b\n\x03ids\x18\x01 \x03(\t\x1a\x37\n\x06Vector\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x18\n\x06vector\x18\x02 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x1a\x35\n\x07Vectors\x12*\n\x07vectors\x18\x01 \x03(\x0b\x32\x19.payload.v1.Object.Vector\x1a+\n\x04\x42lob\x12\x13\n\x02id\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x0e\n\x06object\x18\x02 \x01(\x0c\x1a\x33\n\x08Location\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x0b\n\x03ips\x18\x03 \x03(\t\x1a;\n\tLocations\x12.\n\tlocations\x18\x01 \x03(\x0b\x32\x1b.payload.v1.Object.Location\";\n\x07\x43ontrol\x1a\x30\n\x12\x43reateIndexRequest\x12\x1a\n\tpool_size\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02(\x00\"\xc0\x01\n\x0bReplication\x1a\"\n\x08Recovery\x12\x16\n\x0e\x64\x65leted_agents\x18\x01 \x03(\t\x1a@\n\tRebalance\x12\x19\n\x11high_usage_agents\x18\x01 \x03(\t\x12\x18\n\x10low_usage_agents\x18\x02 \x03(\t\x1aK\n\x06\x41gents\x12\x0e\n\x06\x61gents\x18\x01 \x03(\t\x12\x16\n\x0eremoved_agents\x18\x02 \x03(\t\x12\x19\n\x11replicating_agent\x18\x03 \x03(\t\"O\n\nDiscoverer\x1a\x41\n\x07Request\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04node\x18\x03 \x01(\t\"\xcc\x04\n\x06\x42\x61\x63kup\x1aK\n\tGetVector\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\x1c\n\x05Owner\x12\x13\n\x02ip\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a-\n\tLocations\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1aS\n\x06Remove\x1a \n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x1a\'\n\x0cRequestMulti\x12\x17\n\x05uuids\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1au\n\x02IP\x1a\x43\n\x08Register\x1a\x37\n\x07Request\x12\x15\n\x04uuid\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\x03ips\x18\x02 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a*\n\x06Remove\x1a \n\x07Request\x12\x15\n\x03ips\x18\x01 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a=\n\x06Vector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x18\n\x06vector\x18\x03 \x03(\x02\x42\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a\x35\n\x07Vectors\x12*\n\x07vectors\x18\x01 \x03(\x0b\x32\x19.payload.v1.Backup.Vector\x1a\x83\x01\n\nCompressed\x1a\x33\n\x06Vector\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06vector\x18\x03 \x01(\x0c\x12\x0b\n\x03ips\x18\x04 \x03(\t\x1a@\n\x07Vectors\x12\x35\n\x07vectors\x18\x01 \x03(\x0b\x32$.payload.v1.Backup.Compressed.Vector\"\xf8\x05\n\x04Info\x1a\x87\x01\n\x05Index\x1a>\n\x05\x43ount\x12\x0e\n\x06stored\x18\x01 \x01(\r\x12\x13\n\x0buncommitted\x18\x02 \x01(\r\x12\x10\n\x08indexing\x18\x03 \x01(\x08\x1a>\n\x04UUID\x1a\x19\n\tCommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\x1b\n\x0bUncommitted\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x1a\xbe\x01\n\x03Pod\x12\x10\n\x08\x61pp_name\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tnamespace\x18\x03 \x01(\t\x12\x13\n\x02ip\x18\x04 \x01(\tB\x07\xfa\x42\x04r\x02x\x01\x12!\n\x03\x63pu\x18\x05 \x01(\x0b\x32\x14.payload.v1.Info.CPU\x12\'\n\x06memory\x18\x06 \x01(\x0b\x32\x17.payload.v1.Info.Memory\x12#\n\x04node\x18\x07 \x01(\x0b\x32\x15.payload.v1.Info.Node\x1a\xb3\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rinternal_addr\x18\x02 \x01(\t\x12\x15\n\rexternal_addr\x18\x03 \x01(\t\x12!\n\x03\x63pu\x18\x04 \x01(\x0b\x32\x14.payload.v1.Info.CPU\x12\'\n\x06memory\x18\x05 \x01(\x0b\x32\x17.payload.v1.Info.Memory\x12#\n\x04Pods\x18\x06 \x01(\x0b\x32\x15.payload.v1.Info.Pods\x1a\x34\n\x03\x43PU\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x37\n\x06Memory\x12\r\n\x05limit\x18\x01 \x01(\x01\x12\x0f\n\x07request\x18\x02 \x01(\x01\x12\r\n\x05usage\x18\x03 \x01(\x01\x1a\x34\n\x04Pods\x12,\n\x04pods\x18\x01 \x03(\x0b\x32\x14.payload.v1.Info.PodB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x37\n\x05Nodes\x12.\n\x05nodes\x18\x01 \x03(\x0b\x32\x15.payload.v1.Info.NodeB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x11\n\x03IPs\x12\n\n\x02ip\x18\x01 \x03(\t\"\x07\n\x05\x45mptyBZ\n\x1dorg.vdaas.vald.api.v1.payloadB\x0bValdPayloadP\x01Z*github.com/vdaas/vald/apis/grpc/v1/payloadb\x06proto3'
   ,
   dependencies=[validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -29,21 +29,21 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _SEARCH_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Search.Request',
+  full_name='payload.v1.Search.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vector', full_name='payload.Search.Request.vector', index=0,
+      name='vector', full_name='payload.v1.Search.Request.vector', index=0,
       number=1, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\222\001\002\010\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config', full_name='payload.Search.Request.config', index=1,
+      name='config', full_name='payload.v1.Search.Request.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -61,20 +61,20 @@ _SEARCH_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=78,
-  serialized_end=153,
+  serialized_start=81,
+  serialized_end=159,
 )
 
 _SEARCH_MULTIREQUEST = _descriptor.Descriptor(
   name='MultiRequest',
-  full_name='payload.Search.MultiRequest',
+  full_name='payload.v1.Search.MultiRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='requests', full_name='payload.Search.MultiRequest.requests', index=0,
+      name='requests', full_name='payload.v1.Search.MultiRequest.requests', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -92,27 +92,27 @@ _SEARCH_MULTIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=155,
-  serialized_end=212,
+  serialized_start=161,
+  serialized_end=221,
 )
 
 _SEARCH_IDREQUEST = _descriptor.Descriptor(
   name='IDRequest',
-  full_name='payload.Search.IDRequest',
+  full_name='payload.v1.Search.IDRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='payload.Search.IDRequest.id', index=0,
+      name='id', full_name='payload.v1.Search.IDRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config', full_name='payload.Search.IDRequest.config', index=1,
+      name='config', full_name='payload.v1.Search.IDRequest.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -130,20 +130,20 @@ _SEARCH_IDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=214,
-  serialized_end=277,
+  serialized_start=223,
+  serialized_end=289,
 )
 
 _SEARCH_MULTIIDREQUEST = _descriptor.Descriptor(
   name='MultiIDRequest',
-  full_name='payload.Search.MultiIDRequest',
+  full_name='payload.v1.Search.MultiIDRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='requests', full_name='payload.Search.MultiIDRequest.requests', index=0,
+      name='requests', full_name='payload.v1.Search.MultiIDRequest.requests', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -161,27 +161,27 @@ _SEARCH_MULTIIDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=279,
-  serialized_end=340,
+  serialized_start=291,
+  serialized_end=355,
 )
 
 _SEARCH_OBJECTREQUEST = _descriptor.Descriptor(
   name='ObjectRequest',
-  full_name='payload.Search.ObjectRequest',
+  full_name='payload.v1.Search.ObjectRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='object', full_name='payload.Search.ObjectRequest.object', index=0,
+      name='object', full_name='payload.v1.Search.ObjectRequest.object', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config', full_name='payload.Search.ObjectRequest.config', index=1,
+      name='config', full_name='payload.v1.Search.ObjectRequest.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -199,55 +199,55 @@ _SEARCH_OBJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=342,
-  serialized_end=413,
+  serialized_start=357,
+  serialized_end=431,
 )
 
 _SEARCH_CONFIG = _descriptor.Descriptor(
   name='Config',
-  full_name='payload.Search.Config',
+  full_name='payload.v1.Search.Config',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='request_id', full_name='payload.Search.Config.request_id', index=0,
+      name='request_id', full_name='payload.v1.Search.Config.request_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='num', full_name='payload.Search.Config.num', index=1,
+      name='num', full_name='payload.v1.Search.Config.num', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004*\002(\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='radius', full_name='payload.Search.Config.radius', index=2,
+      name='radius', full_name='payload.v1.Search.Config.radius', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='epsilon', full_name='payload.Search.Config.epsilon', index=3,
+      name='epsilon', full_name='payload.v1.Search.Config.epsilon', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='timeout', full_name='payload.Search.Config.timeout', index=4,
+      name='timeout', full_name='payload.v1.Search.Config.timeout', index=4,
       number=5, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filters', full_name='payload.Search.Config.filters', index=5,
+      name='filters', full_name='payload.v1.Search.Config.filters', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -265,27 +265,27 @@ _SEARCH_CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=416,
-  serialized_end=557,
+  serialized_start=434,
+  serialized_end=578,
 )
 
 _SEARCH_RESPONSE = _descriptor.Descriptor(
   name='Response',
-  full_name='payload.Search.Response',
+  full_name='payload.v1.Search.Response',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='request_id', full_name='payload.Search.Response.request_id', index=0,
+      name='request_id', full_name='payload.v1.Search.Response.request_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='results', full_name='payload.Search.Response.results', index=1,
+      name='results', full_name='payload.v1.Search.Response.results', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -303,20 +303,20 @@ _SEARCH_RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=559,
-  serialized_end=632,
+  serialized_start=580,
+  serialized_end=656,
 )
 
 _SEARCH_RESPONSES = _descriptor.Descriptor(
   name='Responses',
-  full_name='payload.Search.Responses',
+  full_name='payload.v1.Search.Responses',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='responses', full_name='payload.Search.Responses.responses', index=0,
+      name='responses', full_name='payload.v1.Search.Responses.responses', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -334,13 +334,13 @@ _SEARCH_RESPONSES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=634,
-  serialized_end=690,
+  serialized_start=658,
+  serialized_end=717,
 )
 
 _SEARCH = _descriptor.Descriptor(
   name='Search',
-  full_name='payload.Search',
+  full_name='payload.v1.Search',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -358,28 +358,28 @@ _SEARCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=690,
+  serialized_start=71,
+  serialized_end=717,
 )
 
 
 _FILTER_TARGET = _descriptor.Descriptor(
   name='Target',
-  full_name='payload.Filter.Target',
+  full_name='payload.v1.Filter.Target',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='host', full_name='payload.Filter.Target.host', index=0,
+      name='host', full_name='payload.v1.Filter.Target.host', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='port', full_name='payload.Filter.Target.port', index=1,
+      name='port', full_name='payload.v1.Filter.Target.port', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -397,20 +397,20 @@ _FILTER_TARGET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=702,
-  serialized_end=738,
+  serialized_start=729,
+  serialized_end=765,
 )
 
 _FILTER_CONFIG = _descriptor.Descriptor(
   name='Config',
-  full_name='payload.Filter.Config',
+  full_name='payload.v1.Filter.Config',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='targets', full_name='payload.Filter.Config.targets', index=0,
+      name='targets', full_name='payload.v1.Filter.Config.targets', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -428,13 +428,13 @@ _FILTER_CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=740,
-  serialized_end=765,
+  serialized_start=767,
+  serialized_end=792,
 )
 
 _FILTER = _descriptor.Descriptor(
   name='Filter',
-  full_name='payload.Filter',
+  full_name='payload.v1.Filter',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -452,28 +452,28 @@ _FILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=692,
-  serialized_end=765,
+  serialized_start=719,
+  serialized_end=792,
 )
 
 
 _INSERT_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Insert.Request',
+  full_name='payload.v1.Insert.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vector', full_name='payload.Insert.Request.vector', index=0,
+      name='vector', full_name='payload.v1.Insert.Request.vector', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\222\001\002\010\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config', full_name='payload.Insert.Request.config', index=1,
+      name='config', full_name='payload.v1.Insert.Request.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -491,20 +491,20 @@ _INSERT_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=778,
-  serialized_end=877,
+  serialized_start=805,
+  serialized_end=910,
 )
 
 _INSERT_MULTIREQUEST = _descriptor.Descriptor(
   name='MultiRequest',
-  full_name='payload.Insert.MultiRequest',
+  full_name='payload.v1.Insert.MultiRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='requests', full_name='payload.Insert.MultiRequest.requests', index=0,
+      name='requests', full_name='payload.v1.Insert.MultiRequest.requests', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -522,27 +522,27 @@ _INSERT_MULTIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=879,
-  serialized_end=936,
+  serialized_start=912,
+  serialized_end=972,
 )
 
 _INSERT_CONFIG = _descriptor.Descriptor(
   name='Config',
-  full_name='payload.Insert.Config',
+  full_name='payload.v1.Insert.Config',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='skip_strict_exist_check', full_name='payload.Insert.Config.skip_strict_exist_check', index=0,
+      name='skip_strict_exist_check', full_name='payload.v1.Insert.Config.skip_strict_exist_check', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filters', full_name='payload.Insert.Config.filters', index=1,
+      name='filters', full_name='payload.v1.Insert.Config.filters', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -560,13 +560,13 @@ _INSERT_CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=938,
-  serialized_end=1020,
+  serialized_start=974,
+  serialized_end=1059,
 )
 
 _INSERT = _descriptor.Descriptor(
   name='Insert',
-  full_name='payload.Insert',
+  full_name='payload.v1.Insert',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -584,28 +584,28 @@ _INSERT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=768,
-  serialized_end=1020,
+  serialized_start=795,
+  serialized_end=1059,
 )
 
 
 _UPDATE_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Update.Request',
+  full_name='payload.v1.Update.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vector', full_name='payload.Update.Request.vector', index=0,
+      name='vector', full_name='payload.v1.Update.Request.vector', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\222\001\002\010\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config', full_name='payload.Update.Request.config', index=1,
+      name='config', full_name='payload.v1.Update.Request.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -623,20 +623,20 @@ _UPDATE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1033,
-  serialized_end=1132,
+  serialized_start=1072,
+  serialized_end=1177,
 )
 
 _UPDATE_MULTIREQUEST = _descriptor.Descriptor(
   name='MultiRequest',
-  full_name='payload.Update.MultiRequest',
+  full_name='payload.v1.Update.MultiRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='requests', full_name='payload.Update.MultiRequest.requests', index=0,
+      name='requests', full_name='payload.v1.Update.MultiRequest.requests', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -654,27 +654,27 @@ _UPDATE_MULTIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1134,
-  serialized_end=1191,
+  serialized_start=1179,
+  serialized_end=1239,
 )
 
 _UPDATE_CONFIG = _descriptor.Descriptor(
   name='Config',
-  full_name='payload.Update.Config',
+  full_name='payload.v1.Update.Config',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='skip_strict_exist_check', full_name='payload.Update.Config.skip_strict_exist_check', index=0,
+      name='skip_strict_exist_check', full_name='payload.v1.Update.Config.skip_strict_exist_check', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filters', full_name='payload.Update.Config.filters', index=1,
+      name='filters', full_name='payload.v1.Update.Config.filters', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -692,13 +692,13 @@ _UPDATE_CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=938,
-  serialized_end=1020,
+  serialized_start=974,
+  serialized_end=1059,
 )
 
 _UPDATE = _descriptor.Descriptor(
   name='Update',
-  full_name='payload.Update',
+  full_name='payload.v1.Update',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -716,28 +716,28 @@ _UPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1023,
-  serialized_end=1275,
+  serialized_start=1062,
+  serialized_end=1326,
 )
 
 
 _UPSERT_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Upsert.Request',
+  full_name='payload.v1.Upsert.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vector', full_name='payload.Upsert.Request.vector', index=0,
+      name='vector', full_name='payload.v1.Upsert.Request.vector', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\222\001\002\010\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config', full_name='payload.Upsert.Request.config', index=1,
+      name='config', full_name='payload.v1.Upsert.Request.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -755,20 +755,20 @@ _UPSERT_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1288,
-  serialized_end=1387,
+  serialized_start=1339,
+  serialized_end=1444,
 )
 
 _UPSERT_MULTIREQUEST = _descriptor.Descriptor(
   name='MultiRequest',
-  full_name='payload.Upsert.MultiRequest',
+  full_name='payload.v1.Upsert.MultiRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='requests', full_name='payload.Upsert.MultiRequest.requests', index=0,
+      name='requests', full_name='payload.v1.Upsert.MultiRequest.requests', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -786,27 +786,27 @@ _UPSERT_MULTIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1389,
-  serialized_end=1446,
+  serialized_start=1446,
+  serialized_end=1506,
 )
 
 _UPSERT_CONFIG = _descriptor.Descriptor(
   name='Config',
-  full_name='payload.Upsert.Config',
+  full_name='payload.v1.Upsert.Config',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='skip_strict_exist_check', full_name='payload.Upsert.Config.skip_strict_exist_check', index=0,
+      name='skip_strict_exist_check', full_name='payload.v1.Upsert.Config.skip_strict_exist_check', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filters', full_name='payload.Upsert.Config.filters', index=1,
+      name='filters', full_name='payload.v1.Upsert.Config.filters', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -824,13 +824,13 @@ _UPSERT_CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=938,
-  serialized_end=1020,
+  serialized_start=974,
+  serialized_end=1059,
 )
 
 _UPSERT = _descriptor.Descriptor(
   name='Upsert',
-  full_name='payload.Upsert',
+  full_name='payload.v1.Upsert',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -848,28 +848,28 @@ _UPSERT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1278,
-  serialized_end=1530,
+  serialized_start=1329,
+  serialized_end=1593,
 )
 
 
 _REMOVE_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Remove.Request',
+  full_name='payload.v1.Remove.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='payload.Remove.Request.id', index=0,
+      name='id', full_name='payload.v1.Remove.Request.id', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config', full_name='payload.Remove.Request.config', index=1,
+      name='config', full_name='payload.v1.Remove.Request.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -887,20 +887,20 @@ _REMOVE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1543,
-  serialized_end=1624,
+  serialized_start=1606,
+  serialized_end=1693,
 )
 
 _REMOVE_MULTIREQUEST = _descriptor.Descriptor(
   name='MultiRequest',
-  full_name='payload.Remove.MultiRequest',
+  full_name='payload.v1.Remove.MultiRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='requests', full_name='payload.Remove.MultiRequest.requests', index=0,
+      name='requests', full_name='payload.v1.Remove.MultiRequest.requests', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -918,20 +918,20 @@ _REMOVE_MULTIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1626,
-  serialized_end=1683,
+  serialized_start=1695,
+  serialized_end=1755,
 )
 
 _REMOVE_CONFIG = _descriptor.Descriptor(
   name='Config',
-  full_name='payload.Remove.Config',
+  full_name='payload.v1.Remove.Config',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='skip_strict_exist_check', full_name='payload.Remove.Config.skip_strict_exist_check', index=0,
+      name='skip_strict_exist_check', full_name='payload.v1.Remove.Config.skip_strict_exist_check', index=0,
       number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -949,13 +949,13 @@ _REMOVE_CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=938,
-  serialized_end=979,
+  serialized_start=974,
+  serialized_end=1015,
 )
 
 _REMOVE = _descriptor.Descriptor(
   name='Remove',
-  full_name='payload.Remove',
+  full_name='payload.v1.Remove',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -973,21 +973,21 @@ _REMOVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1533,
-  serialized_end=1726,
+  serialized_start=1596,
+  serialized_end=1798,
 )
 
 
 _META_KEY = _descriptor.Descriptor(
   name='Key',
-  full_name='payload.Meta.Key',
+  full_name='payload.v1.Meta.Key',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='payload.Meta.Key.key', index=0,
+      name='key', full_name='payload.v1.Meta.Key.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1005,20 +1005,20 @@ _META_KEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1737,
-  serialized_end=1755,
+  serialized_start=1809,
+  serialized_end=1827,
 )
 
 _META_KEYS = _descriptor.Descriptor(
   name='Keys',
-  full_name='payload.Meta.Keys',
+  full_name='payload.v1.Meta.Keys',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='keys', full_name='payload.Meta.Keys.keys', index=0,
+      name='keys', full_name='payload.v1.Meta.Keys.keys', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1036,20 +1036,20 @@ _META_KEYS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1757,
-  serialized_end=1777,
+  serialized_start=1829,
+  serialized_end=1849,
 )
 
 _META_VAL = _descriptor.Descriptor(
   name='Val',
-  full_name='payload.Meta.Val',
+  full_name='payload.v1.Meta.Val',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='val', full_name='payload.Meta.Val.val', index=0,
+      name='val', full_name='payload.v1.Meta.Val.val', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1067,20 +1067,20 @@ _META_VAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1779,
-  serialized_end=1797,
+  serialized_start=1851,
+  serialized_end=1869,
 )
 
 _META_VALS = _descriptor.Descriptor(
   name='Vals',
-  full_name='payload.Meta.Vals',
+  full_name='payload.v1.Meta.Vals',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vals', full_name='payload.Meta.Vals.vals', index=0,
+      name='vals', full_name='payload.v1.Meta.Vals.vals', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1098,27 +1098,27 @@ _META_VALS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1799,
-  serialized_end=1819,
+  serialized_start=1871,
+  serialized_end=1891,
 )
 
 _META_KEYVAL = _descriptor.Descriptor(
   name='KeyVal',
-  full_name='payload.Meta.KeyVal',
+  full_name='payload.v1.Meta.KeyVal',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='payload.Meta.KeyVal.key', index=0,
+      name='key', full_name='payload.v1.Meta.KeyVal.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='val', full_name='payload.Meta.KeyVal.val', index=1,
+      name='val', full_name='payload.v1.Meta.KeyVal.val', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1136,20 +1136,20 @@ _META_KEYVAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1821,
-  serialized_end=1855,
+  serialized_start=1893,
+  serialized_end=1927,
 )
 
 _META_KEYVALS = _descriptor.Descriptor(
   name='KeyVals',
-  full_name='payload.Meta.KeyVals',
+  full_name='payload.v1.Meta.KeyVals',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kvs', full_name='payload.Meta.KeyVals.kvs', index=0,
+      name='kvs', full_name='payload.v1.Meta.KeyVals.kvs', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1167,13 +1167,13 @@ _META_KEYVALS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1857,
-  serialized_end=1901,
+  serialized_start=1929,
+  serialized_end=1976,
 )
 
 _META = _descriptor.Descriptor(
   name='Meta',
-  full_name='payload.Meta',
+  full_name='payload.v1.Meta',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1191,28 +1191,28 @@ _META = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1729,
-  serialized_end=1901,
+  serialized_start=1801,
+  serialized_end=1976,
 )
 
 
 _OBJECT_DISTANCE = _descriptor.Descriptor(
   name='Distance',
-  full_name='payload.Object.Distance',
+  full_name='payload.v1.Object.Distance',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='payload.Object.Distance.id', index=0,
+      name='id', full_name='payload.v1.Object.Distance.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='distance', full_name='payload.Object.Distance.distance', index=1,
+      name='distance', full_name='payload.v1.Object.Distance.distance', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -1230,20 +1230,20 @@ _OBJECT_DISTANCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1914,
-  serialized_end=1954,
+  serialized_start=1989,
+  serialized_end=2029,
 )
 
 _OBJECT_ID = _descriptor.Descriptor(
   name='ID',
-  full_name='payload.Object.ID',
+  full_name='payload.v1.Object.ID',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='payload.Object.ID.id', index=0,
+      name='id', full_name='payload.v1.Object.ID.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1261,20 +1261,20 @@ _OBJECT_ID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1956,
-  serialized_end=1981,
+  serialized_start=2031,
+  serialized_end=2056,
 )
 
 _OBJECT_IDS = _descriptor.Descriptor(
   name='IDs',
-  full_name='payload.Object.IDs',
+  full_name='payload.v1.Object.IDs',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ids', full_name='payload.Object.IDs.ids', index=0,
+      name='ids', full_name='payload.v1.Object.IDs.ids', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1292,27 +1292,27 @@ _OBJECT_IDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1983,
-  serialized_end=2001,
+  serialized_start=2058,
+  serialized_end=2076,
 )
 
 _OBJECT_VECTOR = _descriptor.Descriptor(
   name='Vector',
-  full_name='payload.Object.Vector',
+  full_name='payload.v1.Object.Vector',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='payload.Object.Vector.id', index=0,
+      name='id', full_name='payload.v1.Object.Vector.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='vector', full_name='payload.Object.Vector.vector', index=1,
+      name='vector', full_name='payload.v1.Object.Vector.vector', index=1,
       number=2, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1330,20 +1330,20 @@ _OBJECT_VECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2003,
-  serialized_end=2058,
+  serialized_start=2078,
+  serialized_end=2133,
 )
 
 _OBJECT_VECTORS = _descriptor.Descriptor(
   name='Vectors',
-  full_name='payload.Object.Vectors',
+  full_name='payload.v1.Object.Vectors',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vectors', full_name='payload.Object.Vectors.vectors', index=0,
+      name='vectors', full_name='payload.v1.Object.Vectors.vectors', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1361,27 +1361,27 @@ _OBJECT_VECTORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2060,
-  serialized_end=2110,
+  serialized_start=2135,
+  serialized_end=2188,
 )
 
 _OBJECT_BLOB = _descriptor.Descriptor(
   name='Blob',
-  full_name='payload.Object.Blob',
+  full_name='payload.v1.Object.Blob',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='payload.Object.Blob.id', index=0,
+      name='id', full_name='payload.v1.Object.Blob.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='object', full_name='payload.Object.Blob.object', index=1,
+      name='object', full_name='payload.v1.Object.Blob.object', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
@@ -1399,34 +1399,34 @@ _OBJECT_BLOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2112,
-  serialized_end=2155,
+  serialized_start=2190,
+  serialized_end=2233,
 )
 
 _OBJECT_LOCATION = _descriptor.Descriptor(
   name='Location',
-  full_name='payload.Object.Location',
+  full_name='payload.v1.Object.Location',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='payload.Object.Location.name', index=0,
+      name='name', full_name='payload.v1.Object.Location.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Object.Location.uuid', index=1,
+      name='uuid', full_name='payload.v1.Object.Location.uuid', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ips', full_name='payload.Object.Location.ips', index=2,
+      name='ips', full_name='payload.v1.Object.Location.ips', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1444,20 +1444,20 @@ _OBJECT_LOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2157,
-  serialized_end=2208,
+  serialized_start=2235,
+  serialized_end=2286,
 )
 
 _OBJECT_LOCATIONS = _descriptor.Descriptor(
   name='Locations',
-  full_name='payload.Object.Locations',
+  full_name='payload.v1.Object.Locations',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='locations', full_name='payload.Object.Locations.locations', index=0,
+      name='locations', full_name='payload.v1.Object.Locations.locations', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1475,13 +1475,13 @@ _OBJECT_LOCATIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2210,
-  serialized_end=2266,
+  serialized_start=2288,
+  serialized_end=2347,
 )
 
 _OBJECT = _descriptor.Descriptor(
   name='Object',
-  full_name='payload.Object',
+  full_name='payload.v1.Object',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1499,21 +1499,21 @@ _OBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1904,
-  serialized_end=2266,
+  serialized_start=1979,
+  serialized_end=2347,
 )
 
 
 _CONTROL_CREATEINDEXREQUEST = _descriptor.Descriptor(
   name='CreateIndexRequest',
-  full_name='payload.Control.CreateIndexRequest',
+  full_name='payload.v1.Control.CreateIndexRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='pool_size', full_name='payload.Control.CreateIndexRequest.pool_size', index=0,
+      name='pool_size', full_name='payload.v1.Control.CreateIndexRequest.pool_size', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1531,13 +1531,13 @@ _CONTROL_CREATEINDEXREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2279,
-  serialized_end=2327,
+  serialized_start=2360,
+  serialized_end=2408,
 )
 
 _CONTROL = _descriptor.Descriptor(
   name='Control',
-  full_name='payload.Control',
+  full_name='payload.v1.Control',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1555,21 +1555,21 @@ _CONTROL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2268,
-  serialized_end=2327,
+  serialized_start=2349,
+  serialized_end=2408,
 )
 
 
 _REPLICATION_RECOVERY = _descriptor.Descriptor(
   name='Recovery',
-  full_name='payload.Replication.Recovery',
+  full_name='payload.v1.Replication.Recovery',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='deleted_agents', full_name='payload.Replication.Recovery.deleted_agents', index=0,
+      name='deleted_agents', full_name='payload.v1.Replication.Recovery.deleted_agents', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1587,27 +1587,27 @@ _REPLICATION_RECOVERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2345,
-  serialized_end=2379,
+  serialized_start=2426,
+  serialized_end=2460,
 )
 
 _REPLICATION_REBALANCE = _descriptor.Descriptor(
   name='Rebalance',
-  full_name='payload.Replication.Rebalance',
+  full_name='payload.v1.Replication.Rebalance',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='high_usage_agents', full_name='payload.Replication.Rebalance.high_usage_agents', index=0,
+      name='high_usage_agents', full_name='payload.v1.Replication.Rebalance.high_usage_agents', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='low_usage_agents', full_name='payload.Replication.Rebalance.low_usage_agents', index=1,
+      name='low_usage_agents', full_name='payload.v1.Replication.Rebalance.low_usage_agents', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1625,34 +1625,34 @@ _REPLICATION_REBALANCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2381,
-  serialized_end=2445,
+  serialized_start=2462,
+  serialized_end=2526,
 )
 
 _REPLICATION_AGENTS = _descriptor.Descriptor(
   name='Agents',
-  full_name='payload.Replication.Agents',
+  full_name='payload.v1.Replication.Agents',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='agents', full_name='payload.Replication.Agents.agents', index=0,
+      name='agents', full_name='payload.v1.Replication.Agents.agents', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='removed_agents', full_name='payload.Replication.Agents.removed_agents', index=1,
+      name='removed_agents', full_name='payload.v1.Replication.Agents.removed_agents', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='replicating_agent', full_name='payload.Replication.Agents.replicating_agent', index=2,
+      name='replicating_agent', full_name='payload.v1.Replication.Agents.replicating_agent', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1670,13 +1670,13 @@ _REPLICATION_AGENTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2447,
-  serialized_end=2522,
+  serialized_start=2528,
+  serialized_end=2603,
 )
 
 _REPLICATION = _descriptor.Descriptor(
   name='Replication',
-  full_name='payload.Replication',
+  full_name='payload.v1.Replication',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1694,35 +1694,35 @@ _REPLICATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2330,
-  serialized_end=2522,
+  serialized_start=2411,
+  serialized_end=2603,
 )
 
 
 _DISCOVERER_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Discoverer.Request',
+  full_name='payload.v1.Discoverer.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='payload.Discoverer.Request.name', index=0,
+      name='name', full_name='payload.v1.Discoverer.Request.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='payload.Discoverer.Request.namespace', index=1,
+      name='namespace', full_name='payload.v1.Discoverer.Request.namespace', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='node', full_name='payload.Discoverer.Request.node', index=2,
+      name='node', full_name='payload.v1.Discoverer.Request.node', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1740,13 +1740,13 @@ _DISCOVERER_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2538,
-  serialized_end=2603,
+  serialized_start=2619,
+  serialized_end=2684,
 )
 
 _DISCOVERER = _descriptor.Descriptor(
   name='Discoverer',
-  full_name='payload.Discoverer',
+  full_name='payload.v1.Discoverer',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1764,21 +1764,21 @@ _DISCOVERER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2524,
-  serialized_end=2603,
+  serialized_start=2605,
+  serialized_end=2684,
 )
 
 
 _BACKUP_GETVECTOR_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Backup.GetVector.Request',
+  full_name='payload.v1.Backup.GetVector.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Backup.GetVector.Request.uuid', index=0,
+      name='uuid', full_name='payload.v1.Backup.GetVector.Request.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1796,20 +1796,20 @@ _BACKUP_GETVECTOR_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2629,
-  serialized_end=2661,
+  serialized_start=2710,
+  serialized_end=2742,
 )
 
 _BACKUP_GETVECTOR_OWNER = _descriptor.Descriptor(
   name='Owner',
-  full_name='payload.Backup.GetVector.Owner',
+  full_name='payload.v1.Backup.GetVector.Owner',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ip', full_name='payload.Backup.GetVector.Owner.ip', index=0,
+      name='ip', full_name='payload.v1.Backup.GetVector.Owner.ip', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1827,13 +1827,13 @@ _BACKUP_GETVECTOR_OWNER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2663,
-  serialized_end=2691,
+  serialized_start=2744,
+  serialized_end=2772,
 )
 
 _BACKUP_GETVECTOR = _descriptor.Descriptor(
   name='GetVector',
-  full_name='payload.Backup.GetVector',
+  full_name='payload.v1.Backup.GetVector',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1851,20 +1851,20 @@ _BACKUP_GETVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2616,
-  serialized_end=2691,
+  serialized_start=2697,
+  serialized_end=2772,
 )
 
 _BACKUP_LOCATIONS_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Backup.Locations.Request',
+  full_name='payload.v1.Backup.Locations.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Backup.Locations.Request.uuid', index=0,
+      name='uuid', full_name='payload.v1.Backup.Locations.Request.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1882,13 +1882,13 @@ _BACKUP_LOCATIONS_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2629,
-  serialized_end=2661,
+  serialized_start=2710,
+  serialized_end=2742,
 )
 
 _BACKUP_LOCATIONS = _descriptor.Descriptor(
   name='Locations',
-  full_name='payload.Backup.Locations',
+  full_name='payload.v1.Backup.Locations',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1906,20 +1906,20 @@ _BACKUP_LOCATIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2693,
-  serialized_end=2738,
+  serialized_start=2774,
+  serialized_end=2819,
 )
 
 _BACKUP_REMOVE_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Backup.Remove.Request',
+  full_name='payload.v1.Backup.Remove.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Backup.Remove.Request.uuid', index=0,
+      name='uuid', full_name='payload.v1.Backup.Remove.Request.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -1937,20 +1937,20 @@ _BACKUP_REMOVE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2629,
-  serialized_end=2661,
+  serialized_start=2710,
+  serialized_end=2742,
 )
 
 _BACKUP_REMOVE_REQUESTMULTI = _descriptor.Descriptor(
   name='RequestMulti',
-  full_name='payload.Backup.Remove.RequestMulti',
+  full_name='payload.v1.Backup.Remove.RequestMulti',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuids', full_name='payload.Backup.Remove.RequestMulti.uuids', index=0,
+      name='uuids', full_name='payload.v1.Backup.Remove.RequestMulti.uuids', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1968,13 +1968,13 @@ _BACKUP_REMOVE_REQUESTMULTI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2784,
-  serialized_end=2823,
+  serialized_start=2865,
+  serialized_end=2904,
 )
 
 _BACKUP_REMOVE = _descriptor.Descriptor(
   name='Remove',
-  full_name='payload.Backup.Remove',
+  full_name='payload.v1.Backup.Remove',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -1992,27 +1992,27 @@ _BACKUP_REMOVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2740,
-  serialized_end=2823,
+  serialized_start=2821,
+  serialized_end=2904,
 )
 
 _BACKUP_IP_REGISTER_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Backup.IP.Register.Request',
+  full_name='payload.v1.Backup.IP.Register.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Backup.IP.Register.Request.uuid', index=0,
+      name='uuid', full_name='payload.v1.Backup.IP.Register.Request.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ips', full_name='payload.Backup.IP.Register.Request.ips', index=1,
+      name='ips', full_name='payload.v1.Backup.IP.Register.Request.ips', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2030,13 +2030,13 @@ _BACKUP_IP_REGISTER_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2843,
-  serialized_end=2898,
+  serialized_start=2924,
+  serialized_end=2979,
 )
 
 _BACKUP_IP_REGISTER = _descriptor.Descriptor(
   name='Register',
-  full_name='payload.Backup.IP.Register',
+  full_name='payload.v1.Backup.IP.Register',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2054,20 +2054,20 @@ _BACKUP_IP_REGISTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2831,
-  serialized_end=2898,
+  serialized_start=2912,
+  serialized_end=2979,
 )
 
 _BACKUP_IP_REMOVE_REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='payload.Backup.IP.Remove.Request',
+  full_name='payload.v1.Backup.IP.Remove.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ips', full_name='payload.Backup.IP.Remove.Request.ips', index=0,
+      name='ips', full_name='payload.v1.Backup.IP.Remove.Request.ips', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2085,13 +2085,13 @@ _BACKUP_IP_REMOVE_REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2910,
-  serialized_end=2942,
+  serialized_start=2991,
+  serialized_end=3023,
 )
 
 _BACKUP_IP_REMOVE = _descriptor.Descriptor(
   name='Remove',
-  full_name='payload.Backup.IP.Remove',
+  full_name='payload.v1.Backup.IP.Remove',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2109,13 +2109,13 @@ _BACKUP_IP_REMOVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2900,
-  serialized_end=2942,
+  serialized_start=2981,
+  serialized_end=3023,
 )
 
 _BACKUP_IP = _descriptor.Descriptor(
   name='IP',
-  full_name='payload.Backup.IP',
+  full_name='payload.v1.Backup.IP',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2133,34 +2133,34 @@ _BACKUP_IP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2825,
-  serialized_end=2942,
+  serialized_start=2906,
+  serialized_end=3023,
 )
 
-_BACKUP_METAVECTOR = _descriptor.Descriptor(
-  name='MetaVector',
-  full_name='payload.Backup.MetaVector',
+_BACKUP_VECTOR = _descriptor.Descriptor(
+  name='Vector',
+  full_name='payload.v1.Backup.Vector',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Backup.MetaVector.uuid', index=0,
+      name='uuid', full_name='payload.v1.Backup.Vector.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='vector', full_name='payload.Backup.MetaVector.vector', index=1,
+      name='vector', full_name='payload.v1.Backup.Vector.vector', index=1,
       number=3, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\222\001\002\010\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ips', full_name='payload.Backup.MetaVector.ips', index=2,
+      name='ips', full_name='payload.v1.Backup.Vector.ips', index=2,
       number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2178,20 +2178,20 @@ _BACKUP_METAVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2944,
-  serialized_end=3009,
+  serialized_start=3025,
+  serialized_end=3086,
 )
 
-_BACKUP_METAVECTORS = _descriptor.Descriptor(
-  name='MetaVectors',
-  full_name='payload.Backup.MetaVectors',
+_BACKUP_VECTORS = _descriptor.Descriptor(
+  name='Vectors',
+  full_name='payload.v1.Backup.Vectors',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vectors', full_name='payload.Backup.MetaVectors.vectors', index=0,
+      name='vectors', full_name='payload.v1.Backup.Vectors.vectors', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2209,34 +2209,34 @@ _BACKUP_METAVECTORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3011,
-  serialized_end=3069,
+  serialized_start=3088,
+  serialized_end=3141,
 )
 
-_BACKUP_COMPRESSED_METAVECTOR = _descriptor.Descriptor(
-  name='MetaVector',
-  full_name='payload.Backup.Compressed.MetaVector',
+_BACKUP_COMPRESSED_VECTOR = _descriptor.Descriptor(
+  name='Vector',
+  full_name='payload.v1.Backup.Compressed.Vector',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Backup.Compressed.MetaVector.uuid', index=0,
+      name='uuid', full_name='payload.v1.Backup.Compressed.Vector.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='vector', full_name='payload.Backup.Compressed.MetaVector.vector', index=1,
+      name='vector', full_name='payload.v1.Backup.Compressed.Vector.vector', index=1,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ips', full_name='payload.Backup.Compressed.MetaVector.ips', index=2,
+      name='ips', full_name='payload.v1.Backup.Compressed.Vector.ips', index=2,
       number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2254,20 +2254,20 @@ _BACKUP_COMPRESSED_METAVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3086,
-  serialized_end=3141,
+  serialized_start=3158,
+  serialized_end=3209,
 )
 
-_BACKUP_COMPRESSED_METAVECTORS = _descriptor.Descriptor(
-  name='MetaVectors',
-  full_name='payload.Backup.Compressed.MetaVectors',
+_BACKUP_COMPRESSED_VECTORS = _descriptor.Descriptor(
+  name='Vectors',
+  full_name='payload.v1.Backup.Compressed.Vectors',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vectors', full_name='payload.Backup.Compressed.MetaVectors.vectors', index=0,
+      name='vectors', full_name='payload.v1.Backup.Compressed.Vectors.vectors', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2285,13 +2285,13 @@ _BACKUP_COMPRESSED_METAVECTORS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3143,
-  serialized_end=3212,
+  serialized_start=3211,
+  serialized_end=3275,
 )
 
 _BACKUP_COMPRESSED = _descriptor.Descriptor(
   name='Compressed',
-  full_name='payload.Backup.Compressed',
+  full_name='payload.v1.Backup.Compressed',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2300,7 +2300,7 @@ _BACKUP_COMPRESSED = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_BACKUP_COMPRESSED_METAVECTOR, _BACKUP_COMPRESSED_METAVECTORS, ],
+  nested_types=[_BACKUP_COMPRESSED_VECTOR, _BACKUP_COMPRESSED_VECTORS, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -2309,13 +2309,13 @@ _BACKUP_COMPRESSED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3072,
-  serialized_end=3212,
+  serialized_start=3144,
+  serialized_end=3275,
 )
 
 _BACKUP = _descriptor.Descriptor(
   name='Backup',
-  full_name='payload.Backup',
+  full_name='payload.v1.Backup',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2324,7 +2324,7 @@ _BACKUP = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_BACKUP_GETVECTOR, _BACKUP_LOCATIONS, _BACKUP_REMOVE, _BACKUP_IP, _BACKUP_METAVECTOR, _BACKUP_METAVECTORS, _BACKUP_COMPRESSED, ],
+  nested_types=[_BACKUP_GETVECTOR, _BACKUP_LOCATIONS, _BACKUP_REMOVE, _BACKUP_IP, _BACKUP_VECTOR, _BACKUP_VECTORS, _BACKUP_COMPRESSED, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -2333,35 +2333,35 @@ _BACKUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2606,
-  serialized_end=3212,
+  serialized_start=2687,
+  serialized_end=3275,
 )
 
 
 _INFO_INDEX_COUNT = _descriptor.Descriptor(
   name='Count',
-  full_name='payload.Info.Index.Count',
+  full_name='payload.v1.Info.Index.Count',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='stored', full_name='payload.Info.Index.Count.stored', index=0,
+      name='stored', full_name='payload.v1.Info.Index.Count.stored', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='uncommitted', full_name='payload.Info.Index.Count.uncommitted', index=1,
+      name='uncommitted', full_name='payload.v1.Info.Index.Count.uncommitted', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='indexing', full_name='payload.Info.Index.Count.indexing', index=2,
+      name='indexing', full_name='payload.v1.Info.Index.Count.indexing', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -2379,20 +2379,20 @@ _INFO_INDEX_COUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3233,
-  serialized_end=3295,
+  serialized_start=3296,
+  serialized_end=3358,
 )
 
 _INFO_INDEX_UUID_COMMITTED = _descriptor.Descriptor(
   name='Committed',
-  full_name='payload.Info.Index.UUID.Committed',
+  full_name='payload.v1.Info.Index.UUID.Committed',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Info.Index.UUID.Committed.uuid', index=0,
+      name='uuid', full_name='payload.v1.Info.Index.UUID.Committed.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -2410,20 +2410,20 @@ _INFO_INDEX_UUID_COMMITTED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3305,
-  serialized_end=3330,
+  serialized_start=3368,
+  serialized_end=3393,
 )
 
 _INFO_INDEX_UUID_UNCOMMITTED = _descriptor.Descriptor(
   name='Uncommitted',
-  full_name='payload.Info.Index.UUID.Uncommitted',
+  full_name='payload.v1.Info.Index.UUID.Uncommitted',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='payload.Info.Index.UUID.Uncommitted.uuid', index=0,
+      name='uuid', full_name='payload.v1.Info.Index.UUID.Uncommitted.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -2441,13 +2441,13 @@ _INFO_INDEX_UUID_UNCOMMITTED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3332,
-  serialized_end=3359,
+  serialized_start=3395,
+  serialized_end=3422,
 )
 
 _INFO_INDEX_UUID = _descriptor.Descriptor(
   name='UUID',
-  full_name='payload.Info.Index.UUID',
+  full_name='payload.v1.Info.Index.UUID',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2465,13 +2465,13 @@ _INFO_INDEX_UUID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3297,
-  serialized_end=3359,
+  serialized_start=3360,
+  serialized_end=3422,
 )
 
 _INFO_INDEX = _descriptor.Descriptor(
   name='Index',
-  full_name='payload.Info.Index',
+  full_name='payload.v1.Info.Index',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2489,62 +2489,62 @@ _INFO_INDEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3224,
-  serialized_end=3359,
+  serialized_start=3287,
+  serialized_end=3422,
 )
 
 _INFO_POD = _descriptor.Descriptor(
   name='Pod',
-  full_name='payload.Info.Pod',
+  full_name='payload.v1.Info.Pod',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='app_name', full_name='payload.Info.Pod.app_name', index=0,
+      name='app_name', full_name='payload.v1.Info.Pod.app_name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='name', full_name='payload.Info.Pod.name', index=1,
+      name='name', full_name='payload.v1.Info.Pod.name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='namespace', full_name='payload.Info.Pod.namespace', index=2,
+      name='namespace', full_name='payload.v1.Info.Pod.namespace', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ip', full_name='payload.Info.Pod.ip', index=3,
+      name='ip', full_name='payload.v1.Info.Pod.ip', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002x\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='cpu', full_name='payload.Info.Pod.cpu', index=4,
+      name='cpu', full_name='payload.v1.Info.Pod.cpu', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='memory', full_name='payload.Info.Pod.memory', index=5,
+      name='memory', full_name='payload.v1.Info.Pod.memory', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='node', full_name='payload.Info.Pod.node', index=6,
+      name='node', full_name='payload.v1.Info.Pod.node', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2562,55 +2562,55 @@ _INFO_POD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3362,
-  serialized_end=3543,
+  serialized_start=3425,
+  serialized_end=3615,
 )
 
 _INFO_NODE = _descriptor.Descriptor(
   name='Node',
-  full_name='payload.Info.Node',
+  full_name='payload.v1.Info.Node',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='payload.Info.Node.name', index=0,
+      name='name', full_name='payload.v1.Info.Node.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='internal_addr', full_name='payload.Info.Node.internal_addr', index=1,
+      name='internal_addr', full_name='payload.v1.Info.Node.internal_addr', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='external_addr', full_name='payload.Info.Node.external_addr', index=2,
+      name='external_addr', full_name='payload.v1.Info.Node.external_addr', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='cpu', full_name='payload.Info.Node.cpu', index=3,
+      name='cpu', full_name='payload.v1.Info.Node.cpu', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='memory', full_name='payload.Info.Node.memory', index=4,
+      name='memory', full_name='payload.v1.Info.Node.memory', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Pods', full_name='payload.Info.Node.Pods', index=5,
+      name='Pods', full_name='payload.v1.Info.Node.Pods', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2628,34 +2628,34 @@ _INFO_NODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3546,
-  serialized_end=3716,
+  serialized_start=3618,
+  serialized_end=3797,
 )
 
 _INFO_CPU = _descriptor.Descriptor(
   name='CPU',
-  full_name='payload.Info.CPU',
+  full_name='payload.v1.Info.CPU',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='limit', full_name='payload.Info.CPU.limit', index=0,
+      name='limit', full_name='payload.v1.Info.CPU.limit', index=0,
       number=1, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request', full_name='payload.Info.CPU.request', index=1,
+      name='request', full_name='payload.v1.Info.CPU.request', index=1,
       number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='usage', full_name='payload.Info.CPU.usage', index=2,
+      name='usage', full_name='payload.v1.Info.CPU.usage', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -2673,34 +2673,34 @@ _INFO_CPU = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3718,
-  serialized_end=3770,
+  serialized_start=3799,
+  serialized_end=3851,
 )
 
 _INFO_MEMORY = _descriptor.Descriptor(
   name='Memory',
-  full_name='payload.Info.Memory',
+  full_name='payload.v1.Info.Memory',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='limit', full_name='payload.Info.Memory.limit', index=0,
+      name='limit', full_name='payload.v1.Info.Memory.limit', index=0,
       number=1, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request', full_name='payload.Info.Memory.request', index=1,
+      name='request', full_name='payload.v1.Info.Memory.request', index=1,
       number=2, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='usage', full_name='payload.Info.Memory.usage', index=2,
+      name='usage', full_name='payload.v1.Info.Memory.usage', index=2,
       number=3, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -2718,20 +2718,20 @@ _INFO_MEMORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3772,
-  serialized_end=3827,
+  serialized_start=3853,
+  serialized_end=3908,
 )
 
 _INFO_PODS = _descriptor.Descriptor(
   name='Pods',
-  full_name='payload.Info.Pods',
+  full_name='payload.v1.Info.Pods',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='pods', full_name='payload.Info.Pods.pods', index=0,
+      name='pods', full_name='payload.v1.Info.Pods.pods', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2749,20 +2749,20 @@ _INFO_PODS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3829,
-  serialized_end=3878,
+  serialized_start=3910,
+  serialized_end=3962,
 )
 
 _INFO_NODES = _descriptor.Descriptor(
   name='Nodes',
-  full_name='payload.Info.Nodes',
+  full_name='payload.v1.Info.Nodes',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='nodes', full_name='payload.Info.Nodes.nodes', index=0,
+      name='nodes', full_name='payload.v1.Info.Nodes.nodes', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2780,20 +2780,20 @@ _INFO_NODES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3880,
-  serialized_end=3932,
+  serialized_start=3964,
+  serialized_end=4019,
 )
 
 _INFO_IPS = _descriptor.Descriptor(
   name='IPs',
-  full_name='payload.Info.IPs',
+  full_name='payload.v1.Info.IPs',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ip', full_name='payload.Info.IPs.ip', index=0,
+      name='ip', full_name='payload.v1.Info.IPs.ip', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2811,13 +2811,13 @@ _INFO_IPS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3934,
-  serialized_end=3951,
+  serialized_start=4021,
+  serialized_end=4038,
 )
 
 _INFO = _descriptor.Descriptor(
   name='Info',
-  full_name='payload.Info',
+  full_name='payload.v1.Info',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2835,14 +2835,14 @@ _INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3215,
-  serialized_end=3951,
+  serialized_start=3278,
+  serialized_end=4038,
 )
 
 
 _EMPTY = _descriptor.Descriptor(
   name='Empty',
-  full_name='payload.Empty',
+  full_name='payload.v1.Empty',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -2860,8 +2860,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3953,
-  serialized_end=3960,
+  serialized_start=4040,
+  serialized_end=4047,
 )
 
 _SEARCH_REQUEST.fields_by_name['config'].message_type = _SEARCH_CONFIG
@@ -2944,12 +2944,12 @@ _BACKUP_IP_REGISTER.containing_type = _BACKUP_IP
 _BACKUP_IP_REMOVE_REQUEST.containing_type = _BACKUP_IP_REMOVE
 _BACKUP_IP_REMOVE.containing_type = _BACKUP_IP
 _BACKUP_IP.containing_type = _BACKUP
-_BACKUP_METAVECTOR.containing_type = _BACKUP
-_BACKUP_METAVECTORS.fields_by_name['vectors'].message_type = _BACKUP_METAVECTOR
-_BACKUP_METAVECTORS.containing_type = _BACKUP
-_BACKUP_COMPRESSED_METAVECTOR.containing_type = _BACKUP_COMPRESSED
-_BACKUP_COMPRESSED_METAVECTORS.fields_by_name['vectors'].message_type = _BACKUP_COMPRESSED_METAVECTOR
-_BACKUP_COMPRESSED_METAVECTORS.containing_type = _BACKUP_COMPRESSED
+_BACKUP_VECTOR.containing_type = _BACKUP
+_BACKUP_VECTORS.fields_by_name['vectors'].message_type = _BACKUP_VECTOR
+_BACKUP_VECTORS.containing_type = _BACKUP
+_BACKUP_COMPRESSED_VECTOR.containing_type = _BACKUP_COMPRESSED
+_BACKUP_COMPRESSED_VECTORS.fields_by_name['vectors'].message_type = _BACKUP_COMPRESSED_VECTOR
+_BACKUP_COMPRESSED_VECTORS.containing_type = _BACKUP_COMPRESSED
 _BACKUP_COMPRESSED.containing_type = _BACKUP
 _INFO_INDEX_COUNT.containing_type = _INFO_INDEX
 _INFO_INDEX_UUID_COMMITTED.containing_type = _INFO_INDEX_UUID
@@ -2992,61 +2992,61 @@ Search = _reflection.GeneratedProtocolMessageType('Search', (_message.Message,),
   'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_REQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.Request)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.Request)
     })
   ,
 
   'MultiRequest' : _reflection.GeneratedProtocolMessageType('MultiRequest', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_MULTIREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.MultiRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.MultiRequest)
     })
   ,
 
   'IDRequest' : _reflection.GeneratedProtocolMessageType('IDRequest', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_IDREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.IDRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.IDRequest)
     })
   ,
 
   'MultiIDRequest' : _reflection.GeneratedProtocolMessageType('MultiIDRequest', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_MULTIIDREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.MultiIDRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.MultiIDRequest)
     })
   ,
 
   'ObjectRequest' : _reflection.GeneratedProtocolMessageType('ObjectRequest', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_OBJECTREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.ObjectRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.ObjectRequest)
     })
   ,
 
   'Config' : _reflection.GeneratedProtocolMessageType('Config', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_CONFIG,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.Config)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.Config)
     })
   ,
 
   'Response' : _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_RESPONSE,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.Response)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.Response)
     })
   ,
 
   'Responses' : _reflection.GeneratedProtocolMessageType('Responses', (_message.Message,), {
     'DESCRIPTOR' : _SEARCH_RESPONSES,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Search.Responses)
+    # @@protoc_insertion_point(class_scope:payload.v1.Search.Responses)
     })
   ,
   'DESCRIPTOR' : _SEARCH,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Search)
+  # @@protoc_insertion_point(class_scope:payload.v1.Search)
   })
 _sym_db.RegisterMessage(Search)
 _sym_db.RegisterMessage(Search.Request)
@@ -3063,19 +3063,19 @@ Filter = _reflection.GeneratedProtocolMessageType('Filter', (_message.Message,),
   'Target' : _reflection.GeneratedProtocolMessageType('Target', (_message.Message,), {
     'DESCRIPTOR' : _FILTER_TARGET,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Filter.Target)
+    # @@protoc_insertion_point(class_scope:payload.v1.Filter.Target)
     })
   ,
 
   'Config' : _reflection.GeneratedProtocolMessageType('Config', (_message.Message,), {
     'DESCRIPTOR' : _FILTER_CONFIG,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Filter.Config)
+    # @@protoc_insertion_point(class_scope:payload.v1.Filter.Config)
     })
   ,
   'DESCRIPTOR' : _FILTER,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Filter)
+  # @@protoc_insertion_point(class_scope:payload.v1.Filter)
   })
 _sym_db.RegisterMessage(Filter)
 _sym_db.RegisterMessage(Filter.Target)
@@ -3086,26 +3086,26 @@ Insert = _reflection.GeneratedProtocolMessageType('Insert', (_message.Message,),
   'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
     'DESCRIPTOR' : _INSERT_REQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Insert.Request)
+    # @@protoc_insertion_point(class_scope:payload.v1.Insert.Request)
     })
   ,
 
   'MultiRequest' : _reflection.GeneratedProtocolMessageType('MultiRequest', (_message.Message,), {
     'DESCRIPTOR' : _INSERT_MULTIREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Insert.MultiRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Insert.MultiRequest)
     })
   ,
 
   'Config' : _reflection.GeneratedProtocolMessageType('Config', (_message.Message,), {
     'DESCRIPTOR' : _INSERT_CONFIG,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Insert.Config)
+    # @@protoc_insertion_point(class_scope:payload.v1.Insert.Config)
     })
   ,
   'DESCRIPTOR' : _INSERT,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Insert)
+  # @@protoc_insertion_point(class_scope:payload.v1.Insert)
   })
 _sym_db.RegisterMessage(Insert)
 _sym_db.RegisterMessage(Insert.Request)
@@ -3117,26 +3117,26 @@ Update = _reflection.GeneratedProtocolMessageType('Update', (_message.Message,),
   'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
     'DESCRIPTOR' : _UPDATE_REQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Update.Request)
+    # @@protoc_insertion_point(class_scope:payload.v1.Update.Request)
     })
   ,
 
   'MultiRequest' : _reflection.GeneratedProtocolMessageType('MultiRequest', (_message.Message,), {
     'DESCRIPTOR' : _UPDATE_MULTIREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Update.MultiRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Update.MultiRequest)
     })
   ,
 
   'Config' : _reflection.GeneratedProtocolMessageType('Config', (_message.Message,), {
     'DESCRIPTOR' : _UPDATE_CONFIG,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Update.Config)
+    # @@protoc_insertion_point(class_scope:payload.v1.Update.Config)
     })
   ,
   'DESCRIPTOR' : _UPDATE,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Update)
+  # @@protoc_insertion_point(class_scope:payload.v1.Update)
   })
 _sym_db.RegisterMessage(Update)
 _sym_db.RegisterMessage(Update.Request)
@@ -3148,26 +3148,26 @@ Upsert = _reflection.GeneratedProtocolMessageType('Upsert', (_message.Message,),
   'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
     'DESCRIPTOR' : _UPSERT_REQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Upsert.Request)
+    # @@protoc_insertion_point(class_scope:payload.v1.Upsert.Request)
     })
   ,
 
   'MultiRequest' : _reflection.GeneratedProtocolMessageType('MultiRequest', (_message.Message,), {
     'DESCRIPTOR' : _UPSERT_MULTIREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Upsert.MultiRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Upsert.MultiRequest)
     })
   ,
 
   'Config' : _reflection.GeneratedProtocolMessageType('Config', (_message.Message,), {
     'DESCRIPTOR' : _UPSERT_CONFIG,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Upsert.Config)
+    # @@protoc_insertion_point(class_scope:payload.v1.Upsert.Config)
     })
   ,
   'DESCRIPTOR' : _UPSERT,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Upsert)
+  # @@protoc_insertion_point(class_scope:payload.v1.Upsert)
   })
 _sym_db.RegisterMessage(Upsert)
 _sym_db.RegisterMessage(Upsert.Request)
@@ -3179,26 +3179,26 @@ Remove = _reflection.GeneratedProtocolMessageType('Remove', (_message.Message,),
   'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
     'DESCRIPTOR' : _REMOVE_REQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Remove.Request)
+    # @@protoc_insertion_point(class_scope:payload.v1.Remove.Request)
     })
   ,
 
   'MultiRequest' : _reflection.GeneratedProtocolMessageType('MultiRequest', (_message.Message,), {
     'DESCRIPTOR' : _REMOVE_MULTIREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Remove.MultiRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Remove.MultiRequest)
     })
   ,
 
   'Config' : _reflection.GeneratedProtocolMessageType('Config', (_message.Message,), {
     'DESCRIPTOR' : _REMOVE_CONFIG,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Remove.Config)
+    # @@protoc_insertion_point(class_scope:payload.v1.Remove.Config)
     })
   ,
   'DESCRIPTOR' : _REMOVE,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Remove)
+  # @@protoc_insertion_point(class_scope:payload.v1.Remove)
   })
 _sym_db.RegisterMessage(Remove)
 _sym_db.RegisterMessage(Remove.Request)
@@ -3210,47 +3210,47 @@ Meta = _reflection.GeneratedProtocolMessageType('Meta', (_message.Message,), {
   'Key' : _reflection.GeneratedProtocolMessageType('Key', (_message.Message,), {
     'DESCRIPTOR' : _META_KEY,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Meta.Key)
+    # @@protoc_insertion_point(class_scope:payload.v1.Meta.Key)
     })
   ,
 
   'Keys' : _reflection.GeneratedProtocolMessageType('Keys', (_message.Message,), {
     'DESCRIPTOR' : _META_KEYS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Meta.Keys)
+    # @@protoc_insertion_point(class_scope:payload.v1.Meta.Keys)
     })
   ,
 
   'Val' : _reflection.GeneratedProtocolMessageType('Val', (_message.Message,), {
     'DESCRIPTOR' : _META_VAL,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Meta.Val)
+    # @@protoc_insertion_point(class_scope:payload.v1.Meta.Val)
     })
   ,
 
   'Vals' : _reflection.GeneratedProtocolMessageType('Vals', (_message.Message,), {
     'DESCRIPTOR' : _META_VALS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Meta.Vals)
+    # @@protoc_insertion_point(class_scope:payload.v1.Meta.Vals)
     })
   ,
 
   'KeyVal' : _reflection.GeneratedProtocolMessageType('KeyVal', (_message.Message,), {
     'DESCRIPTOR' : _META_KEYVAL,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Meta.KeyVal)
+    # @@protoc_insertion_point(class_scope:payload.v1.Meta.KeyVal)
     })
   ,
 
   'KeyVals' : _reflection.GeneratedProtocolMessageType('KeyVals', (_message.Message,), {
     'DESCRIPTOR' : _META_KEYVALS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Meta.KeyVals)
+    # @@protoc_insertion_point(class_scope:payload.v1.Meta.KeyVals)
     })
   ,
   'DESCRIPTOR' : _META,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Meta)
+  # @@protoc_insertion_point(class_scope:payload.v1.Meta)
   })
 _sym_db.RegisterMessage(Meta)
 _sym_db.RegisterMessage(Meta.Key)
@@ -3265,61 +3265,61 @@ Object = _reflection.GeneratedProtocolMessageType('Object', (_message.Message,),
   'Distance' : _reflection.GeneratedProtocolMessageType('Distance', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_DISTANCE,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.Distance)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.Distance)
     })
   ,
 
   'ID' : _reflection.GeneratedProtocolMessageType('ID', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_ID,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.ID)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.ID)
     })
   ,
 
   'IDs' : _reflection.GeneratedProtocolMessageType('IDs', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_IDS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.IDs)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.IDs)
     })
   ,
 
   'Vector' : _reflection.GeneratedProtocolMessageType('Vector', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_VECTOR,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.Vector)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.Vector)
     })
   ,
 
   'Vectors' : _reflection.GeneratedProtocolMessageType('Vectors', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_VECTORS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.Vectors)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.Vectors)
     })
   ,
 
   'Blob' : _reflection.GeneratedProtocolMessageType('Blob', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_BLOB,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.Blob)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.Blob)
     })
   ,
 
   'Location' : _reflection.GeneratedProtocolMessageType('Location', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_LOCATION,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.Location)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.Location)
     })
   ,
 
   'Locations' : _reflection.GeneratedProtocolMessageType('Locations', (_message.Message,), {
     'DESCRIPTOR' : _OBJECT_LOCATIONS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Object.Locations)
+    # @@protoc_insertion_point(class_scope:payload.v1.Object.Locations)
     })
   ,
   'DESCRIPTOR' : _OBJECT,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Object)
+  # @@protoc_insertion_point(class_scope:payload.v1.Object)
   })
 _sym_db.RegisterMessage(Object)
 _sym_db.RegisterMessage(Object.Distance)
@@ -3336,12 +3336,12 @@ Control = _reflection.GeneratedProtocolMessageType('Control', (_message.Message,
   'CreateIndexRequest' : _reflection.GeneratedProtocolMessageType('CreateIndexRequest', (_message.Message,), {
     'DESCRIPTOR' : _CONTROL_CREATEINDEXREQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Control.CreateIndexRequest)
+    # @@protoc_insertion_point(class_scope:payload.v1.Control.CreateIndexRequest)
     })
   ,
   'DESCRIPTOR' : _CONTROL,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Control)
+  # @@protoc_insertion_point(class_scope:payload.v1.Control)
   })
 _sym_db.RegisterMessage(Control)
 _sym_db.RegisterMessage(Control.CreateIndexRequest)
@@ -3351,26 +3351,26 @@ Replication = _reflection.GeneratedProtocolMessageType('Replication', (_message.
   'Recovery' : _reflection.GeneratedProtocolMessageType('Recovery', (_message.Message,), {
     'DESCRIPTOR' : _REPLICATION_RECOVERY,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Replication.Recovery)
+    # @@protoc_insertion_point(class_scope:payload.v1.Replication.Recovery)
     })
   ,
 
   'Rebalance' : _reflection.GeneratedProtocolMessageType('Rebalance', (_message.Message,), {
     'DESCRIPTOR' : _REPLICATION_REBALANCE,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Replication.Rebalance)
+    # @@protoc_insertion_point(class_scope:payload.v1.Replication.Rebalance)
     })
   ,
 
   'Agents' : _reflection.GeneratedProtocolMessageType('Agents', (_message.Message,), {
     'DESCRIPTOR' : _REPLICATION_AGENTS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Replication.Agents)
+    # @@protoc_insertion_point(class_scope:payload.v1.Replication.Agents)
     })
   ,
   'DESCRIPTOR' : _REPLICATION,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Replication)
+  # @@protoc_insertion_point(class_scope:payload.v1.Replication)
   })
 _sym_db.RegisterMessage(Replication)
 _sym_db.RegisterMessage(Replication.Recovery)
@@ -3382,12 +3382,12 @@ Discoverer = _reflection.GeneratedProtocolMessageType('Discoverer', (_message.Me
   'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
     'DESCRIPTOR' : _DISCOVERER_REQUEST,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Discoverer.Request)
+    # @@protoc_insertion_point(class_scope:payload.v1.Discoverer.Request)
     })
   ,
   'DESCRIPTOR' : _DISCOVERER,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Discoverer)
+  # @@protoc_insertion_point(class_scope:payload.v1.Discoverer)
   })
 _sym_db.RegisterMessage(Discoverer)
 _sym_db.RegisterMessage(Discoverer.Request)
@@ -3399,19 +3399,19 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
     'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
       'DESCRIPTOR' : _BACKUP_GETVECTOR_REQUEST,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.GetVector.Request)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.GetVector.Request)
       })
     ,
 
     'Owner' : _reflection.GeneratedProtocolMessageType('Owner', (_message.Message,), {
       'DESCRIPTOR' : _BACKUP_GETVECTOR_OWNER,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.GetVector.Owner)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.GetVector.Owner)
       })
     ,
     'DESCRIPTOR' : _BACKUP_GETVECTOR,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Backup.GetVector)
+    # @@protoc_insertion_point(class_scope:payload.v1.Backup.GetVector)
     })
   ,
 
@@ -3420,12 +3420,12 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
     'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
       'DESCRIPTOR' : _BACKUP_LOCATIONS_REQUEST,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.Locations.Request)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.Locations.Request)
       })
     ,
     'DESCRIPTOR' : _BACKUP_LOCATIONS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Backup.Locations)
+    # @@protoc_insertion_point(class_scope:payload.v1.Backup.Locations)
     })
   ,
 
@@ -3434,19 +3434,19 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
     'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
       'DESCRIPTOR' : _BACKUP_REMOVE_REQUEST,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.Remove.Request)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.Remove.Request)
       })
     ,
 
     'RequestMulti' : _reflection.GeneratedProtocolMessageType('RequestMulti', (_message.Message,), {
       'DESCRIPTOR' : _BACKUP_REMOVE_REQUESTMULTI,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.Remove.RequestMulti)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.Remove.RequestMulti)
       })
     ,
     'DESCRIPTOR' : _BACKUP_REMOVE,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Backup.Remove)
+    # @@protoc_insertion_point(class_scope:payload.v1.Backup.Remove)
     })
   ,
 
@@ -3457,12 +3457,12 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
       'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
         'DESCRIPTOR' : _BACKUP_IP_REGISTER_REQUEST,
         '__module__' : 'vald.v1.payload.payload_pb2'
-        # @@protoc_insertion_point(class_scope:payload.Backup.IP.Register.Request)
+        # @@protoc_insertion_point(class_scope:payload.v1.Backup.IP.Register.Request)
         })
       ,
       'DESCRIPTOR' : _BACKUP_IP_REGISTER,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.IP.Register)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.IP.Register)
       })
     ,
 
@@ -3471,57 +3471,57 @@ Backup = _reflection.GeneratedProtocolMessageType('Backup', (_message.Message,),
       'Request' : _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
         'DESCRIPTOR' : _BACKUP_IP_REMOVE_REQUEST,
         '__module__' : 'vald.v1.payload.payload_pb2'
-        # @@protoc_insertion_point(class_scope:payload.Backup.IP.Remove.Request)
+        # @@protoc_insertion_point(class_scope:payload.v1.Backup.IP.Remove.Request)
         })
       ,
       'DESCRIPTOR' : _BACKUP_IP_REMOVE,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.IP.Remove)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.IP.Remove)
       })
     ,
     'DESCRIPTOR' : _BACKUP_IP,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Backup.IP)
+    # @@protoc_insertion_point(class_scope:payload.v1.Backup.IP)
     })
   ,
 
-  'MetaVector' : _reflection.GeneratedProtocolMessageType('MetaVector', (_message.Message,), {
-    'DESCRIPTOR' : _BACKUP_METAVECTOR,
+  'Vector' : _reflection.GeneratedProtocolMessageType('Vector', (_message.Message,), {
+    'DESCRIPTOR' : _BACKUP_VECTOR,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Backup.MetaVector)
+    # @@protoc_insertion_point(class_scope:payload.v1.Backup.Vector)
     })
   ,
 
-  'MetaVectors' : _reflection.GeneratedProtocolMessageType('MetaVectors', (_message.Message,), {
-    'DESCRIPTOR' : _BACKUP_METAVECTORS,
+  'Vectors' : _reflection.GeneratedProtocolMessageType('Vectors', (_message.Message,), {
+    'DESCRIPTOR' : _BACKUP_VECTORS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Backup.MetaVectors)
+    # @@protoc_insertion_point(class_scope:payload.v1.Backup.Vectors)
     })
   ,
 
   'Compressed' : _reflection.GeneratedProtocolMessageType('Compressed', (_message.Message,), {
 
-    'MetaVector' : _reflection.GeneratedProtocolMessageType('MetaVector', (_message.Message,), {
-      'DESCRIPTOR' : _BACKUP_COMPRESSED_METAVECTOR,
+    'Vector' : _reflection.GeneratedProtocolMessageType('Vector', (_message.Message,), {
+      'DESCRIPTOR' : _BACKUP_COMPRESSED_VECTOR,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.Compressed.MetaVector)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.Compressed.Vector)
       })
     ,
 
-    'MetaVectors' : _reflection.GeneratedProtocolMessageType('MetaVectors', (_message.Message,), {
-      'DESCRIPTOR' : _BACKUP_COMPRESSED_METAVECTORS,
+    'Vectors' : _reflection.GeneratedProtocolMessageType('Vectors', (_message.Message,), {
+      'DESCRIPTOR' : _BACKUP_COMPRESSED_VECTORS,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Backup.Compressed.MetaVectors)
+      # @@protoc_insertion_point(class_scope:payload.v1.Backup.Compressed.Vectors)
       })
     ,
     'DESCRIPTOR' : _BACKUP_COMPRESSED,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Backup.Compressed)
+    # @@protoc_insertion_point(class_scope:payload.v1.Backup.Compressed)
     })
   ,
   'DESCRIPTOR' : _BACKUP,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Backup)
+  # @@protoc_insertion_point(class_scope:payload.v1.Backup)
   })
 _sym_db.RegisterMessage(Backup)
 _sym_db.RegisterMessage(Backup.GetVector)
@@ -3537,11 +3537,11 @@ _sym_db.RegisterMessage(Backup.IP.Register)
 _sym_db.RegisterMessage(Backup.IP.Register.Request)
 _sym_db.RegisterMessage(Backup.IP.Remove)
 _sym_db.RegisterMessage(Backup.IP.Remove.Request)
-_sym_db.RegisterMessage(Backup.MetaVector)
-_sym_db.RegisterMessage(Backup.MetaVectors)
+_sym_db.RegisterMessage(Backup.Vector)
+_sym_db.RegisterMessage(Backup.Vectors)
 _sym_db.RegisterMessage(Backup.Compressed)
-_sym_db.RegisterMessage(Backup.Compressed.MetaVector)
-_sym_db.RegisterMessage(Backup.Compressed.MetaVectors)
+_sym_db.RegisterMessage(Backup.Compressed.Vector)
+_sym_db.RegisterMessage(Backup.Compressed.Vectors)
 
 Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), {
 
@@ -3550,7 +3550,7 @@ Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), {
     'Count' : _reflection.GeneratedProtocolMessageType('Count', (_message.Message,), {
       'DESCRIPTOR' : _INFO_INDEX_COUNT,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Info.Index.Count)
+      # @@protoc_insertion_point(class_scope:payload.v1.Info.Index.Count)
       })
     ,
 
@@ -3559,78 +3559,78 @@ Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), {
       'Committed' : _reflection.GeneratedProtocolMessageType('Committed', (_message.Message,), {
         'DESCRIPTOR' : _INFO_INDEX_UUID_COMMITTED,
         '__module__' : 'vald.v1.payload.payload_pb2'
-        # @@protoc_insertion_point(class_scope:payload.Info.Index.UUID.Committed)
+        # @@protoc_insertion_point(class_scope:payload.v1.Info.Index.UUID.Committed)
         })
       ,
 
       'Uncommitted' : _reflection.GeneratedProtocolMessageType('Uncommitted', (_message.Message,), {
         'DESCRIPTOR' : _INFO_INDEX_UUID_UNCOMMITTED,
         '__module__' : 'vald.v1.payload.payload_pb2'
-        # @@protoc_insertion_point(class_scope:payload.Info.Index.UUID.Uncommitted)
+        # @@protoc_insertion_point(class_scope:payload.v1.Info.Index.UUID.Uncommitted)
         })
       ,
       'DESCRIPTOR' : _INFO_INDEX_UUID,
       '__module__' : 'vald.v1.payload.payload_pb2'
-      # @@protoc_insertion_point(class_scope:payload.Info.Index.UUID)
+      # @@protoc_insertion_point(class_scope:payload.v1.Info.Index.UUID)
       })
     ,
     'DESCRIPTOR' : _INFO_INDEX,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Index)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.Index)
     })
   ,
 
   'Pod' : _reflection.GeneratedProtocolMessageType('Pod', (_message.Message,), {
     'DESCRIPTOR' : _INFO_POD,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Pod)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.Pod)
     })
   ,
 
   'Node' : _reflection.GeneratedProtocolMessageType('Node', (_message.Message,), {
     'DESCRIPTOR' : _INFO_NODE,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Node)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.Node)
     })
   ,
 
   'CPU' : _reflection.GeneratedProtocolMessageType('CPU', (_message.Message,), {
     'DESCRIPTOR' : _INFO_CPU,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.CPU)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.CPU)
     })
   ,
 
   'Memory' : _reflection.GeneratedProtocolMessageType('Memory', (_message.Message,), {
     'DESCRIPTOR' : _INFO_MEMORY,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Memory)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.Memory)
     })
   ,
 
   'Pods' : _reflection.GeneratedProtocolMessageType('Pods', (_message.Message,), {
     'DESCRIPTOR' : _INFO_PODS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Pods)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.Pods)
     })
   ,
 
   'Nodes' : _reflection.GeneratedProtocolMessageType('Nodes', (_message.Message,), {
     'DESCRIPTOR' : _INFO_NODES,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.Nodes)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.Nodes)
     })
   ,
 
   'IPs' : _reflection.GeneratedProtocolMessageType('IPs', (_message.Message,), {
     'DESCRIPTOR' : _INFO_IPS,
     '__module__' : 'vald.v1.payload.payload_pb2'
-    # @@protoc_insertion_point(class_scope:payload.Info.IPs)
+    # @@protoc_insertion_point(class_scope:payload.v1.Info.IPs)
     })
   ,
   'DESCRIPTOR' : _INFO,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Info)
+  # @@protoc_insertion_point(class_scope:payload.v1.Info)
   })
 _sym_db.RegisterMessage(Info)
 _sym_db.RegisterMessage(Info.Index)
@@ -3649,7 +3649,7 @@ _sym_db.RegisterMessage(Info.IPs)
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
   'DESCRIPTOR' : _EMPTY,
   '__module__' : 'vald.v1.payload.payload_pb2'
-  # @@protoc_insertion_point(class_scope:payload.Empty)
+  # @@protoc_insertion_point(class_scope:payload.v1.Empty)
   })
 _sym_db.RegisterMessage(Empty)
 
@@ -3674,7 +3674,7 @@ _BACKUP_REMOVE_REQUESTMULTI.fields_by_name['uuids']._options = None
 _BACKUP_IP_REGISTER_REQUEST.fields_by_name['uuid']._options = None
 _BACKUP_IP_REGISTER_REQUEST.fields_by_name['ips']._options = None
 _BACKUP_IP_REMOVE_REQUEST.fields_by_name['ips']._options = None
-_BACKUP_METAVECTOR.fields_by_name['vector']._options = None
+_BACKUP_VECTOR.fields_by_name['vector']._options = None
 _INFO_POD.fields_by_name['ip']._options = None
 _INFO_PODS.fields_by_name['pods']._options = None
 _INFO_NODES.fields_by_name['nodes']._options = None

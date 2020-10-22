@@ -17,11 +17,11 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='vald/v1/vald/insert.proto',
-  package='vald',
+  package='vald.v1',
   syntax='proto3',
   serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdInsertP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/insert.proto\x12\x04vald\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xec\x01\n\x06Insert\x12O\n\x06Insert\x12\x17.payload.Insert.Request\x1a\x18.payload.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12G\n\x0cStreamInsert\x12\x17.payload.Insert.Request\x1a\x18.payload.Object.Location\"\x00(\x01\x30\x01\x12H\n\x0bMultiInsert\x12\x1c.payload.Insert.MultiRequest\x1a\x19.payload.Object.Locations\"\x00\x42S\n\x1aorg.vdaas.vald.api.v1.valdB\nValdInsertP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
+  serialized_pb=b'\n\x19vald/v1/vald/insert.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xfe\x01\n\x06Insert\x12U\n\x06Insert\x12\x1a.payload.v1.Insert.Request\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12M\n\x0cStreamInsert\x12\x1a.payload.v1.Insert.Request\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12N\n\x0bMultiInsert\x12\x1f.payload.v1.Insert.MultiRequest\x1a\x1c.payload.v1.Object.Locations\"\x00\x42S\n\x1aorg.vdaas.vald.api.v1.valdB\nValdInsertP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
   ,
   dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -34,17 +34,17 @@ DESCRIPTOR._options = None
 
 _INSERT = _descriptor.ServiceDescriptor(
   name='Insert',
-  full_name='vald.Insert',
+  full_name='vald.v1.Insert',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=97,
-  serialized_end=333,
+  serialized_start=100,
+  serialized_end=354,
   methods=[
   _descriptor.MethodDescriptor(
     name='Insert',
-    full_name='vald.Insert.Insert',
+    full_name='vald.v1.Insert.Insert',
     index=0,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._INSERT_REQUEST,
@@ -54,7 +54,7 @@ _INSERT = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamInsert',
-    full_name='vald.Insert.StreamInsert',
+    full_name='vald.v1.Insert.StreamInsert',
     index=1,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._INSERT_REQUEST,
@@ -64,7 +64,7 @@ _INSERT = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='MultiInsert',
-    full_name='vald.Insert.MultiInsert',
+    full_name='vald.v1.Insert.MultiInsert',
     index=2,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._INSERT_MULTIREQUEST,

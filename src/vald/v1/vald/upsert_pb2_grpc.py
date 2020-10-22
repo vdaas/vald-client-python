@@ -15,17 +15,17 @@ class UpsertStub(object):
             channel: A grpc.Channel.
         """
         self.Upsert = channel.unary_unary(
-                '/vald.Upsert/Upsert',
+                '/vald.v1.Upsert/Upsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamUpsert = channel.stream_stream(
-                '/vald.Upsert/StreamUpsert',
+                '/vald.v1.Upsert/StreamUpsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiUpsert = channel.unary_unary(
-                '/vald.Upsert/MultiUpsert',
+                '/vald.v1.Upsert/MultiUpsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
@@ -72,7 +72,7 @@ def add_UpsertServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vald.Upsert', rpc_method_handlers)
+            'vald.v1.Upsert', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,7 +91,7 @@ class Upsert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Upsert/Upsert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Upsert/Upsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -108,7 +108,7 @@ class Upsert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Upsert/StreamUpsert',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Upsert/StreamUpsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -125,7 +125,7 @@ class Upsert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Upsert/MultiUpsert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Upsert/MultiUpsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,

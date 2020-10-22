@@ -17,11 +17,11 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='vald/v1/gateway/vald/vald.proto',
-  package='vald',
+  package='vald.v1',
   syntax='proto3',
   serialized_options=b'\n\"org.vdaas.vald.api.v1.gateway.valdB\007ValdApiP\001Z/github.com/vdaas/vald/apis/grpc/v1/gateway/vald',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1fvald/v1/gateway/vald/vald.proto\x12\x04vald\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x8f\x0b\n\x04Vald\x12\x46\n\x06\x45xists\x12\x12.payload.Object.ID\x1a\x12.payload.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12O\n\x06Search\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12X\n\nSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12G\n\x0cStreamSearch\x12\x17.payload.Search.Request\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12M\n\x10StreamSearchByID\x12\x19.payload.Search.IDRequest\x1a\x18.payload.Search.Response\"\x00(\x01\x30\x01\x12N\n\x06Insert\x12\x16.payload.Object.Vector\x1a\x18.payload.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12\x46\n\x0cStreamInsert\x12\x16.payload.Object.Vector\x1a\x18.payload.Object.Location\"\x00(\x01\x30\x01\x12\x43\n\x0bMultiInsert\x12\x17.payload.Object.Vectors\x1a\x19.payload.Object.Locations\"\x00\x12N\n\x06Update\x12\x16.payload.Object.Vector\x1a\x18.payload.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12\x46\n\x0cStreamUpdate\x12\x16.payload.Object.Vector\x1a\x18.payload.Object.Location\"\x00(\x01\x30\x01\x12\x43\n\x0bMultiUpdate\x12\x17.payload.Object.Vectors\x1a\x19.payload.Object.Locations\"\x00\x12N\n\x06Upsert\x12\x16.payload.Object.Vector\x1a\x18.payload.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/upsert:\x01*\x12\x46\n\x0cStreamUpsert\x12\x16.payload.Object.Vector\x1a\x18.payload.Object.Location\"\x00(\x01\x30\x01\x12\x43\n\x0bMultiUpsert\x12\x17.payload.Object.Vectors\x1a\x19.payload.Object.Locations\"\x00\x12L\n\x06Remove\x12\x12.payload.Object.ID\x1a\x18.payload.Object.Location\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/remove/{id}\x12\x42\n\x0cStreamRemove\x12\x12.payload.Object.ID\x1a\x18.payload.Object.Location\"\x00(\x01\x30\x01\x12?\n\x0bMultiRemove\x12\x13.payload.Object.IDs\x1a\x19.payload.Object.Locations\"\x00\x12M\n\tGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/{id}\x12\x43\n\x0fStreamGetObject\x12\x12.payload.Object.ID\x1a\x16.payload.Object.Vector\"\x00(\x01\x30\x01\x42`\n\"org.vdaas.vald.api.v1.gateway.valdB\x07ValdApiP\x01Z/github.com/vdaas/vald/apis/grpc/v1/gateway/valdb\x06proto3'
+  serialized_pb=b'\n\x1fvald/v1/gateway/vald/vald.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x81\x0c\n\x04Vald\x12L\n\x06\x45xists\x12\x15.payload.v1.Object.ID\x1a\x15.payload.v1.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12U\n\x06Search\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12^\n\nSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12M\n\x0cStreamSearch\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x00(\x01\x30\x01\x12S\n\x10StreamSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x00(\x01\x30\x01\x12T\n\x06Insert\x12\x19.payload.v1.Object.Vector\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/insert:\x01*\x12L\n\x0cStreamInsert\x12\x19.payload.v1.Object.Vector\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12I\n\x0bMultiInsert\x12\x1a.payload.v1.Object.Vectors\x1a\x1c.payload.v1.Object.Locations\"\x00\x12T\n\x06Update\x12\x19.payload.v1.Object.Vector\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12L\n\x0cStreamUpdate\x12\x19.payload.v1.Object.Vector\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12I\n\x0bMultiUpdate\x12\x1a.payload.v1.Object.Vectors\x1a\x1c.payload.v1.Object.Locations\"\x00\x12T\n\x06Upsert\x12\x19.payload.v1.Object.Vector\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/upsert:\x01*\x12L\n\x0cStreamUpsert\x12\x19.payload.v1.Object.Vector\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12I\n\x0bMultiUpsert\x12\x1a.payload.v1.Object.Vectors\x1a\x1c.payload.v1.Object.Locations\"\x00\x12R\n\x06Remove\x12\x15.payload.v1.Object.ID\x1a\x1b.payload.v1.Object.Location\"\x14\x82\xd3\xe4\x93\x02\x0e*\x0c/remove/{id}\x12H\n\x0cStreamRemove\x12\x15.payload.v1.Object.ID\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12\x45\n\x0bMultiRemove\x12\x16.payload.v1.Object.IDs\x1a\x1c.payload.v1.Object.Locations\"\x00\x12S\n\tGetObject\x12\x15.payload.v1.Object.ID\x1a\x19.payload.v1.Object.Vector\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/{id}\x12I\n\x0fStreamGetObject\x12\x15.payload.v1.Object.ID\x1a\x19.payload.v1.Object.Vector\"\x00(\x01\x30\x01\x42`\n\"org.vdaas.vald.api.v1.gateway.valdB\x07ValdApiP\x01Z/github.com/vdaas/vald/apis/grpc/v1/gateway/valdb\x06proto3'
   ,
   dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -34,17 +34,17 @@ DESCRIPTOR._options = None
 
 _VALD = _descriptor.ServiceDescriptor(
   name='Vald',
-  full_name='vald.Vald',
+  full_name='vald.v1.Vald',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=103,
-  serialized_end=1526,
+  serialized_start=106,
+  serialized_end=1643,
   methods=[
   _descriptor.MethodDescriptor(
     name='Exists',
-    full_name='vald.Vald.Exists',
+    full_name='vald.v1.Vald.Exists',
     index=0,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_ID,
@@ -54,7 +54,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Search',
-    full_name='vald.Vald.Search',
+    full_name='vald.v1.Vald.Search',
     index=1,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
@@ -64,7 +64,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SearchByID',
-    full_name='vald.Vald.SearchByID',
+    full_name='vald.v1.Vald.SearchByID',
     index=2,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
@@ -74,7 +74,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamSearch',
-    full_name='vald.Vald.StreamSearch',
+    full_name='vald.v1.Vald.StreamSearch',
     index=3,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
@@ -84,7 +84,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamSearchByID',
-    full_name='vald.Vald.StreamSearchByID',
+    full_name='vald.v1.Vald.StreamSearchByID',
     index=4,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
@@ -94,7 +94,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Insert',
-    full_name='vald.Vald.Insert',
+    full_name='vald.v1.Vald.Insert',
     index=5,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTOR,
@@ -104,7 +104,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamInsert',
-    full_name='vald.Vald.StreamInsert',
+    full_name='vald.v1.Vald.StreamInsert',
     index=6,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTOR,
@@ -114,7 +114,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='MultiInsert',
-    full_name='vald.Vald.MultiInsert',
+    full_name='vald.v1.Vald.MultiInsert',
     index=7,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTORS,
@@ -124,7 +124,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Update',
-    full_name='vald.Vald.Update',
+    full_name='vald.v1.Vald.Update',
     index=8,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTOR,
@@ -134,7 +134,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamUpdate',
-    full_name='vald.Vald.StreamUpdate',
+    full_name='vald.v1.Vald.StreamUpdate',
     index=9,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTOR,
@@ -144,7 +144,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='MultiUpdate',
-    full_name='vald.Vald.MultiUpdate',
+    full_name='vald.v1.Vald.MultiUpdate',
     index=10,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTORS,
@@ -154,7 +154,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Upsert',
-    full_name='vald.Vald.Upsert',
+    full_name='vald.v1.Vald.Upsert',
     index=11,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTOR,
@@ -164,7 +164,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamUpsert',
-    full_name='vald.Vald.StreamUpsert',
+    full_name='vald.v1.Vald.StreamUpsert',
     index=12,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTOR,
@@ -174,7 +174,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='MultiUpsert',
-    full_name='vald.Vald.MultiUpsert',
+    full_name='vald.v1.Vald.MultiUpsert',
     index=13,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_VECTORS,
@@ -184,7 +184,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Remove',
-    full_name='vald.Vald.Remove',
+    full_name='vald.v1.Vald.Remove',
     index=14,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_ID,
@@ -194,7 +194,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamRemove',
-    full_name='vald.Vald.StreamRemove',
+    full_name='vald.v1.Vald.StreamRemove',
     index=15,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_ID,
@@ -204,7 +204,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='MultiRemove',
-    full_name='vald.Vald.MultiRemove',
+    full_name='vald.v1.Vald.MultiRemove',
     index=16,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_IDS,
@@ -214,7 +214,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetObject',
-    full_name='vald.Vald.GetObject',
+    full_name='vald.v1.Vald.GetObject',
     index=17,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_ID,
@@ -224,7 +224,7 @@ _VALD = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='StreamGetObject',
-    full_name='vald.Vald.StreamGetObject',
+    full_name='vald.v1.Vald.StreamGetObject',
     index=18,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_ID,

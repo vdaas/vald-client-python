@@ -15,17 +15,17 @@ class RemoveStub(object):
             channel: A grpc.Channel.
         """
         self.Remove = channel.unary_unary(
-                '/vald.Remove/Remove',
+                '/vald.v1.Remove/Remove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamRemove = channel.stream_stream(
-                '/vald.Remove/StreamRemove',
+                '/vald.v1.Remove/StreamRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiRemove = channel.unary_unary(
-                '/vald.Remove/MultiRemove',
+                '/vald.v1.Remove/MultiRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
@@ -72,7 +72,7 @@ def add_RemoveServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vald.Remove', rpc_method_handlers)
+            'vald.v1.Remove', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,7 +91,7 @@ class Remove(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Remove/Remove',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Remove/Remove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -108,7 +108,7 @@ class Remove(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Remove/StreamRemove',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Remove/StreamRemove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -125,7 +125,7 @@ class Remove(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Remove/MultiRemove',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Remove/MultiRemove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,

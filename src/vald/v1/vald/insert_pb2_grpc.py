@@ -15,17 +15,17 @@ class InsertStub(object):
             channel: A grpc.Channel.
         """
         self.Insert = channel.unary_unary(
-                '/vald.Insert/Insert',
+                '/vald.v1.Insert/Insert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.StreamInsert = channel.stream_stream(
-                '/vald.Insert/StreamInsert',
+                '/vald.v1.Insert/StreamInsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
         self.MultiInsert = channel.unary_unary(
-                '/vald.Insert/MultiInsert',
+                '/vald.v1.Insert/MultiInsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 )
@@ -72,7 +72,7 @@ def add_InsertServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vald.Insert', rpc_method_handlers)
+            'vald.v1.Insert', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,7 +91,7 @@ class Insert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Insert/Insert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Insert/Insert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -108,7 +108,7 @@ class Insert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.Insert/StreamInsert',
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Insert/StreamInsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options, channel_credentials,
@@ -125,7 +125,7 @@ class Insert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.Insert/MultiInsert',
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Insert/MultiInsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
