@@ -23,37 +23,43 @@ PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 
 PYTHON = python
 
+VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
 
-PROTO_ROOT  = vald/apis/proto
-PB2DIR_ROOT = src
-SHADOW_ROOT = proto
-SHADOW_ROOT_VALD = $(SHADOW_ROOT)/vald
-SHADOW_ROOT_VALIDATE = $(SHADOW_ROOT)/validate
+PWD    := $(eval PWD := $(shell pwd))$(PWD)
+GOPATH := $(eval GOPATH := $(shell go env GOPATH))$(GOPATH)
 
-PROTOS.vald.proto = gateway/vald/vald.proto
-PROTOS.agent.proto = agent/core/agent.proto
-PROTOS.payload.proto = payload/payload.proto
-PROTOS      = $(PROTOS.vald.proto) $(PROTOS.agent.proto) $(PROTOS.payload.proto)
-PROTOS     := $(PROTOS:%=$(PROTO_ROOT)/%)
-SHADOWS     = $(notdir $(PROTOS))
-SHADOWS    := $(SHADOWS:%=$(SHADOW_ROOT_VALD)/%)
-PB2PYS      = $(SHADOWS:$(SHADOW_ROOT_VALD)/%.proto=$(PB2DIR_ROOT)/%_pb2.py)
-SHADOW_VALIDATE := $(SHADOW_ROOT_VALIDATE)/validate.proto
+PROTO_ROOT  = $(VALD_DIR)/apis/proto
+PB2DIR_ROOT = src
+
+SHADOW_ROOT = vald
+
+PROTOS = \
+	v1/agent/core/agent.proto \
+	v1/gateway/vald/vald.proto \
+	v1/vald/filter.proto \
+	v1/vald/insert.proto \
+	v1/vald/object.proto \
+	v1/vald/remove.proto \
+	v1/vald/search.proto \
+	v1/vald/update.proto \
+	v1/vald/upsert.proto \
+	v1/payload/payload.proto
+PROTOS := $(PROTOS:%=$(PROTO_ROOT)/%)
+SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_ROOT)/%.proto)
+PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 
-PROTODIRS   = $(shell find $(PROTO_ROOT) -type d | sed -e "s%$(PROTO_ROOT)/%%g" | grep -v "$(PROTO_ROOT)")
-
 PROTO_PATHS = \
-	$(SHADOW_ROOT) \
-	$(SHADOW_ROOT_VALD) \
-	$(SHADOW_ROOT_VALIDATE) \
-	$(GOPATH)/src/github.com/protocolbuffers/protobuf/src \
-	$(GOPATH)/src/github.com/gogo/protobuf/protobuf \
-	$(GOPATH)/src/github.com/googleapis/googleapis
+	$(PWD) \
+	$(PWD)/$(VALD_DIR) \
+	$(PWD)/$(PROTO_ROOT) \
+	$(GOPATH)/src \
+	$(GOPATH)/src/github.com/googleapis/googleapis \
+	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 
-MAKELISTS   = Makefile
+MAKELISTS = Makefile
 
 red    = /bin/echo -e "\x1b[31m\#\# $1\x1b[0m"
 green  = /bin/echo -e "\x1b[32m\#\# $1\x1b[0m"
@@ -68,10 +74,6 @@ endef
 
 define go-get-no-mod
 	GO111MODULE=off go get -u $1
-endef
-
-define mkdir
-	mkdir -p $1
 endef
 
 .PHONY: all
@@ -98,58 +100,49 @@ help:
 ## clean
 clean:
 	rm -rf $(PB2DIR_ROOT)
+	rm -rf $(SHADOW_ROOT)
+	rm -rf $(VALD_DIR)
 
 .PHONY: proto
 ## build proto
-proto: $(PB2PYS) $(PB2PY_VALIDATE) $(PB2DIR_ROOT)/vald/__init__.py $(PB2DIR_ROOT)/validate/__init__.py
+proto: \
+	$(PB2PYS) \
+	$(PB2PY_VALIDATE)
 
-$(PB2DIR_ROOT)/vald/__init__.py: $(PB2DIR_ROOT)
-	mkdir -p $(PB2DIR_ROOT)/vald
-	echo "from vald import *" > $(PB2DIR_ROOT)/vald/__init__.py
-
-$(PB2DIR_ROOT)/validate/__init__.py: $(PB2DIR_ROOT)
-	touch $(PB2DIR_ROOT)/validate/__init__.py
+$(PROTOS): $(VALD_DIR)
+$(SHADOWS): $(PROTOS)
+$(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
+	mkdir -p $(dir $@)
+	cp $< $@
+	sed -i -e 's:^import "apis/proto/:import "$(SHADOW_ROOT)/:' $@
+	sed -i -e 's:^import "github.com/envoyproxy/protoc-gen-validate/:import ":' $@
 
 $(PB2DIR_ROOT):
-	$(call mkdir, $@)
-	$(call rm, -rf, $@/*)
+	mkdir -p $@
 
-$(SHADOW_ROOT_VALD):
-	$(call mkdir, $@)
-	$(call rm, -rf, $@/*)
-
-$(SHADOW_ROOT_VALIDATE):
-	$(call mkdir, $@)
-	$(call rm, -rf, $@/*)
-
-$(SHADOWS): vald $(SHADOW_ROOT_VALD)
-	cp $(PROTO_ROOT)/$(PROTOS.$(notdir $@)) $@
-	sed -i -e '/^.*gql\.proto.*$$\|^.*gql\..*_type.*$$/d' $@
-	sed -i -e 's:^import "payload.proto";$$:import "vald/payload.proto";:' $@
-
-$(SHADOW_VALIDATE): proto/deps $(SHADOW_ROOT_VALIDATE)
-	cp $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate/validate/validate.proto $(SHADOW_VALIDATE)
-
-$(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS) $(SHADOW_VALIDATE)
+$(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
+$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py: $(SHADOW_ROOT)/%.proto
 	@$(call green, "generating pb2.py files...")
 	$(PYTHON) \
 		-m grpc_tools.protoc \
 		$(PROTO_PATHS:%=-I %) \
-		--python_out=$(PB2DIR_ROOT) \
-		--grpc_python_out=$(PB2DIR_ROOT) \
-		$(SHADOW_ROOT_VALD)/*.proto
+		--python_out=$(PWD)/$(PB2DIR_ROOT) \
+		--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
+		$<
 
-$(PB2PY_VALIDATE): $(SHADOW_VALIDATE)
+$(PB2PY_VALIDATE): $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 	@$(call green, "generating pb2.py files...")
-	$(PYTHON) \
-		-m grpc_tools.protoc \
-		$(PROTO_PATHS:%=-I %) \
-		--python_out=$(PB2DIR_ROOT) \
-		--grpc_python_out=$(PB2DIR_ROOT) \
-		$(SHADOW_VALIDATE)
+	(cd $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate; \
+		$(PYTHON) \
+			-m grpc_tools.protoc \
+			$(PROTO_PATHS:%=-I %) \
+			-I $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate \
+			--python_out=$(PWD)/$(PB2DIR_ROOT) \
+			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
+			validate/validate.proto)
 
-vald:
-	git clone --depth 1 https://$(VALDREPO) vald
+$(VALD_DIR):
+	git clone --depth 1 https://$(VALDREPO) $(VALD_DIR)
 
 .PHONY: vald/sha/print
 ## print VALD_SHA value
@@ -169,7 +162,7 @@ vald/client/python/version/print:
 .PHONY: vald/client/python/version/update
 ## update VALD_CLIENT_PYTHON_VERSION value
 vald/client/python/version/update: vald
-	(vald_version=`cat vald/versions/VALD_VERSION | sed -e 's/^v//'`; \
+	(vald_version=`cat $(VALD_DIR)/versions/VALD_VERSION | sed -e 's/^v//'`; \
 	    client_version=`cat $(VALD_CLIENT_PYTHON_VERSION)`; \
 	    major=$${client_version%%.*}; client_version="$${client_version#*.}"; \
 	    minor=$${client_version%%.*}; client_version="$${client_version#*.}"; \
@@ -192,27 +185,8 @@ vald/client/python/version/update: vald
 .PHONY: proto/deps
 ## install proto deps
 proto/deps: \
-	$(GOPATH)/bin/protoc-gen-doc \
-	$(GOPATH)/bin/protoc-gen-go \
-	$(GOPATH)/bin/protoc-gen-gogo \
-	$(GOPATH)/bin/protoc-gen-gofast \
-	$(GOPATH)/bin/protoc-gen-gogofast \
-	$(GOPATH)/bin/protoc-gen-gogofaster \
-	$(GOPATH)/bin/protoc-gen-gogoslick \
-	$(GOPATH)/bin/protoc-gen-grpc-gateway \
-	$(GOPATH)/bin/protoc-gen-swagger \
-	$(GOPATH)/bin/protoc-gen-validate \
-	$(GOPATH)/bin/prototool \
-	$(GOPATH)/bin/swagger \
-	$(GOPATH)/src/google.golang.org/genproto \
-	$(GOPATH)/src/github.com/protocolbuffers/protobuf \
-	$(GOPATH)/src/github.com/googleapis/googleapis
-
-$(GOPATH)/src/github.com/protocolbuffers/protobuf:
-	git clone \
-		--depth 1 \
-		https://github.com/protocolbuffers/protobuf \
-		$(GOPATH)/src/github.com/protocolbuffers/protobuf
+	$(GOPATH)/src/github.com/googleapis/googleapis \
+	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 
 $(GOPATH)/src/github.com/googleapis/googleapis:
 	git clone \
@@ -220,41 +194,8 @@ $(GOPATH)/src/github.com/googleapis/googleapis:
 		https://github.com/googleapis/googleapis \
 		$(GOPATH)/src/github.com/googleapis/googleapis
 
-$(GOPATH)/src/google.golang.org/genproto:
-	$(call go-get, google.golang.org/genproto/...)
-
-$(GOPATH)/bin/protoc-gen-go:
-	$(call go-get-no-mod, github.com/golang/protobuf/protoc-gen-go)
-
-$(GOPATH)/bin/protoc-gen-gogo:
-	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogo)
-
-$(GOPATH)/bin/protoc-gen-gofast:
-	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gofast)
-
-$(GOPATH)/bin/protoc-gen-gogofast:
-	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogofast)
-
-$(GOPATH)/bin/protoc-gen-gogofaster:
-	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogofaster)
-
-$(GOPATH)/bin/protoc-gen-gogoslick:
-	$(call go-get-no-mod, github.com/gogo/protobuf/protoc-gen-gogoslick)
-
-$(GOPATH)/bin/protoc-gen-grpc-gateway:
-	$(call go-get, github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway)
-
-$(GOPATH)/bin/protoc-gen-swagger:
-	$(call go-get, github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger)
-
-$(GOPATH)/bin/protoc-gen-validate:
-	$(call go-get-no-mod, github.com/envoyproxy/protoc-gen-validate)
-
-$(GOPATH)/bin/prototool:
-	$(call go-get, github.com/uber/prototool/cmd/prototool)
-
-$(GOPATH)/bin/protoc-gen-doc:
-	$(call go-get, github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc)
-
-$(GOPATH)/bin/swagger:
-	$(call go-get-no-mod, github.com/go-swagger/go-swagger/cmd/swagger)
+$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate:
+	git clone \
+		--depth 1 \
+		https://github.com/envoyproxy/protoc-gen-validate \
+		$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
