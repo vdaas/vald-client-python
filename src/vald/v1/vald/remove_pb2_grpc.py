@@ -22,7 +22,7 @@ class RemoveStub(object):
         self.StreamRemove = channel.stream_stream(
                 '/vald.v1.Remove/StreamRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
                 )
         self.MultiRemove = channel.unary_unary(
                 '/vald.v1.Remove/MultiRemove',
@@ -63,7 +63,7 @@ def add_RemoveServicer_to_server(servicer, server):
             'StreamRemove': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamRemove,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.SerializeToString,
             ),
             'MultiRemove': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiRemove,
@@ -110,7 +110,7 @@ class Remove(object):
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Remove/StreamRemove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

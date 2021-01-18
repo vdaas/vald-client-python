@@ -22,7 +22,7 @@ class InsertStub(object):
         self.StreamInsert = channel.stream_stream(
                 '/vald.v1.Insert/StreamInsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
                 )
         self.MultiInsert = channel.unary_unary(
                 '/vald.v1.Insert/MultiInsert',
@@ -63,7 +63,7 @@ def add_InsertServicer_to_server(servicer, server):
             'StreamInsert': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamInsert,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.SerializeToString,
             ),
             'MultiInsert': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiInsert,
@@ -110,7 +110,7 @@ class Insert(object):
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Insert/StreamInsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

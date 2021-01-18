@@ -22,7 +22,7 @@ class UpdateStub(object):
         self.StreamUpdate = channel.stream_stream(
                 '/vald.v1.Update/StreamUpdate',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.Request.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
                 )
         self.MultiUpdate = channel.unary_unary(
                 '/vald.v1.Update/MultiUpdate',
@@ -63,7 +63,7 @@ def add_UpdateServicer_to_server(servicer, server):
             'StreamUpdate': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamUpdate,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.Request.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.SerializeToString,
             ),
             'MultiUpdate': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiUpdate,
@@ -110,7 +110,7 @@ class Update(object):
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Update/StreamUpdate',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.Request.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

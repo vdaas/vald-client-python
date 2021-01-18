@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdFilterP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/filter.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xd0\x07\n\x06\x46ilter\x12h\n\x0cSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a\x1b.payload.v1.Search.Response\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/search/object:\x01*\x12Y\n\x12StreamSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a\x1b.payload.v1.Search.Response\"\x00(\x01\x30\x01\x12_\n\x0cInsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/insert/object:\x01*\x12P\n\x12StreamInsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12L\n\x11MultiInsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1c.payload.v1.Object.Locations\"\x00\x12_\n\x0cUpdateObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/update/object:\x01*\x12P\n\x12StreamUpdateObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12L\n\x11MultiUpdateObject\x12\x17.payload.v1.Object.Blob\x1a\x1c.payload.v1.Object.Locations\"\x00\x12_\n\x0cUpsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/upsert/object:\x01*\x12P\n\x12StreamUpsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x00(\x01\x30\x01\x12L\n\x11MultiUpsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1c.payload.v1.Object.Locations\"\x00\x42S\n\x1aorg.vdaas.vald.api.v1.valdB\nValdFilterP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
+  serialized_pb=b'\n\x19vald/v1/vald/filter.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xe8\x07\n\x06\x46ilter\x12h\n\x0cSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a\x1b.payload.v1.Search.Response\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/search/object:\x01*\x12_\n\x12StreamSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12_\n\x0cInsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/insert/object:\x01*\x12V\n\x12StreamInsertObject\x12\x17.payload.v1.Object.Blob\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12L\n\x11MultiInsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1c.payload.v1.Object.Locations\"\x00\x12_\n\x0cUpdateObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/update/object:\x01*\x12V\n\x12StreamUpdateObject\x12\x17.payload.v1.Object.Blob\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12L\n\x11MultiUpdateObject\x12\x17.payload.v1.Object.Blob\x1a\x1c.payload.v1.Object.Locations\"\x00\x12_\n\x0cUpsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/upsert/object:\x01*\x12V\n\x12StreamUpsertObject\x12\x17.payload.v1.Object.Blob\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12L\n\x11MultiUpsertObject\x12\x17.payload.v1.Object.Blob\x1a\x1c.payload.v1.Object.Locations\"\x00\x42S\n\x1aorg.vdaas.vald.api.v1.valdB\nValdFilterP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
   ,
   dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -40,7 +40,7 @@ _FILTER = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=100,
-  serialized_end=1076,
+  serialized_end=1100,
   methods=[
   _descriptor.MethodDescriptor(
     name='SearchObject',
@@ -58,7 +58,7 @@ _FILTER = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSE,
+    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_STREAMRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -78,7 +78,7 @@ _FILTER = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_BLOB,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
+    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -108,7 +108,7 @@ _FILTER = _descriptor.ServiceDescriptor(
     index=6,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_BLOB,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
+    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -138,7 +138,7 @@ _FILTER = _descriptor.ServiceDescriptor(
     index=9,
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_BLOB,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
+    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

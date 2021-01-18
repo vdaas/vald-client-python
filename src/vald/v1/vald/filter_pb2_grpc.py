@@ -22,7 +22,7 @@ class FilterStub(object):
         self.StreamSearchObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamSearchObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.ObjectRequest.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
                 )
         self.InsertObject = channel.unary_unary(
                 '/vald.v1.Filter/InsertObject',
@@ -32,7 +32,7 @@ class FilterStub(object):
         self.StreamInsertObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamInsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
                 )
         self.MultiInsertObject = channel.unary_unary(
                 '/vald.v1.Filter/MultiInsertObject',
@@ -47,7 +47,7 @@ class FilterStub(object):
         self.StreamUpdateObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamUpdateObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
                 )
         self.MultiUpdateObject = channel.unary_unary(
                 '/vald.v1.Filter/MultiUpdateObject',
@@ -62,7 +62,7 @@ class FilterStub(object):
         self.StreamUpsertObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamUpsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
                 )
         self.MultiUpsertObject = channel.unary_unary(
                 '/vald.v1.Filter/MultiUpsertObject',
@@ -151,7 +151,7 @@ def add_FilterServicer_to_server(servicer, server):
             'StreamSearchObject': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamSearchObject,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.ObjectRequest.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.SerializeToString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.SerializeToString,
             ),
             'InsertObject': grpc.unary_unary_rpc_method_handler(
                     servicer.InsertObject,
@@ -161,7 +161,7 @@ def add_FilterServicer_to_server(servicer, server):
             'StreamInsertObject': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamInsertObject,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.SerializeToString,
             ),
             'MultiInsertObject': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiInsertObject,
@@ -176,7 +176,7 @@ def add_FilterServicer_to_server(servicer, server):
             'StreamUpdateObject': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamUpdateObject,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.SerializeToString,
             ),
             'MultiUpdateObject': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiUpdateObject,
@@ -191,7 +191,7 @@ def add_FilterServicer_to_server(servicer, server):
             'StreamUpsertObject': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamUpsertObject,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.SerializeToString,
             ),
             'MultiUpsertObject': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiUpsertObject,
@@ -238,7 +238,7 @@ class Filter(object):
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamSearchObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.ObjectRequest.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -272,7 +272,7 @@ class Filter(object):
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamInsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -323,7 +323,7 @@ class Filter(object):
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamUpdateObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -374,7 +374,7 @@ class Filter(object):
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamUpsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
