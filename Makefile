@@ -52,6 +52,7 @@ PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 PB2PY_GOGOPROTOS = $(PB2DIR_ROOT)/gogo/protobuf/gogoproto/gogo_pb2.py
 PB2PY_GOGOAPIS = $(PB2DIR_ROOT)/gogo/googleapis/google/api/annotations_pb2.py
+PB2PY_GOGORPCS = $(PB2DIR_ROOT)/gogo/googleapis/google/rpc/status_pb2.py
 
 PROTO_PATHS = \
 	$(PWD) \
@@ -112,7 +113,8 @@ proto: \
 	$(PB2PYS) \
 	$(PB2PY_VALIDATE) \
 	$(PB2PY_GOGOPROTOS) \
-	$(PB2PY_GOGOAPIS)
+	$(PB2PY_GOGOAPIS) \
+	$(PB2PY_GOGORPCS)
 
 $(PROTOS): $(VALD_DIR)
 $(SHADOWS): $(PROTOS)
@@ -169,6 +171,17 @@ $(PB2PY_GOGOAPIS): $(GOPATH)/src/github.com/gogo/googleapis
 			--python_out=$(PWD)/$(PB2DIR_ROOT) \
 			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
 			google/api/annotations.proto)
+
+$(PB2PY_GOGORPCS): $(GOPATH)/src/github.com/gogo/googleapis
+	@$(call green, "generating pb2.py files...")
+	(cd $(GOPATH)/src/github.com/gogo/googleapis; \
+		$(PYTHON) \
+			-m grpc_tools.protoc \
+			$(PROTO_PATHS:%=-I %) \
+			-I $(GOPATH)/src/github.com/gogo/googleapis \
+			--python_out=$(PWD)/$(PB2DIR_ROOT) \
+			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
+			google/rpc/status.proto)
 
 $(VALD_DIR):
 	git clone --depth 1 https://$(VALDREPO) $(VALD_DIR)
