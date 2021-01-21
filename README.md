@@ -54,7 +54,8 @@ ustub.Update(payload_pb2.Update.Request(vector=vec, config=ucfg))
 
 ## call RPCs: Remove
 rcfg = payload_pb2.Remove.Config(skip_strict_exist_check=True)
-rstub.Remove(payload_pb2.Remove.Request(id='vector_id_1', config=rcfg))
+rid = payload_pb2.Object.ID(id='vector_id_1')
+rstub.Remove(payload_pb2.Remove.Request(id=rid, config=rcfg))
 
 ## close channel
 channel.close()
