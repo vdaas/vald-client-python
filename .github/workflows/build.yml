@@ -1,5 +1,8 @@
 name: build protobuf
 on:
+  push: # temporarily
+    branches:
+      - master
   repository_dispatch:
 
 jobs:
