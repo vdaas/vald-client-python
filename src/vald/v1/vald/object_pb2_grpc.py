@@ -21,12 +21,12 @@ class ObjectStub(object):
                 )
         self.GetObject = channel.unary_unary(
                 '/vald.v1.Object/GetObject',
-                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
                 )
         self.StreamGetObject = channel.stream_stream(
                 '/vald.v1.Object/StreamGetObject',
-                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamVector.FromString,
                 )
 
@@ -62,12 +62,12 @@ def add_ObjectServicer_to_server(servicer, server):
             ),
             'GetObject': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObject,
-                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.FromString,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             ),
             'StreamGetObject': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamGetObject,
-                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.FromString,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamVector.SerializeToString,
             ),
     }
@@ -109,7 +109,7 @@ class Object(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vald.v1.Object/GetObject',
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -126,7 +126,7 @@ class Object(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Object/StreamGetObject',
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.ID.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamVector.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

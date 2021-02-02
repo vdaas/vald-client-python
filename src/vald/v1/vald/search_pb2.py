@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdSearchP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald\310\342\036\001\320\342\036\001\340\342\036\001\300\343\036\001\310\343\036\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/search.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x14gogoproto/gogo.proto\x1a\x1cgoogle/api/annotations.proto2\xb0\x04\n\x06Search\x12U\n\x06Search\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12^\n\nSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12S\n\x0cStreamSearch\x12\x1a.payload.v1.Search.Request\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12Y\n\x10StreamSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12i\n\x0bMultiSearch\x12\x1f.payload.v1.Search.MultiRequest\x1a\x1c.payload.v1.Search.Responses\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/search/multiple:\x01*\x12T\n\x0fMultiSearchByID\x12!.payload.v1.Search.MultiIDRequest\x1a\x1c.payload.v1.Search.Responses\"\x00\x42g\n\x1aorg.vdaas.vald.api.v1.valdB\nValdSearchP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/vald\xc8\xe2\x1e\x01\xd0\xe2\x1e\x01\xe0\xe2\x1e\x01\xc0\xe3\x1e\x01\xc8\xe3\x1e\x01\x62\x06proto3'
+  serialized_pb=b'\n\x19vald/v1/vald/search.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x14gogoproto/gogo.proto\x1a\x1cgoogle/api/annotations.proto2\xce\x04\n\x06Search\x12U\n\x06Search\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12^\n\nSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12S\n\x0cStreamSearch\x12\x1a.payload.v1.Search.Request\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12Y\n\x10StreamSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12i\n\x0bMultiSearch\x12\x1f.payload.v1.Search.MultiRequest\x1a\x1c.payload.v1.Search.Responses\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/search/multiple:\x01*\x12r\n\x0fMultiSearchByID\x12!.payload.v1.Search.MultiIDRequest\x1a\x1c.payload.v1.Search.Responses\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/search/id/multiple:\x01*Bg\n\x1aorg.vdaas.vald.api.v1.valdB\nValdSearchP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/vald\xc8\xe2\x1e\x01\xd0\xe2\x1e\x01\xe0\xe2\x1e\x01\xc0\xe3\x1e\x01\xc8\xe3\x1e\x01\x62\x06proto3'
   ,
   dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,gogoproto_dot_gogo__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -41,7 +41,7 @@ _SEARCH = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=122,
-  serialized_end=682,
+  serialized_end=712,
   methods=[
   _descriptor.MethodDescriptor(
     name='Search',
@@ -100,7 +100,7 @@ _SEARCH = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIIDREQUEST,
     output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSES,
-    serialized_options=None,
+    serialized_options=b'\202\323\344\223\002\030\"\023/search/id/multiple:\001*',
     create_key=_descriptor._internal_create_key,
   ),
 ])
