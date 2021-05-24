@@ -49,7 +49,7 @@ res = sstub.Search(payload_pb2.Search.Request(vector=[0.1, 0.2, 0.3], config=scf
 ## call RPCs: Update
 uvec = payload_pb2.Object.Vector(id='vector_id_1', vector=[0.1, 0.2, 0.3])
 ucfg = payload_pb2.Update.Config(skip_strict_exist_check=True)
-ustub.Update(payload_pb2.Update.Request(vector=vec, config=ucfg))
+ustub.Update(payload_pb2.Update.Request(vector=uvec, config=ucfg))
 
 
 ## call RPCs: Remove
