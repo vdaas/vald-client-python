@@ -43,15 +43,3 @@ jobs:
           version=`make vald/client/python/version/print`
           git tag ${version}
           git push --tags
-      - name: prepare to publish
-        run: |
-          ## dirty hack: for some reason, options.packages.find.exclude
-          ## directive in setup.cfg doesn't work properly
-          rm -rf src/tests src/test.py
-          python3 setup.py sdist
-          python3 setup.py bdist_wheel
-      - name: publish
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          user: ${{ secrets.PIP_USERNAME }}
-          password: ${{ secrets.PIP_PASSWORD }}
