@@ -11,4 +11,5 @@ class SequentialTestLoader(unittest.TestLoader):
         return test_names
 
 
-unittest.main(test_e2e, testLoader=SequentialTestLoader())
+if __name__ == "__main__":
+    unittest.main(test_e2e, testLoader=SequentialTestLoader())
