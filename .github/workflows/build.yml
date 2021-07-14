@@ -43,12 +43,3 @@ jobs:
           version=`make vald/client/python/version/print`
           git tag ${version}
           git push --tags
-      - name: prepare to publish
-        run: |
-          python3 setup.py sdist
-          python3 setup.py bdist_wheel
-      - name: publish
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          user: ${{ secrets.PIP_USERNAME }}
-          password: ${{ secrets.PIP_PASSWORD }}

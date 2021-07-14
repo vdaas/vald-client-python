@@ -1,19 +1,72 @@
 name: release
 on:
   push:
+    branches:
+      - master
     tags:
       - '*.*.*'
       - 'v*.*.*'
       - '*.*.*-*'
       - 'v*.*.*-*'
+  pull_request:
 
 jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: rinx/setup-k3d@v0.0.2
+        with:
+          version: latest
+          name: vald
+          agents: 1
+      - name: check k3d
+        run: |
+          kubectl cluster-info
+      - uses: azure/setup-helm@v1
+      - name: Helm version
+        run: |
+          helm version
+      - name: deploy Vald
+        run: |
+          helm repo add vald https://vald.vdaas.org/charts
+          helm install \
+            --values ${VALUES} \
+            --set defaults.image.tag=nightly \
+            --set agent.ngt.dimension=300 \
+            --set agent.ngt.auto_index_length=2 \
+            --set agent.minReplicas=1 \
+            --set gateway.lb.enabled=false \
+            --set discoverer.enabled=false \
+            --set manager.index.enabled=false \
+            --generate-name vald/vald
+          sleep 3
+          kubectl wait --for=condition=ready pod -l app=vald-agent-ngt --timeout=3m
+          kubectl get pods
+        env:
+          VALUES: https://raw.githubusercontent.com/vdaas/vald/master/.github/helm/values/values-lb.yaml
+      - name: python dependencies
+        run: |
+          pip install --upgrade grpcio-tools protobuf grpcio googleapis-common-protos
+          ## dirty hack: 
+          sudo rm -rf /usr/lib/python3/dist-packages/validate.py
+          curl -LO https://raw.githubusercontent.com/rinx/word2vecjson/master/data/wordvecs1000.json
+      - name: run tests
+        run: |
+          kubectl port-forward statefulset/vald-agent-ngt 8081:8081 &
+          pid=$!
+
+          python src/test.py
+
+          kill $pid
   release:
+    if: startsWith( github.ref, 'refs/tags/')
+    needs:
+      - e2e
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Create release
-        if: startsWith( github.ref, 'refs/tags/')
         id: create_release
         uses: actions/create-release@v1.0.0
         env:
@@ -23,3 +76,30 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
+  publish:
+    if: startsWith( github.ref, 'refs/tags/')
+    needs:
+      - e2e
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Install dependencies
+        run: |
+          echo "Install dependencies"
+          sudo apt-get update
+          sudo apt-get install -y python3-setuptools
+          pip3 install grpcio-tools
+      - name: prepare to publish
+        run: |
+          ## dirty hack: for some reason, options.packages.find.exclude
+          ## directive in setup.cfg doesn't work properly
+          rm -rf src/tests src/test.py
+          python3 setup.py sdist
+          python3 setup.py bdist_wheel
+      - name: publish
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: ${{ secrets.PIP_USERNAME }}
+          password: ${{ secrets.PIP_PASSWORD }}
