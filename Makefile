@@ -100,7 +100,7 @@ help:
 .PHONY: clean
 ## clean
 clean:
-	rm -rf $(PB2DIR_ROOT)
+	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/validate
 	rm -rf $(SHADOW_ROOT)
 	rm -rf $(VALD_DIR)
 
