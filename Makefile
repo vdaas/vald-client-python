@@ -37,7 +37,6 @@ SHADOW_ROOT = vald
 
 PROTOS = \
 	v1/agent/core/agent.proto \
-	v1/gateway/vald/vald.proto \
 	v1/vald/filter.proto \
 	v1/vald/insert.proto \
 	v1/vald/object.proto \
@@ -50,17 +49,15 @@ PROTOS := $(PROTOS:%=$(PROTO_ROOT)/%)
 SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
-PB2PY_GOGOPROTOS = $(PB2DIR_ROOT)/gogo/protobuf/gogoproto/gogo_pb2.py
-PB2PY_GOGOAPIS = $(PB2DIR_ROOT)/gogo/googleapis/google/api/annotations_pb2.py
-PB2PY_GOGORPCS = $(PB2DIR_ROOT)/gogo/googleapis/google/rpc/status_pb2.py
+PB2PY_GOOGLEAPIS = $(PB2DIR_ROOT)/googleapis/googleapis/google/api/annotations_pb2.py
+PB2PY_GOOGLERPCS = $(PB2DIR_ROOT)/googleapis/googleapis/google/rpc/status_pb2.py
 
 PROTO_PATHS = \
 	$(PWD) \
 	$(PWD)/$(VALD_DIR) \
 	$(PWD)/$(PROTO_ROOT) \
 	$(GOPATH)/src \
-	$(GOPATH)/src/github.com/gogo/protobuf \
-	$(GOPATH)/src/github.com/gogo/googleapis \
+	$(GOPATH)/src/github.com/googleapis/googleapis \
 	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 
 MAKELISTS = Makefile
@@ -103,7 +100,7 @@ help:
 .PHONY: clean
 ## clean
 clean:
-	rm -rf $(PB2DIR_ROOT)
+	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/validate
 	rm -rf $(SHADOW_ROOT)
 	rm -rf $(VALD_DIR)
 
@@ -112,9 +109,8 @@ clean:
 proto: \
 	$(PB2PYS) \
 	$(PB2PY_VALIDATE) \
-	$(PB2PY_GOGOPROTOS) \
-	$(PB2PY_GOGOAPIS) \
-	$(PB2PY_GOGORPCS)
+	$(PB2PY_GOOGLEAPIS) \
+	$(PB2PY_GOOGLERPCS)
 
 $(PROTOS): $(VALD_DIR)
 $(SHADOWS): $(PROTOS)
@@ -123,8 +119,6 @@ $(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	cp $< $@
 	sed -i -e 's:^import "apis/proto/:import "$(SHADOW_ROOT)/:' $@
 	sed -i -e 's:^import "github.com/envoyproxy/protoc-gen-validate/:import ":' $@
-	sed -i -e 's:^import "github.com/gogo/protobuf/:import ":' $@
-	sed -i -e 's:^import "github.com/gogo/googleapis/:import ":' $@
 	sed -i -e 's:^import "github.com/googleapis/googleapis/:import ":' $@
 
 $(PB2DIR_ROOT):
@@ -151,35 +145,24 @@ $(PB2PY_VALIDATE): $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
 			validate/validate.proto)
 
-$(PB2PY_GOGOPROTOS): $(GOPATH)/src/github.com/gogo/protobuf
+$(PB2PY_GOOGLEAPIS): $(GOPATH)/src/github.com/googleapis/googleapis
 	@$(call green, "generating pb2.py files...")
-	(cd $(GOPATH)/src/github.com/gogo/protobuf; \
+	(cd $(GOPATH)/src/github.com/googleapis/googleapis; \
 		$(PYTHON) \
 			-m grpc_tools.protoc \
 			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/gogo/protobuf \
-			--python_out=$(PWD)/$(PB2DIR_ROOT) \
-			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
-			gogoproto/gogo.proto)
-
-$(PB2PY_GOGOAPIS): $(GOPATH)/src/github.com/gogo/googleapis
-	@$(call green, "generating pb2.py files...")
-	(cd $(GOPATH)/src/github.com/gogo/googleapis; \
-		$(PYTHON) \
-			-m grpc_tools.protoc \
-			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/gogo/googleapis \
+			-I $(GOPATH)/src/github.com/googleapis/googleapis \
 			--python_out=$(PWD)/$(PB2DIR_ROOT) \
 			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
 			google/api/annotations.proto)
 
-$(PB2PY_GOGORPCS): $(GOPATH)/src/github.com/gogo/googleapis
+$(PB2PY_GOOGLERPCS): $(GOPATH)/src/github.com/googleapis/googleapis
 	@$(call green, "generating pb2.py files...")
-	(cd $(GOPATH)/src/github.com/gogo/googleapis; \
+	(cd $(GOPATH)/src/github.com/googleapis/googleapis; \
 		$(PYTHON) \
 			-m grpc_tools.protoc \
 			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/gogo/googleapis \
+			-I $(GOPATH)/src/github.com/googleapis/googleapis \
 			--python_out=$(PWD)/$(PB2DIR_ROOT) \
 			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
 			google/rpc/status.proto)
@@ -228,21 +211,14 @@ vald/client/python/version/update: vald
 .PHONY: proto/deps
 ## install proto deps
 proto/deps: \
-	$(GOPATH)/src/github.com/gogo/protobuf \
-	$(GOPATH)/src/github.com/gogo/googleapis \
+	$(GOPATH)/src/github.com/googleapis/googleapis \
 	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
 
-$(GOPATH)/src/github.com/gogo/protobuf:
+$(GOPATH)/src/github.com/googleapis/googleapis:
 	git clone \
 		--depth 1 \
-		https://github.com/gogo/protobuf \
-		$(GOPATH)/src/github.com/gogo/protobuf
-
-$(GOPATH)/src/github.com/gogo/googleapis:
-	git clone \
-		--depth 1 \
-		https://github.com/gogo/googleapis \
-		$(GOPATH)/src/github.com/gogo/googleapis
+		https://github.com/googleapis/googleapis \
+		$(GOPATH)/src/github.com/googleapis/googleapis
 
 $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate:
 	git clone \
