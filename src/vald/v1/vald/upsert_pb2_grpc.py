@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class UpsertStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Upsert service provides ways to insert/update vectors.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -32,22 +33,26 @@ class UpsertStub(object):
 
 
 class UpsertServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Upsert service provides ways to insert/update vectors.
+    """
 
     def Upsert(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to insert/update a vector.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamUpsert(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to insert/update multiple vectors by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiUpsert(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to insert/update multiple vectors in a single request.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -78,7 +83,8 @@ def add_UpsertServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Upsert(object):
-    """Missing associated documentation comment in .proto file."""
+    """Upsert service provides ways to insert/update vectors.
+    """
 
     @staticmethod
     def Upsert(request,

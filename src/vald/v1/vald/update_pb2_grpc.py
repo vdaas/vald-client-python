@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class UpdateStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Update service provides ways to update indexed vectors.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -32,22 +33,26 @@ class UpdateStub(object):
 
 
 class UpdateServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Update service provides ways to update indexed vectors.
+    """
 
     def Update(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to update an indexed vector.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamUpdate(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to update multiple indexed vectors by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiUpdate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to update multiple indexed vectors in a single request.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -78,7 +83,8 @@ def add_UpdateServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Update(object):
-    """Missing associated documentation comment in .proto file."""
+    """Update service provides ways to update indexed vectors.
+    """
 
     @staticmethod
     def Update(request,

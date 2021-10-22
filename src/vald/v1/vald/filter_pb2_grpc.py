@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class FilterStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Filter service provides ways to connect to Vald through filter.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -77,76 +78,89 @@ class FilterStub(object):
 
 
 class FilterServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Filter service provides ways to connect to Vald through filter.
+    """
 
     def SearchObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to search object.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiSearchObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to search multiple objects.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamSearchObject(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to search object by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def InsertObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method insert object.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamInsertObject(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """Represent the streaming RPC to insert object by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiInsertObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to insert multiple objects.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to update object.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamUpdateObject(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to update object by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiUpdateObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to update multiple objects.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpsertObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to upsert object.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamUpsertObject(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to upsert object by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiUpsertObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to upsert multiple objects.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -222,7 +236,8 @@ def add_FilterServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Filter(object):
-    """Missing associated documentation comment in .proto file."""
+    """Filter service provides ways to connect to Vald through filter.
+    """
 
     @staticmethod
     def SearchObject(request,

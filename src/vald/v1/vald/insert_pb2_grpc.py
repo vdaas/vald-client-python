@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class InsertStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Insert service provides ways to add new vectors.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -32,22 +33,26 @@ class InsertStub(object):
 
 
 class InsertServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Insert service provides ways to add new vectors.
+    """
 
     def Insert(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to add a new single vector.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamInsert(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to add new multiple vectors by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiInsert(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to add new multiple vectors in a single request.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -78,7 +83,8 @@ def add_InsertServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Insert(object):
-    """Missing associated documentation comment in .proto file."""
+    """Insert service provides ways to add new vectors.
+    """
 
     @staticmethod
     def Insert(request,

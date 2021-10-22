@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class AgentStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Represent the agent service.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -37,28 +38,33 @@ class AgentStub(object):
 
 
 class AgentServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Represent the agent service.
+    """
 
     def CreateIndex(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Represent the create index RPC.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SaveIndex(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Represent the save index RPC.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateAndSaveIndex(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Represent the create and save index RPC.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def IndexInfo(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Represent the RPC to get the agent index information.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -94,7 +100,8 @@ def add_AgentServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Agent(object):
-    """Missing associated documentation comment in .proto file."""
+    """Represent the agent service.
+    """
 
     @staticmethod
     def CreateIndex(request,

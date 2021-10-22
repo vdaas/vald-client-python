@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class ObjectStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Object service provides ways to fetch indexed vectors.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -32,22 +33,26 @@ class ObjectStub(object):
 
 
 class ObjectServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Object service provides ways to fetch indexed vectors.
+    """
 
     def Exists(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to check whether a specified ID is indexed or not.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to fetch a vector.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamGetObject(self, request_iterator, context):
-        """Missing associated documentation comment in .proto file."""
+        """A method to fetch vectors by bidirectional streaming.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -78,7 +83,8 @@ def add_ObjectServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Object(object):
-    """Missing associated documentation comment in .proto file."""
+    """Object service provides ways to fetch indexed vectors.
+    """
 
     @staticmethod
     def Exists(request,
