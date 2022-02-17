@@ -45,6 +45,36 @@ class SearchStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
                 )
+        self.LinearSearch = channel.unary_unary(
+                '/vald.v1.Search/LinearSearch',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
+                )
+        self.LinearSearchByID = channel.unary_unary(
+                '/vald.v1.Search/LinearSearchByID',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
+                )
+        self.StreamLinearSearch = channel.stream_stream(
+                '/vald.v1.Search/StreamLinearSearch',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
+                )
+        self.StreamLinearSearchByID = channel.stream_stream(
+                '/vald.v1.Search/StreamLinearSearchByID',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
+                )
+        self.MultiLinearSearch = channel.unary_unary(
+                '/vald.v1.Search/MultiLinearSearch',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
+                )
+        self.MultiLinearSearchByID = channel.unary_unary(
+                '/vald.v1.Search/MultiLinearSearchByID',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
+                )
 
 
 class SearchServicer(object):
@@ -93,6 +123,48 @@ class SearchServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LinearSearch(self, request, context):
+        """A method to linear search indexed vectors by a raw vector.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LinearSearchByID(self, request, context):
+        """A method to linear search indexed vectors by ID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def StreamLinearSearch(self, request_iterator, context):
+        """A method to linear search indexed vectors by multiple vectors.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def StreamLinearSearchByID(self, request_iterator, context):
+        """A method to linear search indexed vectors by multiple IDs.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MultiLinearSearch(self, request, context):
+        """A method to linear search indexed vectors by multiple vectors in a single request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MultiLinearSearchByID(self, request, context):
+        """A method to linear search indexed vectors by multiple IDs in a single request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SearchServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -123,6 +195,36 @@ def add_SearchServicer_to_server(servicer, server):
             ),
             'MultiSearchByID': grpc.unary_unary_rpc_method_handler(
                     servicer.MultiSearchByID,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.SerializeToString,
+            ),
+            'LinearSearch': grpc.unary_unary_rpc_method_handler(
+                    servicer.LinearSearch,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.SerializeToString,
+            ),
+            'LinearSearchByID': grpc.unary_unary_rpc_method_handler(
+                    servicer.LinearSearchByID,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.SerializeToString,
+            ),
+            'StreamLinearSearch': grpc.stream_stream_rpc_method_handler(
+                    servicer.StreamLinearSearch,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.SerializeToString,
+            ),
+            'StreamLinearSearchByID': grpc.stream_stream_rpc_method_handler(
+                    servicer.StreamLinearSearchByID,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.SerializeToString,
+            ),
+            'MultiLinearSearch': grpc.unary_unary_rpc_method_handler(
+                    servicer.MultiLinearSearch,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.SerializeToString,
+            ),
+            'MultiLinearSearchByID': grpc.unary_unary_rpc_method_handler(
+                    servicer.MultiLinearSearchByID,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.SerializeToString,
             ),
@@ -234,6 +336,108 @@ class Search(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiSearchByID',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LinearSearch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/LinearSearch',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LinearSearchByID(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/LinearSearchByID',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StreamLinearSearch(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamLinearSearch',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StreamLinearSearchByID(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamLinearSearchByID',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MultiLinearSearch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiLinearSearch',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MultiLinearSearchByID(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiLinearSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
             options, channel_credentials,
