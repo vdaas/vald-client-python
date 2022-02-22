@@ -3,6 +3,7 @@
 # source: vald/v1/vald/update.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -15,66 +16,19 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor.FileDescriptor(
-  name='vald/v1/vald/update.proto',
-  package='vald.v1',
-  syntax='proto3',
-  serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdUpdateP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/update.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x9f\x02\n\x06Update\x12U\n\x06Update\x12\x1a.payload.v1.Update.Request\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12S\n\x0cStreamUpdate\x12\x1a.payload.v1.Update.Request\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12i\n\x0bMultiUpdate\x12\x1f.payload.v1.Update.MultiRequest\x1a\x1c.payload.v1.Object.Locations\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/update/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdUpdateP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
-  ,
-  dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19vald/v1/vald/update.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x9f\x02\n\x06Update\x12U\n\x06Update\x12\x1a.payload.v1.Update.Request\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/update:\x01*\x12S\n\x0cStreamUpdate\x12\x1a.payload.v1.Update.Request\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12i\n\x0bMultiUpdate\x12\x1f.payload.v1.Update.MultiRequest\x1a\x1c.payload.v1.Object.Locations\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/update/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdUpdateP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3')
 
 
 
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+_UPDATE = DESCRIPTOR.services_by_name['Update']
+if _descriptor._USE_C_DESCRIPTORS == False:
 
-
-DESCRIPTOR._options = None
-
-_UPDATE = _descriptor.ServiceDescriptor(
-  name='Update',
-  full_name='vald.v1.Update',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=100,
-  serialized_end=387,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Update',
-    full_name='vald.v1.Update.Update',
-    index=0,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPDATE_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
-    serialized_options=b'\202\323\344\223\002\014\"\007/update:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamUpdate',
-    full_name='vald.v1.Update.StreamUpdate',
-    index=1,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPDATE_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiUpdate',
-    full_name='vald.v1.Update.MultiUpdate',
-    index=2,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPDATE_MULTIREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATIONS,
-    serialized_options=b'\202\323\344\223\002\025\"\020/update/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_UPDATE)
-
-DESCRIPTOR.services_by_name['Update'] = _UPDATE
-
+  DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'\n\032org.vdaas.vald.api.v1.valdB\nValdUpdateP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald'
+  _UPDATE.methods_by_name['Update']._options = None
+  _UPDATE.methods_by_name['Update']._serialized_options = b'\202\323\344\223\002\014\"\007/update:\001*'
+  _UPDATE.methods_by_name['MultiUpdate']._options = None
+  _UPDATE.methods_by_name['MultiUpdate']._serialized_options = b'\202\323\344\223\002\025\"\020/update/multiple:\001*'
+  _UPDATE._serialized_start=100
+  _UPDATE._serialized_end=387
 # @@protoc_insertion_point(module_scope)

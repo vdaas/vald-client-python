@@ -3,6 +3,7 @@
 # source: vald/v1/vald/remove.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -15,66 +16,19 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor.FileDescriptor(
-  name='vald/v1/vald/remove.proto',
-  package='vald.v1',
-  syntax='proto3',
-  serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdRemoveP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/remove.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x9f\x02\n\x06Remove\x12U\n\x06Remove\x12\x1a.payload.v1.Remove.Request\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/remove:\x01*\x12S\n\x0cStreamRemove\x12\x1a.payload.v1.Remove.Request\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12i\n\x0bMultiRemove\x12\x1f.payload.v1.Remove.MultiRequest\x1a\x1c.payload.v1.Object.Locations\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/remove/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdRemoveP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
-  ,
-  dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19vald/v1/vald/remove.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\x9f\x02\n\x06Remove\x12U\n\x06Remove\x12\x1a.payload.v1.Remove.Request\x1a\x1b.payload.v1.Object.Location\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/remove:\x01*\x12S\n\x0cStreamRemove\x12\x1a.payload.v1.Remove.Request\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12i\n\x0bMultiRemove\x12\x1f.payload.v1.Remove.MultiRequest\x1a\x1c.payload.v1.Object.Locations\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/remove/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdRemoveP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3')
 
 
 
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+_REMOVE = DESCRIPTOR.services_by_name['Remove']
+if _descriptor._USE_C_DESCRIPTORS == False:
 
-
-DESCRIPTOR._options = None
-
-_REMOVE = _descriptor.ServiceDescriptor(
-  name='Remove',
-  full_name='vald.v1.Remove',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=100,
-  serialized_end=387,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Remove',
-    full_name='vald.v1.Remove.Remove',
-    index=0,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._REMOVE_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
-    serialized_options=b'\202\323\344\223\002\014\"\007/remove:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamRemove',
-    full_name='vald.v1.Remove.StreamRemove',
-    index=1,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._REMOVE_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiRemove',
-    full_name='vald.v1.Remove.MultiRemove',
-    index=2,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._REMOVE_MULTIREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATIONS,
-    serialized_options=b'\202\323\344\223\002\025\"\020/remove/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_REMOVE)
-
-DESCRIPTOR.services_by_name['Remove'] = _REMOVE
-
+  DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'\n\032org.vdaas.vald.api.v1.valdB\nValdRemoveP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald'
+  _REMOVE.methods_by_name['Remove']._options = None
+  _REMOVE.methods_by_name['Remove']._serialized_options = b'\202\323\344\223\002\014\"\007/remove:\001*'
+  _REMOVE.methods_by_name['MultiRemove']._options = None
+  _REMOVE.methods_by_name['MultiRemove']._serialized_options = b'\202\323\344\223\002\025\"\020/remove/multiple:\001*'
+  _REMOVE._serialized_start=100
+  _REMOVE._serialized_end=387
 # @@protoc_insertion_point(module_scope)

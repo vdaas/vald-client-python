@@ -3,6 +3,7 @@
 # source: vald/v1/vald/filter.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -15,156 +16,31 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor.FileDescriptor(
-  name='vald/v1/vald/filter.proto',
-  package='vald.v1',
-  syntax='proto3',
-  serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdFilterP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/filter.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xac\n\n\x06\x46ilter\x12h\n\x0cSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a\x1b.payload.v1.Search.Response\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/search/object:\x01*\x12|\n\x11MultiSearchObject\x12%.payload.v1.Search.MultiObjectRequest\x1a\x1c.payload.v1.Search.Responses\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/search/object/multiple:\x01*\x12_\n\x12StreamSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12h\n\x0cInsertObject\x12 .payload.v1.Insert.ObjectRequest\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/insert/object:\x01*\x12_\n\x12StreamInsertObject\x12 .payload.v1.Insert.ObjectRequest\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12|\n\x11MultiInsertObject\x12%.payload.v1.Insert.MultiObjectRequest\x1a\x1c.payload.v1.Object.Locations\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/insert/object/multiple:\x01*\x12h\n\x0cUpdateObject\x12 .payload.v1.Update.ObjectRequest\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/update/object:\x01*\x12_\n\x12StreamUpdateObject\x12 .payload.v1.Update.ObjectRequest\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12|\n\x11MultiUpdateObject\x12%.payload.v1.Update.MultiObjectRequest\x1a\x1c.payload.v1.Object.Locations\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/update/object/multiple:\x01*\x12h\n\x0cUpsertObject\x12 .payload.v1.Upsert.ObjectRequest\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/upsert/object:\x01*\x12_\n\x12StreamUpsertObject\x12 .payload.v1.Upsert.ObjectRequest\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12|\n\x11MultiUpsertObject\x12%.payload.v1.Upsert.MultiObjectRequest\x1a\x1c.payload.v1.Object.Locations\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/upsert/object/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdFilterP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
-  ,
-  dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19vald/v1/vald/filter.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xac\n\n\x06\x46ilter\x12h\n\x0cSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a\x1b.payload.v1.Search.Response\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/search/object:\x01*\x12|\n\x11MultiSearchObject\x12%.payload.v1.Search.MultiObjectRequest\x1a\x1c.payload.v1.Search.Responses\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/search/object/multiple:\x01*\x12_\n\x12StreamSearchObject\x12 .payload.v1.Search.ObjectRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12h\n\x0cInsertObject\x12 .payload.v1.Insert.ObjectRequest\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/insert/object:\x01*\x12_\n\x12StreamInsertObject\x12 .payload.v1.Insert.ObjectRequest\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12|\n\x11MultiInsertObject\x12%.payload.v1.Insert.MultiObjectRequest\x1a\x1c.payload.v1.Object.Locations\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/insert/object/multiple:\x01*\x12h\n\x0cUpdateObject\x12 .payload.v1.Update.ObjectRequest\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/update/object:\x01*\x12_\n\x12StreamUpdateObject\x12 .payload.v1.Update.ObjectRequest\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12|\n\x11MultiUpdateObject\x12%.payload.v1.Update.MultiObjectRequest\x1a\x1c.payload.v1.Object.Locations\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/update/object/multiple:\x01*\x12h\n\x0cUpsertObject\x12 .payload.v1.Upsert.ObjectRequest\x1a\x1b.payload.v1.Object.Location\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/upsert/object:\x01*\x12_\n\x12StreamUpsertObject\x12 .payload.v1.Upsert.ObjectRequest\x1a!.payload.v1.Object.StreamLocation\"\x00(\x01\x30\x01\x12|\n\x11MultiUpsertObject\x12%.payload.v1.Upsert.MultiObjectRequest\x1a\x1c.payload.v1.Object.Locations\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/upsert/object/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdFilterP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3')
 
 
 
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+_FILTER = DESCRIPTOR.services_by_name['Filter']
+if _descriptor._USE_C_DESCRIPTORS == False:
 
-
-DESCRIPTOR._options = None
-
-_FILTER = _descriptor.ServiceDescriptor(
-  name='Filter',
-  full_name='vald.v1.Filter',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=100,
-  serialized_end=1424,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='SearchObject',
-    full_name='vald.v1.Filter.SearchObject',
-    index=0,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSE,
-    serialized_options=b'\202\323\344\223\002\023\"\016/search/object:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiSearchObject',
-    full_name='vald.v1.Filter.MultiSearchObject',
-    index=1,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIOBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSES,
-    serialized_options=b'\202\323\344\223\002\034\"\027/search/object/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamSearchObject',
-    full_name='vald.v1.Filter.StreamSearchObject',
-    index=2,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_STREAMRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='InsertObject',
-    full_name='vald.v1.Filter.InsertObject',
-    index=3,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._INSERT_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
-    serialized_options=b'\202\323\344\223\002\023\"\016/insert/object:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamInsertObject',
-    full_name='vald.v1.Filter.StreamInsertObject',
-    index=4,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._INSERT_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiInsertObject',
-    full_name='vald.v1.Filter.MultiInsertObject',
-    index=5,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._INSERT_MULTIOBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATIONS,
-    serialized_options=b'\202\323\344\223\002\034\"\027/insert/object/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='UpdateObject',
-    full_name='vald.v1.Filter.UpdateObject',
-    index=6,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPDATE_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
-    serialized_options=b'\202\323\344\223\002\023\"\016/update/object:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamUpdateObject',
-    full_name='vald.v1.Filter.StreamUpdateObject',
-    index=7,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPDATE_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiUpdateObject',
-    full_name='vald.v1.Filter.MultiUpdateObject',
-    index=8,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPDATE_MULTIOBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATIONS,
-    serialized_options=b'\202\323\344\223\002\034\"\027/update/object/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='UpsertObject',
-    full_name='vald.v1.Filter.UpsertObject',
-    index=9,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPSERT_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATION,
-    serialized_options=b'\202\323\344\223\002\023\"\016/upsert/object:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamUpsertObject',
-    full_name='vald.v1.Filter.StreamUpsertObject',
-    index=10,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPSERT_OBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_STREAMLOCATION,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiUpsertObject',
-    full_name='vald.v1.Filter.MultiUpsertObject',
-    index=11,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._UPSERT_MULTIOBJECTREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._OBJECT_LOCATIONS,
-    serialized_options=b'\202\323\344\223\002\034\"\027/upsert/object/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_FILTER)
-
-DESCRIPTOR.services_by_name['Filter'] = _FILTER
-
+  DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'\n\032org.vdaas.vald.api.v1.valdB\nValdFilterP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald'
+  _FILTER.methods_by_name['SearchObject']._options = None
+  _FILTER.methods_by_name['SearchObject']._serialized_options = b'\202\323\344\223\002\023\"\016/search/object:\001*'
+  _FILTER.methods_by_name['MultiSearchObject']._options = None
+  _FILTER.methods_by_name['MultiSearchObject']._serialized_options = b'\202\323\344\223\002\034\"\027/search/object/multiple:\001*'
+  _FILTER.methods_by_name['InsertObject']._options = None
+  _FILTER.methods_by_name['InsertObject']._serialized_options = b'\202\323\344\223\002\023\"\016/insert/object:\001*'
+  _FILTER.methods_by_name['MultiInsertObject']._options = None
+  _FILTER.methods_by_name['MultiInsertObject']._serialized_options = b'\202\323\344\223\002\034\"\027/insert/object/multiple:\001*'
+  _FILTER.methods_by_name['UpdateObject']._options = None
+  _FILTER.methods_by_name['UpdateObject']._serialized_options = b'\202\323\344\223\002\023\"\016/update/object:\001*'
+  _FILTER.methods_by_name['MultiUpdateObject']._options = None
+  _FILTER.methods_by_name['MultiUpdateObject']._serialized_options = b'\202\323\344\223\002\034\"\027/update/object/multiple:\001*'
+  _FILTER.methods_by_name['UpsertObject']._options = None
+  _FILTER.methods_by_name['UpsertObject']._serialized_options = b'\202\323\344\223\002\023\"\016/upsert/object:\001*'
+  _FILTER.methods_by_name['MultiUpsertObject']._options = None
+  _FILTER.methods_by_name['MultiUpsertObject']._serialized_options = b'\202\323\344\223\002\034\"\027/upsert/object/multiple:\001*'
+  _FILTER._serialized_start=100
+  _FILTER._serialized_end=1424
 # @@protoc_insertion_point(module_scope)

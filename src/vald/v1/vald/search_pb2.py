@@ -3,6 +3,7 @@
 # source: vald/v1/vald/search.proto
 """Generated protocol buffer code."""
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
@@ -15,156 +16,31 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor.FileDescriptor(
-  name='vald/v1/vald/search.proto',
-  package='vald.v1',
-  syntax='proto3',
-  serialized_options=b'\n\032org.vdaas.vald.api.v1.valdB\nValdSearchP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald',
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19vald/v1/vald/search.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xd0\t\n\x06Search\x12U\n\x06Search\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12^\n\nSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12S\n\x0cStreamSearch\x12\x1a.payload.v1.Search.Request\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12Y\n\x10StreamSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12i\n\x0bMultiSearch\x12\x1f.payload.v1.Search.MultiRequest\x1a\x1c.payload.v1.Search.Responses\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/search/multiple:\x01*\x12r\n\x0fMultiSearchByID\x12!.payload.v1.Search.MultiIDRequest\x1a\x1c.payload.v1.Search.Responses\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/search/id/multiple:\x01*\x12\x61\n\x0cLinearSearch\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x18\x82\xd3\xe4\x93\x02\x12\"\r/linearsearch:\x01*\x12j\n\x10LinearSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/linearsearch/id:\x01*\x12Y\n\x12StreamLinearSearch\x12\x1a.payload.v1.Search.Request\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12_\n\x16StreamLinearSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12u\n\x11MultiLinearSearch\x12\x1f.payload.v1.Search.MultiRequest\x1a\x1c.payload.v1.Search.Responses\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/linearsearch/multiple:\x01*\x12~\n\x15MultiLinearSearchByID\x12!.payload.v1.Search.MultiIDRequest\x1a\x1c.payload.v1.Search.Responses\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/linearsearch/id/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdSearchP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3'
-  ,
-  dependencies=[vald_dot_v1_dot_payload_dot_payload__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19vald/v1/vald/search.proto\x12\x07vald.v1\x1a\x1dvald/v1/payload/payload.proto\x1a\x1cgoogle/api/annotations.proto2\xd0\t\n\x06Search\x12U\n\x06Search\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/search:\x01*\x12^\n\nSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x15\x82\xd3\xe4\x93\x02\x0f\"\n/search/id:\x01*\x12S\n\x0cStreamSearch\x12\x1a.payload.v1.Search.Request\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12Y\n\x10StreamSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12i\n\x0bMultiSearch\x12\x1f.payload.v1.Search.MultiRequest\x1a\x1c.payload.v1.Search.Responses\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/search/multiple:\x01*\x12r\n\x0fMultiSearchByID\x12!.payload.v1.Search.MultiIDRequest\x1a\x1c.payload.v1.Search.Responses\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/search/id/multiple:\x01*\x12\x61\n\x0cLinearSearch\x12\x1a.payload.v1.Search.Request\x1a\x1b.payload.v1.Search.Response\"\x18\x82\xd3\xe4\x93\x02\x12\"\r/linearsearch:\x01*\x12j\n\x10LinearSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a\x1b.payload.v1.Search.Response\"\x1b\x82\xd3\xe4\x93\x02\x15\"\x10/linearsearch/id:\x01*\x12Y\n\x12StreamLinearSearch\x12\x1a.payload.v1.Search.Request\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12_\n\x16StreamLinearSearchByID\x12\x1c.payload.v1.Search.IDRequest\x1a!.payload.v1.Search.StreamResponse\"\x00(\x01\x30\x01\x12u\n\x11MultiLinearSearch\x12\x1f.payload.v1.Search.MultiRequest\x1a\x1c.payload.v1.Search.Responses\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/linearsearch/multiple:\x01*\x12~\n\x15MultiLinearSearchByID\x12!.payload.v1.Search.MultiIDRequest\x1a\x1c.payload.v1.Search.Responses\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/linearsearch/id/multiple:\x01*BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdSearchP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3')
 
 
 
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+_SEARCH = DESCRIPTOR.services_by_name['Search']
+if _descriptor._USE_C_DESCRIPTORS == False:
 
-
-DESCRIPTOR._options = None
-
-_SEARCH = _descriptor.ServiceDescriptor(
-  name='Search',
-  full_name='vald.v1.Search',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=100,
-  serialized_end=1332,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Search',
-    full_name='vald.v1.Search.Search',
-    index=0,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSE,
-    serialized_options=b'\202\323\344\223\002\014\"\007/search:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SearchByID',
-    full_name='vald.v1.Search.SearchByID',
-    index=1,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSE,
-    serialized_options=b'\202\323\344\223\002\017\"\n/search/id:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamSearch',
-    full_name='vald.v1.Search.StreamSearch',
-    index=2,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_STREAMRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamSearchByID',
-    full_name='vald.v1.Search.StreamSearchByID',
-    index=3,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_STREAMRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiSearch',
-    full_name='vald.v1.Search.MultiSearch',
-    index=4,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSES,
-    serialized_options=b'\202\323\344\223\002\025\"\020/search/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiSearchByID',
-    full_name='vald.v1.Search.MultiSearchByID',
-    index=5,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIIDREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSES,
-    serialized_options=b'\202\323\344\223\002\030\"\023/search/id/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='LinearSearch',
-    full_name='vald.v1.Search.LinearSearch',
-    index=6,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSE,
-    serialized_options=b'\202\323\344\223\002\022\"\r/linearsearch:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='LinearSearchByID',
-    full_name='vald.v1.Search.LinearSearchByID',
-    index=7,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSE,
-    serialized_options=b'\202\323\344\223\002\025\"\020/linearsearch/id:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamLinearSearch',
-    full_name='vald.v1.Search.StreamLinearSearch',
-    index=8,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_REQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_STREAMRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StreamLinearSearchByID',
-    full_name='vald.v1.Search.StreamLinearSearchByID',
-    index=9,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_IDREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_STREAMRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiLinearSearch',
-    full_name='vald.v1.Search.MultiLinearSearch',
-    index=10,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSES,
-    serialized_options=b'\202\323\344\223\002\033\"\026/linearsearch/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='MultiLinearSearchByID',
-    full_name='vald.v1.Search.MultiLinearSearchByID',
-    index=11,
-    containing_service=None,
-    input_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_MULTIIDREQUEST,
-    output_type=vald_dot_v1_dot_payload_dot_payload__pb2._SEARCH_RESPONSES,
-    serialized_options=b'\202\323\344\223\002\036\"\031/linearsearch/id/multiple:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_SEARCH)
-
-DESCRIPTOR.services_by_name['Search'] = _SEARCH
-
+  DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b'\n\032org.vdaas.vald.api.v1.valdB\nValdSearchP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald'
+  _SEARCH.methods_by_name['Search']._options = None
+  _SEARCH.methods_by_name['Search']._serialized_options = b'\202\323\344\223\002\014\"\007/search:\001*'
+  _SEARCH.methods_by_name['SearchByID']._options = None
+  _SEARCH.methods_by_name['SearchByID']._serialized_options = b'\202\323\344\223\002\017\"\n/search/id:\001*'
+  _SEARCH.methods_by_name['MultiSearch']._options = None
+  _SEARCH.methods_by_name['MultiSearch']._serialized_options = b'\202\323\344\223\002\025\"\020/search/multiple:\001*'
+  _SEARCH.methods_by_name['MultiSearchByID']._options = None
+  _SEARCH.methods_by_name['MultiSearchByID']._serialized_options = b'\202\323\344\223\002\030\"\023/search/id/multiple:\001*'
+  _SEARCH.methods_by_name['LinearSearch']._options = None
+  _SEARCH.methods_by_name['LinearSearch']._serialized_options = b'\202\323\344\223\002\022\"\r/linearsearch:\001*'
+  _SEARCH.methods_by_name['LinearSearchByID']._options = None
+  _SEARCH.methods_by_name['LinearSearchByID']._serialized_options = b'\202\323\344\223\002\025\"\020/linearsearch/id:\001*'
+  _SEARCH.methods_by_name['MultiLinearSearch']._options = None
+  _SEARCH.methods_by_name['MultiLinearSearch']._serialized_options = b'\202\323\344\223\002\033\"\026/linearsearch/multiple:\001*'
+  _SEARCH.methods_by_name['MultiLinearSearchByID']._options = None
+  _SEARCH.methods_by_name['MultiLinearSearchByID']._serialized_options = b'\202\323\344\223\002\036\"\031/linearsearch/id/multiple:\001*'
+  _SEARCH._serialized_start=100
+  _SEARCH._serialized_end=1332
 # @@protoc_insertion_point(module_scope)
