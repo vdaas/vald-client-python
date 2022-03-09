@@ -37,6 +37,7 @@ SHADOW_ROOT = vald
 
 PROTOS = \
 	v1/agent/core/agent.proto \
+	v1/filter/egress/egress_filter.proto \
 	v1/filter/ingress/ingress_filter.proto \
 	v1/vald/filter.proto \
 	v1/vald/insert.proto \
