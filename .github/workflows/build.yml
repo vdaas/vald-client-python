@@ -17,8 +17,8 @@ jobs:
         with:
           fetch-depth: 1
       - run: |
-          echo "checkout master"
-          git checkout master
+          echo "checkout main"
+          git checkout main
       - run: |
           echo "build"
           export GOPATH=$HOME/go
