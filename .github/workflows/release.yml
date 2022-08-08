@@ -2,7 +2,7 @@ name: release
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - '*.*.*'
       - 'v*.*.*'
@@ -44,7 +44,7 @@ jobs:
           kubectl wait --for=condition=ready pod -l app=vald-agent-ngt --timeout=3m
           kubectl get pods
         env:
-          VALUES: https://raw.githubusercontent.com/vdaas/vald/master/.github/helm/values/values-lb.yaml
+          VALUES: https://raw.githubusercontent.com/vdaas/vald/main/.github/helm/values/values-lb.yaml
       - name: python dependencies
         run: |
           pip install --upgrade grpcio-tools protobuf grpcio googleapis-common-protos
