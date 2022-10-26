@@ -23,7 +23,7 @@ jobs:
       - name: check k3d
         run: |
           kubectl cluster-info
-      - uses: azure/setup-helm@v1
+      - uses: azure/setup-helm@v3
       - name: Helm version
         run: |
           helm version
