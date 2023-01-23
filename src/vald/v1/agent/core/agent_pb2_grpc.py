@@ -42,21 +42,21 @@ class AgentServicer(object):
     """
 
     def CreateIndex(self, request, context):
-        """Represent the create index RPC.
+        """Represent the creating index RPC.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SaveIndex(self, request, context):
-        """Represent the save index RPC.
+        """Represent the saving index RPC.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateAndSaveIndex(self, request, context):
-        """Represent the create and save index RPC.
+        """Represent the creating and saving index RPC.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
