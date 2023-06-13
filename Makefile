@@ -115,7 +115,7 @@ proto: \
 	$(PB2PY_VALIDATE) \
 	$(PB2PY_GOOGLEAPIS) \
 	$(PB2PY_GOOGLERPCS) \
-	$(PB2PY_VTPROT)
+	$(PB2PY_VTEXTPY)
 
 $(PROTOS): $(VALD_DIR)
 $(SHADOWS): $(PROTOS)
@@ -173,7 +173,7 @@ $(PB2PY_GOOGLERPCS): $(GOPATH)/src/github.com/googleapis/googleapis
 			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
 			google/rpc/status.proto)
 
-$(PB2PY_VTPROT): $(GOPATH)/src/github.com/planetscale/vtprotobuf
+$(PB2PY_VTEXTPY): $(GOPATH)/src/github.com/planetscale/vtprotobuf
 	@$(call green, "generating pb2.py files...")
 	(cd $(GOPATH)/src/github.com/planetscale/vtprotobuf; \
 		$(PYTHON) \
