@@ -53,7 +53,7 @@ PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 PB2PY_GOOGLEAPIS = $(PB2DIR_ROOT)/googleapis/googleapis/google/api/annotations_pb2.py
 PB2PY_GOOGLERPCS = $(PB2DIR_ROOT)/googleapis/googleapis/google/rpc/status_pb2.py
-PB2PY_VTPROT = $(PB2DIR_ROOT)/vtproto/ext_pb2.py
+PB2PY_VTPROT = $(PB2DIR_ROOT)/planetscale/vtprotobuf/vtproto/ext_pb2.py
 
 PROTO_PATHS = \
 	$(PWD) \
@@ -125,7 +125,7 @@ $(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	sed -i -e 's:^import "apis/proto/:import "$(SHADOW_ROOT)/:' $@
 	sed -i -e 's:^import "github.com/envoyproxy/protoc-gen-validate/:import ":' $@
 	sed -i -e 's:^import "github.com/googleapis/googleapis/:import ":' $@
-	sed -i -e 's:^import "github.com/planetscale/vtprotobuf/include/github.com/planetscale/vtprotobuf/:import ":' $@
+	sed -i -e 's:^import "github.com/planetscale/vtprotobuf/:import ":' $@
 
 $(PB2DIR_ROOT):
 	mkdir -p $@
