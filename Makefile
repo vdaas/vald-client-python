@@ -53,7 +53,7 @@ PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 PB2PY_GOOGLEAPIS = $(PB2DIR_ROOT)/googleapis/googleapis/google/api/annotations_pb2.py
 PB2PY_GOOGLERPCS = $(PB2DIR_ROOT)/googleapis/googleapis/google/rpc/status_pb2.py
-PB2PY_VTPROT = $(PB2DIR_ROOT)/planetscale/vtprotobuf/include/github.com/planetscale/vtprotobuf/vtproto/ext_pb2.py
+PB2PY_VTPROT = $(PB2DIR_ROOT)/planetscale/vtprotobuf/vtproto/ext_pb2.py
 
 PROTO_PATHS = \
 	$(PWD) \
@@ -179,10 +179,10 @@ $(PB2PY_VTPROT): $(GOPATH)/src/github.com/planetscale/vtprotobuf
 		$(PYTHON) \
 			-m grpc_tools.protoc \
 			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/planetscale/vtprotobuf \
+			-I $(GOPATH)/src/github.com/planetscale/vtprotobuf/include/github.com/planetscale/vtprotobuf \
 			--python_out=$(PWD)/$(PB2DIR_ROOT) \
 			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
-			include/github.com/planetscale/vtprotobuf/vtproto/ext.proto)
+			vtproto/ext.proto)
 
 $(VALD_DIR):
 	git clone --depth 1 https://$(VALDREPO) $(VALD_DIR)
