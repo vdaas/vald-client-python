@@ -104,7 +104,7 @@ help:
 .PHONY: clean
 ## clean
 clean:
-	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/validate $(PB2DIR_ROOT)/include
+	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/validate $(PB2DIR_ROOT)/vtproto
 	rm -rf $(SHADOW_ROOT)
 	rm -rf $(VALD_DIR)
 
