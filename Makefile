@@ -125,6 +125,7 @@ $(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	sed -i -e 's:^import "apis/proto/:import "$(SHADOW_ROOT)/:' $@
 	sed -i -e 's:^import "github.com/envoyproxy/protoc-gen-validate/:import ":' $@
 	sed -i -e 's:^import "github.com/googleapis/googleapis/:import ":' $@
+	sed -i -e 's:^import "github.com/planetscale/vtprotobuf/:import ":' $@
 
 $(PB2DIR_ROOT):
 	mkdir -p $@
