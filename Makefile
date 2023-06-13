@@ -53,6 +53,7 @@ PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
 PB2PY_GOOGLEAPIS = $(PB2DIR_ROOT)/googleapis/googleapis/google/api/annotations_pb2.py
 PB2PY_GOOGLERPCS = $(PB2DIR_ROOT)/googleapis/googleapis/google/rpc/status_pb2.py
+PB2PY_VTPROT = $(PB2DIR_ROOT)/planetscale/vtprotobuf/include/github.com/planetscale/vtprotobuf/vtproto/ext_pb2.py
 
 PROTO_PATHS = \
 	$(PWD) \
@@ -60,7 +61,8 @@ PROTO_PATHS = \
 	$(PWD)/$(PROTO_ROOT) \
 	$(GOPATH)/src \
 	$(GOPATH)/src/github.com/googleapis/googleapis \
-	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
+	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate \
+	$(GOPATH)/src/github.com/planetscale/vtprotobuf
 
 MAKELISTS = Makefile
 
@@ -102,7 +104,7 @@ help:
 .PHONY: clean
 ## clean
 clean:
-	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/validate
+	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/validate $(PB2DIR_ROOT)/include
 	rm -rf $(SHADOW_ROOT)
 	rm -rf $(VALD_DIR)
 
@@ -112,7 +114,8 @@ proto: \
 	$(PB2PYS) \
 	$(PB2PY_VALIDATE) \
 	$(PB2PY_GOOGLEAPIS) \
-	$(PB2PY_GOOGLERPCS)
+	$(PB2PY_GOOGLERPCS) \
+	$(PB2PY_VTPROT)
 
 $(PROTOS): $(VALD_DIR)
 $(SHADOWS): $(PROTOS)
@@ -169,6 +172,17 @@ $(PB2PY_GOOGLERPCS): $(GOPATH)/src/github.com/googleapis/googleapis
 			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
 			google/rpc/status.proto)
 
+$(PB2PY_VTPROT): $(GOPATH)/src/github.com/planetscale/vtprotobuf
+	@$(call green, "generating pb2.py files...")
+	(cd $(GOPATH)/src/github.com/planetscale/vtprotobuf; \
+		$(PYTHON) \
+			-m grpc_tools.protoc \
+			$(PROTO_PATHS:%=-I %) \
+			-I $(GOPATH)/src/github.com/planetscale/vtprotobuf \
+			--python_out=$(PWD)/$(PB2DIR_ROOT) \
+			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
+			include/github.com/planetscale/vtprotobuf/vtproto/ext.proto)
+
 $(VALD_DIR):
 	git clone --depth 1 https://$(VALDREPO) $(VALD_DIR)
 
@@ -214,7 +228,8 @@ vald/client/python/version/update: vald
 ## install proto deps
 proto/deps: \
 	$(GOPATH)/src/github.com/googleapis/googleapis \
-	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
+	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate \
+	$(GOPATH)/src/github.com/planetscale/vtprotobuf
 
 $(GOPATH)/src/github.com/googleapis/googleapis:
 	git clone \
@@ -227,3 +242,9 @@ $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate:
 		--depth 1 \
 		https://github.com/envoyproxy/protoc-gen-validate \
 		$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
+
+$(GOPATH)/src/github.com/planetscale/vtprotobuf:
+	git clone \
+		--depth 1 \
+		https://github.com/planetscale/vtprotobuf \
+		$(GOPATH)/src/github.com/planetscale/vtprotobuf
