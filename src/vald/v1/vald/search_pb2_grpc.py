@@ -152,14 +152,16 @@ class SearchServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def MultiLinearSearch(self, request, context):
-        """A method to linear search indexed vectors by multiple vectors in a single request.
+        """A method to linear search indexed vectors by multiple vectors in a single
+        request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiLinearSearchByID(self, request, context):
-        """A method to linear search indexed vectors by multiple IDs in a single request.
+        """A method to linear search indexed vectors by multiple IDs in a single
+        request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
