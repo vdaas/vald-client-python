@@ -1,6 +1,8 @@
 # vald-client-python
 
 [![PyPI version](https://badge.fury.io/py/vald-client-python.svg)](https://badge.fury.io/py/vald-client-python)
+[![Vald version](https://img.shields.io/github/release/vdaas/vald.svg?style=flat-square)](https://github.com/vdaas/vald/releases/latest)
+![Build version](https://img.shields.io/badge/python-3.8-green)
 
 A Python gRPC client library for [Vald](https://github.com/vdaas/vald).
 
