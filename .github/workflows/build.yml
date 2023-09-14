@@ -42,7 +42,7 @@ jobs:
           git config --global user.name 'vdaas-ci'
           git config --global user.email 'vald@vdaas.org'
           git remote set-url origin https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
-          git add .
+          git add -A
           git commit -S --signoff -m "Update [vald sha: ${sha}]"
           git push
         env:
