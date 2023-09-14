@@ -6,20 +6,22 @@ on:
   pull_request:
     types:
       - "labeled"
-
 jobs:
   fossa-scan:
-    name: 'trigger FOSSA scan'
+    name: "trigger FOSSA scan"
     runs-on: ubuntu-latest
     container:
-      image: vdaas/vald-ci-container:nightly
+      image: ghcr.io/vdaas/vald/vald-ci-container:nightly
     if: github.ref == 'refs/heads/main' || github.event.action == 'labeled' && github.event.label.name == 'actions/fossa'
     steps:
-      - uses: actions/checkout@v2
-      - name: 'Install fossa-cli'
+      - uses: actions/checkout@v3
+      - name: Set Git config
+        run: |
+          git config --global --add safe.directory ${GITHUB_WORKSPACE}
+      - name: "Install fossa-cli"
         run: |
           curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
-      - name: 'Run for main branch'
+      - name: "Run for main branch"
         if: github.ref == 'refs/heads/main'
         run: |
           fossa analyze --branch main --revision ${GITHUB_SHA}
@@ -27,7 +29,7 @@ jobs:
           FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_SHA: ${{ github.sha }}
-      - name: 'Run for PRs'
+      - name: "Run for PRs"
         if: github.event_name == 'pull_request'
         run: |
           curl -s ${PR_INFO_URL} > /tmp/pr_info.json
@@ -49,7 +51,7 @@ jobs:
             -H "Content-Type:application/json" \
             -H "Authorization: token ${GITHUB_TOKEN}" \
             --request POST \
-            --data "{\"body\": \"**[FOSSA]** The scan result will be available at https://app.fossa.com/projects/custom%2B21465%2Fvald-client-node/refs/branch/${ESCAPED}/${GITHUB_SHA}\"}" \
+            --data "{\"body\": \"**[FOSSA]** The scan result will be available at https://app.fossa.com/projects/custom%2B21465%2Fvald-client-go/refs/branch/${ESCAPED}/${GITHUB_SHA}\"}" \
             $API_URL
           fi
         env:
