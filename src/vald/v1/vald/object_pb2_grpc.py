@@ -30,6 +30,11 @@ class ObjectStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamVector.FromString,
                 )
+        self.StreamListObject = channel.unary_stream(
+                '/vald.v1.Object/StreamListObject',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Request.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Response.FromString,
+                )
 
 
 class ObjectServicer(object):
@@ -57,6 +62,13 @@ class ObjectServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def StreamListObject(self, request, context):
+        """A method to get all the vectors with server streaming
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ObjectServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -74,6 +86,11 @@ def add_ObjectServicer_to_server(servicer, server):
                     servicer.StreamGetObject,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamVector.SerializeToString,
+            ),
+            'StreamListObject': grpc.unary_stream_rpc_method_handler(
+                    servicer.StreamListObject,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Request.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -134,5 +151,22 @@ class Object(object):
         return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Object/StreamGetObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.VectorRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamVector.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StreamListObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/vald.v1.Object/StreamListObject',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Request.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

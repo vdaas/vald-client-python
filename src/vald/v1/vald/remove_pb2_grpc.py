@@ -20,6 +20,11 @@ class RemoveStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
                 )
+        self.RemoveByTimestamp = channel.unary_unary(
+                '/vald.v1.Remove/RemoveByTimestamp',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.TimestampRequest.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
+                )
         self.StreamRemove = channel.stream_stream(
                 '/vald.v1.Remove/StreamRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
@@ -38,6 +43,13 @@ class RemoveServicer(object):
 
     def Remove(self, request, context):
         """A method to remove an indexed vector.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveByTimestamp(self, request, context):
+        """A method to remove an indexed vector based on timestamp.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -64,6 +76,11 @@ def add_RemoveServicer_to_server(servicer, server):
                     servicer.Remove,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
+            ),
+            'RemoveByTimestamp': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveByTimestamp,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.TimestampRequest.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.SerializeToString,
             ),
             'StreamRemove': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamRemove,
@@ -100,6 +117,23 @@ class Remove(object):
         return grpc.experimental.unary_unary(request, target, '/vald.v1.Remove/Remove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveByTimestamp(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vald.v1.Remove/RemoveByTimestamp',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Remove.TimestampRequest.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
