@@ -93,9 +93,6 @@ jobs:
           pip3 install grpcio-tools
       - name: prepare to publish
         run: |
-          ## dirty hack: for some reason, options.packages.find.exclude
-          ## directive in setup.cfg doesn't work properly
-          rm -rf src/tests src/test.py
           python3 setup.py sdist
           python3 setup.py bdist_wheel
       - name: publish
