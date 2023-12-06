@@ -21,7 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vald.v1.filter.egress.egress_filter_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n#org.vdaas.vald.api.v1.filter.egressB\020ValdEgressFilterP\001Z0github.com/vdaas/vald/apis/grpc/v1/filter/egress'
   _FILTER.methods_by_name['FilterDistance']._options = None

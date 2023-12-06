@@ -20,8 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vtproto.ext_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(mempool)
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\023com.google.protobufB\007VTProtoZ)github.com/planetscale/vtprotobuf/vtproto'
 # @@protoc_insertion_point(module_scope)

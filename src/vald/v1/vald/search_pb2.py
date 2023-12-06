@@ -21,7 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vald.v1.vald.search_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032org.vdaas.vald.api.v1.valdB\nValdSearchP\001Z\'github.com/vdaas/vald/apis/grpc/v1/vald'
   _SEARCH.methods_by_name['Search']._options = None

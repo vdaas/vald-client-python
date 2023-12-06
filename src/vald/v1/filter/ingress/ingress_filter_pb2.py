@@ -21,7 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vald.v1.filter.ingress.ingress_filter_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n$org.vdaas.vald.api.v1.filter.ingressB\021ValdIngressFilterP\001Z1github.com/vdaas/vald/apis/grpc/v1/filter/ingress'
   _FILTER.methods_by_name['GenVector']._options = None
