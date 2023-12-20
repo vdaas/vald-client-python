@@ -27,7 +27,6 @@ VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
 
-GOPATH := $(eval GOPATH := $(shell go env GOPATH))$(GOPATH)
 BINDIR ?= /usr/local/bin
 
 PROTO_ROOT  = $(VALD_DIR)/apis/proto
