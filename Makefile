@@ -27,13 +27,18 @@ VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
 
-PWD    := $(eval PWD := $(shell pwd))$(PWD)
 GOPATH := $(eval GOPATH := $(shell go env GOPATH))$(GOPATH)
+BINDIR ?= /usr/local/bin
 
 PROTO_ROOT  = $(VALD_DIR)/apis/proto
 PB2DIR_ROOT = src
 
 SHADOW_ROOT = vald
+
+BUF_VERSION_URL := https://raw.githubusercontent.com/vdaas/vald/main/versions/BUF_VERSION
+BUF_CONFIGS = \
+	$(PROTO_ROOT)/buf.yaml \
+	$(PROTO_ROOT)/buf.lock
 
 PROTOS = \
 	v1/agent/core/agent.proto \
@@ -50,19 +55,6 @@ PROTOS = \
 PROTOS := $(PROTOS:%=$(PROTO_ROOT)/%)
 SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
-PB2PY_VALIDATE = $(PB2DIR_ROOT)/validate/validate_pb2.py
-PB2PY_GOOGLEAPIS = $(PB2DIR_ROOT)/googleapis/googleapis/google/api/annotations_pb2.py
-PB2PY_GOOGLERPCS = $(PB2DIR_ROOT)/googleapis/googleapis/google/rpc/status_pb2.py
-PB2PY_VTEXTPY = $(PB2DIR_ROOT)/vtproto/ext_pb2.py
-
-PROTO_PATHS = \
-	$(PWD) \
-	$(PWD)/$(VALD_DIR) \
-	$(PWD)/$(PROTO_ROOT) \
-	$(GOPATH)/src \
-	$(GOPATH)/src/github.com/googleapis/googleapis \
-	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate \
-	$(GOPATH)/src/github.com/planetscale/vtprotobuf/include/github.com/planetscale/vtprotobuf
 
 MAKELISTS = Makefile
 
@@ -72,14 +64,6 @@ yellow = /bin/echo -e "\x1b[33m\#\# $1\x1b[0m"
 blue   = /bin/echo -e "\x1b[34m\#\# $1\x1b[0m"
 pink   = /bin/echo -e "\x1b[35m\#\# $1\x1b[0m"
 cyan   = /bin/echo -e "\x1b[36m\#\# $1\x1b[0m"
-
-define go-get
-	GO111MODULE=on go get -u $1
-endef
-
-define go-get-no-mod
-	GO111MODULE=off go get -u $1
-endef
 
 .PHONY: all
 ## execute clean and proto
@@ -104,85 +88,27 @@ help:
 .PHONY: clean
 ## clean
 clean:
-	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/validate $(PB2DIR_ROOT)/vtproto
+	find ${PB2DIR_ROOT} -mindepth 1 -maxdepth 1 ! -name 'tests' ! -name 'test.py' -exec rm -rf {} \;
 	rm -rf $(SHADOW_ROOT)
 	rm -rf $(VALD_DIR)
 
 .PHONY: proto
 ## build proto
-proto: \
-	$(PB2PYS) \
-	$(PB2PY_VALIDATE) \
-	$(PB2PY_GOOGLEAPIS) \
-	$(PB2PY_GOOGLERPCS) \
-	$(PB2PY_VTEXTPY)
+proto: $(PB2PYS)
+	@$(call green, "generating pb2.py files...")
+	cp -f $(BUF_CONFIGS) $(SHADOW_ROOT)
+	buf generate --include-imports
 
 $(PROTOS): $(VALD_DIR)
 $(SHADOWS): $(PROTOS)
 $(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	mkdir -p $(dir $@)
 	cp $< $@
-	sed -i -e 's:^import "apis/proto/:import "$(SHADOW_ROOT)/:' $@
-	sed -i -e 's:^import "github.com/envoyproxy/protoc-gen-validate/:import ":' $@
-	sed -i -e 's:^import "github.com/googleapis/googleapis/:import ":' $@
-	sed -i -e 's:^import "github.com/planetscale/vtprotobuf/include/github.com/planetscale/vtprotobuf/:import ":' $@
 
 $(PB2DIR_ROOT):
 	mkdir -p $@
 
 $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
-$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py: $(SHADOW_ROOT)/%.proto
-	@$(call green, "generating pb2.py files...")
-	$(PYTHON) \
-		-m grpc_tools.protoc \
-		$(PROTO_PATHS:%=-I %) \
-		--python_out=$(PWD)/$(PB2DIR_ROOT) \
-		--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
-		$<
-
-$(PB2PY_VALIDATE): $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
-	@$(call green, "generating pb2.py files...")
-	(cd $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate; \
-		$(PYTHON) \
-			-m grpc_tools.protoc \
-			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate \
-			--python_out=$(PWD)/$(PB2DIR_ROOT) \
-			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
-			validate/validate.proto)
-
-$(PB2PY_GOOGLEAPIS): $(GOPATH)/src/github.com/googleapis/googleapis
-	@$(call green, "generating pb2.py files...")
-	(cd $(GOPATH)/src/github.com/googleapis/googleapis; \
-		$(PYTHON) \
-			-m grpc_tools.protoc \
-			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/googleapis/googleapis \
-			--python_out=$(PWD)/$(PB2DIR_ROOT) \
-			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
-			google/api/annotations.proto)
-
-$(PB2PY_GOOGLERPCS): $(GOPATH)/src/github.com/googleapis/googleapis
-	@$(call green, "generating pb2.py files...")
-	(cd $(GOPATH)/src/github.com/googleapis/googleapis; \
-		$(PYTHON) \
-			-m grpc_tools.protoc \
-			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/googleapis/googleapis \
-			--python_out=$(PWD)/$(PB2DIR_ROOT) \
-			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
-			google/rpc/status.proto)
-
-$(PB2PY_VTEXTPY): $(GOPATH)/src/github.com/planetscale/vtprotobuf
-	@$(call green, "generating pb2.py files...")
-	(cd $(GOPATH)/src/github.com/planetscale/vtprotobuf; \
-		$(PYTHON) \
-			-m grpc_tools.protoc \
-			$(PROTO_PATHS:%=-I %) \
-			-I $(GOPATH)/src/github.com/planetscale/vtprotobuf/include/github.com/planetscale/vtprotobuf \
-			--python_out=$(PWD)/$(PB2DIR_ROOT) \
-			--grpc_python_out=$(PWD)/$(PB2DIR_ROOT) \
-			vtproto/ext.proto)
 
 $(VALD_DIR):
 	git clone --depth 1 https://$(VALDREPO) $(VALD_DIR)
@@ -227,25 +153,15 @@ vald/client/python/version/update: vald
 
 .PHONY: proto/deps
 ## install proto deps
-proto/deps: \
-	$(GOPATH)/src/github.com/googleapis/googleapis \
-	$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate \
-	$(GOPATH)/src/github.com/planetscale/vtprotobuf
+proto/deps: buf/install
 
-$(GOPATH)/src/github.com/googleapis/googleapis:
-	git clone \
-		--depth 1 \
-		https://github.com/googleapis/googleapis \
-		$(GOPATH)/src/github.com/googleapis/googleapis
+.PHONY: buf/install
+## install buf command.
+buf/install: $(BINDIR)/buf
 
-$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate:
-	git clone \
-		--depth 1 \
-		https://github.com/envoyproxy/protoc-gen-validate \
-		$(GOPATH)/src/github.com/envoyproxy/protoc-gen-validate
-
-$(GOPATH)/src/github.com/planetscale/vtprotobuf:
-	git clone \
-		--depth 1 \
-		https://github.com/planetscale/vtprotobuf \
-		$(GOPATH)/src/github.com/planetscale/vtprotobuf
+$(BINDIR)/buf:
+	@version=$$(curl -sSL $(BUF_VERSION_URL)); \
+	curl -sSL \
+	"https://github.com/bufbuild/buf/releases/download/$$version/buf-$(shell uname -s)-$(shell uname -m)" \
+	-o "${BINDIR}/buf" && \
+	chmod +x "${BINDIR}/buf"

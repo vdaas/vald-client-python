@@ -1,0 +1,4 @@
+version: v1
+directories:
+  # A vald directory containing proto files is created by executing the make command.
+  - vald
