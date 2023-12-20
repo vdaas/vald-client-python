@@ -33,12 +33,13 @@ BINDIR ?= /usr/local/bin
 PROTO_ROOT  = $(VALD_DIR)/apis/proto
 PB2DIR_ROOT = src
 
-SHADOW_ROOT = vald
-
 BUF_VERSION_URL := https://raw.githubusercontent.com/vdaas/vald/main/versions/BUF_VERSION
 BUF_CONFIGS = \
 	$(PROTO_ROOT)/buf.yaml \
 	$(PROTO_ROOT)/buf.lock
+
+SHADOW_ROOT       = vald
+SHADOW_PROTO_ROOT = $(SHADOW_ROOT)/$(SHADOW_ROOT)
 
 PROTOS = \
 	v1/agent/core/agent.proto \
@@ -53,7 +54,7 @@ PROTOS = \
 	v1/vald/upsert.proto \
 	v1/payload/payload.proto
 PROTOS := $(PROTOS:%=$(PROTO_ROOT)/%)
-SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_ROOT)/%.proto)
+SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_PROTO_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 
 MAKELISTS = Makefile
@@ -88,7 +89,7 @@ help:
 .PHONY: clean
 ## clean
 clean:
-	find ${PB2DIR_ROOT} -mindepth 1 -maxdepth 1 ! -name 'tests' ! -name 'test.py' -exec rm -rf {} \;
+	rm -rf $(PB2DIR_ROOT)/google $(PB2DIR_ROOT)/vald $(PB2DIR_ROOT)/buf
 	rm -rf $(SHADOW_ROOT)
 	rm -rf $(VALD_DIR)
 
@@ -101,9 +102,10 @@ proto: $(PB2PYS)
 
 $(PROTOS): $(VALD_DIR)
 $(SHADOWS): $(PROTOS)
-$(SHADOW_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
+$(SHADOW_PROTO_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 	mkdir -p $(dir $@)
 	cp $< $@
+	sed -i -e 's:^import "v1:import "$(SHADOW_ROOT)/v1:' $@
 
 $(PB2DIR_ROOT):
 	mkdir -p $@
