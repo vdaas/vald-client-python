@@ -27,20 +27,6 @@ jobs:
       - name: Helm version
         run: |
           helm version
-      # TODO: Delete the following step before merge.
-      - name: generate code
-        run: |
-          echo "build"
-          export GOPATH=$HOME/go
-          make PYTHON=python3 all
-          make vald/sha/update
-          make vald/client/python/version/update
-          sudo apt-get install -y python3-setuptools libprotobuf-dev libprotoc-dev protobuf-compiler
-          pip3 install grpcio-tools
-          python3 setup.py sdist
-          python3 setup.py bdist_wheel
-          git diff
-          rm -rf vald
       - name: deploy Vald
         run: |
           helm repo add vald https://vald.vdaas.org/charts
