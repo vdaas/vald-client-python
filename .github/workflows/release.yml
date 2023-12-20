@@ -31,6 +31,7 @@ jobs:
       - name: generate code
         run: |
           make PYTHON=python3 all
+          rm -rf vald
       - name: deploy Vald
         run: |
           helm repo add vald https://vald.vdaas.org/charts
