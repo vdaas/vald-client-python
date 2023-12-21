@@ -48,7 +48,7 @@ jobs:
       - name: python dependencies
         run: |
           pip install --upgrade grpcio-tools protobuf grpcio googleapis-common-protos
-          ## dirty hack: 
+          ## dirty hack:
           sudo rm -rf /usr/lib/python3/dist-packages/validate.py
           curl -LO https://raw.githubusercontent.com/rinx/word2vecjson/master/data/wordvecs1000.json
       - name: run tests
