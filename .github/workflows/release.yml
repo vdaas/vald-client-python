@@ -41,7 +41,7 @@ jobs:
             --set manager.index.enabled=false \
             --generate-name vald/vald
           sleep 3
-          kubectl wait --for=condition=ready pod -l app=vald-agent-ngt --timeout=3m
+          kubectl wait --for=condition=ready pod -l app=vald-agent --timeout=3m
           kubectl get pods
         env:
           VALUES: https://raw.githubusercontent.com/vdaas/vald/main/.github/helm/values/values-lb.yaml
