@@ -41,7 +41,7 @@ jobs:
             --set manager.index.enabled=false \
             --generate-name vald/vald
           sleep 3
-          kubectl wait --for=condition=ready pod -l app=vald-agent-ngt --timeout=3m
+          kubectl wait --for=condition=ready pod -l app=vald-agent --timeout=3m
           kubectl get pods
         env:
           VALUES: https://raw.githubusercontent.com/vdaas/vald/main/.github/helm/values/values-lb.yaml
@@ -53,7 +53,7 @@ jobs:
           curl -LO https://raw.githubusercontent.com/rinx/word2vecjson/master/data/wordvecs1000.json
       - name: run tests
         run: |
-          kubectl port-forward statefulset/vald-agent-ngt 8081:8081 &
+          kubectl port-forward statefulset/vald-agent 8081:8081 &
           pid=$!
 
           python src/test.py
