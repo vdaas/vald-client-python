@@ -99,4 +99,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@master
         with:
           user: ${{ secrets.PIP_USERNAME }}
-          password: ${{ secrets.PIP_PASSWORD }}
+          password: ${{ secrets.PIP_TOKEN }}
