@@ -26,6 +26,7 @@ PYTHON = python
 VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
+VALD_CHECKOUT_REF ?= main
 
 BINDIR ?= /usr/local/bin
 
@@ -112,7 +113,21 @@ $(PB2DIR_ROOT):
 $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
 
 $(VALD_DIR):
-	git clone --depth 1 https://$(VALDREPO) $(VALD_DIR)
+	git clone https://$(VALDREPO) $(VALD_DIR)
+
+.PHONY: vald/clone
+## clone vald repository
+vald/clone: $(VALD_DIR)
+
+.PHONY: vald/checkout
+## checkout vald repository
+vald/checkout: $(VALD_DIR)
+	cd $(VALD_DIR) && git checkout $(VALD_CHECKOUT_REF)
+
+.PHONY: vald/origin/sha/print
+## print origin VALD_SHA value
+vald/origin/sha/print: $(VALD_DIR)
+	@cd $(VALD_DIR) && git rev-parse HEAD | tr -d '\n'
 
 .PHONY: vald/sha/print
 ## print VALD_SHA value
@@ -121,8 +136,8 @@ vald/sha/print:
 
 .PHONY: vald/sha/update
 ## update VALD_SHA value
-vald/sha/update: vald
-	(cd vald; git rev-parse HEAD | tr -d '\n' > ../$(VALD_SHA))
+vald/sha/update: $(VALD_DIR)
+	(cd $(VALD_DIR); git rev-parse HEAD | tr -d '\n' > ../$(VALD_SHA))
 
 .PHONY: vald/client/python/version/print
 ## print VALD_CLIENT_PYTHON_VERSION value
@@ -131,25 +146,10 @@ vald/client/python/version/print:
 
 .PHONY: vald/client/python/version/update
 ## update VALD_CLIENT_PYTHON_VERSION value
-vald/client/python/version/update: vald
+vald/client/python/version/update: $(VALD_DIR)
 	(vald_version=`cat $(VALD_DIR)/versions/VALD_VERSION | sed -e 's/^v//'`; \
-	    client_version=`cat $(VALD_CLIENT_PYTHON_VERSION)`; \
-	    major=$${client_version%%.*}; client_version="$${client_version#*.}"; \
-	    minor=$${client_version%%.*}; client_version="$${client_version#*.}"; \
-	    patch=$${client_version%%.*}; client_version="$${client_version#*.}"; \
-	    if [ "$${vald_version}" = "$${major}.$${minor}.$${patch}" ]; then \
-	        if [ "$${patch}" = "$${client_version}" ]; then \
-	            new_version="$${major}.$${minor}.$${patch}.post1"; \
-	        else \
-	            rev="$${client_version#post}"; \
-	            rev=$$((rev+1)); \
-	            new_version="$${major}.$${minor}.$${patch}.post$${rev}"; \
-	        fi; \
-	    else \
-	        new_version="$${vald_version}"; \
-	    fi; \
-	    echo "VALD_VERSION: $${vald_version}, NEW_CLIENT_VERSION: $${new_version}"; \
-	    echo "$${new_version}" > VALD_CLIENT_PYTHON_VERSION)
+	    echo "VALD_VERSION: $${vald_version}"; \
+	    echo "$${vald_version}" > VALD_CLIENT_PYTHON_VERSION)
 	sed -i -e "s/^version = .*\$$/version = `cat VALD_CLIENT_PYTHON_VERSION`/" setup.cfg
 
 .PHONY: proto/deps
@@ -166,3 +166,13 @@ $(BINDIR)/buf:
 	"https://github.com/bufbuild/buf/releases/download/$$version/buf-$(shell uname -s)-$(shell uname -m)" \
 	-o "${BINDIR}/buf" && \
 	chmod +x "${BINDIR}/buf"
+
+.PHONY: ci/deps
+## install deps for CI environment
+ci/deps:
+	sudo apt-get update -y && sudo apt-get install -y \
+		python3-setuptools \
+		libprotobuf-dev \
+		libprotoc-dev \
+		protobuf-compiler
+	pip3 install grpcio-tools
