@@ -116,10 +116,6 @@ $(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
 $(VALD_DIR):
 	git clone https://$(VALDREPO) $(VALD_DIR)
 
-.PHONY: vald/clone
-## clone vald repository
-vald/clone: $(VALD_DIR)
-
 .PHONY: vald/checkout
 ## checkout vald repository
 vald/checkout: $(VALD_DIR)
