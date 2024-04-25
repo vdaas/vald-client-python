@@ -21,8 +21,6 @@ LANGUAGE    = python
 PKGNAME     = $(NAME)-client-$(LANGUAGE)
 PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 
-PYTHON = python
-
 VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
@@ -58,6 +56,9 @@ SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_PROTO_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 
 MAKELISTS = Makefile
+
+PYTHON_VERSION := $(eval PYTHON_VERSION := $(shell cat PYTHON_VERSION))$(PYTHON_VERSION)
+TEST_DATASET_PATH = wordvecs1000.json
 
 red    = /bin/echo -e "\x1b[31m\#\# $1\x1b[0m"
 green  = /bin/echo -e "\x1b[32m\#\# $1\x1b[0m"
@@ -139,14 +140,14 @@ vald/sha/print:
 vald/sha/update: $(VALD_DIR)
 	(cd $(VALD_DIR); git rev-parse HEAD | tr -d '\n' > ../$(VALD_SHA))
 
-.PHONY: vald/client/python/version/print
+.PHONY: vald/client/version/print
 ## print VALD_CLIENT_PYTHON_VERSION value
-vald/client/python/version/print:
+vald/client/version/print:
 	@cat $(VALD_CLIENT_PYTHON_VERSION)
 
-.PHONY: vald/client/python/version/update
+.PHONY: vald/client/version/update
 ## update VALD_CLIENT_PYTHON_VERSION value
-vald/client/python/version/update: $(VALD_DIR)
+vald/client/version/update: $(VALD_DIR)
 	(vald_version=`cat $(VALD_DIR)/versions/VALD_VERSION | sed -e 's/^v//'`; \
 	    echo "VALD_VERSION: $${vald_version}"; \
 	    echo "$${vald_version}" > VALD_CLIENT_PYTHON_VERSION)
@@ -167,12 +168,31 @@ $(BINDIR)/buf:
 	-o "${BINDIR}/buf" && \
 	chmod +x "${BINDIR}/buf"
 
-.PHONY: ci/deps
+.PHONY: ci/deps/install
 ## install deps for CI environment
-ci/deps:
+ci/deps/install:
 	sudo apt-get update -y && sudo apt-get install -y \
 		python3-setuptools \
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
 	pip3 install grpcio-tools
+
+.PHONY: ci/test
+## Execute test for CI environment
+ci/test: $(TEST_DATASET_PATH)
+	python src/test.py
+
+$(TEST_DATASET_PATH):
+	curl -L https://raw.githubusercontent.com/rinx/word2vecjson/master/data/wordvecs1000.json -o $(TEST_DATASET_PATH)
+
+.PHONY: ci/package/prepare
+## prepare package to publish
+ci/package/prepare:
+	python3 setup.py sdist
+	python3 setup.py bdist_wheel
+
+.PHONY: version/python
+## Print Python version
+version/python:
+	@echo $(PYTHON_VERSION)
