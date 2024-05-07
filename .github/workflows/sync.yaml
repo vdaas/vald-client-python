@@ -14,19 +14,19 @@
 # limitations under the License.
 #
 # DO NOT EDIT
-name: "Run release"
+name: "Sync Vald"
 on:
-  push:
-    tags:
-      - '*.*.*'
-      - 'v*.*.*'
-      - '*.*.*-*'
-      - 'v*.*.*-*'
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "*/5 * * * *"
 jobs:
-  release:
+  sync:
     # TODO: change to the following before main merge.
-    # uses: vdaas/vald-client-ci/.github/workflows/_release.yaml@main
-    uses: vdaas/vald-client-ci/.github/workflows/_release.yaml@feat/add-common-workflows
+    # uses: vdaas/vald-client-ci/.github/workflows/sync.yaml@main
+    uses: vdaas/vald-client-ci/.github/workflows/sync.yaml@feat/add-common-workflows
     with:
       client_type: python
-    secrets: inherit
+    secrets:
+      CI_USER: ${{ secrets.DISPATCH_USER }}
+      CI_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}

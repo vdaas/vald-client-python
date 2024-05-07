@@ -26,6 +26,7 @@ PYTHON = python
 VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
+VALD_CHECKOUT_REF ?= main
 
 BINDIR ?= /usr/local/bin
 
@@ -57,6 +58,9 @@ SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_PROTO_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 
 MAKELISTS = Makefile
+
+PYTHON_VERSION := $(eval PYTHON_VERSION := $(shell cat PYTHON_VERSION))$(PYTHON_VERSION)
+TEST_DATASET_PATH = wordvecs1000.json
 
 red    = /bin/echo -e "\x1b[31m\#\# $1\x1b[0m"
 green  = /bin/echo -e "\x1b[32m\#\# $1\x1b[0m"
@@ -109,10 +113,19 @@ $(SHADOW_PROTO_ROOT)/%.proto: $(PROTO_ROOT)/%.proto
 $(PB2DIR_ROOT):
 	mkdir -p $@
 
-$(PB2PYS): proto/deps $(PB2DIR_ROOT) $(SHADOWS)
+$(PB2PYS): proto/deps/install $(PB2DIR_ROOT) $(SHADOWS)
 
 $(VALD_DIR):
-	git clone --depth 1 https://$(VALDREPO) $(VALD_DIR)
+	git clone https://$(VALDREPO) $(VALD_DIR)
+
+## checkout vald repository
+vald/checkout: $(VALD_DIR)
+	cd $(VALD_DIR) && git checkout $(VALD_CHECKOUT_REF)
+
+.PHONY: vald/origin/sha/print
+## print origin VALD_SHA value
+vald/origin/sha/print: $(VALD_DIR)
+	@cd $(VALD_DIR) && git rev-parse HEAD | tr -d '\n'
 
 .PHONY: vald/sha/print
 ## print VALD_SHA value
@@ -121,44 +134,59 @@ vald/sha/print:
 
 .PHONY: vald/sha/update
 ## update VALD_SHA value
-vald/sha/update: vald
-	(cd vald; git rev-parse HEAD | tr -d '\n' > ../$(VALD_SHA))
+vald/sha/update: $(VALD_DIR)
+	(cd $(VALD_DIR); git rev-parse HEAD | tr -d '\n' > ../$(VALD_SHA))
 
-.PHONY: vald/client/python/version/print
+.PHONY: vald/client/version/print
 ## print VALD_CLIENT_PYTHON_VERSION value
-vald/client/python/version/print:
+vald/client/version/print:
 	@cat $(VALD_CLIENT_PYTHON_VERSION)
 
-.PHONY: vald/client/python/version/update
+.PHONY: vald/client/version/update
 ## update VALD_CLIENT_PYTHON_VERSION value
-vald/client/python/version/update: vald
+vald/client/version/update: $(VALD_DIR)
 	(vald_version=`cat $(VALD_DIR)/versions/VALD_VERSION | sed -e 's/^v//'`; \
-	    client_version=`cat $(VALD_CLIENT_PYTHON_VERSION)`; \
-	    major=$${client_version%%.*}; client_version="$${client_version#*.}"; \
-	    minor=$${client_version%%.*}; client_version="$${client_version#*.}"; \
-	    patch=$${client_version%%.*}; client_version="$${client_version#*.}"; \
-	    if [ "$${vald_version}" = "$${major}.$${minor}.$${patch}" ]; then \
-	        if [ "$${patch}" = "$${client_version}" ]; then \
-	            new_version="$${major}.$${minor}.$${patch}.post1"; \
-	        else \
-	            rev="$${client_version#post}"; \
-	            rev=$$((rev+1)); \
-	            new_version="$${major}.$${minor}.$${patch}.post$${rev}"; \
-	        fi; \
-	    else \
-	        new_version="$${vald_version}"; \
-	    fi; \
-	    echo "VALD_VERSION: $${vald_version}, NEW_CLIENT_VERSION: $${new_version}"; \
-	    echo "$${new_version}" > VALD_CLIENT_PYTHON_VERSION)
+	    echo "VALD_VERSION: $${vald_version}"; \
+	    echo "$${vald_version}" > VALD_CLIENT_PYTHON_VERSION)
 	sed -i -e "s/^version = .*\$$/version = `cat VALD_CLIENT_PYTHON_VERSION`/" setup.cfg
 
-.PHONY: proto/deps
-## install proto deps
-proto/deps: buf/install
+.PHONY: test
+## Execute test
+test: $(TEST_DATASET_PATH)
+	python src/test.py
 
-.PHONY: buf/install
-## install buf command.
-buf/install: $(BINDIR)/buf
+$(TEST_DATASET_PATH):
+	curl -L https://raw.githubusercontent.com/rinx/word2vecjson/master/data/wordvecs1000.json -o $(TEST_DATASET_PATH)
+
+.PHONY: ci/deps/install
+## install deps for CI environment
+ci/deps/install: proto/deps/install
+	sudo apt-get update -y && sudo apt-get install -y \
+		python3-setuptools \
+		libprotobuf-dev \
+		libprotoc-dev \
+		protobuf-compiler
+	pip3 install grpcio-tools
+
+.PHONY: ci/deps/update
+## update deps for CI environment
+ci/deps/update:
+	@echo "Nothing do be done"
+
+.PHONY: ci/package/prepare
+## prepare package to publish
+ci/package/prepare:
+	python3 setup.py sdist
+	python3 setup.py bdist_wheel
+
+.PHONY: ci/package/publish
+## publich packages
+ci/package/publish:
+	@echo "Nothing do be done"
+
+.PHONY: proto/deps/install
+## install proto deps
+proto/deps/install: $(BINDIR)/buf
 
 $(BINDIR)/buf:
 	@version=$$(curl -sSL $(BUF_VERSION_URL)); \
@@ -166,3 +194,8 @@ $(BINDIR)/buf:
 	"https://github.com/bufbuild/buf/releases/download/$$version/buf-$(shell uname -s)-$(shell uname -m)" \
 	-o "${BINDIR}/buf" && \
 	chmod +x "${BINDIR}/buf"
+
+.PHONY: version/python
+## Print Python version
+version/python:
+	@echo $(PYTHON_VERSION)
