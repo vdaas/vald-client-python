@@ -31,28 +31,3 @@ jobs:
       - uses: vdaas/vald-client-ci/.github/actions/e2e@feat/add-common-workflows
         with:
           client_type: python
-
-  build-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: debug for build
-        run: |
-          echo "Install dependencies"
-          make ci/deps/install
-
-          echo "Build proto"
-          export GOPATH=$HOME/go
-          export PATH=$HOME/grpc-java:$PATH
-          make proto
-          make vald/sha/update
-          make vald/client/version/update
-
-          echo "Update dependencies"
-          make ci/deps/update
-
-          git diff
-          git diff --name-only
-      - uses: vdaas/vald-client-ci/.github/actions/e2e@feat/add-common-workflows
-        with:
-          client_type: python
