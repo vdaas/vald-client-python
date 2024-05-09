@@ -26,8 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # TODO: change to the following before main merge.
-      # - uses: vdaas/vald-client-ci/.github/actions/e2e@main
-      - uses: vdaas/vald-client-ci/.github/actions/e2e@feat/add-common-workflows
+      - uses: vdaas/vald-client-ci/.github/actions/e2e@main
         with:
           client_type: python
