@@ -171,7 +171,7 @@ ci/deps/install: proto/deps/install
 .PHONY: ci/deps/update
 ## update deps for CI environment
 ci/deps/update:
-	@echo "Nothing do be done"
+	@echo "Nothing to do"
 
 .PHONY: ci/package/prepare
 ## prepare package to publish
@@ -182,7 +182,7 @@ ci/package/prepare:
 .PHONY: ci/package/publish
 ## publich packages
 ci/package/publish:
-	@echo "Nothing do be done"
+	@echo "Nothing to do"
 
 .PHONY: proto/deps/install
 ## install proto deps
