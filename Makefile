@@ -21,7 +21,7 @@ LANGUAGE    = python
 PKGNAME     = $(NAME)-client-$(LANGUAGE)
 PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 
-PYTHON = python
+PYTHON = python3
 
 VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
