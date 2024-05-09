@@ -176,8 +176,8 @@ ci/deps/update:
 .PHONY: ci/package/prepare
 ## prepare package to publish
 ci/package/prepare:
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel
+	$(PYTHON) setup.py sdist
+	$(PYTHON) setup.py bdist_wheel
 
 .PHONY: ci/package/publish
 ## publich packages
