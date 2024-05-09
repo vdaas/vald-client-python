@@ -25,8 +25,8 @@ on:
 jobs:
   release:
     # TODO: change to the following before main merge.
-    # uses: vdaas/vald-client-ci/.github/workflows/_release.yaml@main
-    uses: vdaas/vald-client-ci/.github/workflows/_release.yaml@feat/add-common-workflows
+    # uses: vdaas/vald-client-ci/.github/workflows/release.yaml@main
+    uses: vdaas/vald-client-ci/.github/workflows/release.yaml@feat/add-common-workflows
     with:
       client_type: python
     secrets: inherit
