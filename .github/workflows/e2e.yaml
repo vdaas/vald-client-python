@@ -29,28 +29,3 @@ jobs:
       - uses: vdaas/vald-client-ci/.github/actions/e2e@main
         with:
           client_type: python
-  build-debug:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install dependencies
-        run: |
-          make ci/deps/install
-      - name: Build proto
-        run: |
-          export GOPATH=$HOME/go
-          export PATH=$HOME/grpc-java:$PATH
-          make proto
-      - name: Update SHA and client version
-        run: |
-          make vald/sha/update
-          make vald/client/version/update
-      - name: Update dependencies
-        run: |
-          make ci/deps/update
-      - name: Prepare for publish
-        run: |
-          make ci/package/prepare
-      - uses: vdaas/vald-client-ci/.github/actions/e2e@main
-        with:
-          client_type: python
