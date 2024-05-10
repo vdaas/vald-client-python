@@ -153,10 +153,12 @@ vald/client/version/update: $(VALD_DIR)
 .PHONY: test
 ## Execute test
 test: $(TEST_DATASET_PATH)
-	python src/test.py
+	$(PYTHON) src/test.py
 
 $(TEST_DATASET_PATH):
 	curl -L https://raw.githubusercontent.com/rinx/word2vecjson/master/data/wordvecs1000.json -o $(TEST_DATASET_PATH)
+
+PIP = pip3
 
 .PHONY: ci/deps/install
 ## install deps for CI environment
@@ -166,7 +168,7 @@ ci/deps/install: proto/deps/install
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
-	pip3 install grpcio-tools
+	$(PIP) install grpcio-tools
 
 .PHONY: ci/deps/update
 ## update deps for CI environment
