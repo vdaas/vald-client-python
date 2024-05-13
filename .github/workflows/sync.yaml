@@ -14,17 +14,17 @@
 # limitations under the License.
 #
 # DO NOT EDIT
-name: "Run release"
+name: "Sync Vald"
 on:
-  push:
-    tags:
-      - '*.*.*'
-      - 'v*.*.*'
-      - '*.*.*-*'
-      - 'v*.*.*-*'
+  workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"
 jobs:
-  release:
-    uses: vdaas/vald-client-ci/.github/workflows/release.yaml@main
+  sync:
+    uses: vdaas/vald-client-ci/.github/workflows/sync.yaml@main
     with:
       client_type: python
-    secrets: inherit
+    secrets:
+      CI_USER: ${{ secrets.CI_USER }}
+      CI_TOKEN: ${{ secrets.CI_TOKEN }}
+      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}

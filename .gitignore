@@ -1,5 +1,6 @@
 /vald-origin
 /vald
+wordvecs1000.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -14,17 +14,18 @@
 # limitations under the License.
 #
 # DO NOT EDIT
-name: "Run release"
+name: "Run E2E test"
 on:
   push:
-    tags:
-      - '*.*.*'
-      - 'v*.*.*'
-      - '*.*.*-*'
-      - 'v*.*.*-*'
+    branches:
+      - main
+  pull_request:
+
 jobs:
-  release:
-    uses: vdaas/vald-client-ci/.github/workflows/release.yaml@main
-    with:
-      client_type: python
-    secrets: inherit
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: vdaas/vald-client-ci/.github/actions/e2e@main
+        with:
+          client_type: python
