@@ -19,22 +19,22 @@ class RemoveStub(object):
                 '/vald.v1.Remove/Remove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-                )
+                _registered_method=True)
         self.RemoveByTimestamp = channel.unary_unary(
                 '/vald.v1.Remove/RemoveByTimestamp',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.TimestampRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-                )
+                _registered_method=True)
         self.StreamRemove = channel.stream_stream(
                 '/vald.v1.Remove/StreamRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-                )
+                _registered_method=True)
         self.MultiRemove = channel.unary_unary(
                 '/vald.v1.Remove/MultiRemove',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Remove.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-                )
+                _registered_method=True)
 
 
 class RemoveServicer(object):
@@ -114,11 +114,21 @@ class Remove(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Remove/Remove',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Remove/Remove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RemoveByTimestamp(request,
@@ -131,11 +141,21 @@ class Remove(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Remove/RemoveByTimestamp',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Remove/RemoveByTimestamp',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.TimestampRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamRemove(request_iterator,
@@ -148,11 +168,21 @@ class Remove(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Remove/StreamRemove',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Remove/StreamRemove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiRemove(request,
@@ -165,8 +195,18 @@ class Remove(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Remove/MultiRemove',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Remove/MultiRemove',
             vald_dot_v1_dot_payload_dot_payload__pb2.Remove.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

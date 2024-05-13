@@ -19,62 +19,62 @@ class FilterStub(object):
                 '/vald.v1.Filter/SearchObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-                )
+                _registered_method=True)
         self.MultiSearchObject = channel.unary_unary(
                 '/vald.v1.Filter/MultiSearchObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-                )
+                _registered_method=True)
         self.StreamSearchObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamSearchObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-                )
+                _registered_method=True)
         self.InsertObject = channel.unary_unary(
                 '/vald.v1.Filter/InsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-                )
+                _registered_method=True)
         self.StreamInsertObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamInsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-                )
+                _registered_method=True)
         self.MultiInsertObject = channel.unary_unary(
                 '/vald.v1.Filter/MultiInsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.MultiObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-                )
+                _registered_method=True)
         self.UpdateObject = channel.unary_unary(
                 '/vald.v1.Filter/UpdateObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-                )
+                _registered_method=True)
         self.StreamUpdateObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamUpdateObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-                )
+                _registered_method=True)
         self.MultiUpdateObject = channel.unary_unary(
                 '/vald.v1.Filter/MultiUpdateObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.MultiObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-                )
+                _registered_method=True)
         self.UpsertObject = channel.unary_unary(
                 '/vald.v1.Filter/UpsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-                )
+                _registered_method=True)
         self.StreamUpsertObject = channel.stream_stream(
                 '/vald.v1.Filter/StreamUpsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.ObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-                )
+                _registered_method=True)
         self.MultiUpsertObject = channel.unary_unary(
                 '/vald.v1.Filter/MultiUpsertObject',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.MultiObjectRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-                )
+                _registered_method=True)
 
 
 class FilterServicer(object):
@@ -250,11 +250,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/SearchObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/SearchObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiSearchObject(request,
@@ -267,11 +277,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/MultiSearchObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/MultiSearchObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamSearchObject(request_iterator,
@@ -284,11 +304,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamSearchObject',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Filter/StreamSearchObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def InsertObject(request,
@@ -301,11 +331,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/InsertObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/InsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamInsertObject(request_iterator,
@@ -318,11 +358,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamInsertObject',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Filter/StreamInsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiInsertObject(request,
@@ -335,11 +385,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/MultiInsertObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/MultiInsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.MultiObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateObject(request,
@@ -352,11 +412,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/UpdateObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/UpdateObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamUpdateObject(request_iterator,
@@ -369,11 +439,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamUpdateObject',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Filter/StreamUpdateObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiUpdateObject(request,
@@ -386,11 +466,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/MultiUpdateObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/MultiUpdateObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.MultiObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpsertObject(request,
@@ -403,11 +493,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/UpsertObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/UpsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamUpsertObject(request_iterator,
@@ -420,11 +520,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Filter/StreamUpsertObject',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Filter/StreamUpsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.ObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiUpsertObject(request,
@@ -437,8 +547,18 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Filter/MultiUpsertObject',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Filter/MultiUpsertObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.MultiObjectRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

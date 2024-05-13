@@ -19,62 +19,62 @@ class SearchStub(object):
                 '/vald.v1.Search/Search',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-                )
+                _registered_method=True)
         self.SearchByID = channel.unary_unary(
                 '/vald.v1.Search/SearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-                )
+                _registered_method=True)
         self.StreamSearch = channel.stream_stream(
                 '/vald.v1.Search/StreamSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamSearchByID = channel.stream_stream(
                 '/vald.v1.Search/StreamSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-                )
+                _registered_method=True)
         self.MultiSearch = channel.unary_unary(
                 '/vald.v1.Search/MultiSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-                )
+                _registered_method=True)
         self.MultiSearchByID = channel.unary_unary(
                 '/vald.v1.Search/MultiSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-                )
+                _registered_method=True)
         self.LinearSearch = channel.unary_unary(
                 '/vald.v1.Search/LinearSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-                )
+                _registered_method=True)
         self.LinearSearchByID = channel.unary_unary(
                 '/vald.v1.Search/LinearSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-                )
+                _registered_method=True)
         self.StreamLinearSearch = channel.stream_stream(
                 '/vald.v1.Search/StreamLinearSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-                )
+                _registered_method=True)
         self.StreamLinearSearchByID = channel.stream_stream(
                 '/vald.v1.Search/StreamLinearSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-                )
+                _registered_method=True)
         self.MultiLinearSearch = channel.unary_unary(
                 '/vald.v1.Search/MultiLinearSearch',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-                )
+                _registered_method=True)
         self.MultiLinearSearchByID = channel.unary_unary(
                 '/vald.v1.Search/MultiLinearSearchByID',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-                )
+                _registered_method=True)
 
 
 class SearchServicer(object):
@@ -252,11 +252,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/Search',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/Search',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SearchByID(request,
@@ -269,11 +279,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/SearchByID',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/SearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamSearch(request_iterator,
@@ -286,11 +306,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamSearch',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Search/StreamSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamSearchByID(request_iterator,
@@ -303,11 +333,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamSearchByID',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Search/StreamSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiSearch(request,
@@ -320,11 +360,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiSearch',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/MultiSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiSearchByID(request,
@@ -337,11 +387,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiSearchByID',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/MultiSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LinearSearch(request,
@@ -354,11 +414,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/LinearSearch',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/LinearSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LinearSearchByID(request,
@@ -371,11 +441,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/LinearSearchByID',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/LinearSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamLinearSearch(request_iterator,
@@ -388,11 +468,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamLinearSearch',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Search/StreamLinearSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamLinearSearchByID(request_iterator,
@@ -405,11 +495,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Search/StreamLinearSearchByID',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Search/StreamLinearSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.IDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.StreamResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiLinearSearch(request,
@@ -422,11 +522,21 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiLinearSearch',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/MultiLinearSearch',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiLinearSearchByID(request,
@@ -439,8 +549,18 @@ class Search(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Search/MultiLinearSearchByID',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Search/MultiLinearSearchByID',
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.MultiIDRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Search.Responses.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

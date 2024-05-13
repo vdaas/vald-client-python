@@ -19,17 +19,17 @@ class InsertStub(object):
                 '/vald.v1.Insert/Insert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-                )
+                _registered_method=True)
         self.StreamInsert = channel.stream_stream(
                 '/vald.v1.Insert/StreamInsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-                )
+                _registered_method=True)
         self.MultiInsert = channel.unary_unary(
                 '/vald.v1.Insert/MultiInsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Insert.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-                )
+                _registered_method=True)
 
 
 class InsertServicer(object):
@@ -97,11 +97,21 @@ class Insert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Insert/Insert',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Insert/Insert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamInsert(request_iterator,
@@ -114,11 +124,21 @@ class Insert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Insert/StreamInsert',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Insert/StreamInsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiInsert(request,
@@ -131,8 +151,18 @@ class Insert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Insert/MultiInsert',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Insert/MultiInsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Insert.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

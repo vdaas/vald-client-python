@@ -19,27 +19,27 @@ class AgentStub(object):
                 '/core.v1.Agent/CreateIndex',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-                )
+                _registered_method=True)
         self.SaveIndex = channel.unary_unary(
                 '/core.v1.Agent/SaveIndex',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-                )
+                _registered_method=True)
         self.CreateAndSaveIndex = channel.unary_unary(
                 '/core.v1.Agent/CreateAndSaveIndex',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-                )
+                _registered_method=True)
         self.IndexInfo = channel.unary_unary(
                 '/core.v1.Agent/IndexInfo',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.FromString,
-                )
+                _registered_method=True)
         self.GetTimestamp = channel.unary_unary(
                 '/core.v1.Agent/GetTimestamp',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.GetTimestampRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.FromString,
-                )
+                _registered_method=True)
 
 
 class AgentServicer(object):
@@ -131,11 +131,21 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/CreateIndex',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.v1.Agent/CreateIndex',
             vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SaveIndex(request,
@@ -148,11 +158,21 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/SaveIndex',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.v1.Agent/SaveIndex',
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateAndSaveIndex(request,
@@ -165,11 +185,21 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/CreateAndSaveIndex',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.v1.Agent/CreateAndSaveIndex',
             vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def IndexInfo(request,
@@ -182,11 +212,21 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/IndexInfo',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.v1.Agent/IndexInfo',
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetTimestamp(request,
@@ -199,8 +239,18 @@ class Agent(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.v1.Agent/GetTimestamp',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.v1.Agent/GetTimestamp',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.GetTimestampRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

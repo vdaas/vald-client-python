@@ -19,17 +19,17 @@ class UpsertStub(object):
                 '/vald.v1.Upsert/Upsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-                )
+                _registered_method=True)
         self.StreamUpsert = channel.stream_stream(
                 '/vald.v1.Upsert/StreamUpsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-                )
+                _registered_method=True)
         self.MultiUpsert = channel.unary_unary(
                 '/vald.v1.Upsert/MultiUpsert',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-                )
+                _registered_method=True)
 
 
 class UpsertServicer(object):
@@ -97,11 +97,21 @@ class Upsert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Upsert/Upsert',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Upsert/Upsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def StreamUpsert(request_iterator,
@@ -114,11 +124,21 @@ class Upsert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/vald.v1.Upsert/StreamUpsert',
+        return grpc.experimental.stream_stream(
+            request_iterator,
+            target,
+            '/vald.v1.Upsert/StreamUpsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.StreamLocation.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def MultiUpsert(request,
@@ -131,8 +151,18 @@ class Upsert(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vald.v1.Upsert/MultiUpsert',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Upsert/MultiUpsert',
             vald_dot_v1_dot_payload_dot_payload__pb2.Upsert.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

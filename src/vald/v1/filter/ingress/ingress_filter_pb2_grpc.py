@@ -19,12 +19,12 @@ class FilterStub(object):
                 '/filter.ingress.v1.Filter/GenVector',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
-                )
+                _registered_method=True)
         self.FilterVector = channel.unary_unary(
                 '/filter.ingress.v1.Filter/FilterVector',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
-                )
+                _registered_method=True)
 
 
 class FilterServicer(object):
@@ -80,11 +80,21 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/filter.ingress.v1.Filter/GenVector',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/filter.ingress.v1.Filter/GenVector',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Blob.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def FilterVector(request,
@@ -97,8 +107,18 @@ class Filter(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/filter.ingress.v1.Filter/FilterVector',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/filter.ingress.v1.Filter/FilterVector',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Vector.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
