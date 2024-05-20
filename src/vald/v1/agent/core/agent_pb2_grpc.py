@@ -113,6 +113,7 @@ def add_AgentServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'core.v1.Agent', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('core.v1.Agent', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
