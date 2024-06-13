@@ -16,8 +16,6 @@
 name: Update npm dependencies
 
 on:
-  # TODO: delete it before merge.
-  pull_request:
   workflow_dispatch:
   schedule:
     - cron: "0 12 * * *"
