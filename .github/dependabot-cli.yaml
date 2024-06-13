@@ -1,0 +1,14 @@
+job:
+  package-manager: pip
+  allowed-updates:
+    - update-type: all
+  dependency-groups:
+    - name: pip
+      rules:
+        patterns:
+          - "*"
+  source:
+    directories:
+      - "/"
+    provider: github
+    repo: vdaas/vald-client-python
