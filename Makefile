@@ -49,6 +49,7 @@ PROTOS = \
 	v1/vald/filter.proto \
 	v1/vald/insert.proto \
 	v1/vald/object.proto \
+	v1/vald/index.proto \
 	v1/vald/remove.proto \
 	v1/vald/search.proto \
 	v1/vald/update.proto \
