@@ -35,6 +35,11 @@ class ObjectStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Response.FromString,
                 _registered_method=True)
+        self.GetTimestamp = channel.unary_unary(
+                '/vald.v1.Object/GetTimestamp',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.TimestampRequest.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.FromString,
+                _registered_method=True)
 
 
 class ObjectServicer(object):
@@ -69,6 +74,13 @@ class ObjectServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTimestamp(self, request, context):
+        """Represent the RPC to get the vector metadata. This RPC is mainly used for index correction process
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ObjectServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -91,6 +103,11 @@ def add_ObjectServicer_to_server(servicer, server):
                     servicer.StreamListObject,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Request.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Response.SerializeToString,
+            ),
+            'GetTimestamp': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTimestamp,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.TimestampRequest.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +219,33 @@ class Object(object):
             '/vald.v1.Object/StreamListObject',
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Request.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.List.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetTimestamp(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Object/GetTimestamp',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.TimestampRequest.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.FromString,
             options,
             channel_credentials,
             insecure,
