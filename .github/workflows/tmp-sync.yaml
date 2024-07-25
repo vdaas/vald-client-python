@@ -70,6 +70,6 @@ jobs:
           git commit -S --signoff -m "Update [vald sha: ${SHA}]"
       - name: Push
         run: |
-          git push origin ${REF}
+          git push origin
         env:
           REF: fix/e2e
