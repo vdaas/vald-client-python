@@ -30,16 +30,6 @@ class AgentStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
                 _registered_method=True)
-        self.IndexInfo = channel.unary_unary(
-                '/core.v1.Agent/IndexInfo',
-                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.FromString,
-                _registered_method=True)
-        self.GetTimestamp = channel.unary_unary(
-                '/core.v1.Agent/GetTimestamp',
-                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.GetTimestampRequest.SerializeToString,
-                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.FromString,
-                _registered_method=True)
 
 
 class AgentServicer(object):
@@ -67,20 +57,6 @@ class AgentServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def IndexInfo(self, request, context):
-        """Represent the RPC to get the agent index information.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetTimestamp(self, request, context):
-        """Represent the RPC to get the vector metadata. This RPC is mainly used for index correction process
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_AgentServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -98,16 +74,6 @@ def add_AgentServicer_to_server(servicer, server):
                     servicer.CreateAndSaveIndex,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
-            ),
-            'IndexInfo': grpc.unary_unary_rpc_method_handler(
-                    servicer.IndexInfo,
-                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.SerializeToString,
-            ),
-            'GetTimestamp': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetTimestamp,
-                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.GetTimestampRequest.FromString,
-                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -192,60 +158,6 @@ class Agent(object):
             '/core.v1.Agent/CreateAndSaveIndex',
             vald_dot_v1_dot_payload_dot_payload__pb2.Control.CreateIndexRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def IndexInfo(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/core.v1.Agent/IndexInfo',
-            vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetTimestamp(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/core.v1.Agent/GetTimestamp',
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.GetTimestampRequest.SerializeToString,
-            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Timestamp.FromString,
             options,
             channel_credentials,
             insecure,

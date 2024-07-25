@@ -10,6 +10,7 @@ from vald.v1.vald import update_pb2_grpc
 from vald.v1.vald import upsert_pb2_grpc
 from vald.v1.vald import remove_pb2_grpc
 from vald.v1.vald import object_pb2_grpc
+from vald.v1.vald import index_pb2_grpc
 from vald.v1.payload import payload_pb2
 
 
@@ -79,7 +80,7 @@ class TestValdE2E(unittest.TestCase):
         self.assertIsInstance(result, payload_pb2.Empty)
 
     def test_index_info(self):
-        stub = agent_pb2_grpc.AgentStub(self.channel)
+        stub = index_pb2_grpc.IndexStub(self.channel)
         result = stub.IndexInfo(payload_pb2.Empty())
         self.assertIsInstance(result, payload_pb2.Info.Index.Count)
         self.assertEqual(result.stored, 99)

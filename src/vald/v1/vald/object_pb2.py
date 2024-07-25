@@ -26,7 +26,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19vald/v1/vald/object.proto\x12\x07vald.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1dvald/v1/payload/payload.proto2\x84\x03\n\x06Object\x12L\n\x06\x45xists\x12\x15.payload.v1.Object.ID\x1a\x15.payload.v1.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12\x61\n\tGetObject\x12 .payload.v1.Object.VectorRequest\x1a\x19.payload.v1.Object.Vector\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/object/{id.id}\x12Z\n\x0fStreamGetObject\x12 .payload.v1.Object.VectorRequest\x1a\x1f.payload.v1.Object.StreamVector\"\x00(\x01\x30\x01\x12m\n\x10StreamListObject\x12\x1f.payload.v1.Object.List.Request\x1a .payload.v1.Object.List.Response\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/list0\x01\x42S\n\x1aorg.vdaas.vald.api.v1.valdB\nValdObjectP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19vald/v1/vald/object.proto\x12\x07vald.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1dvald/v1/payload/payload.proto2\xf5\x03\n\x06Object\x12L\n\x06\x45xists\x12\x15.payload.v1.Object.ID\x1a\x15.payload.v1.Object.ID\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/exists/{id}\x12\x61\n\tGetObject\x12 .payload.v1.Object.VectorRequest\x1a\x19.payload.v1.Object.Vector\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/object/{id.id}\x12Z\n\x0fStreamGetObject\x12 .payload.v1.Object.VectorRequest\x1a\x1f.payload.v1.Object.StreamVector\"\x00(\x01\x30\x01\x12m\n\x10StreamListObject\x12\x1f.payload.v1.Object.List.Request\x1a .payload.v1.Object.List.Response\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/object/list0\x01\x12o\n\x0cGetTimestamp\x12#.payload.v1.Object.TimestampRequest\x1a\x1c.payload.v1.Object.Timestamp\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/object/meta/{id.id}BS\n\x1aorg.vdaas.vald.api.v1.valdB\nValdObjectP\x01Z\'github.com/vdaas/vald/apis/grpc/v1/valdb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,6 +40,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_OBJECT'].methods_by_name['GetObject']._serialized_options = b'\202\323\344\223\002\021\022\017/object/{id.id}'
   _globals['_OBJECT'].methods_by_name['StreamListObject']._loaded_options = None
   _globals['_OBJECT'].methods_by_name['StreamListObject']._serialized_options = b'\202\323\344\223\002\016\022\014/object/list'
+  _globals['_OBJECT'].methods_by_name['GetTimestamp']._loaded_options = None
+  _globals['_OBJECT'].methods_by_name['GetTimestamp']._serialized_options = b'\202\323\344\223\002\026\022\024/object/meta/{id.id}'
   _globals['_OBJECT']._serialized_start=100
-  _globals['_OBJECT']._serialized_end=488
+  _globals['_OBJECT']._serialized_end=601
 # @@protoc_insertion_point(module_scope)
