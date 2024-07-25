@@ -68,11 +68,6 @@ jobs:
           git remote set-url origin https://${CI_USER}:${CI_TOKEN}@github.com/$GITHUB_REPOSITORY
           git add .
           git commit -S --signoff -m "Update [vald sha: ${SHA}]"
-      - name: Deply Vald and Run E2E test
-        uses: vdaas/vald-client-ci/.github/actions/e2e@main
-        with:
-          client_type: python
-          image_tag: nightly
       - name: Push
         run: |
           git push origin ${REF}
