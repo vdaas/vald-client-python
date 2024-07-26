@@ -25,6 +25,16 @@ class IndexStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Detail.FromString,
                 _registered_method=True)
+        self.IndexStatistics = channel.unary_unary(
+                '/vald.v1.Index/IndexStatistics',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Statistics.FromString,
+                _registered_method=True)
+        self.IndexStatisticsDetail = channel.unary_unary(
+                '/vald.v1.Index/IndexStatisticsDetail',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.StatisticsDetail.FromString,
+                _registered_method=True)
 
 
 class IndexServicer(object):
@@ -45,6 +55,20 @@ class IndexServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def IndexStatistics(self, request, context):
+        """Represent the RPC to get the index statistics.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def IndexStatisticsDetail(self, request, context):
+        """Represent the RPC to get the index statistics for each agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IndexServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -57,6 +81,16 @@ def add_IndexServicer_to_server(servicer, server):
                     servicer.IndexDetail,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Detail.SerializeToString,
+            ),
+            'IndexStatistics': grpc.unary_unary_rpc_method_handler(
+                    servicer.IndexStatistics,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Statistics.SerializeToString,
+            ),
+            'IndexStatisticsDetail': grpc.unary_unary_rpc_method_handler(
+                    servicer.IndexStatisticsDetail,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.StatisticsDetail.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -114,6 +148,60 @@ class Index(object):
             '/vald.v1.Index/IndexDetail',
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Detail.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def IndexStatistics(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Index/IndexStatistics',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Statistics.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def IndexStatisticsDetail(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Index/IndexStatisticsDetail',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.StatisticsDetail.FromString,
             options,
             channel_credentials,
             insecure,
