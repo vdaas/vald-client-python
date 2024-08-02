@@ -175,7 +175,8 @@ ci/deps/install: proto/deps/install
 		--trusted-host pypi.python.org \
 		--trusted-host files.pythonhosted.org \
 		--trusted-host pypi.org \
-		--upgrade pip setuptools wheel
+		--upgrade pip wheel
+	hash -r
 	$(PIP) install grpcio-tools
 
 .PHONY: ci/deps/update
