@@ -29,6 +29,9 @@ VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
 VALD_CHECKOUT_REF ?= main
 
+K3D_MAKEFILE_URL=https://raw.githubusercontent.com/vdaas/vald/main/Makefile.d/k3d.mk
+K3D_MAKEFILE=Makefile.d/k3d.mk
+
 BINDIR ?= /usr/local/bin
 
 PROTO_ROOT  = $(VALD_DIR)/apis/proto
@@ -173,8 +176,7 @@ ci/deps/install: proto/deps/install
 
 .PHONY: ci/deps/update
 ## update deps for CI environment
-ci/deps/update:
-	@echo "Nothing to do"
+ci/deps/update: sync/k3d/mk
 
 .PHONY: ci/package/prepare
 ## prepare package to publish
@@ -203,13 +205,11 @@ $(BINDIR)/buf:
 version/python:
 	@echo $(PYTHON_VERSION)
 
-K3D_MAKEFILE_URL=https://raw.githubusercontent.com/vdaas/vald/main/Makefile.d/k3d.mk
-K3D_MAKEFILE=Makefile.d/k3d.mk
-
 Makefile.d:
 	mkdir -p Makefile.d
 
-$(K3D_MAKEFILE): Makefile.d
-	@curl -fsSLo $(K3D_MAKEFILE) $(K3D_MAKEFILE_URL)
+sync/k3d/mk: Makefile.d
+	rm -rf $(K3D_MAKEFILE)
+	curl -fsSLo $(K3D_MAKEFILE) $(K3D_MAKEFILE_URL)
 
 include $(K3D_MAKEFILE)
