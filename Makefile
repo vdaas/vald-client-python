@@ -172,7 +172,7 @@ ci/deps/install: proto/deps/install
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
-	$(PYTHON) -m pip install --upgrade pip setuptools wheel
+	$(PYTHON) -m pip install --upgrade $(PIP) setuptools wheel
 	$(PIP) install grpcio-tools
 
 .PHONY: ci/deps/update
