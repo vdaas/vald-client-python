@@ -24,6 +24,9 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/vdaas/vald/vald-ci-container:nightly
+      options: "--add-host host.docker.internal:host-gateway"
     steps:
       - uses: actions/checkout@v3
       - uses: vdaas/vald-client-ci/.github/actions/e2e@main
