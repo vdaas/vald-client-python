@@ -164,7 +164,7 @@ $(TEST_DATASET_PATH):
 .PHONY: ci/deps/install
 ## install deps for CI environment
 ci/deps/install: proto/deps/install
-	sudo apt-get update -y && sudo apt-get install -y \
+	apt-get update -y && apt-get install -y \
 		python3-setuptools \
 		libprotobuf-dev \
 		libprotoc-dev \
