@@ -163,7 +163,6 @@ test: $(TEST_DATASET_PATH)
 $(TEST_DATASET_PATH):
 	curl -L https://raw.githubusercontent.com/rinx/word2vecjson/master/data/wordvecs1000.json -o $(TEST_DATASET_PATH)
 
-
 .PHONY: ci/deps/install
 ## install deps for CI environment
 ci/deps/install: proto/deps/install
