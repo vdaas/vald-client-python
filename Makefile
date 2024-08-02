@@ -24,6 +24,14 @@ PKGREPO     = github.com/$(REPO)/$(PKGNAME)
 PYTHON = python3
 PIP = pip3
 
+K3D_CLUSTER_NAME  = "vald-cluster"
+K3D_COMMAND       = k3d
+K3D_NODES         = 5
+K3D_PORT          = 6550
+K3D_INGRESS_PORT  = 8081
+K3D_HOST_PID_MODE = true
+K3D_OPTIONS       = --port $(K3D_INGRESS_PORT):80@loadbalancer
+
 VALD_DIR    = vald-origin
 VALD_SHA    = VALD_SHA
 VALD_CLIENT_PYTHON_VERSION = VALD_CLIENT_PYTHON_VERSION
@@ -202,3 +210,14 @@ $(BINDIR)/buf:
 ## Print Python version
 version/python:
 	@echo $(PYTHON_VERSION)
+
+.PHONY: k3d/start
+## Start k3d (kubernetes in docker) cluster
+k3d/start:
+	$(K3D_COMMAND) cluster create $(K3D_CLUSTER_NAME) \
+	  --agents $(K3D_NODES) \
+	  --image docker.io/rancher/k3s:$(K3S_VERSION) \
+	  --host-pid-mode=$(K3D_HOST_PID_MODE) \
+	  --api-port localhost:$(K3D_PORT) \
+	  -v "/lib/modules:/lib/modules" \
+	  $(K3D_OPTIONS)
