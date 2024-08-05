@@ -168,7 +168,6 @@ $(TEST_DATASET_PATH):
 ci/deps/install: proto/deps/install
 	apt-get update -y && apt-get install -y \
 		python3-setuptools \
-		python3-pip \
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
