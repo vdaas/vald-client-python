@@ -172,7 +172,10 @@ ci/deps/install: proto/deps/install
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
-	$(PYTHON) -m pip install grpcio protobuf
+	$(PYTHON) -m pip install \
+		grpcio \
+		protobuf \
+		wheel
 	$(MAKE) -s ci/package/prepare
 
 .PHONY: ci/deps/update
