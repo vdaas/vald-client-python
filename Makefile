@@ -167,6 +167,7 @@ $(TEST_DATASET_PATH):
 ## install deps for CI environment
 ci/deps/install: proto/deps/install
 	apt-get update -y && apt-get install -y \
+		libssl-dev \
 		python3-openssl \
 		python3-setuptools \
 		python3-pip \
