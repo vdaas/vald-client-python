@@ -173,8 +173,7 @@ ci/deps/install: proto/deps/install
 		libprotoc-dev \
 		protobuf-compiler
 
-	which pip
-	which pip3
+	$(PYTHON) -m pip install grpcio
 
 	# $(PYTHON) -m pip install \
 	# 	--trusted-host pypi.python.org \
@@ -182,7 +181,7 @@ ci/deps/install: proto/deps/install
 	# 	--trusted-host pypi.org \
 	# 	--upgrade pip wheel
 	# hash -r
-	$(PIP) install grpcio-tools
+	# $(PIP) install grpcio-tools
 
 .PHONY: ci/deps/update
 ## update deps for CI environment
