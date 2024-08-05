@@ -80,6 +80,9 @@ jobs:
           git remote set-url origin https://${CI_USER}:${CI_TOKEN}@github.com/$GITHUB_REPOSITORY
           git add .
           git commit -S --signoff -m "Update [vald sha: ${SHA}]"
+      - name: Package creation
+        run: |
+          make REPO=vdaas ci/package/prepare
       - name: Deply Vald and Run E2E test
         uses: vdaas/vald-client-ci/.github/actions/e2e@main
         with:
