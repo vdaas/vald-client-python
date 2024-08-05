@@ -33,7 +33,7 @@ jobs:
         with:
           client_type: python
   debug-sync:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
       image: ghcr.io/vdaas/vald/vald-ci-container:nightly
       options: "--add-host host.docker.internal:host-gateway"
