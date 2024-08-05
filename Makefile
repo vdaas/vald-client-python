@@ -176,7 +176,6 @@ ci/deps/install: proto/deps/install
 		grpcio \
 		protobuf \
 		wheel
-	$(MAKE) -s ci/package/prepare
 
 .PHONY: ci/deps/update
 ## update deps for CI environment
