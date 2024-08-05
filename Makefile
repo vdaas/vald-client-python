@@ -170,7 +170,6 @@ ci/deps/install: proto/deps/install
 		libssl-dev \
 		python3-openssl \
 		python3-setuptools \
-		python3-pip \
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
