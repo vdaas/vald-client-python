@@ -173,6 +173,9 @@ ci/deps/install: proto/deps/install
 		libprotoc-dev \
 		protobuf-compiler
 	$(PYTHON) -m pip install \
+		--trusted-host pypi.python.org \
+		--trusted-host files.pythonhosted.org \
+		--trusted-host pypi.org \
 		grpcio \
 		protobuf \
 		wheel
