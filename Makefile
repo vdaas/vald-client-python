@@ -167,17 +167,11 @@ $(TEST_DATASET_PATH):
 ## install deps for CI environment
 ci/deps/install: proto/deps/install
 	apt-get update -y && apt-get install -y \
-		libssl-dev \
-		python3-openssl \
 		python3-setuptools \
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
 	$(PYTHON) -m pip install \
-		--no-cache-dir \
-		--trusted-host pypi.python.org \
-		--trusted-host files.pythonhosted.org \
-		--trusted-host pypi.org \
 		grpcio \
 		protobuf \
 		wheel
