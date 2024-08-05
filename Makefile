@@ -168,15 +168,16 @@ $(TEST_DATASET_PATH):
 ci/deps/install: proto/deps/install
 	apt-get update -y && apt-get install -y \
 		python3-setuptools \
+		python3-pip \
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
-	$(PYTHON) -m pip install \
-		--trusted-host pypi.python.org \
-		--trusted-host files.pythonhosted.org \
-		--trusted-host pypi.org \
-		--upgrade pip wheel
-	hash -r
+	# $(PYTHON) -m pip install \
+	# 	--trusted-host pypi.python.org \
+	# 	--trusted-host files.pythonhosted.org \
+	# 	--trusted-host pypi.org \
+	# 	--upgrade pip wheel
+	# hash -r
 	$(PIP) install grpcio-tools
 
 .PHONY: ci/deps/update
