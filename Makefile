@@ -169,7 +169,6 @@ ci/deps/install: proto/deps/install
 	apt-get update -y && apt-get install -y \
 		libssl-dev \
 		python3-openssl \
-		python-openssl \
 		python3-setuptools \
 		python3-pip \
 		libprotobuf-dev \
