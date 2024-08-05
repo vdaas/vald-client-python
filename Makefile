@@ -172,6 +172,10 @@ ci/deps/install: proto/deps/install
 		libprotobuf-dev \
 		libprotoc-dev \
 		protobuf-compiler
+
+	which pip
+	which pip3
+
 	# $(PYTHON) -m pip install \
 	# 	--trusted-host pypi.python.org \
 	# 	--trusted-host files.pythonhosted.org \
