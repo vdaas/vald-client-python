@@ -32,3 +32,56 @@ jobs:
       - uses: vdaas/vald-client-ci/.github/actions/e2e@main
         with:
           client_type: python
+  debug-sync:
+    runs-on: ubuntu-20.04
+    container:
+      image: ghcr.io/vdaas/vald/vald-ci-container:nightly
+      options: "--add-host host.docker.internal:host-gateway"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ env.CI_TOKEN }}
+      - name: Set Git config
+        run: |
+          git config --global --add safe.directory ${GITHUB_WORKSPACE}
+      - uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+      - uses: vdaas/vald-client-ci/.github/actions/setup-language@main
+        with:
+          client_type: python
+      - name: Clone Vald repository
+        run: |
+          make REPO=vdaas VALD_CHECKOUT_REF=${VALD_CHECKOUT_REF} vald/checkout
+        env:
+          VALD_CHECKOUT_REF: main
+      - name: Install dependencies
+        run: |
+          make REPO=vdaas ci/deps/install
+      - name: Build proto
+        run: |
+          export GOPATH=$HOME/go
+          export PATH=$HOME/grpc-java:$PATH
+          make REPO=vdaas proto
+      - name: Update SHA and client version
+        run: |
+          make REPO=vdaas vald/sha/update
+          make REPO=vdaas vald/client/version/update
+      - name: Update dependencies
+        run: |
+          make REPO=vdaas ci/deps/update
+      - name: Commit
+        run: |
+          SHA="$(make REPO=vdaas vald/sha/print)"
+
+          git remote set-url origin https://${CI_USER}:${CI_TOKEN}@github.com/$GITHUB_REPOSITORY
+          git add .
+          git commit -S --signoff -m "Update [vald sha: ${SHA}]"
+      - name: Deply Vald and Run E2E test
+        uses: vdaas/vald-client-ci/.github/actions/e2e@main
+        with:
+          client_type: python
+          image_tag: ${{ env.IMAGE_TAG }}
