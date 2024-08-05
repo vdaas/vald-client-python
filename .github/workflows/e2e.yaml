@@ -84,4 +84,4 @@ jobs:
         uses: vdaas/vald-client-ci/.github/actions/e2e@main
         with:
           client_type: python
-          image_tag: ${{ env.IMAGE_TAG }}
+          image_tag: nightly
