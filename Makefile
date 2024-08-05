@@ -173,7 +173,7 @@ ci/deps/install: proto/deps/install
 		libprotoc-dev \
 		protobuf-compiler
 
-	$(PYTHON) -m pip install grpcio
+	$(PYTHON) -m pip install grpcio protobuf
 
 	# $(PYTHON) -m pip install \
 	# 	--trusted-host pypi.python.org \
