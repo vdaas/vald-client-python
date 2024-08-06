@@ -77,9 +77,9 @@ jobs:
         run: |
           SHA="$(make REPO=vdaas vald/sha/print)"
 
-          git remote set-url origin https://${CI_USER}:${CI_TOKEN}@github.com/$GITHUB_REPOSITORY
-          git add .
-          git commit -S --signoff -m "Update [vald sha: ${SHA}]"
+          # git remote set-url origin https://${CI_USER}:${CI_TOKEN}@github.com/$GITHUB_REPOSITORY
+          # git add .
+          # git commit -S --signoff -m "Update [vald sha: ${SHA}]"
       - name: Package creation
         run: |
           make REPO=vdaas ci/package/prepare
