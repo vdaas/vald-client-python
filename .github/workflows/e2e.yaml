@@ -88,3 +88,15 @@ jobs:
         with:
           client_type: python
           image_tag: nightly
+  debug-package-prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Install dependencies
+        run: |
+          make REPO=vdaas ci/deps/install
+      - name: Prepare for publish
+        run: |
+          make REPO=vdaas ci/package/prepare
