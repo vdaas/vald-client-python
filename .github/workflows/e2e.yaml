@@ -97,6 +97,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+      - uses: vdaas/vald-client-ci/.github/actions/setup-language@main
+        with:
+          client_type: python
       - name: Install dependencies
         run: |
           make REPO=vdaas ci/deps/install
