@@ -30,6 +30,11 @@ class UpdateStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.MultiRequest.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
                 _registered_method=True)
+        self.UpdateTimestamp = channel.unary_unary(
+                '/vald.v1.Update/UpdateTimestamp',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.TimestampRequest.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
+                _registered_method=True)
 
 
 class UpdateServicer(object):
@@ -57,6 +62,13 @@ class UpdateServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateTimestamp(self, request, context):
+        """A method to update timestamp an indexed vector.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UpdateServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -74,6 +86,11 @@ def add_UpdateServicer_to_server(servicer, server):
                     servicer.MultiUpdate,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.MultiRequest.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.SerializeToString,
+            ),
+            'UpdateTimestamp': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateTimestamp,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Update.TimestampRequest.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -158,6 +175,33 @@ class Update(object):
             '/vald.v1.Update/MultiUpdate',
             vald_dot_v1_dot_payload_dot_payload__pb2.Update.MultiRequest.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Object.Locations.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def UpdateTimestamp(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Update/UpdateTimestamp',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Update.TimestampRequest.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Object.Location.FromString,
             options,
             channel_credentials,
             insecure,
