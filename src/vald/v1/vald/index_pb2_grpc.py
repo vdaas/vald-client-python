@@ -35,6 +35,11 @@ class IndexStub(object):
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.StatisticsDetail.FromString,
                 _registered_method=True)
+        self.IndexProperty = channel.unary_unary(
+                '/vald.v1.Index/IndexProperty',
+                request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
+                response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.PropertyDetail.FromString,
+                _registered_method=True)
 
 
 class IndexServicer(object):
@@ -69,6 +74,13 @@ class IndexServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def IndexProperty(self, request, context):
+        """Represent the RPC to get the index property.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IndexServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -91,6 +103,11 @@ def add_IndexServicer_to_server(servicer, server):
                     servicer.IndexStatisticsDetail,
                     request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
                     response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.StatisticsDetail.SerializeToString,
+            ),
+            'IndexProperty': grpc.unary_unary_rpc_method_handler(
+                    servicer.IndexProperty,
+                    request_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Empty.FromString,
+                    response_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.PropertyDetail.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,6 +219,33 @@ class Index(object):
             '/vald.v1.Index/IndexStatisticsDetail',
             vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
             vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.StatisticsDetail.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def IndexProperty(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/vald.v1.Index/IndexProperty',
+            vald_dot_v1_dot_payload_dot_payload__pb2.Empty.SerializeToString,
+            vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.PropertyDetail.FromString,
             options,
             channel_credentials,
             insecure,
