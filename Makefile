@@ -38,9 +38,6 @@ PROTO_ROOT  = $(VALD_DIR)/apis/proto
 PB2DIR_ROOT = src
 
 BUF_VERSION_URL := https://raw.githubusercontent.com/vdaas/vald/main/versions/BUF_VERSION
-BUF_CONFIGS = \
-	$(PROTO_ROOT)/buf.yaml \
-	$(PROTO_ROOT)/buf.lock
 
 SHADOW_ROOT       = vald
 SHADOW_PROTO_ROOT = $(SHADOW_ROOT)/$(SHADOW_ROOT)
@@ -105,7 +102,6 @@ clean:
 ## build proto
 proto: $(PB2PYS)
 	@$(call green, "generating pb2.py files...")
-	cp -f $(BUF_CONFIGS) $(SHADOW_ROOT)
 	buf generate --include-imports
 
 $(PROTOS): $(VALD_DIR)
