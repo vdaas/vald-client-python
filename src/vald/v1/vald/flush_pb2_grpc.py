@@ -6,7 +6,7 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class FlushStub(object):
-    """The Flush service definition.
+    """Flush service provides ways to flush all indexed vectors.
     """
 
     def __init__(self, channel):
@@ -19,11 +19,11 @@ class FlushStub(object):
                 '/vald.v1.Flush/Flush',
                 request_serializer=vald_dot_v1_dot_payload_dot_payload__pb2.Flush.Request.SerializeToString,
                 response_deserializer=vald_dot_v1_dot_payload_dot_payload__pb2.Info.Index.Count.FromString,
-                )
+                _registered_method=True)
 
 
 class FlushServicer(object):
-    """The Flush service definition.
+    """Flush service provides ways to flush all indexed vectors.
     """
 
     def Flush(self, request, context):
@@ -45,11 +45,12 @@ def add_FlushServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'vald.v1.Flush', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('vald.v1.Flush', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
 class Flush(object):
-    """The Flush service definition.
+    """Flush service provides ways to flush all indexed vectors.
     """
 
     @staticmethod
@@ -76,4 +77,5 @@ class Flush(object):
             compression,
             wait_for_ready,
             timeout,
-            metadata)
+            metadata,
+            _registered_method=True)

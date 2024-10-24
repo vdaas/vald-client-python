@@ -47,6 +47,7 @@ PROTOS = \
 	v1/filter/egress/egress_filter.proto \
 	v1/filter/ingress/ingress_filter.proto \
 	v1/vald/filter.proto \
+	v1/vald/flush.proto \
 	v1/vald/insert.proto \
 	v1/vald/object.proto \
 	v1/vald/index.proto \
