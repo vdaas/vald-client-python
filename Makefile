@@ -42,7 +42,9 @@ BUF_VERSION_URL := https://raw.githubusercontent.com/vdaas/vald/main/versions/BU
 SHADOW_ROOT       = vald
 SHADOW_PROTO_ROOT = $(SHADOW_ROOT)/$(SHADOW_ROOT)
 
-PROTOS = $(shell find $(PROTO_ROOT)/v1 -name '*.proto')
+IGNORE_PROTOS = meta.proto mirror.proto sidecar.proto
+IGNORE_FIND_OPTIONS = $(foreach proto,$(IGNORE_PROTOS),-not -name $(proto))
+PROTOS = $(shell find $(PROTO_ROOT)/v1 -name '*.proto' $(IGNORE_FIND_OPTIONS))
 SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_PROTO_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 
@@ -60,7 +62,7 @@ cyan   = /bin/echo -e "\x1b[36m\#\# $1\x1b[0m"
 
 .PHONY: all
 ## execute clean and proto
-all: clean proto
+all: clean vald-origin proto
 
 .PHONY: help
 ## print all available commands
