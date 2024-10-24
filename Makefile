@@ -42,21 +42,8 @@ BUF_VERSION_URL := https://raw.githubusercontent.com/vdaas/vald/main/versions/BU
 SHADOW_ROOT       = vald
 SHADOW_PROTO_ROOT = $(SHADOW_ROOT)/$(SHADOW_ROOT)
 
-PROTOS = \
-	v1/agent/core/agent.proto \
-	v1/filter/egress/egress_filter.proto \
-	v1/filter/ingress/ingress_filter.proto \
-	v1/vald/filter.proto \
-	v1/vald/flush.proto \
-	v1/vald/insert.proto \
-	v1/vald/object.proto \
-	v1/vald/index.proto \
-	v1/vald/remove.proto \
-	v1/vald/search.proto \
-	v1/vald/update.proto \
-	v1/vald/upsert.proto \
-	v1/payload/payload.proto
-PROTOS := $(PROTOS:%=$(PROTO_ROOT)/%)
+# Use lazy evaluation for PROTOS to ensure it is evaluated after cloning
+PROTOS = $(shell find $(PROTO_ROOT)/v1 -name '*.proto')
 SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_PROTO_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
 
