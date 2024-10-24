@@ -42,7 +42,6 @@ BUF_VERSION_URL := https://raw.githubusercontent.com/vdaas/vald/main/versions/BU
 SHADOW_ROOT       = vald
 SHADOW_PROTO_ROOT = $(SHADOW_ROOT)/$(SHADOW_ROOT)
 
-# Use lazy evaluation for PROTOS to ensure it is evaluated after cloning
 PROTOS = $(shell find $(PROTO_ROOT)/v1 -name '*.proto')
 SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_PROTO_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
