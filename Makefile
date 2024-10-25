@@ -42,7 +42,7 @@ BUF_VERSION_URL := https://raw.githubusercontent.com/vdaas/vald/main/versions/BU
 SHADOW_ROOT       = vald
 SHADOW_PROTO_ROOT = $(SHADOW_ROOT)/$(SHADOW_ROOT)
 
-TARGET_PROTOS = agent/core discoverer filter payload rpc vald
+TARGET_PROTOS = agent/core filter payload rpc vald
 PROTOS = $(foreach proto,$(TARGET_PROTOS),$(shell find $(PROTO_ROOT)/v1/$(proto) -name '*.proto'))
 SHADOWS = $(PROTOS:$(PROTO_ROOT)/%.proto=$(SHADOW_PROTO_ROOT)/%.proto)
 PB2PYS  = $(PROTOS:$(PROTO_ROOT)/%.proto=$(PB2DIR_ROOT)/$(SHADOW_ROOT)/%_pb2.py)
