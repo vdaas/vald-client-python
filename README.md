@@ -24,6 +24,7 @@ from vald.v1.vald import insert_pb2_grpc
 from vald.v1.vald import search_pb2_grpc
 from vald.v1.vald import update_pb2_grpc
 from vald.v1.vald import remove_pb2_grpc
+from vald.v1.vald import flush_pb2_grpc
 from vald.v1.payload import payload_pb2
 
 ## create a channel by passing "{host}:{port}"
@@ -34,6 +35,7 @@ istub = insert_pb2_grpc.InsertStub(channel)
 sstub = search_pb2_grpc.SearchStub(channel)
 ustub = update_pb2_grpc.UpdateStub(channel)
 rstub = remove_pb2_grpc.RemoveStub(channel)
+fstub = flush_pb2_grpc.FlushStub(channel)
 
 ## call RPCs: Insert
 vec = payload_pb2.Object.Vector(id='vector_id_1', vector=[0.1, 0.2, 0.3])
@@ -58,6 +60,9 @@ ustub.Update(payload_pb2.Update.Request(vector=uvec, config=ucfg))
 rcfg = payload_pb2.Remove.Config(skip_strict_exist_check=True)
 rid = payload_pb2.Object.ID(id='vector_id_1')
 rstub.Remove(payload_pb2.Remove.Request(id=rid, config=rcfg))
+
+## call RPCs: Flush
+fstub.Flush(payload_pb2.Flush.Request())
 
 ## close channel
 channel.close()

@@ -9,6 +9,7 @@ from vald.v1.vald import search_pb2_grpc
 from vald.v1.vald import update_pb2_grpc
 from vald.v1.vald import upsert_pb2_grpc
 from vald.v1.vald import remove_pb2_grpc
+from vald.v1.vald import flush_pb2_grpc
 from vald.v1.vald import object_pb2_grpc
 from vald.v1.vald import index_pb2_grpc
 from vald.v1.payload import payload_pb2
@@ -286,3 +287,9 @@ class TestValdE2E(unittest.TestCase):
         for result in results:
             self.assertIsInstance(result, payload_pb2.Object.StreamLocation)
             self.assertEqual(result.status.code, 0)
+
+    def test_flush(self):
+        stub = flush_pb2_grpc.FlushStub(self.channel)
+        request = payload_pb2.Flush.Request()
+        results = stub.Flush(request)
+        self.assertIsInstance(results, payload_pb2.Info.Index.Count)
