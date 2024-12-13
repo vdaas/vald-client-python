@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class FlushStub(object):
-    """Flush service provides ways to flush all indexed vectors.
+    """Overview
+    Flush Service is responsible for removing all vectors that are indexed and uncommitted in the `vald-agent`.
     """
 
     def __init__(self, channel):
@@ -23,11 +24,21 @@ class FlushStub(object):
 
 
 class FlushServicer(object):
-    """Flush service provides ways to flush all indexed vectors.
+    """Overview
+    Flush Service is responsible for removing all vectors that are indexed and uncommitted in the `vald-agent`.
     """
 
     def Flush(self, request, context):
-        """A method to flush all indexed vector.
+        """Overview
+        Flush RPC is the method to remove all vectors.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -50,7 +61,8 @@ def add_FlushServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Flush(object):
-    """Flush service provides ways to flush all indexed vectors.
+    """Overview
+    Flush Service is responsible for removing all vectors that are indexed and uncommitted in the `vald-agent`.
     """
 
     @staticmethod

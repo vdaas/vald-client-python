@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class ObjectStub(object):
-    """Object service provides ways to fetch indexed vectors.
+    """Overview
+    Object Service is responsible for getting inserted vectors and checking whether vectors are inserted into the `vald-agent`.
     """
 
     def __init__(self, channel):
@@ -43,39 +44,122 @@ class ObjectStub(object):
 
 
 class ObjectServicer(object):
-    """Object service provides ways to fetch indexed vectors.
+    """Overview
+    Object Service is responsible for getting inserted vectors and checking whether vectors are inserted into the `vald-agent`.
     """
 
     def Exists(self, request, context):
-        """A method to check whether a specified ID is indexed or not.
+        """Overview
+        Exists RPC is the method to check that a vector exists in the `vald-agent`.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                   | how to resolve                                                                           |
+        | :---------------- | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server. | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Requested vector's ID is empty, or some request payload is invalid.                         | Check request payload and fix request payload.                                           |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                 | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                   | Send a request with an ID that is already inserted.                                      |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                   | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetObject(self, request, context):
-        """A method to fetch a vector.
+        """Overview
+        GetObject RPC is the method to get the metadata of a vector inserted into the `vald-agent`.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                   | how to resolve                                                                           |
+        | :---------------- | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server. | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Requested vector's ID is empty, or some request payload is invalid.                         | Check request payload and fix request payload.                                           |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                 | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                   | Send a request with an ID that is already inserted.                                      |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                   | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamGetObject(self, request_iterator, context):
-        """A method to fetch vectors by bidirectional streaming.
+        """Overview
+        StreamGetObject RPC is the method to get the metadata of multiple existing vectors using the [bidirectional streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc).<br>
+        Using the bidirectional streaming RPC, the GetObject request can be communicated in any order between client and server.
+        Each Upsert request and response are independent.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                   | how to resolve                                                                           |
+        | :---------------- | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server. | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Requested vector's ID is empty, or some request payload is invalid.                         | Check request payload and fix request payload.                                           |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                 | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                   | Send a request with an ID that is already inserted.                                      |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                   | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamListObject(self, request, context):
-        """A method to get all the vectors with server streaming
+        """Overview
+        A method to get all the vectors with server streaming
+        ---
+        Status Code
+        TODO
+        ---
+        Troubleshooting
+        TODO
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTimestamp(self, request, context):
-        """Represent the RPC to get the vector metadata. This RPC is mainly used for index correction process
+        """Overview
+        Represent the RPC to get the vector metadata. This RPC is mainly used for index correction process
+        ---
+        Status Code
+        TODO
+        ---
+        Troubleshooting
+        TODO
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -118,7 +202,8 @@ def add_ObjectServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Object(object):
-    """Object service provides ways to fetch indexed vectors.
+    """Overview
+    Object Service is responsible for getting inserted vectors and checking whether vectors are inserted into the `vald-agent`.
     """
 
     @staticmethod
