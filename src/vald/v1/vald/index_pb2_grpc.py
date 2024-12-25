@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class IndexStub(object):
-    """Represent the index manager service.
+    """Overview
+    Represent the index manager service.
     """
 
     def __init__(self, channel):
@@ -43,39 +44,45 @@ class IndexStub(object):
 
 
 class IndexServicer(object):
-    """Represent the index manager service.
+    """Overview
+    Represent the index manager service.
     """
 
     def IndexInfo(self, request, context):
-        """Represent the RPC to get the index information.
+        """Overview
+        Represent the RPC to get the index information.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def IndexDetail(self, request, context):
-        """Represent the RPC to get the index information for each agents.
+        """Overview
+        Represent the RPC to get the index information for each agents.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def IndexStatistics(self, request, context):
-        """Represent the RPC to get the index statistics.
+        """Overview
+        Represent the RPC to get the index statistics.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def IndexStatisticsDetail(self, request, context):
-        """Represent the RPC to get the index statistics for each agents.
+        """Overview
+        Represent the RPC to get the index statistics for each agents.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def IndexProperty(self, request, context):
-        """Represent the RPC to get the index property.
+        """Overview
+        Represent the RPC to get the index property.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -118,7 +125,8 @@ def add_IndexServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Index(object):
-    """Represent the index manager service.
+    """Overview
+    Represent the index manager service.
     """
 
     @staticmethod

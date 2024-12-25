@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class RemoveStub(object):
-    """Remove service provides ways to remove indexed vectors.
+    """Overview
+    Remove Service is responsible for removing vectors indexed in the `vald-agent`.
     """
 
     def __init__(self, channel):
@@ -38,32 +39,138 @@ class RemoveStub(object):
 
 
 class RemoveServicer(object):
-    """Remove service provides ways to remove indexed vectors.
+    """Overview
+    Remove Service is responsible for removing vectors indexed in the `vald-agent`.
     """
 
     def Remove(self, request, context):
-        """A method to remove an indexed vector.
+        """Overview
+        Remove RPC is the method to remove a single vector.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  10  | ABORTED           |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                   | how to resolve                                                                           |
+        | :---------------- | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server. | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Requested vector's ID is empty, or some request payload is invalid.                         | Check request payload and fix request payload.                                           |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                 | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                   | Send a request with an ID that is already inserted.                                      |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                   | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RemoveByTimestamp(self, request, context):
-        """A method to remove an indexed vector based on timestamp.
+        """Overview
+        RemoveByTimestamp RPC is the method to remove vectors based on timestamp.
+
+        <div class="notice">
+        In the TimestampRequest message, the 'timestamps' field is repeated, allowing the inclusion of multiple Timestamp.<br>
+        When multiple Timestamps are provided, it results in an `AND` condition, enabling the realization of deletions with specified ranges.<br>
+        This design allows for versatile deletion operations, facilitating tasks such as removing data within a specific time range.
+        </div>
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                   | how to resolve                                                                                                       |
+        | :---------------- | :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server. | Check the code, especially around timeout and connection management, and fix if needed.                              |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                 | Check the gRPC timeout setting on both the client and server sides and fix it if needed.                             |
+        | NOT_FOUND         | No vectors in the system match the specified timestamp conditions.                              | Check whether vectors matching the specified timestamp conditions exist in the system, and fix conditions if needed. |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                   | Check target Vald cluster first and check network route including ingress as second.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamRemove(self, request_iterator, context):
-        """A method to remove multiple indexed vectors by bidirectional streaming.
+        """Overview
+        A method to remove multiple indexed vectors by bidirectional streaming.
+
+        StreamRemove RPC is the method to remove multiple vectors using the [bidirectional streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc).<br>
+        Using the bidirectional streaming RPC, the remove request can be communicated in any order between client and server.
+        Each Remove request and response are independent.
+        It's the recommended method to remove a large number of vectors.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  10  | ABORTED           |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                   | how to resolve                                                                           |
+        | :---------------- | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server. | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Requested vector's ID is empty, or some request payload is invalid.                         | Check request payload and fix request payload.                                           |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                 | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                   | Send a request with an ID that is already inserted.                                      |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                   | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiRemove(self, request, context):
-        """A method to remove multiple indexed vectors in a single request.
+        """Overview
+        MultiRemove is the method to remove multiple vectors in **1** request.
+
+        <div class="notice">
+        gRPC has a message size limitation.<br>
+        Please be careful that the size of the request exceeds the limit.
+        </div>
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  10  | ABORTED           |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                   | how to resolve                                                                           |
+        | :---------------- | :---------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server. | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Requested vector's ID is empty, or some request payload is invalid.                         | Check request payload and fix request payload.                                           |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                 | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                   | Send a request with an ID that is already inserted.                                      |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                   | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -101,7 +208,8 @@ def add_RemoveServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Remove(object):
-    """Remove service provides ways to remove indexed vectors.
+    """Overview
+    Remove Service is responsible for removing vectors indexed in the `vald-agent`.
     """
 
     @staticmethod

@@ -6,7 +6,10 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class FilterStub(object):
-    """Filter service provides ways to connect to Vald through filter.
+    """Overview
+    Filter Server is responsible for providing insert, update, upsert and search interface for `Vald Filter Gateway`.
+
+    Vald Filter Gateway forward user request to user-defined ingress/egress filter components allowing user to run custom logic.
     """
 
     def __init__(self, channel):
@@ -78,88 +81,224 @@ class FilterStub(object):
 
 
 class FilterServicer(object):
-    """Filter service provides ways to connect to Vald through filter.
+    """Overview
+    Filter Server is responsible for providing insert, update, upsert and search interface for `Vald Filter Gateway`.
+
+    Vald Filter Gateway forward user request to user-defined ingress/egress filter components allowing user to run custom logic.
     """
 
     def SearchObject(self, request, context):
-        """A method to search object.
+        """Overview
+        SearchObject RPC is the method to search object(s) similar to request object.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiSearchObject(self, request, context):
-        """A method to search multiple objects.
+        """Overview
+        StreamSearchObject RPC is the method to search vectors with multi queries(objects) using the [bidirectional streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc).<br>
+        By using the bidirectional streaming RPC, the search request can be communicated in any order between client and server.
+        Each Search request and response are independent.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamSearchObject(self, request_iterator, context):
-        """A method to search object by bidirectional streaming.
+        """Overview
+        MultiSearchObject RPC is the method to search objects with multiple objects in **1** request.
+
+        <div class="notice">
+        gRPC has a message size limitation.<br>
+        Please be careful that the size of the request exceeds the limit.
+        </div>
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def InsertObject(self, request, context):
-        """A method insert object.
+        """Overview
+        InsertObject RPC is the method to insert object through Vald Filter Gateway.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamInsertObject(self, request_iterator, context):
-        """Represent the streaming RPC to insert object by bidirectional streaming.
+        """Overview
+        StreamInsertObject RPC is the method to add new multiple object using the [bidirectional streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc).
+
+        By using the bidirectional streaming RPC, the insert request can be communicated in any order between client and server.
+        Each Insert request and response are independent.
+        It's the recommended method to insert a large number of objects.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiInsertObject(self, request, context):
-        """A method to insert multiple objects.
+        """Overview
+        MultiInsertObject RPC is the method to add multiple new objects in **1** request.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateObject(self, request, context):
-        """A method to update object.
+        """Overview
+        UpdateObject RPC is the method to update a single vector.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamUpdateObject(self, request_iterator, context):
-        """A method to update object by bidirectional streaming.
+        """Overview
+        StreamUpdateObject RPC is the method to update multiple objects using the [bidirectional streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc).<br>
+        By using the bidirectional streaming RPC, the update request can be communicated in any order between client and server.
+        Each Update request and response are independent.
+        It's the recommended method to update the large amount of objects.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiUpdateObject(self, request, context):
-        """A method to update multiple objects.
+        """Overview
+        MultiUpdateObject is the method to update multiple objects in **1** request.
+
+        <div class="notice">
+        gRPC has the message size limitation.<br>
+        Please be careful that the size of the request exceed the limit.
+        </div>
+        ---
+        Status Code
+
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpsertObject(self, request, context):
-        """A method to upsert object.
+        """Overview
+        UpsertObject RPC is the method to update a single object and add a new single object.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamUpsertObject(self, request_iterator, context):
-        """A method to upsert object by bidirectional streaming.
+        """Overview
+        UpsertObject RPC is the method to update a single object and add a new single object.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiUpsertObject(self, request, context):
-        """A method to upsert multiple objects.
+        """Overview
+        MultiUpsertObject is the method to update existing multiple objects and add new multiple objects in **1** request.
+
+        <div class="notice">
+        gRPC has a message size limitation.<br>
+        Please be careful that the size of the request exceeds the limit.
+        </div>
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  6   | ALREADY_EXISTS    |
+        |  13  | INTERNAL          |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -237,7 +376,10 @@ def add_FilterServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Filter(object):
-    """Filter service provides ways to connect to Vald through filter.
+    """Overview
+    Filter Server is responsible for providing insert, update, upsert and search interface for `Vald Filter Gateway`.
+
+    Vald Filter Gateway forward user request to user-defined ingress/egress filter components allowing user to run custom logic.
     """
 
     @staticmethod

@@ -6,7 +6,8 @@ from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__
 
 
 class UpdateStub(object):
-    """Update service provides ways to update indexed vectors.
+    """Overview
+    Update Service updates to new vector from inserted vector in the `vald-agent` components.
     """
 
     def __init__(self, channel):
@@ -38,32 +39,123 @@ class UpdateStub(object):
 
 
 class UpdateServicer(object):
-    """Update service provides ways to update indexed vectors.
+    """Overview
+    Update Service updates to new vector from inserted vector in the `vald-agent` components.
     """
 
     def Update(self, request, context):
-        """A method to update an indexed vector.
+        """Overview
+        Update RPC is the method to update a single vector.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  6   | ALREADY_EXISTS    |
+        |  10  | ABORTED           |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                                                                       | how to resolve                                                                           |
+        | :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server.                                                     | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Dimension of the request vector is NOT the same as Vald Agent's config, the requested vector's ID is empty, or some request payload is invalid. | Check Agent config, request payload, and fix request payload or Agent config.            |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                                                                     | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                                                                       | Send a request with an ID that is already inserted.                                      |
+        | ALREADY_EXISTS    | Request pair of ID and vector is already inserted.                                                                                                  | Change request ID.                                                                       |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                                                                       | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def StreamUpdate(self, request_iterator, context):
-        """A method to update multiple indexed vectors by bidirectional streaming.
+        """Overview
+        StreamUpdate RPC is the method to update multiple vectors using the [bidirectional streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc).<br>
+        Using the bidirectional streaming RPC, the update request can be communicated in any order between client and server.
+        Each Update request and response are independent.
+        It's the recommended method to update the large amount of vectors.
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  6   | ALREADY_EXISTS    |
+        |  10  | ABORTED           |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                                                                       | how to resolve                                                                           |
+        | :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server.                                                     | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Dimension of the request vector is NOT the same as Vald Agent's config, the requested vector's ID is empty, or some request payload is invalid. | Check Agent config, request payload, and fix request payload or Agent config.            |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                                                                     | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                                                                       | Send a request with an ID that is already inserted.                                      |
+        | ALREADY_EXISTS    | Request pair of ID and vector is already inserted.                                                                                                  | Change request ID.                                                                       |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                                                                       | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def MultiUpdate(self, request, context):
-        """A method to update multiple indexed vectors in a single request.
+        """Overview
+        MultiUpdate is the method to update multiple vectors in **1** request.
+
+        <div class="notice">
+        gRPC has a message size limitation.<br>
+        Please be careful that the size of the request exceeds the limit.
+        </div>
+        ---
+        Status Code
+        |  0   | OK                |
+        |  1   | CANCELLED         |
+        |  3   | INVALID_ARGUMENT  |
+        |  4   | DEADLINE_EXCEEDED |
+        |  5   | NOT_FOUND         |
+        |  6   | ALREADY_EXISTS    |
+        |  10  | ABORTED           |
+        |  13  | INTERNAL          |
+        ---
+        Troubleshooting
+        The request process may not be completed when the response code is NOT `0 (OK)`.
+
+        Here are some common reasons and how to resolve each error.
+
+        | name              | common reason                                                                                                                                       | how to resolve                                                                           |
+        | :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+        | CANCELLED         | Executed cancel() of rpc from client/server-side or network problems between client and server.                                                     | Check the code, especially around timeout and connection management, and fix if needed.  |
+        | INVALID_ARGUMENT  | The Dimension of the request vector is NOT the same as Vald Agent's config, the requested vector's ID is empty, or some request payload is invalid. | Check Agent config, request payload, and fix request payload or Agent config.            |
+        | DEADLINE_EXCEEDED | The RPC timeout setting is too short on the client/server side.                                                                                     | Check the gRPC timeout setting on both the client and server sides and fix it if needed. |
+        | NOT_FOUND         | Requested ID is NOT inserted.                                                                                                                       | Send a request with an ID that is already inserted.                                      |
+        | ALREADY_EXISTS    | Request pair of ID and vector is already inserted.                                                                                                  | Change request ID.                                                                       |
+        | INTERNAL          | Target Vald cluster or network route has some critical error.                                                                                       | Check target Vald cluster first and check network route including ingress as second.     |
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateTimestamp(self, request, context):
-        """A method to update timestamp an indexed vector.
+        """Overview
+        A method to update timestamp an indexed vector.
+        ---
+        Status Code
+        TODO
+        ---
+        Troubleshooting
+        TODO
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -101,7 +193,8 @@ def add_UpdateServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Update(object):
-    """Update service provides ways to update indexed vectors.
+    """Overview
+    Update Service updates to new vector from inserted vector in the `vald-agent` components.
     """
 
     @staticmethod
