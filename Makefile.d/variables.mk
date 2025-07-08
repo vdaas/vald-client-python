@@ -13,18 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# DO NOT EDIT
-name: "Run release"
-on:
-  push:
-    tags:
-      - '*.*.*'
-      - 'v*.*.*'
-      - '*.*.*-*'
-      - 'v*.*.*-*'
-jobs:
-  release:
-    uses: vdaas/vald-client-ci/.github/workflows/release.yaml@main
-    with:
-      client_type: python
-    secrets: inherit
+
+USR_LOCAL = /usr/local
+BINDIR = $(USR_LOCAL)/bin
