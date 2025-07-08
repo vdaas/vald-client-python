@@ -199,3 +199,4 @@ sync/k3d/mk: Makefile.d
 	curl -fsSLo $(K3D_MAKEFILE) $(K3D_MAKEFILE_URL)
 
 include $(K3D_MAKEFILE)
+include Makefile.d/variables.mk
