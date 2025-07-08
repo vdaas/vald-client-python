@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-USR_LOCAL = /usr/local
-BINDIR = $(USR_LOCAL)/bin
-
 REPO       ?= vdaas
 NAME        = vald
 VALDREPO    = github.com/$(REPO)/$(NAME)
