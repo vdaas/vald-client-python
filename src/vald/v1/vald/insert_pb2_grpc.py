@@ -40,7 +40,7 @@ class InsertServicer(object):
 
     def Insert(self, request, context):
         """Overview
-        Inset RPC is the method to add a new single vector.
+        Insert RPC is the method to add a new single vector.
         ---
         Status Code
         | 0    | OK                |
