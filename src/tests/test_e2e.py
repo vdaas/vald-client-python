@@ -24,8 +24,7 @@ class TestValdE2E(unittest.TestCase):
         self.data = json.load(open("wordvecs1000.json", "r"))
 
     def setUp(self):
-        options = [("grpc.keepalive_time_ms", 10000),
-                   ("grpc.keepalive_timeout_ms", 5000),
+        options = [("grpc.keepalive_timeout_ms", 5000),
                    ("grpc.client_channel_backup_poll_interval_ms", 100)]
         self.channel = grpc.insecure_channel(
             target="localhost:8081", options=options)
