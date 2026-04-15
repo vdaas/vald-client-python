@@ -32,3 +32,4 @@ jobs:
       - uses: vdaas/vald-client-ci/.github/actions/e2e@main
         with:
           client_type: python
+          image_tag: pr-3448
