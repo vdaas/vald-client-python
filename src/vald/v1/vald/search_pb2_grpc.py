@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class SearchStub(object):
+class SearchStub:
     """Overview
     Search Service is responsible for searching vectors similar to the user request vector from `vald-agent`.
     """
@@ -78,7 +78,7 @@ class SearchStub(object):
                 _registered_method=True)
 
 
-class SearchServicer(object):
+class SearchServicer:
     """Overview
     Search Service is responsible for searching vectors similar to the user request vector from `vald-agent`.
     """
@@ -545,7 +545,7 @@ def add_SearchServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Search(object):
+class Search:
     """Overview
     Search Service is responsible for searching vectors similar to the user request vector from `vald-agent`.
     """

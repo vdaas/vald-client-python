@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class RemoveStub(object):
+class RemoveStub:
     """Overview
     Remove Service is responsible for removing vectors indexed in the `vald-agent`.
     """
@@ -38,7 +38,7 @@ class RemoveStub(object):
                 _registered_method=True)
 
 
-class RemoveServicer(object):
+class RemoveServicer:
     """Overview
     Remove Service is responsible for removing vectors indexed in the `vald-agent`.
     """
@@ -207,7 +207,7 @@ def add_RemoveServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Remove(object):
+class Remove:
     """Overview
     Remove Service is responsible for removing vectors indexed in the `vald-agent`.
     """

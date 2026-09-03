@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class AgentStub(object):
+class AgentStub:
     """Represent the agent service.
     """
 
@@ -32,7 +32,7 @@ class AgentStub(object):
                 _registered_method=True)
 
 
-class AgentServicer(object):
+class AgentServicer:
     """Represent the agent service.
     """
 
@@ -83,7 +83,7 @@ def add_AgentServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Agent(object):
+class Agent:
     """Represent the agent service.
     """
 

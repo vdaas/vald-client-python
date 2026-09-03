@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class UpdateStub(object):
+class UpdateStub:
     """Overview
     Update Service updates to new vector from inserted vector in the `vald-agent` components.
     """
@@ -38,7 +38,7 @@ class UpdateStub(object):
                 _registered_method=True)
 
 
-class UpdateServicer(object):
+class UpdateServicer:
     """Overview
     Update Service updates to new vector from inserted vector in the `vald-agent` components.
     """
@@ -192,7 +192,7 @@ def add_UpdateServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Update(object):
+class Update:
     """Overview
     Update Service updates to new vector from inserted vector in the `vald-agent` components.
     """

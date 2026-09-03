@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class FilterStub(object):
+class FilterStub:
     """Overview
     Filter Server is responsible for providing insert, update, upsert and search interface for `Vald Filter Gateway`.
 
@@ -80,7 +80,7 @@ class FilterStub(object):
                 _registered_method=True)
 
 
-class FilterServicer(object):
+class FilterServicer:
     """Overview
     Filter Server is responsible for providing insert, update, upsert and search interface for `Vald Filter Gateway`.
 
@@ -375,7 +375,7 @@ def add_FilterServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Filter(object):
+class Filter:
     """Overview
     Filter Server is responsible for providing insert, update, upsert and search interface for `Vald Filter Gateway`.
 
