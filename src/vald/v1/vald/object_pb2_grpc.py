@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class ObjectStub(object):
+class ObjectStub:
     """Overview
     Object Service is responsible for getting inserted vectors and checking whether vectors are inserted into the `vald-agent`.
     """
@@ -43,7 +43,7 @@ class ObjectStub(object):
                 _registered_method=True)
 
 
-class ObjectServicer(object):
+class ObjectServicer:
     """Overview
     Object Service is responsible for getting inserted vectors and checking whether vectors are inserted into the `vald-agent`.
     """
@@ -201,7 +201,7 @@ def add_ObjectServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Object(object):
+class Object:
     """Overview
     Object Service is responsible for getting inserted vectors and checking whether vectors are inserted into the `vald-agent`.
     """

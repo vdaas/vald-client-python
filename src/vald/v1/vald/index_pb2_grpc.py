@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class IndexStub(object):
+class IndexStub:
     """Overview
     Represent the index manager service.
     """
@@ -43,7 +43,7 @@ class IndexStub(object):
                 _registered_method=True)
 
 
-class IndexServicer(object):
+class IndexServicer:
     """Overview
     Represent the index manager service.
     """
@@ -124,7 +124,7 @@ def add_IndexServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Index(object):
+class Index:
     """Overview
     Represent the index manager service.
     """

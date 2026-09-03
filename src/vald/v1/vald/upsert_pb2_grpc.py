@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class UpsertStub(object):
+class UpsertStub:
     """Overview
     Upsert Service is responsible for updating existing vectors in the `vald-agent` or inserting new vectors into the `vald-agent` if the vector does not exist.
     """
@@ -33,7 +33,7 @@ class UpsertStub(object):
                 _registered_method=True)
 
 
-class UpsertServicer(object):
+class UpsertServicer:
     """Overview
     Upsert Service is responsible for updating existing vectors in the `vald-agent` or inserting new vectors into the `vald-agent` if the vector does not exist.
     """
@@ -165,7 +165,7 @@ def add_UpsertServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Upsert(object):
+class Upsert:
     """Overview
     Upsert Service is responsible for updating existing vectors in the `vald-agent` or inserting new vectors into the `vald-agent` if the vector does not exist.
     """
