@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class InsertStub(object):
+class InsertStub:
     """Overview
     Insert Service is responsible for inserting new vectors into the `vald-agent`.
     """
@@ -33,7 +33,7 @@ class InsertStub(object):
                 _registered_method=True)
 
 
-class InsertServicer(object):
+class InsertServicer:
     """Overview
     Insert Service is responsible for inserting new vectors into the `vald-agent`.
     """
@@ -161,7 +161,7 @@ def add_InsertServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Insert(object):
+class Insert:
     """Overview
     Insert Service is responsible for inserting new vectors into the `vald-agent`.
     """

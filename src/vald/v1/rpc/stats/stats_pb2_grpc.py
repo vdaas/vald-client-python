@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class StatsStub(object):
+class StatsStub:
     """Overview
     Represent the resource stats service.
     """
@@ -23,7 +23,7 @@ class StatsStub(object):
                 _registered_method=True)
 
 
-class StatsServicer(object):
+class StatsServicer:
     """Overview
     Represent the resource stats service.
     """
@@ -52,7 +52,7 @@ def add_StatsServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Stats(object):
+class Stats:
     """Overview
     Represent the resource stats service.
     """

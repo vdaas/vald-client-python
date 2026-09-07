@@ -5,7 +5,7 @@ import grpc
 from vald.v1.payload import payload_pb2 as vald_dot_v1_dot_payload_dot_payload__pb2
 
 
-class FlushStub(object):
+class FlushStub:
     """Overview
     Flush Service is responsible for removing all vectors that are indexed and uncommitted in the `vald-agent`.
     """
@@ -23,7 +23,7 @@ class FlushStub(object):
                 _registered_method=True)
 
 
-class FlushServicer(object):
+class FlushServicer:
     """Overview
     Flush Service is responsible for removing all vectors that are indexed and uncommitted in the `vald-agent`.
     """
@@ -60,7 +60,7 @@ def add_FlushServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Flush(object):
+class Flush:
     """Overview
     Flush Service is responsible for removing all vectors that are indexed and uncommitted in the `vald-agent`.
     """
